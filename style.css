@@ -202,9 +202,10 @@ body {
 .carrusel {
     position: relative;
     width: 100%;
-    max-width: 1100px; 
+    max-width: 1100px;
     margin: 30px auto;
-    overflow: visible; /* Cambiado de hidden a visible para lucir el escalado central */
+    overflow: visible;
+    /* Cambiado de hidden a visible para lucir el escalado central */
 }
 
 /* Modificación de tu carruselTrack para renderizar las tarjetas alineadas */
@@ -243,11 +244,11 @@ body {
     flex-direction: column;
     position: relative;
     width: 100%;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
 .carruselItem.active .card {
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
 
 .card-header {
@@ -286,7 +287,8 @@ body {
 }
 
 .carruselItem.active .card-image {
-    height: 200px; /* La imagen se expande en la tarjeta activa */
+    height: 200px;
+    /* La imagen se expande en la tarjeta activa */
 }
 
 /* Integración de tu código original 'img' pero adaptado a la tarjeta */
@@ -294,7 +296,7 @@ body {
     width: 100%;
     height: 100%;
     display: block;
-    object-fit: cover; 
+    object-fit: cover;
 }
 
 .card-body {
@@ -354,8 +356,13 @@ body {
 }
 
 /* Ajustes de posición para tus flechas nativas (.arrow) */
-.left { left: -25px; }
-.right { right: -25px; }
+.left {
+    left: -25px;
+}
+
+.right {
+    right: -25px;
+}
 
 /* Contenedor centralizado para los puntos */
 .dots-container {
@@ -371,15 +378,25 @@ body {
     width: 24px;
     height: 24px;
     border-radius: 50%;
-    background-color: #d1c7bd; /* Color beige claro original */
+    background-color: #d1c7bd;
+    /* Color beige claro original */
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
 /* Asignación de los tonos por defecto del diagrama original */
-.dots-container .dot:nth-child(1) { background-color: #d1c7bd; }
-.dots-container .dot:nth-child(2) { background-color: #bfae9e; } /* Tono beige oscuro central */
-.dots-container .dot:nth-child(3) { background-color: #d1c7bd; }
+.dots-container .dot:nth-child(1) {
+    background-color: #d1c7bd;
+}
+
+.dots-container .dot:nth-child(2) {
+    background-color: #bfae9e;
+}
+
+/* Tono beige oscuro central */
+.dots-container .dot:nth-child(3) {
+    background-color: #d1c7bd;
+}
 
 /* Estado activo cuando la tarjeta es seleccionada (se vuelve roja) */
 .dots-container .dot.active {
@@ -392,20 +409,24 @@ body {
 @media (max-width: 768px) {
     .carrusel {
         max-width: 100%;
-        overflow: hidden; /* Evita que las tarjetas bloqueen el scroll vertical del sitio */
+        overflow: hidden;
+        /* Evita que las tarjetas bloqueen el scroll vertical del sitio */
         padding: 0 10px;
         box-sizing: border-box;
     }
 
     .carruselTrack {
-        gap: 16px; /* Ajusta la separación de las tarjetas en pantallas táctiles */
+        gap: 16px;
+        /* Ajusta la separación de las tarjetas en pantallas táctiles */
         padding: 20px 0;
         overflow-x: auto;
-        -webkit-overflow-scrolling: touch; /* Suavizado táctil para iOS */
+        -webkit-overflow-scrolling: touch;
+        /* Suavizado táctil para iOS */
     }
 
     .carruselItem {
-        min-width: 280px; /* Tamaño ideal adaptable para teléfonos compactos */
+        min-width: 280px;
+        /* Tamaño ideal adaptable para teléfonos compactos */
         max-width: 300px;
     }
 
@@ -416,7 +437,7 @@ body {
 
     /* Evitamos que la tarjeta central crezca de forma excesiva hacia abajo en celulares */
     .carruselItem.active .card-image {
-        height: 170px; 
+        height: 170px;
     }
 
     .carruselItem.active .card-body {
@@ -434,7 +455,7 @@ body {
     .arrow {
         padding: 12px;
         font-size: 16px;
-        background: rgba(0, 0, 0, 0.75); 
+        background: rgba(0, 0, 0, 0.75);
     }
 
     .left {
@@ -888,7 +909,7 @@ footer {
 
 .products-hero {
     position: relative;
-    min-height: 55rem;
+    min-height: 50rem;
     overflow: hidden;
     background: #222422;
     color: #EDF1FF;
@@ -976,7 +997,7 @@ footer {
 
 @media(max-width:65rem) {
     .products-hero {
-        min-height: 58rem;
+        min-height: 50rem;
         background-position: 30% center
     }
 
@@ -987,7 +1008,7 @@ footer {
 
     .products-hero__content {
         width: auto;
-        min-height: 58rem;
+        min-height: 50rem;
         margin: 0;
         padding: 4rem 3rem;
         justify-content: flex-end
@@ -1005,7 +1026,7 @@ footer {
 
 @media(max-width:40rem) {
     .products-hero {
-        min-height: 62rem
+        min-height: 55rem
     }
 
     .products-hero__content {
@@ -1108,15 +1129,21 @@ footer {
     right: 1.8rem;
     bottom: 1.8rem;
     z-index: 4;
-    width: 3.4rem;
-    height: 3.4rem;
+
+    width: 4.5rem;
+    height: 4.5rem;
+
     border: 0;
     border-radius: 50%;
+
     background: #A84A32;
     color: #EDF1FF;
+
     font-size: 2.2rem;
     font-weight: 300;
+
     cursor: pointer;
+
     transition:
         transform 0.3s ease,
         background 0.3s ease;
@@ -1247,22 +1274,21 @@ footer {
         radial-gradient(circle at 50% 45%,
             rgba(110, 102, 86, 0.22),
             transparent 45%),
-        #222422;222422
-
-    color: #222422;
+        #222422;
+    color: #EDF1FF;
 }
 
 .product-card__image img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 
-  padding: 2rem;
+    padding: 2rem;
 
-  filter:
-    drop-shadow(0 2rem 2rem rgba(0, 0, 0, .45));
+    filter:
+        drop-shadow(0 2rem 2rem rgba(0, 0, 0, .45));
 
-  transition: transform .7s ease;
+    transition: transform .7s ease;
 }
 
 
@@ -1412,7 +1438,7 @@ footer {
         overflow: hidden;
     }
 
-    
+
     .product-card--featured {
         width: min(35rem, 90vw);
 
@@ -1433,7 +1459,7 @@ footer {
 }
 
 @media (max-width: 50rem) {
-    
+
     .featured-products {
         padding: 7rem 1.5rem;
     }
