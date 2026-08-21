@@ -1,7 +1,7 @@
 const team = [
     { name: "Cesar Ruiz Flores", role: "Scrum Master", img: "img/cesar.jpg", imgPosition: "center 10%" },
     { name: "José Manuel Limon Avila", role: "Product Owner", img: "img/limon.jpeg" },
-    { name: "Anahi Ortiz Velazquez", role: "Fullstack Development", img: "img/Anahi.jpeg", imgPosition: "center 10%" },
+    { name: "Anai Ortiz Velazquez", role: "Fullstack Development", img: "img/Anahi.jpeg", imgPosition: "center 10%" },
     { name: "Brenda Flores", role: "Fullstack Development", img: "img/brenda.jpg", imgPosition: "center 20%" },
     { name: "Denisse", role: "Fullstack Development", img: "img/Denisse.jpeg", imgPosition: "center 10%"},
     { name: "Diana Cruz", role: "Fullstack Development", img: "img/dianaProductOwner.jpg" },
@@ -18,8 +18,8 @@ team.forEach(member => {
   const position = member.imgPosition ? `style="object-position: ${member.imgPosition};"` : "";
   card.innerHTML = `
     <img src="${member.img}" alt="${member.name}" ${position}>
-    <h2>${member.name}</h2>
-    <p>Desarrollador parte de este e-commerce</p>
+    <h3>${member.name}</h3>
+    <h4>Desarrollador parte de este e-commerce</h4>
     <div class="role">${member.role}</div>
     <div class="socials">
       <a href=""><i class="bi bi-linkedin"></i></a>

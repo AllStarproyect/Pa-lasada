@@ -307,16 +307,16 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 2.4rem;
-    max-width: 120rem;
+    gap: 3rem;
+    max-width: 130rem;
     margin: 0 auto;
 }
 
 .team-card {
     background: var(--color-crema);
-    width: 22rem;
-    border-radius: 0.8rem;
-    padding: 3rem 2rem;
+    width: 28rem;
+    border-radius: 1rem;
+    padding: 4rem 2.5rem;
     box-shadow: 0 0.4rem 1rem rgba(43, 43, 43, 0.08);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -327,32 +327,34 @@ body {
 }
 
 .team-card img {
-    width: 12rem;
-    height: 12rem;
+    display: block;
+    margin: 0 auto 2.5rem;
+    width: 15rem;
+    height: 15rem;
     border-radius: 50%;
     object-fit: cover;
-    border: 0.3rem solid var(--color-taupe);
-    margin-bottom: 2rem;
+    border: 0.4rem solid var(--color-taupe);
+    margin-bottom: 2.5rem;
 }
 
-.team-card h2 {
-    font-size: 1.2rem;
-    margin: 0 0 1rem;
+.team-card h3 {
+    font-size: 1.6rem;
+    margin: 0 0 1.2rem;
     color: var(--color-carbon);
 }
 
 .team-card p {
-    font-size: 0.85rem;
+    font-size: 1.1rem;
     color: var(--color-taupe);
-    line-height: 1.4;
-    margin: 0 0 1.5rem;
+    line-height: 1.5;
+    margin: 0 0 1.8rem;
 }
 
 .team-card .role {
     font-weight: bold;
-    font-size: 0.85rem;
+    font-size: 1.1rem;
     color: var(--color-verde-oliva);
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.8rem;
 }
 
 .socials {
@@ -362,7 +364,7 @@ body {
 
 .socials a {
     color: var(--color-carbon);
-    font-size: 1.2rem;
+    font-size: 2rem;
     text-decoration: none;
 }
 
