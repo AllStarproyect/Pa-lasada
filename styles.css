@@ -368,6 +368,8 @@ body {
 
 .socials a:hover {
     color: var(--color-mostaza);
+}
+
 body {
     background-color: var(--color-crema);
     color: var(--color-carbon);
