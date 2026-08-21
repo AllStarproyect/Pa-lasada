@@ -504,3 +504,111 @@ body {
         margin-top: 8px;
     }
 }
+}
+
+
+.imgRedes {
+    width: 100%;
+    max-width: 40px;
+    height: auto;
+    display: block;
+}
+
+.logoFooter {
+    width: 100%;
+    max-width: 190px;
+    height: auto;
+    display: block;
+    border-radius: 50%;
+}
+
+.linkRedes {
+    display: inline-block;
+    transition: transform 0.2s ease;
+}
+
+.iconosCont {
+    display: flex;
+    gap: 20px;
+    position: static;
+    /*left: 20px;*/
+}
+
+/*Los footer van hasta el final*/
+footer {
+    background-color: #222422;
+    color: #f5f1eb;
+    padding: 20px 0;
+    container-type: inline-size;
+    container-name: footer-container;
+
+}
+
+.footerCont {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.footerSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.footerBottom {
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 15px;
+    border-top: 1px solid #444444;
+    font-size: 14px;
+    color: #aaaaaa;
+}
+
+.redesSociales {
+    display: flex;
+    flex-direction: column; /*Se agrega para responsive*/
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    width: 100%;
+    /*position: relative;*/
+    position: relative;
+}
+
+/* --- DISEÑO PARA COMPUTADORAS (Pantallas medianas y grandes) --- */
+
+/* Cuando el contenedor del footer mida más de 768px (Tablets grandes y PC) */
+@container footer-container (min-width: 768px) {
+    
+    .redesSociales {
+        flex-direction: row; /* Alinear horizontalmente */
+        justify-content: center;
+        position: relative;
+    }
+
+     .seccion-izq {
+        /* El truco definitivo: empuja todo lo que está a su derecha hacia el extremo opuesto, 
+           pero al estar dentro de flexbox mantiene al logo perfectamente centrado en el contenedor */
+        margin-right: auto; 
+        text-align: left;
+    }
+
+    .footerSection {
+        /* Para asegurar un centrado milimétrico, compensamos el espacio absoluto si fuera necesario,
+           o simplemente lo dejamos fluir en el centro */
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+}
+
