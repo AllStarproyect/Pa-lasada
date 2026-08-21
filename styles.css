@@ -108,7 +108,9 @@ body {
     display: contents;
 }
 
-
+.parrafo-animado {
+  opacity: 0;
+}
 /* Mision, vision */
 
 .mision-vision {
