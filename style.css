@@ -1,0 +1,682 @@
+html {
+    width: 100%;
+    height: 100%;
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+/*Espacio para darle diseño a la NavBar*/
+
+/*Espacio para darle diseño al contenido principal*/
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.mainCont {
+    flex: 1;
+
+}
+
+.flexCont {
+    display: flex;
+    /*grid-template-columns: 2fr 1fr;*/
+    gap: 20px;
+    align-items: center;
+    width: 100%;
+
+}
+
+.txtCont {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+}
+
+/*Carrusel*/
+.carrusel {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: 30px auto;
+    /*Da espacio arriba y abajo; auto centra horizontalmente*/
+    overflow: hidden;
+    border-radius: 15px;
+    /*Aumentamos para hacer esquinas mas redondas*/
+}
+
+.carruselTrack {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+}
+
+.carruselTrack::-webkit-scrollbar {
+    /*Hace que no aparezca barra de desplazamineto en navegadores basados en chromium*/
+    display: none;
+}
+
+.carruselItem {
+    /* flex: 0 0 auto;*/
+    min-width: 100%;
+    height: 400px;
+    /*Se le da altura a la imagen*/
+    scroll-snap-align: start;
+}
+
+.carruselItem img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    /*La imagen cubre todo el carrusel aunque se recorta un poco*/
+}
+
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    font-size: 18px;
+    z-index: 10;
+    border-radius: 50%;
+    transition: background 0.3s;
+}
+
+.arrow:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.left {
+    left: 10px;
+}
+
+.right {
+    right: 10px;
+}
+
+/*Espacio para configurar las clases de las imagenes*/
+
+.img1 {
+    /*Se debe de modificar, no se muestra como se debe*/
+    /*max-width: 300px;*/
+    width: 300px;
+    height: auto;
+}
+
+.imgRedes {
+    width: 100%;
+    max-width: 40px;
+    height: auto;
+    display: block;
+}
+
+.logoFooter {
+    width: 100%;
+    max-width: 190px;
+    height: auto;
+    display: block;
+    border-radius: 50%;
+}
+
+.linkRedes {
+    display: inline-block;
+    transition: transform 0.2s ease;
+}
+
+.iconosCont {
+    display: flex;
+    gap: 20px;
+    position: static;
+    /*left: 20px;*/
+}
+
+/*Los footer van hasta el final*/
+footer {
+    background-color: #222422;
+    color: #f5f1eb;
+    padding: 20px 0;
+    container-type: inline-size;
+    container-name: footer-container;
+
+}
+
+.footerCont {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.footerSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.footerBottom {
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 15px;
+    border-top: 1px solid #444444;
+    font-size: 14px;
+    color: #aaaaaa;
+}
+
+.redesSociales {
+    display: flex;
+    flex-direction: column; /*Se agrega para responsive*/
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    width: 100%;
+    /*position: relative;*/
+    position: relative;
+}
+
+/* --- DISEÑO PARA COMPUTADORAS (Pantallas medianas y grandes) --- */
+
+/* Cuando el contenedor del footer mida más de 768px (Tablets grandes y PC) */
+@container footer-container (min-width: 768px) {
+    
+    .redesSociales {
+        flex-direction: row; /* Alinear horizontalmente */
+        justify-content: center;
+        position: relative;
+    }
+
+     .seccion-izq {
+        /* El truco definitivo: empuja todo lo que está a su derecha hacia el extremo opuesto, 
+           pero al estar dentro de flexbox mantiene al logo perfectamente centrado en el contenedor */
+        margin-right: auto; 
+        text-align: left;
+    }
+
+    .footerSection {
+        /* Para asegurar un centrado milimétrico, compensamos el espacio absoluto si fuera necesario,
+           o simplemente lo dejamos fluir en el centro */
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+}
+
+
+
+.tomahawk-hero {
+    --dark: #222422;
+    --beige: #BAAF9A;
+    --brown: #6E6656;
+    --red: #A84A32;
+    --white: #EDF1FF;
+
+    position: relative;
+    width: 100%;
+    min-height: 62rem;
+    overflow: hidden;
+    background: var(--dark);
+
+    display: flex;
+    align-items: center;
+}
+
+/* Imagen */
+.tomahawk-hero__image {
+    position: absolute;
+    inset: 0;
+    background-image: url("https://images.openai.com/static-rsc-4/SIXdqZLGsEWVRroEyo-b38sTH9VGpE_jo23iby5-claysaGICVMqGEhLjv9YRmI90f9Hm5SPSTzoM-e6GT8t6Z82OBLO7ICSvPHLjGJ2avULhAJVSLN_G5ky0pNxK0iswyFGNOMDf7Or9G3kjSetPhNoz6RqDnKhEqsmmw-8fDWZYFNQTAye7sDZ_o147IuS?purpose=fullsize");
+    background-size: cover;
+    background-position: 25% center;
+
+    transform: scale(1.02);
+}
+
+/* Oscurecimiento de la imagen */
+.tomahawk-hero__overlay {
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(90deg,
+            rgba(34, 36, 34, 0.05) 0%,
+            rgba(34, 36, 34, 0.20) 35%,
+            rgba(34, 36, 34, 0.72) 62%,
+            rgba(34, 36, 34, 0.96) 100%);
+}
+
+/* Contenido */
+.tomahawk-hero__content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 125rem;
+    margin: 0 auto;
+    padding: 8rem 6rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: left;
+}
+
+/* Pequeño texto superior */
+.tomahawk-hero__eyebrow {
+    width: 48%;
+    margin-bottom: 2rem;
+
+    color: var(--beige);
+
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: 4px;
+}
+
+/* Título */
+.tomahawk-hero__content h1 {
+    width: 48%;
+    margin: 0;
+
+    color: var(--white);
+    font-size: clamp(48px, 5vw, 78px);
+    line-height: 0.95;
+    font-weight: 700;
+    letter-spacing: -2px;
+}
+
+.tomahawk-hero__content h1 span {
+    color: var(--beige);
+}
+
+/* Descripción */
+.tomahawk-hero__content p {
+    width: 48%;
+    max-width: 52rem;
+
+    margin: 2.8rem 0 3.5rem;
+
+    color: rgba(237, 241, 255, 0.78);
+
+    font-size: 1.7rem;
+    line-height: 1.7;
+}
+
+/* Botón */
+.tomahawk-hero__button {
+    align-self: flex-end;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 1.8rem;
+
+    padding: 1.6rem 2.5rem;
+
+    background: var(--red);
+    color: var(--white);
+
+    text-decoration: none;
+
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: 0.05rem;
+
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.tomahawk-hero__button span {
+    font-size: 2rem;
+    line-height: 1;
+}
+
+.tomahawk-hero__button:hover {
+    background: #913d2b;
+    transform: translateY(-2px);
+
+    box-shadow: 0 10px 30px rgba(168, 74, 50, 0.25);
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 900px) {
+
+    .tomahawk-hero {
+        min-height: 58rem;
+    }
+
+    .tomahawk-hero__content {
+        padding: 7rem 4rem;
+    }
+
+    .tomahawk-hero__eyebrow,
+    .tomahawk-hero__content h1,
+    .tomahawk-hero__content p {
+        width: 55%;
+    }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 650px) {
+
+    .tomahawk-hero {
+        min-height: 68rem;
+        align-items: flex-end;
+    }
+
+    .tomahawk-hero__image {
+        background-position: 30% center;
+    }
+
+    .tomahawk-hero__overlay {
+        background:
+            linear-gradient(180deg,
+                rgba(34, 36, 34, 0.05) 0%,
+                rgba(34, 36, 34, 0.25) 35%,
+                rgba(34, 36, 34, 0.88) 68%,
+                rgba(34, 36, 34, 1) 100%);
+    }
+
+    .tomahawk-hero__content {
+        padding: 4.5rem 2.5rem;
+        align-items: flex-start;
+    }
+
+    .tomahawk-hero__eyebrow,
+    .tomahawk-hero__content h1,
+    .tomahawk-hero__content p {
+        width: 100%;
+    }
+
+    .tomahawk-hero__eyebrow {
+        font-size: 1.3rem;
+        letter-spacing: 0.3rem;
+    }
+
+    .tomahawk-hero__content h1 {
+        font-size: clamp(42px, 13vw, 60px);
+        letter-spacing: -1.5px;
+    }
+
+    .tomahawk-hero__content p {
+        margin: 2.2rem 0 2.8rem;
+        font-size: 1.5rem;
+    }
+
+    .tomahawk-hero__button {
+        align-self: flex-start;
+    }
+}
+
+
+.why-us {
+    background: #EDF1FF;
+    color: #222422;
+    padding: 8rem;
+    font-family: inherit
+}
+
+.why-us__header {
+    max-width: 65rem;
+    margin: 0 auto 2rem;
+    text-align: center
+}
+
+.why-us__header>span {
+    color: #85704b;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 3px
+}
+
+.why-us__header h2 {
+    margin: 1rem 0 2rem;
+    font-size: clamp(36px, 4vw, 52px);
+    line-height: 1;
+    letter-spacing: -1px
+}
+
+.why-us__header p {
+    margin: 0;
+    color: #222422;
+    font-size: 1.6rem;
+    line-height: 1.7
+}
+
+.why-us__grid {
+    max-width: 110rem;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    border-top: 1px solid rgba(186, 175, 154, .2);
+    border-left: 1px solid rgba(186, 175, 154, .2)
+}
+
+.why-card {
+    display: flex;
+    gap: 2.4rem;
+    padding: 4.2rem;
+    border: 1px solid rgba(128, 101, 52, 0.5);
+    transition: .3s ease
+}
+
+.why-card:hover {
+    background: rgba(110, 102, 86, .08)
+}
+
+.why-card__icon {
+    flex: none;
+    width: 4.5rem;
+    height: 4.5rem;
+    border: 1px solid #A84A32;
+    color: #A84A32;
+    display: grid;
+    place-items: center;
+    font-size: 1.2rem;
+    font-weight: 700
+}
+
+.why-card h3 {
+    margin: 0.3rem 0 1rem;
+    font-size: 2.1rem
+}
+
+.why-card p {
+    margin: 0;
+    color: #222422;
+    font-size: 1.4rem;
+    line-height: 1.7
+}
+
+@media(max-width:650px) {
+    .why-us {
+        padding: 7.5rem 2.2rem
+    }
+
+    .why-us__header {
+        margin-bottom: 4rem
+    }
+
+    .why-us__grid {
+        grid-template-columns: 1fr
+    }
+
+    .why-card {
+        padding: 3rem 2.5rem
+    }
+}
+
+
+.products-hero {
+    position: relative;
+    min-height: 55rem;
+    overflow: hidden;
+    background: #222422;
+    color: #EDF1FF;
+    background: url("https://images.openai.com/static-rsc-4/lMsx794KJg5NN2kiEH_ArnsEGuvHH9h2WJ0xHsMFEpaQmUtEOR-AFxEhnOQPrwLD7koGlfQkgR3R2d_BeuWEUqgaYXSWE3gVtU_tlE2Jwuf_-vIZxrC6bN0V8YIdsMCHeHQJ40zLMQ5mciINPUVI8gO37U1svwULk_oUXwr4MPeosof7V77kfyYg1s3xywE5?purpose=fullsize") 25% center/cover no-repeat
+}
+
+.products-hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(34, 36, 34, .05) 0%, rgba(34, 36, 34, .12) 35%, rgba(34, 36, 34, .72) 62%, #222422 100%);
+}
+
+.products-hero__content {
+    position: relative;
+    z-index: 1;
+    width: 44%;
+    margin-left: auto;
+    margin-right: 7%;
+    min-height: 55rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.products-hero__eyebrow {
+    margin-bottom: 1.8rem;
+    color: #BAAF9A;
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: .35rem
+}
+
+.products-hero h1 {
+    margin: 0;
+    color: #EDF1FF;
+    font-size: clamp(4.5rem, 5.5vw, 7rem);
+    line-height: .95;
+    letter-spacing: -.15rem
+}
+
+.products-hero h1 em {
+    color: #BAAF9A;
+    font-style: normal
+}
+
+.products-hero p {
+    max-width: 48rem;
+    margin: 2.8rem 0 3.2rem;
+    color: rgba(237, 241, 255, .72);
+    font-size: 1.7rem;
+    line-height: 1.65
+}
+
+.products-hero__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 1.8rem;
+    padding: 1.6rem 2.5rem;
+    background: #A84A32;
+    color: #EDF1FF;
+    text-decoration: none;
+    font-size: 1.4rem;
+    font-weight: 700;
+    transition: .3s ease
+}
+
+.products-hero__cta span {
+    font-size: 2rem;
+    line-height: 1
+}
+
+.products-hero__cta:hover {
+    background: #913D2B;
+    transform: translateY(-.2rem);
+    box-shadow: 0 1rem 3rem rgba(168, 74, 50, .25)
+}
+
+@media(max-width:90rem) {
+    .products-hero__content {
+        width: 48%;
+        margin-right: 5%
+    }
+}
+
+@media(max-width:65rem) {
+    .products-hero {
+        min-height: 58rem;
+        background-position: 30% center
+    }
+
+    .products-hero__overlay {
+        /*background: linear-gradient(180deg, rgba(34, 36, 34, .05) 10%, rgba(34, 36, 34, .3) 42%, rgba(34, 36, 34, .95) 78%, #222422 100%)*/
+    }
+
+    .products-hero__content {
+        width: auto;
+        min-height: 58rem;
+        margin: 0;
+        padding: 4rem 3rem;
+        justify-content: flex-end
+    }
+
+    .products-hero h1 {
+        font-size: clamp(4.2rem, 10vw, 6rem)
+    }
+
+    .products-hero p {
+        font-size: 1.6rem;
+        margin: 2.2rem 0 2.8rem
+    }
+}
+
+@media(max-width:40rem) {
+    .products-hero {
+        min-height: 62rem
+    }
+
+    .products-hero__content {
+        min-height: 62rem;
+        padding: 3rem 2rem
+    }
+
+    .products-hero__eyebrow {
+        font-size: 1.1rem;
+        letter-spacing: .25rem
+    }
+
+    .products-hero h1 {
+        font-size: 4.5rem
+    }
+
+    .products-hero p {
+        font-size: 1.5rem
+    }
+
+    .products-hero__cta {
+        width: 100%;
+        justify-content: center
+    }
+}
