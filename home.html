@@ -47,7 +47,7 @@
         </div>
     </nav>-->
 
-     <nav class="navbar navbar-expand-lg navbar-custom">
+    <nav class="navbar navbar-expand-lg navbar-custom">
         <div class="container">
             <a class="navbar-brand" href="#">
                 <img src="img/Logo.png" alt="Logo" class="logo">
@@ -125,36 +125,168 @@
                     <span>→</span>
                 </a>
             </div>
-        </section>
-        <!--Posicionar la imagen del lado izquierdo del texto-->
-        </div>
-        <!--Parte del carrusel-->
-        <div class="carrusel"> <!--Falta colocarle un elemento flex o grid para que sea responsivo-->
-            <!--Botones de navegacion-->
-            <button class="arrow left" id="leftBtn">&#10094</button>
-            <button class="arrow right" id="rightBtn">&#10095</button>
-            <!--Contenido-->
-            <div class="carruselTrack" id="TrackCarrusel">
-                <div class="carruselItem"><img
-                        src="https://redbuchef.com/images/redbuchef/vaca/costilla-de-ribeye-res-de-vaca-mayoristas-en-mexico-redbuchef-1.jpeg"
-                        alt="Costilla de res"></div>
-                <div class="carruselItem"><img
-                        src="https://d2j6dbq0eux0bg.cloudfront.net/images/79773568/3300851919.jpg"
-                        alt="Deshebrada de res"></div>
-                <div class="carruselItem"><img
-                        src="https://media.justo.mx/products/Falda_de_Res_para_Deshebrar_Rancho_Santa_Rita_450g.jpg"
-                        alt="Falda de res"></div>
-                <div class="carruselItem"><img
-                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAIrFJBjC6vWO0MEFyfgANn_2XZ-lZ9EctAhTGXtxXMKZl4AHZkGX0Ql0&s=10"
-                        alt="Pechuga de pollo con hueso"></div>
-                <!--LO ANTERIOR SIRVE DE EJEMPLO, BORRAR HASTA WUE LAS TARJETAS QUEDEN LISTAS PARA AGREGAR EN ESTA SECCION-->
-            </div class="card">
-            <div>
 
+        
+
+        <!-- Prueba de diseno de cards de productos - Napoles-->
+        <section class="featured-products">
+            <!-- =========================
+       HEADER
+  ========================== -->
+            <header class="featured-products__header">
+                <span class="featured-products__eyebrow">
+                    SELECCIÓN PREMIUM
+                </span>
+                <h2 class="featured-products__title">
+                    Nuestras carnes
+                </h2>
+                <p class="featured-products__description">
+                    Cortes seleccionados para quienes buscan
+                    una experiencia gastronómica excepcional.
+                </p>
+            </header>
+            <!-- =========================
+       PRODUCT CAROUSEL
+  ========================== -->
+            <div class="featured-products__carousel">
+                <!-- Flecha anterior -->
+                <button class="featured-products__arrow featured-products__arrow--prev" type="button"
+                    aria-label="Ver productos anteriores">
+                    &#10094;
+                </button>
+                <!-- Productos -->
+                <div class="featured-products__track">
+                    <!-- =================================
+           PRODUCT CARD
+      ================================== -->
+                    <article class="product-card">
+                        <div class="product-card__image">
+                            <img src="img/ribeye.png" alt="Ribeye Angus premium" loading="lazy">
+                            <span class="product-card__badge">
+                                PREMIUM
+                            </span>
+                            <button class="product-card__add" type="button"
+                                aria-label="Agregar Ribeye Angus al carrito">
+                                +
+                            </button>
+                        </div>
+                        <div class="product-card__content">
+                            <span class="product-card__category">
+                                CORTE PREMIUM
+                            </span>
+                            <h3 class="product-card__title">
+                                Ribeye Angus
+                            </h3>
+                            <span class="product-card__weight">
+                                350 g aprox.
+                            </span>
+                            <div class="product-card__footer">
+                                <span class="product-card__price">
+                                    $420
+                                </span>
+                                <button class="product-card__button" type="button">
+                                    Comprar
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+                    <!-- =================================
+           PRODUCT CARD - FEATURED
+      ================================== -->
+
+                    <article class="product-card product-card--featured">
+                        <div class="product-card__image">
+                            <img src="img/tomahawk.png" alt="Tomahawk Prime premium">
+                            <span class="product-card__badge">
+                                HOT SALE
+                            </span>
+                            <button class="product-card__add" type="button"
+                                aria-label="Agregar Tomahawk Prime al carrito">
+                                +
+                            </button>
+                        </div>
+                        <div class="product-card__content">
+                            <span class="product-card__category">
+                                SELECCIÓN DE LA CASA
+                            </span>
+                            <h3 class="product-card__title">
+                                Tomahawk Prime
+                            </h3>
+                            <span class="product-card__weight">
+                                900 g aprox.
+                            </span>
+                            <div class="product-card__footer">
+                                <span class="product-card__price">
+                                    $890
+                                </span>
+                                <button class="product-card__button" type="button">
+                                    Comprar
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+                    <!-- =================================
+           PRODUCT CARD
+      ================================== -->
+
+                    <article class="product-card">
+                        <div class="product-card__image">
+                            <img src="img/newyork.png" alt="New York Prime premium" loading="lazy">
+                            <span class="product-card__badge">
+                                PREMIUM
+                            </span>
+                            <button class="product-card__add" type="button"
+                                aria-label="Agregar New York Prime al carrito">
+                                +
+                            </button>
+                        </div>
+                        <div class="product-card__content">
+                            <span class="product-card__category">
+                                CORTE PREMIUM
+                            </span>
+                            <h3 class="product-card__title">
+                                New York Prime
+                            </h3>
+                            <span class="product-card__weight">
+                                400 g aprox.
+                            </span>
+                            <div class="product-card__footer">
+                                <span class="product-card__price">
+                                    $540
+                                </span>
+                                <button class="product-card__button" type="button">
+                                    Comprar
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                <!-- Flecha siguiente -->
+                <button class="featured-products__arrow featured-products__arrow--next" type="button"
+                    aria-label="Ver siguientes productos">
+                    &#10095;
+                </button>
             </div>
+            <!-- =========================
+       VER TODOS
+  ========================== -->
+            <a href="#productos" class="featured-products__view-all">
+                Ver toda la selección
+            </a>
+            <!-- =========================
+       CAROUSEL DOTS
+  ========================== -->
+            <div class="featured-products__dots" aria-label="Navegación del carrusel">
+                <button class="featured-products__dot" type="button" aria-label="Página 1">
+                </button>
+                <button class="featured-products__dot featured-products__dot--active" type="button"
+                    aria-label="Página 2" aria-current="true">
+                </button>
+                <button class="featured-products__dot" type="button" aria-label="Página 3">
+                </button>
+            </div>
+        </section>
 
-
-        </div>
 
         <!-- Banner lo Hara Aldo, no se metan-->
         <!-- https://images.openai.com/static-rsc-4/SIXdqZLGsEWVRroEyo-b38sTH9VGpE_jo23iby5-claysaGICVMqGEhLjv9YRmI90f9Hm5SPSTzoM-e6GT8t6Z82OBLO7ICSvPHLjGJ2avULhAJVSLN_G5ky0pNxK0iswyFGNOMDf7Or9G3kjSetPhNoz6RqDnKhEqsmmw-8fDWZYFNQTAye7sDZ_o147IuS?purpose=fullsize -->
@@ -244,24 +376,26 @@
     <footer class="footer">
         <div class="footerCont">
 
-            <div class="redesSociales flexCont">  <!--Subdivision para que se vean los elementos uno alado del otro -->
-                
+            <div class="redesSociales flexCont"> <!--Subdivision para que se vean los elementos uno alado del otro -->
+
                 <div class="seccion-izq">
                     <h2>Pa'la asada</h2>
                     <p>
 
-                        
+
                     </p>
                     <h3>Redes sociales</h3>
                     <div class="iconosCont">
                         <a href="https://instagram.com" class="linkRedes">
-                            <img src="https://dreamfoundry.org/wp-content/uploads/2018/12/instagram-logo-png-transparent-background.png" alt="Instagram" class="imgRedes">
+                            <img src="https://dreamfoundry.org/wp-content/uploads/2018/12/instagram-logo-png-transparent-background.png"
+                                alt="Instagram" class="imgRedes">
                         </a>
                         <a href="https://facebook.com" class="linkRedes">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/1280px-Facebook_Logo_%282019%29.png?utm_source=es.wikipedia.org&utm_campaign=index&utm_content=thumbnail" alt="Facebook" class="imgRedes">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/1280px-Facebook_Logo_%282019%29.png?utm_source=es.wikipedia.org&utm_campaign=index&utm_content=thumbnail"
+                                alt="Facebook" class="imgRedes">
                         </a>
-                        
-                        
+
+
                     </div>
                 </div>
 
@@ -275,14 +409,14 @@
                     <a class="enlaceB" href="#">Productos</a>
                 </div>
 
-                
+
 
             </div>
-                <div class="footerBottom">
-                    <p>&copy; Todos los derechos reservados.</p>
-                </div>
+            <div class="footerBottom">
+                <p>&copy; Todos los derechos reservados.</p>
+            </div>
         </div>
-            <!--corregir error de colocacion-->
+        <!--corregir error de colocacion-->
 
 
     </footer>
