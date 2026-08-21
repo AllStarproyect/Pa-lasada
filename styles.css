@@ -1,0 +1,370 @@
+/* Estilos */
+:root {
+    --color-mostaza: #D4A017;
+    --color-crema: #F5F1E8;
+    --color-carbon: #2B2B2B;
+    --color-verde-oliva: #6B7A4E;
+    --color-taupe: #A18C6E;
+}
+
+/*1 rem = 10px */
+
+html {
+    /*Parametros para hacer responsive los tamanos*/
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+
+/* un minimo de normalize*/
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+
+/* welcome grids */
+
+:root {
+    --color-mostaza: #D4A017;
+    --color-crema: #F5F1E8;
+    --color-carbon: #2B2B2B;
+    --color-verde-oliva: #6B7A4E;
+    --color-taupe: #A18C6E;
+}
+
+main {
+    width: 100%;
+}
+
+/* 1rem = 10px */
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+/* Contenedor principal */
+.container-historia-wrapper {
+    display: grid;
+    margin: 0;
+}
+
+/* Sección Historia */
+.section-history {
+    width: 100%;
+    /* ocupa todo el ancho */
+    margin: 0;
+}
+
+.container-history {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) minmax(300px, 2fr);
+    gap: 2rem;
+    min-height: 25rem;
+    /* background-color: red; */
+    width: 100%;
+    padding: 3rem;
+}
+
+/* Imágenes */
+.card-img-box img {
+    width: 100%;
+    max-width: 30rem;
+    height: auto;
+    margin-top: 5rem;
+}
+
+/* Texto Historia */
+.card-history {
+    background: white;
+    padding: 2rem;
+    min-width: 300px;
+    min-height: 20rem;
+    border-radius: 1rem;
+}
+
+.carousel-track {
+    display: contents;
+}
+
+
+/* Mision, vision */
+
+.mision-vision {
+    background-color: var(--color-crema);
+    color: var(--color-carbon);
+    overflow: hidden;
+    padding: 3rem 0;
+}
+
+.mision-vision .container-fluid {
+    max-width: 75rem;
+    margin: 0 auto;
+}
+
+.seccion-info {
+    min-height: 22rem;
+    margin-bottom: 2rem;
+}
+
+.tituloMision {
+    text-align: right;
+}
+
+.tituloVision {
+    text-align: left;
+}
+
+.text-infoMV {
+    padding: 2rem 3rem;
+}
+
+.text-infoMV h3 {
+    text-align: center;
+    margin-bottom: 1.25rem;
+    font-size: clamp(2.5rem, 1.2vw + 1rem, 4rem);
+}
+
+.text-infoMV p {
+    font-size: clamp(1.2rem, 4vw + 1.5rem, 2rem);
+    line-height: 1.5;
+}
+
+.imagen-circular {
+    width: 20rem;
+    height: 20rem;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.contenedor-imagen {
+    display: flex;
+    align-items: center;
+}
+
+.contenedor-imagen.izquierda {
+    justify-content: flex-start;
+}
+
+.contenedor-imagen.derecha {
+    justify-content: flex-end;
+}
+
+/* mision,vison movil */
+@media (max-width: 48rem) {
+
+    .mision-vision {
+        padding: 1.5rem 0;
+    }
+
+    .mision-vision .container-fluid {
+        padding: 0;
+    }
+
+    .seccion-info {
+        min-height: 20rem;
+        margin-bottom: 1rem;
+    }
+
+    .text-infoMV {
+        padding: 1.5rem 1rem;
+    }
+
+
+    .imagen-circular {
+        width: 20rem;
+        height: 20rem;
+        border-radius: 50%;
+    }
+
+    .contenedor-imagen.izquierda {
+        justify-content: flex-start;
+        transform: translateX(-3rem)
+    }
+
+    .contenedor-imagen.derecha {
+        justify-content: flex-end;
+        transform: translateX(3rem)
+    }
+
+    /* history */
+    .container-history {
+        display: block;
+    }
+
+    .carousel-track {
+        display: flex;
+        /* aquí SÍ queremos que sea una caja real */
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 1rem;
+        padding-bottom: 1rem;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .card-img-box {
+        flex: 0 0 85%;
+        scroll-snap-align: center;
+    }
+
+    .card-img-box img {
+        width: 100%;
+        max-width: 40rem;
+        margin: 0;
+        border-radius: 1rem;
+    }
+
+    .card-history {
+        margin-top: 1rem;
+    }
+
+    .carousel-track {
+        scrollbar-width: none;
+    }
+
+    .carousel-track::-webkit-scrollbar {
+        display: none;
+    }
+
+}
+
+/* tablet responsivo */
+@media (min-width: 48rem) and (max-width: 80rem) {
+    .container-history {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-areas:
+            "titulo titulo titulo"
+            "img1   img2   img3"
+            "parrafo parrafo parrafo";
+        gap: 2rem;
+        /* background-color: rgb(55, 6, 252); */
+    }
+
+    .card-history {
+        display: contents;
+        /* "desaparece" el div, deja pasar a sus hijos como items del grid */
+    }
+
+    .card-history h3 {
+        grid-area: titulo;
+        text-align: center;
+    }
+
+    .card-history p {
+        grid-area: parrafo;
+        background: white;
+        padding: 2rem;
+        border-radius: 1rem;
+    }
+
+    .card-img-box:nth-child(1) {
+        grid-area: img1;
+    }
+
+    .card-img-box:nth-child(2) {
+        grid-area: img2;
+    }
+
+    .card-img-box:nth-child(3) {
+        grid-area: img3;
+    }
+
+    .card-img-box img {
+        width: 100%;
+        margin-top: 0;
+    }
+}
+
+/* Equipo de desarrolladores*/
+.title-team {
+    text-align: center;
+    font-size: 2.4rem;
+    margin: 4rem 0 2rem;
+    color: var(--color-carbon);
+}
+
+.container-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2.4rem;
+    max-width: 120rem;
+    margin: 0 auto;
+}
+
+.team-card {
+    background: var(--color-crema);
+    width: 22rem;
+    border-radius: 0.8rem;
+    padding: 3rem 2rem;
+    box-shadow: 0 0.4rem 1rem rgba(43, 43, 43, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-card:hover {
+    transform: translateY(-0.6rem);
+    box-shadow: 0 0 2.5rem rgba(212, 160, 23, 0.6);
+}
+
+.team-card img {
+    width: 12rem;
+    height: 12rem;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 0.3rem solid var(--color-taupe);
+    margin-bottom: 2rem;
+}
+
+.team-card h2 {
+    font-size: 1.2rem;
+    margin: 0 0 1rem;
+    color: var(--color-carbon);
+}
+
+.team-card p {
+    font-size: 0.85rem;
+    color: var(--color-taupe);
+    line-height: 1.4;
+    margin: 0 0 1.5rem;
+}
+
+.team-card .role {
+    font-weight: bold;
+    font-size: 0.85rem;
+    color: var(--color-verde-oliva);
+    margin-bottom: 1.5rem;
+}
+
+.socials {
+    display: flex;
+    justify-content: center;
+}
+
+.socials a {
+    color: var(--color-carbon);
+    font-size: 1.2rem;
+    text-decoration: none;
+}
+
+.socials a:hover {
+    color: var(--color-mostaza);
+}
