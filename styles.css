@@ -92,6 +92,7 @@ body {
     max-width: 30rem;
     height: auto;
     margin-top: 5rem;
+    border-radius: 1rem;
 }
 
 /* Texto Historia */
@@ -146,7 +147,7 @@ body {
 }
 
 .text-infoMV p {
-    font-size: clamp(1.2rem, 4vw + 1.5rem, 2rem);
+    font-size: clamp(1.2rem, 4vw, 1.7rem);
     line-height: 1.5;
 }
 
