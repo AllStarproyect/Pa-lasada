@@ -13,6 +13,153 @@ html {
 
 /*Espacio para darle diseño a la NavBar*/
 
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css");
+
+:root {
+    --color-mostaza: #D4A017;
+    --color-crema: #F5F1E8;
+    --color-carbon: #2B2B2B;
+    --color-verde-oliva: #6B7A4E;
+    --color-taupe: #A18C6E;
+}
+
+.btn-primary {
+    background-color: var(--color-mostaza);
+    border-color: var(--color-mostaza);
+    color: white;
+    font-weight: 500;
+}
+
+.btn-primary:hover {
+    background-color: #b88912;
+    border-color: #b88912;
+}
+
+.navbar {
+    background-color: var(--color-crema);
+    color: var(--color-carbon);
+}
+
+.navbar-custom {
+    background-color: var(--color-crema);
+    padding: 10px 0;
+    box-shadow: 0 3px 15px rgba(43, 43, 43, 0.08);
+}
+
+.logo {
+    width: 75px;
+    height: 75px;
+    object-fit: contain;
+}
+
+.nav-link {
+    color: var(--color-carbon);
+    font-weight: 500;
+    position: relative;
+    transition: 0.3s;
+}
+
+.nav-link:hover {
+    color: var(--color-mostaza);
+}
+
+.nav-link.active {
+    color: var(--color-mostaza) !important;
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.icon-btn {
+    color: var(--color-verde-oliva);
+    border: none;
+    font-size: 1.4rem;
+}
+
+.icon-btn:hover {
+    color: var(--color-mostaza);
+}
+
+.cart-badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: var(--color-mostaza);
+    color: white;
+    font-size: 10px;
+    width: 17px;
+    height: 17px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+.btn-profile {
+    background: transparent;
+    border: none;
+    color: var(--color-verde-oliva);
+    font-size: 1.4rem;
+}
+
+.btn-profile:hover {
+    color: var(--color-mostaza);
+}
+
+@media (max-width: 991px) {
+    .navbar-custom {
+        padding: 8px 15px;
+    }
+
+    .logo {
+        width: 65px;
+        height: 65px;
+    }
+
+    .navbar-collapse {
+        position: absolute;
+        top: 100%;
+        left: 10px;
+        right: 10px;
+        margin-top: 15px;
+        background-color: var(--color-crema);
+        padding: 20px;
+        border-radius: 0 0 15px 15px;
+        box-shadow: 0 8px 15px rgba(43, 43, 43, 0.08);
+    }
+
+    .navbar-nav {
+        gap: 5px !important;
+    }
+
+    .nav-link {
+        padding: 12px 5px;
+        border-bottom: 1px solid rgba(43, 43, 43, 0.1);
+    }
+
+    .nav-link.active::after {
+        display: none;
+    }
+
+    .nav-actions {
+        margin-top: 20px;
+        width: 100%;
+        flex-wrap: wrap;
+    }
+
+    #userMenu {
+        width: 100%;
+    }
+
+    #userMenu .btn-primary {
+        width: 100%;
+        margin-top: 8px;
+    }
+}
+
 /*Espacio para darle diseño al contenido principal*/
 body {
     margin: 0;
@@ -145,7 +292,10 @@ body {
     position: static;
     /*left: 20px;*/
 }
-
+.enlaceB {
+    display: block;
+    margin-bottom: 8px;
+}
 /*Los footer van hasta el final*/
 footer {
     background-color: #222422;
@@ -172,7 +322,7 @@ footer {
     display: flex;
     flex-direction: column;
     align-items: center;
-    
+
 }
 
 .footerBottom {
@@ -187,7 +337,8 @@ footer {
 
 .redesSociales {
     display: flex;
-    flex-direction: column; /*Se agrega para responsive*/
+    flex-direction: column;
+    /*Se agrega para responsive*/
     justify-content: center;
     align-items: center;
     gap: 25px;
@@ -200,17 +351,18 @@ footer {
 
 /* Cuando el contenedor del footer mida más de 768px (Tablets grandes y PC) */
 @container footer-container (min-width: 768px) {
-    
+
     .redesSociales {
-        flex-direction: row; /* Alinear horizontalmente */
+        flex-direction: row;
+        /* Alinear horizontalmente */
         justify-content: center;
         position: relative;
     }
 
-     .seccion-izq {
+    .seccion-izq {
         /* El truco definitivo: empuja todo lo que está a su derecha hacia el extremo opuesto, 
            pero al estar dentro de flexbox mantiene al logo perfectamente centrado en el contenedor */
-        margin-right: auto; 
+        margin-right: auto;
         text-align: left;
     }
 
@@ -221,7 +373,7 @@ footer {
         left: 50%;
         transform: translateX(-50%);
     }
-    
+
 }
 
 
