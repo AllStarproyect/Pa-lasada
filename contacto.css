@@ -1,0 +1,34 @@
+.map-container {
+  height: 250px;
+  grid-column: 1 / -1;  /*Empieza en la primera columna y termina en la ultima*/
+}
+
+
+/*Computadora*/
+@media (min-width: 992px) {
+  .contactLayout {
+    display: grid;
+    grid-template-columns: 5fr 3fr;
+    gap: 1.5rem;
+  }
+
+  .contactRight {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+  
+/*Telefono*/
+@media (max-width: 767.98px) { 
+  .contactLayout {
+    grid-template-columns: 1fr;
+  }
+}
+
+/*tableta*/
+@media (min-width: 768px) and (max-width: 991.98px ) {
+  .contactLayout{
+    grid-template-columns: 3fr 1fr;  }
+}
+

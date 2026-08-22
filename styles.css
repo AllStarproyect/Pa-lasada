@@ -32,7 +32,7 @@ body {
 }
 
 .logo {
-    width: 75px;
+    width: 200px;
     height: 75px;
     object-fit: contain;
 }
@@ -100,7 +100,7 @@ body {
     }
 
     .logo {
-        width: 65px;
+        width: 150px;
         height: 65px;
     }
 
