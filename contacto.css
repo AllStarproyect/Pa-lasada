@@ -1,5 +1,7 @@
 .map-container {
   height: 250px;
+  overflow: hidden;
+  border-radius: 1rem;
   grid-column: 1 / -1;  /*Empieza en la primera columna y termina en la ultima*/
 }
 
@@ -8,17 +10,51 @@
 @media (min-width: 992px) {
   .contactLayout {
     display: grid;
-    grid-template-columns: 5fr 3fr;
+    grid-template-columns: 5fr 3fr; /*Grosor especifico de cada columna*/
+    grid-template-rows: auto auto;
+    gap: 1.5rem;
+  }
+
+  /* Formulario */
+  .contactForm {
+    grid-column: 1; /*Situado en columna 1*/
+    grid-row: 1 / 3;
+  }
+
+  .contactRight {
+    display: grid;
+    grid-column: 2; /*Situado en columna 2*/
+    grid-row: 1; 
+    gap: 1.5rem;
+  }
+  
+    .map-container {
+    grid-column: 2;
+    grid-row: 2;
+    height: 300px;
+  }
+}
+  
+/*tableta*/
+@media (min-width: 768px) and (max-width: 991.98px) {
+
+  .contactLayout {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
     gap: 1.5rem;
   }
 
   .contactRight {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
   }
+
+  .map-container {
+    grid-column: 1 / -1;
+    height: 300px;
+  }
+
 }
-  
+
 /*Telefono*/
 @media (max-width: 767.98px) { 
   .contactLayout {
@@ -26,9 +62,5 @@
   }
 }
 
-/*tableta*/
-@media (min-width: 768px) and (max-width: 991.98px ) {
-  .contactLayout{
-    grid-template-columns: 3fr 1fr;  }
-}
+
 
