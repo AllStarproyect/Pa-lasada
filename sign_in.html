@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mi página</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Tus estilos -->
+    <link rel="stylesheet" href="styles_sing_in.css">
+</head>
+
+<body>
+
+    <!-- =====================================================
+         NAVBAR
+         ===================================================== -->
+
+    <nav class="navbar navbar-expand-lg navbar-custom">
+
+        <!-- IMPORTANTE:
+             No usamos class="container" aquí porque
+             tu .container ya tiene el grid del login.
+        -->
+        <div class="navbar-container">
+
+            <!-- LOGO -->
+            <a class="navbar-brand" href="#">
+                <img src="img/Logo3.png" alt="Logo" class="logo">
+            </a>
+
+            <!-- ACCIONES MOBILE -->
+            <div class="d-flex align-items-center ms-auto d-lg-none">
+
+                <!-- Carrito -->
+                <button class="btn icon-btn position-relative" type="button">
+                    <i class="bi bi-cart3"></i>
+
+                    <span class="cart-badge">
+                        3
+                    </span>
+                </button>
+
+                <!-- Botón menú -->
+                <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                    aria-label="Abrir menú">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+            </div>
+
+
+            <!-- MENÚ COLAPSABLE -->
+            <div class="collapse navbar-collapse nav-links" id="navbarNavDropdown">
+
+                <!-- LINKS -->
+                <ul class="navbar-nav mx-auto gap-lg-4">
+
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">
+                            Inicio
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            Productos
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="about_us.html">
+                            Acerca de
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="contacto.html">
+                            Contacto
+                        </a>
+                    </li>
+
+                </ul>
+
+
+                <!-- ACCIONES DERECHA -->
+                <div class="nav-actions">
+
+                    <!-- Carrito desktop -->
+                    <button class="btn icon-btn position-relative d-none d-lg-block" type="button">
+                        <i class="bi bi-cart3"></i>
+
+                        <span class="cart-badge">
+                            3
+                        </span>
+                    </button>
+
+
+                    <!-- Login / Perfil -->
+                    <div id="userMenu"></div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+
+    <!-- =====================================================
+         CONTENIDO ORIGINAL
+         ===================================================== -->
+
+    <div class="container">
+
+        <aside>
+            Izquierda
+        </aside>
+
+
+        <main>
+
+            <div class="container1">
+
+                <div class="elementos brand">
+                    Marca
+                </div>
+
+
+                <!-- FORMULARIO -->
+                <div class="elementos login">
+
+                    <div>
+
+                        <div class="login-box">
+
+                            <div class="tabs">
+
+                                <button id="SignInBtn" class="tab-btn active" type="button">
+                                    Sign in
+                                </button>
+
+                                <button id="SignUpBtn" class="tab-btn" type="button">
+                                    Sign up
+                                </button>
+
+                            </div>
+
+
+                            <form id="authForm">
+
+                            </form>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </main>
+
+
+
+
+        <aside>
+            Derecha
+        </aside>
+
+    </div>
+
+    <footer class="footer">
+        <div class="footerCont">
+
+            <div class="redesSociales flexCont">
+                <!--Subdivision para que se vean los elementos uno alado del otro -->
+
+                <div class="seccion-izq">
+                    <h2>Pa'la asada</h2>
+                    <p>
+
+
+                    </p>
+                    <h3>Redes sociales</h3>
+                    <div class="iconosCont">
+                        <a href="https://instagram.com" class="linkRedes">
+                            <img src="https://dreamfoundry.org/wp-content/uploads/2018/12/instagram-logo-png-transparent-background.png"
+                                alt="Instagram" class="imgRedes">
+                        </a>
+                        <a href="https://facebook.com" class="linkRedes">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/1280px-Facebook_Logo_%282019%29.png?utm_source=es.wikipedia.org&utm_campaign=index&utm_content=thumbnail"
+                                alt="Facebook" class="imgRedes">
+                        </a>
+
+
+                    </div>
+                </div>
+
+                <div class="footerSection">
+                    <img src="./img/LogoCuadrado.jpg" alt="Logo Pa'la asada" class="logoFooter">
+                </div>
+
+                <div>
+                    <a class="enlaceB" href="home.html">Home</a>
+                    <a class="enlaceB " href="about_us.html">About us</a>
+                    <a class="enlaceB" href="#">Productos</a>
+                </div>
+
+
+
+            </div>
+            <div class="footerBottom">
+                <p>&copy; Todos los derechos reservados.</p>
+            </div>
+        </div>
+        <!--corregir error de colocacion-->
+
+
+    </footer>
+
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+    </script>
+
+    <!-- Tu JS -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>
