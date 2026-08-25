@@ -1,48 +1,3 @@
-// animacion parrafos
-function animarTodasLasSecciones() {
-  const secciones = document.querySelectorAll('.section-history, .mision-vision');
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const seccion = entry.target;
-        const indexSeccion = Array.from(secciones).indexOf(seccion);
-        const contenedores = seccion.querySelectorAll('.text-infoMV');
-
-        contenedores.forEach((contenedor, indexContenedor) => {
-          const parrafos = contenedor.querySelectorAll('.parrafo-animado');
-
-          // ¿Este contenedor es el de Misión?
-          const esMision = contenedor.querySelector('.tituloMision') !== null;
-
-          // Si es Misión, entra desde la izquierda (-300px). Si no, desde la derecha (300px)
-          const desdeX = esMision ? -300 : 300;
-
-          parrafos.forEach((parrafo) => {
-            parrafo.animate(
-              [
-                { transform: `translateX(${desdeX}px)`, opacity: 0 },
-                { transform: 'translateX(0)', opacity: 1 }
-              ],
-              {
-                duration: 600,
-                delay: (indexSeccion * 600) + (indexContenedor * 500),
-                easing: 'ease-out',
-                fill: 'forwards'
-              }
-            );
-          });
-        });
-
-        observer.unobserve(seccion);
-      }
-    });
-  }, { threshold: 0.2 });
-
-  secciones.forEach(seccion => observer.observe(seccion));
-}
-
-animarTodasLasSecciones();
 const team = [
     { name: "Cesar Ruiz Flores", role: "Fullstack Development", img: "img/cesar.jpg", imgPosition: "center 10%", linkedin:"https://www.linkedin.com/in/cesar-ruiz-f/" },
     { name: "José Manuel Limon Avila", role: "Fullstack Development", img: "img/limon.jpeg", linkedin:"https://www.linkedin.com/in/joselimonav/"},
@@ -57,22 +12,23 @@ const team = [
 
 const container = document.getElementById("cards-container");
  
-team.forEach(member => {
-  const card = document.createElement("div");
-  card.className = "team-card";
-  const position = member.imgPosition ? `style="object-position: ${member.imgPosition};"` : "";
-  card.innerHTML = `
-    <img src="${member.img}" alt="${member.name}" ${position}>
-    <h3>${member.name}</h3>
-    <h4>Desarrollador parte de este e-commerce</h4>
-    <div class="role">${member.role}</div>
-    <div class="socials">
-      <a href="${member.linkedin || '#'}" target="_blank" rel="noopener noreferrer"><i class="bi bi-linkedin"></i>
-      </a>
-    </div>
-  `;
-  container.appendChild(card);
-});
+if (container) {
+    team.forEach(member => {
+    const card = document.createElement("div");
+    card.className = "team-card";
+    const position = member.imgPosition ? `style="object-position: ${member.imgPosition};"` : "";
+    card.innerHTML = `
+        <img src="${member.img}" alt="${member.name}" ${position}>
+        <h2>${member.name}</h2>
+        <p>Desarrollador parte de este e-commerce</p>
+        <div class="role">${member.role}</div>
+        <div class="socials">
+        <a href=""><i class="bi bi-linkedin"></i></a>
+        </div>
+    `;
+    container.appendChild(card);
+    });
+}
 const userMenu = document.querySelector("#userMenu");
 
 let usuarioLogueado = false;
@@ -145,3 +101,72 @@ function renderNavbar() {
 }
 
 renderNavbar();
+
+//Parte del carrusel HOME denisse
+/* =========================================
+   CARRUSEL DE PRODUCTOS DESTACADOS
+   (No modifica clases/ids existentes)
+========================================= */
+document.querySelectorAll(".featured-products__carousel").forEach((carousel) => {
+    const track = carousel.querySelector(".featured-products__track");
+    const prevBtn = carousel.querySelector(".featured-products__arrow--prev");
+    const nextBtn = carousel.querySelector(".featured-products__arrow--next");
+    const dotsContainer = carousel.parentElement.querySelector(".featured-products__dots");
+    const dots = dotsContainer ? Array.from(dotsContainer.querySelectorAll(".featured-products__dot")) : [];
+
+    if (!track) return;
+
+    // Calcula cuánto hay que desplazar (ancho de una tarjeta + gap)
+    function getScrollAmount() {
+        const firstCard = track.querySelector(".product-card");
+        if (!firstCard) return track.clientWidth;
+
+        const cardStyle = window.getComputedStyle(track);
+        const gap = parseFloat(cardStyle.columnGap || cardStyle.gap || 0) || 0;
+
+        return firstCard.getBoundingClientRect().width + gap;
+    }
+
+    // Mueve el carrusel hacia atrás
+    prevBtn?.addEventListener("click", () => {
+        track.scrollBy({ left: -getScrollAmount(), behavior: "smooth" });
+    });
+
+    // Mueve el carrusel hacia adelante
+    nextBtn?.addEventListener("click", () => {
+        track.scrollBy({ left: getScrollAmount(), behavior: "smooth" });
+    });
+
+    // Navegación mediante los dots
+    dots.forEach((dot, index) => {
+        dot.addEventListener("click", () => {
+            const amount = getScrollAmount();
+            track.scrollTo({ left: amount * index, behavior: "smooth" });
+        });
+    });
+
+    // Actualiza el dot activo según la posición del scroll
+    function updateActiveDot() {
+        if (dots.length === 0) return;
+
+        const amount = getScrollAmount();
+        const currentIndex = Math.round(track.scrollLeft / amount);
+
+        dots.forEach((dot, index) => {
+            const isActive = index === currentIndex;
+            dot.classList.toggle("featured-products__dot--active", isActive);
+            dot.setAttribute("aria-current", isActive ? "true" : "false");
+        });
+    }
+
+    // Escucha el scroll para sincronizar los dots (con debounce simple)
+    let scrollTimeout;
+    track.addEventListener("scroll", () => {
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(updateActiveDot, 100);
+    });
+
+    // Estado inicial
+    updateActiveDot();
+});
+

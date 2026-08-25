@@ -1,0 +1,23 @@
+ about_us.html          |  152 [32m++++[m[31m-[m
+ alertaFormulario.js    |   43 [32m++[m
+ contacto.css           |   34 [32m++[m
+ contacto.html          |  204 [32m+++++++[m
+ home.html              |  496 [32m++++++++++++++++[m
+ img/Logo2.png          |  Bin [31m0[m -> [32m317476[m bytes
+ img/Logo3.png          |  Bin [31m0[m -> [32m500035[m bytes
+ img/LogoCuadrado.jpg   |  Bin [31m0[m -> [32m73881[m bytes
+ img/New york.png       |  Bin [31m0[m -> [32m2109040[m bytes
+ img/Rib Eye.png        |  Bin [31m0[m -> [32m2613170[m bytes
+ img/acercaDe1.jpg      |  Bin [31m751759[m -> [32m0[m bytes
+ img/acercaDe2.jpg      |  Bin [31m965313[m -> [32m0[m bytes
+ img/acercaDe3.jpg      |  Bin [31m1010691[m -> [32m0[m bytes
+ img/image_a871302d.png |  Bin [31m0[m -> [32m1612668[m bytes
+ img/newyork.png        |  Bin [31m0[m -> [32m3853834[m bytes
+ img/ribeye.png         |  Bin [31m0[m -> [32m4790098[m bytes
+ img/tomahawk.png       |  Bin [31m0[m -> [32m1578218[m bytes
+ index.html             |   43 [32m+[m[31m-[m
+ navbar.js              |   77 [32m+++[m
+ script.js              |  147 [32m+++[m[31m--[m
+ style.css              | 1508 [32m++++++++++++++++++++++++++++++++++++++++++++++++[m
+ styles.css             |  160 [32m++++[m[31m-[m
+ 22 files changed, 2752 insertions(+), 112 deletions(-)
