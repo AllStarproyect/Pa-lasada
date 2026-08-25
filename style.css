@@ -1073,6 +1073,7 @@ footer {
     transition:
         transform 0.4s ease,
         box-shadow 0.4s ease;
+    scroll-snap-align: center;
 }
 
 /* Imagen */
@@ -1338,8 +1339,11 @@ footer {
 
 .featured-products__track {
     display: flex;
+    overflow-x: auto;
     align-items: center;
-    justify-content: center;
+    justify-content: safe center;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
     gap: 2.2rem;
     width: 100%;
 }
@@ -1436,6 +1440,8 @@ footer {
     .featured-products__track {
         padding: 2rem;
         overflow: hidden;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
     }
 
 

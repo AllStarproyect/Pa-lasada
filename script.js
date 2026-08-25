@@ -12,21 +12,23 @@ const team = [
 
 const container = document.getElementById("cards-container");
  
-team.forEach(member => {
-  const card = document.createElement("div");
-  card.className = "team-card";
-  const position = member.imgPosition ? `style="object-position: ${member.imgPosition};"` : "";
-  card.innerHTML = `
-    <img src="${member.img}" alt="${member.name}" ${position}>
-    <h2>${member.name}</h2>
-    <p>Desarrollador parte de este e-commerce</p>
-    <div class="role">${member.role}</div>
-    <div class="socials">
-      <a href=""><i class="bi bi-linkedin"></i></a>
-    </div>
-  `;
-  container.appendChild(card);
-});
+if (container) {
+    team.forEach(member => {
+    const card = document.createElement("div");
+    card.className = "team-card";
+    const position = member.imgPosition ? `style="object-position: ${member.imgPosition};"` : "";
+    card.innerHTML = `
+        <img src="${member.img}" alt="${member.name}" ${position}>
+        <h2>${member.name}</h2>
+        <p>Desarrollador parte de este e-commerce</p>
+        <div class="role">${member.role}</div>
+        <div class="socials">
+        <a href=""><i class="bi bi-linkedin"></i></a>
+        </div>
+    `;
+    container.appendChild(card);
+    });
+}
 const userMenu = document.querySelector("#userMenu");
 
 let usuarioLogueado = false;
@@ -101,142 +103,70 @@ function renderNavbar() {
 renderNavbar();
 
 //Parte del carrusel HOME denisse
-document.addEventListener('DOMContentLoaded', () => {
-    // CORRECCIÓN: Nos aseguramos de buscarlo correctamente. 
-    // Si usas ID en tu HTML ponle id="TrackCarrusel"
-    const track = document.getElementById('TrackCarrusel') || document.querySelector('.carruselTrack');
-    const items = document.querySelectorAll('.carruselItem');
-    const dots = document.querySelectorAll('.dot');
-    const leftBtn = document.getElementById('leftBtn');
-    const rightBtn = document.getElementById('rightBtn');
-    
-    let currentIndex = 1; // Tarjeta central por defecto
-    let scrollTimeout;
+/* =========================================
+   CARRUSEL DE PRODUCTOS DESTACADOS
+   (No modifica clases/ids existentes)
+========================================= */
+document.querySelectorAll(".featured-products__carousel").forEach((carousel) => {
+    const track = carousel.querySelector(".featured-products__track");
+    const prevBtn = carousel.querySelector(".featured-products__arrow--prev");
+    const nextBtn = carousel.querySelector(".featured-products__arrow--next");
+    const dotsContainer = carousel.parentElement.querySelector(".featured-products__dots");
+    const dots = dotsContainer ? Array.from(dotsContainer.querySelectorAll(".featured-products__dot")) : [];
 
-    if (!track || items.length === 0) {
-        console.warn("No se encontraron los elementos del carrusel en el DOM.");
-        return;
+    if (!track) return;
+
+    // Calcula cuánto hay que desplazar (ancho de una tarjeta + gap)
+    function getScrollAmount() {
+        const firstCard = track.querySelector(".product-card");
+        if (!firstCard) return track.clientWidth;
+
+        const cardStyle = window.getComputedStyle(track);
+        const gap = parseFloat(cardStyle.columnGap || cardStyle.gap || 0) || 0;
+
+        return firstCard.getBoundingClientRect().width + gap;
     }
 
-    // Función unificada para encender la tarjeta y el indicador correcto
-    function updateActiveState(index) {
-        items.forEach((item, i) => {
-            if(i === index) {
-                item.classList.add('active');
-            } else {
-                item.classList.remove('active');
-            }
-        });
+    // Mueve el carrusel hacia atrás
+    prevBtn?.addEventListener("click", () => {
+        track.scrollBy({ left: -getScrollAmount(), behavior: "smooth" });
+    });
 
-        dots.forEach((dot, i) => {
-            if(i === index) {
-                dot.classList.add('active');
-            } else {
-                dot.classList.remove('active');
-            }
-        });
+    // Mueve el carrusel hacia adelante
+    nextBtn?.addEventListener("click", () => {
+        track.scrollBy({ left: getScrollAmount(), behavior: "smooth" });
+    });
 
-        currentIndex = index;
-    }
-
-    // Función inteligente para mover el carrusel y permitir la selección de tarjetas
-    function ejecutarMovimiento(index) {
-        const esDispositivoMovil = window.innerWidth <= 900;
-        
-        if (esDispositivoMovil) {
-            // EN CELULARES: Desplazamiento por hardware nativo
-            if (items[index]) {
-                items[index].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-            }
-            updateActiveState(index);
-        } else {
-            // EN COMPUTADORAS: Calcula el desplazamiento exacto para centrar la tarjeta seleccionada
-            updateActiveState(index);
-            
-            const contenedorCarrusel = track.parentElement;
-            if (contenedorCarrusel) {
-                const anchoContenedor = contenedorCarrusel.offsetWidth;
-                const anchoItem = items[index].offsetWidth;
-                
-                // Calculamos la posición del elemento con respecto al inicio del track
-                const itemOffsetLeft = items[index].offsetLeft;
-                
-                // Fórmula matemática para centrar perfectamente cualquier tarjeta cliqueada
-                const posicionDestino = itemOffsetLeft - (anchoContenedor / 2) + (anchoItem / 2);
-                
-                // Movemos el track de forma fluida mediante CSS Transforms
-                track.style.transform = `translateX(${-posicionDestino}px)`;
-            }
-        }
-    }
-
-    // Navegación asistida por el Botón Izquierdo
-    if (leftBtn) {
-        leftBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            let prevIndex = (currentIndex - 1 + items.length) % items.length;
-            ejecutarMovimiento(prevIndex);
-        });
-    }
-
-    // Navegación asistida por el Botón Derecho
-    if (rightBtn) {
-        rightBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            let nextIndex = (currentIndex + 1) % items.length;
-            ejecutarMovimiento(nextIndex);
-        });
-    }
-
-    // Evento de clic en los círculos inferiores (Dots)
+    // Navegación mediante los dots
     dots.forEach((dot, index) => {
-        dot.addEventListener('click', (e) => {
-            e.preventDefault();
-            if(index < items.length) {
-                ejecutarMovimiento(index);
-            }
+        dot.addEventListener("click", () => {
+            const amount = getScrollAmount();
+            track.scrollTo({ left: amount * index, behavior: "smooth" });
         });
     });
 
-    // ¡SOLUCIÓN PRINCIPAL! Permitir hacer clic directo en cualquier tarjeta para seleccionarla y centrarla
-    items.forEach((item, index) => {
-        item.addEventListener('click', (e) => {
-            // Si hacen clic en el botón "+" de agregar, no queremos que se mueva el carrusel
-            if (e.target.closest('.add-btn')) return; 
-            
-            ejecutarMovimiento(index);
+    // Actualiza el dot activo según la posición del scroll
+    function updateActiveDot() {
+        if (dots.length === 0) return;
+
+        const amount = getScrollAmount();
+        const currentIndex = Math.round(track.scrollLeft / amount);
+
+        dots.forEach((dot, index) => {
+            const isActive = index === currentIndex;
+            dot.classList.toggle("featured-products__dot--active", isActive);
+            dot.setAttribute("aria-current", isActive ? "true" : "false");
         });
+    }
+
+    // Escucha el scroll para sincronizar los dots (con debounce simple)
+    let scrollTimeout;
+    track.addEventListener("scroll", () => {
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(updateActiveDot, 100);
     });
 
-    // ESCUCHA DE SCROLL (Exclusiva para celulares)
-    track.addEventListener('scroll', () => {
-        if (window.innerWidth > 900) return;
-
-        window.clearTimeout(scrollTimeout);
-        scrollTimeout = setTimeout(() => {
-            const trackCenter = track.getBoundingClientRect().left + (track.offsetWidth / 2);
-            let closestIndex = currentIndex;
-            let minDistance = Infinity;
-
-            items.forEach((item, index) => {
-                const itemCenter = item.getBoundingClientRect().left + (item.offsetWidth / 2);
-                const distance = Math.abs(trackCenter - itemCenter);
-                
-                if (distance < minDistance) {
-                    minDistance = distance;
-                    closestIndex = index;
-                }
-            });
-
-            if (closestIndex !== currentIndex) {
-                updateActiveState(closestIndex);
-            }
-        }, 120);
-    });
-
-    // Inicialización del estado: centra la tarjeta activa inicial por defecto
-    setTimeout(() => {
-        ejecutarMovimiento(currentIndex);
-    }, 200);
+    // Estado inicial
+    updateActiveDot();
 });
 
