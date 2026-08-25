@@ -513,6 +513,13 @@ body {
 .enlaceB {
     display: block;
     margin-bottom: 8px;
+    margin-right: 10px;
+    color: #C9A227;          
+    text-decoration: none;
+}
+
+.enlaceB:hover {
+    color: #E0B830;          
 }
 
 /*Los footer van hasta el final*/
@@ -1063,6 +1070,7 @@ footer {
 .product-card {
     position: relative;
     width: 30rem;
+    flex-shrink: 0;
     overflow: hidden;
     border: 0.1rem solid rgba(237, 241, 255, 0.15);
     border-radius: 1.8rem;
@@ -1074,6 +1082,7 @@ footer {
         transform 0.4s ease,
         box-shadow 0.4s ease;
     scroll-snap-align: center;
+    
 }
 
 /* Imagen */
@@ -1346,6 +1355,11 @@ footer {
     scroll-behavior: smooth;
     gap: 2.2rem;
     width: 100%;
+    scrollbar-width: none;
+}
+
+.featured-products__track::-webkit-scrollbar {
+    display: none;
 }
 
 /* Flechas */
@@ -1439,9 +1453,10 @@ footer {
 @media (max-width: 90rem) {
     .featured-products__track {
         padding: 2rem;
-        overflow: hidden;
+        overflow: auto;
         scroll-snap-type: x mandatory;
         scroll-behavior: smooth;
+        
     }
 
 
