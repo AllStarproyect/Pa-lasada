@@ -1,172 +1,465 @@
-const team = [
-    { name: "Cesar Ruiz Flores", role: "Fullstack Development", img: "img/cesar.jpg", imgPosition: "center 10%", linkedin:"https://www.linkedin.com/in/cesar-ruiz-f/" },
-    { name: "José Manuel Limon Avila", role: "Fullstack Development", img: "img/limon.jpeg", linkedin:"https://www.linkedin.com/in/joselimonav/"},
-    { name: "Anai Ortiz Velazquez", role: "Fullstack Development", img: "img/Anahi.jpeg", imgPosition: "center 10%", linkedin:"https://www.linkedin.com/in/anai-ortiz-/" },
-    { name: "Brenda Lucrecia Flores Rivera", role: "Fullstack Development", img: "img/brenda.jpg", imgPosition: "center 20%", linkedin:"https://www.linkedin.com/in/brenda-flores-fi/" },
-    { name: "Denisse Azucena Garza Ascacio", role: "Fullstack Development", img: "img/Denisse.jpeg", imgPosition: "center 10%", linkedin:"https://www.linkedin.com/in/denissegarzas"},
-    { name: "Diana Cruz Delgado", role: "Fullstack Development", img: "img/dianaProductOwner.jpg", linkedin:"https://www.linkedin.com/in/diana-cd/" },
-    { name: "Jose Aldo Napoles Garza", role: "Fullstack Development", img: "img/JoseAldo.jpg", imgPosition: "center 5%", linkedin:"www.linkedin.com/in/jose-aldo-nápoles-garza-732106251"},
-    { name: "Roberto Perez Velasco", role: "Fullstack Development", img: "img/robertFurry.jpg", linkedin:"https://www.linkedin.com/in/robertopeve/" }
-];
+/* =========================================================
+   ELEMENTOS DEL LOGIN
+   ========================================================= */
+
+const signInBtn = document.getElementById("SignInBtn");
+const signUpBtn = document.getElementById("SignUpBtn");
+const authForm = document.getElementById("authForm");
 
 
-const container = document.getElementById("cards-container");
- 
-if (container) {
-    team.forEach(member => {
-    const card = document.createElement("div");
-    card.className = "team-card";
-    const position = member.imgPosition ? `style="object-position: ${member.imgPosition};"` : "";
-    card.innerHTML = `
-        <img src="${member.img}" alt="${member.name}" ${position}>
-        <h2>${member.name}</h2>
-        <p>Desarrollador parte de este e-commerce</p>
-        <div class="role">${member.role}</div>
-        <div class="socials">
-        <a href=""><i class="bi bi-linkedin"></i></a>
-        </div>
-    `;
-    container.appendChild(card);
-    });
-}
+/* =========================================================
+   ELEMENTOS DEL NAVBAR
+   ========================================================= */
+
 const userMenu = document.querySelector("#userMenu");
+const navbarCollapse = document.querySelector("#navbarNavDropdown");
 
-let usuarioLogueado = false;
+
+/* =========================================================
+   CAMPOS DEL LOGIN
+   ========================================================= */
+
+const signInFields = `
+    <input
+        type="text"
+        id="username"
+        placeholder="Usuario"
+        required
+    >
+
+    <input
+        type="password"
+        id="password"
+        placeholder="Contraseña"
+        required
+    >
+
+    <button type="submit">
+        Entrar
+    </button>
+`;
+
+
+const signUpFields = `
+    <input
+        type="email"
+        id="email"
+        placeholder="Correo"
+        required
+    >
+
+    <input
+        type="password"
+        id="password"
+        placeholder="Contraseña"
+        required
+    >
+
+    <button type="submit">
+        Registrarse
+    </button>
+`;
+
+
+/* =========================================================
+   ESTADO DEL USUARIO
+   ========================================================= */
+
+let usuarioLogueado =
+    localStorage.getItem("usuarioLogueado") === "true";
+
+
+/* =========================================================
+   FUNCIONES DEL LOGIN
+   ========================================================= */
+
+function ShowSignIn() {
+
+    authForm.innerHTML = signInFields;
+
+    signInBtn.classList.add("active");
+
+    signUpBtn.classList.remove("active");
+}
+
+
+function ShowSignUp() {
+
+    authForm.innerHTML = signUpFields;
+
+    signUpBtn.classList.add("active");
+
+    signInBtn.classList.remove("active");
+}
+
+
+/* =========================================================
+   EVENTOS DE LOS TABS
+   ========================================================= */
+
+signInBtn.addEventListener("click", function () {
+
+    ShowSignIn();
+
+});
+
+
+signUpBtn.addEventListener("click", function () {
+
+    ShowSignUp();
+
+});
+
+
+/* =========================================================
+   CERRAR MENÚ MOBILE
+   ========================================================= */
+
+function cerrarMenuMovil() {
+
+    if (
+        window.innerWidth <= 991 &&
+        navbarCollapse
+    ) {
+
+        const collapse =
+            bootstrap.Collapse.getOrCreateInstance(
+                navbarCollapse
+            );
+
+        collapse.hide();
+    }
+}
+
+
+/* =========================================================
+   IR AL LOGIN
+   ========================================================= */
+
+function irAlLogin() {
+
+    cerrarMenuMovil();
+
+    /*
+       Buscamos el formulario.
+       No necesitamos modificar el HTML original.
+    */
+
+    const loginBox =
+        document.querySelector(".login-box");
+
+    if (loginBox) {
+
+        loginBox.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
+
+    }
+
+}
+
+
+/* =========================================================
+   RENDERIZAR NAVBAR
+   ========================================================= */
 
 function renderNavbar() {
+
     if (usuarioLogueado) {
+
+        /*
+         * USUARIO LOGUEADO
+         */
+
         userMenu.innerHTML = `
+
             <div class="dropdown">
+
                 <button
                     class="btn btn-profile dropdown-toggle"
-                    data-bs-toggle="dropdown">
+                    type="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                    title="Mi cuenta"
+                >
+
                     <i class="bi bi-person-circle"></i>
+
                 </button>
+
+
                 <ul class="dropdown-menu dropdown-menu-end">
+
                     <li>
-                        <a class="dropdown-item" href="#">
-                            <i class="bi bi-person me-2"></i>
+
+                        <a
+                            class="dropdown-item"
+                            href="#"
+                        >
                             Mi perfil
                         </a>
+
                     </li>
+
+
                     <li>
-                        <a class="dropdown-item" href="#">
-                            <i class="bi bi-bag me-2"></i>
+
+                        <a
+                            class="dropdown-item"
+                            href="#"
+                        >
                             Mis pedidos
                         </a>
+
                     </li>
+
+
                     <li>
+
                         <hr class="dropdown-divider">
+
                     </li>
+
+
                     <li>
-                        <button class="dropdown-item" id="logout">
-                            <i class="bi bi-box-arrow-right me-2"></i>
+
+                        <button
+                            class="dropdown-item"
+                            id="logout"
+                            type="button"
+                        >
                             Cerrar sesión
                         </button>
+
                     </li>
+
                 </ul>
+
             </div>
         `;
 
-        const logout = document.querySelector("#logout");
+
+        /* -----------------------------------------
+           LOGOUT
+           ----------------------------------------- */
+
+        const logout =
+            document.querySelector("#logout");
+
 
         logout.addEventListener("click", function () {
+
             usuarioLogueado = false;
+
+            localStorage.removeItem("usuarioLogueado");
+
             renderNavbar();
+
+            cerrarMenuMovil();
+
         });
 
 
     } else {
 
+        /*
+         * USUARIO NO LOGUEADO
+         */
+
         userMenu.innerHTML = `
-            <div class="d-flex gap-2 login-buttons">
+
+            <div class="login-buttons">
+
                 <button
                     class="btn btn-outline-dark"
-                    id="login">
+                    id="login"
+                    type="button"
+                >
                     Iniciar sesión
                 </button>
-                <button class="btn btn-primary">
+
+
+                <button
+                    class="btn btn-primary"
+                    id="register"
+                    type="button"
+                >
                     Registrarse
                 </button>
+
             </div>
         `;
 
-        const login = document.querySelector("#login");
+
+        /* -----------------------------------------
+           BOTÓN INICIAR SESIÓN
+           ----------------------------------------- */
+
+        const login =
+            document.querySelector("#login");
+
 
         login.addEventListener("click", function () {
-            usuarioLogueado = true;
-            renderNavbar();
+
+            ShowSignIn();
+
+            irAlLogin();
+
         });
+
+
+        /* -----------------------------------------
+           BOTÓN REGISTRARSE
+           ----------------------------------------- */
+
+        const register =
+            document.querySelector("#register");
+
+
+        register.addEventListener("click", function () {
+
+            ShowSignUp();
+
+            irAlLogin();
+
+        });
+
     }
 }
 
-renderNavbar();
 
-//Parte del carrusel HOME denisse
-/* =========================================
-   CARRUSEL DE PRODUCTOS DESTACADOS
-   (No modificar clases/ids existentes)
-========================================= */
-document.querySelectorAll(".featured-products__carousel").forEach((carousel) => {
-    const track = carousel.querySelector(".featured-products__track");
-    const prevBtn = carousel.querySelector(".featured-products__arrow--prev");
-    const nextBtn = carousel.querySelector(".featured-products__arrow--next");
-    const dotsContainer = carousel.parentElement.querySelector(".featured-products__dots");
-    const dots = dotsContainer ? Array.from(dotsContainer.querySelectorAll(".featured-products__dot")) : [];
+/* =========================================================
+   SUBMIT DEL FORMULARIO
+   ========================================================= */
 
-    if (!track) return;
+authForm.addEventListener("submit", function (e) {
 
-    // Calcula cuánto hay que desplazar (ancho de una tarjeta + gap)
-    function getScrollAmount() {
-        const firstCard = track.querySelector(".product-card");
-        if (!firstCard) return track.clientWidth;
+    e.preventDefault();
 
-        const cardStyle = window.getComputedStyle(track);
-        const gap = parseFloat(cardStyle.columnGap || cardStyle.gap || 0) || 0;
 
-        return firstCard.getBoundingClientRect().width + gap;
+    /* -----------------------------------------
+       SIGN IN
+       ----------------------------------------- */
+
+    if (
+        signInBtn.classList.contains("active")
+    ) {
+
+        const username =
+            document.getElementById("username").value;
+
+        const password =
+            document.getElementById("password").value;
+
+
+        /*
+         * Guardamos los datos como hacía
+         * tu código original.
+         */
+
+        localStorage.setItem(
+            "username",
+            username
+        );
+
+        localStorage.setItem(
+            "password",
+            password
+        );
+
+
+        /*
+         * Marcamos al usuario como logueado.
+         */
+
+        usuarioLogueado = true;
+
+        localStorage.setItem(
+            "usuarioLogueado",
+            "true"
+        );
+
+
+        /*
+         * Actualizamos navbar.
+         */
+
+        renderNavbar();
+
+
+        alert(
+            "Sign in guardado en localStorage"
+        );
+
     }
 
-    // Mueve el carrusel hacia atrás
-    prevBtn?.addEventListener("click", () => {
-        track.scrollBy({ left: -getScrollAmount(), behavior: "smooth" });
-    });
 
-    // Mueve el carrusel hacia adelante
-    nextBtn?.addEventListener("click", () => {
-        track.scrollBy({ left: getScrollAmount(), behavior: "smooth" });
-    });
+    /* -----------------------------------------
+       SIGN UP
+       ----------------------------------------- */
 
-    // Navegación mediante los dots
-    dots.forEach((dot, index) => {
-        dot.addEventListener("click", () => {
-            const amount = getScrollAmount();
-            track.scrollTo({ left: amount * index, behavior: "smooth" });
-        });
-    });
+    else {
 
-    // Actualiza el dot activo según la posición del scroll
-    function updateActiveDot() {
-        if (dots.length === 0) return;
+        const email =
+            document.getElementById("email").value;
 
-        const amount = getScrollAmount();
-        const currentIndex = Math.round(track.scrollLeft / amount);
+        const password =
+            document.getElementById("password").value;
 
-        dots.forEach((dot, index) => {
-            const isActive = index === currentIndex;
-            dot.classList.toggle("featured-products__dot--active", isActive);
-            dot.setAttribute("aria-current", isActive ? "true" : "false");
-        });
+
+        localStorage.setItem(
+            "email",
+            email
+        );
+
+        localStorage.setItem(
+            "password",
+            password
+        );
+
+
+        /*
+         * Marcamos al usuario como logueado.
+         */
+
+        usuarioLogueado = true;
+
+        localStorage.setItem(
+            "usuarioLogueado",
+            "true"
+        );
+
+
+        /*
+         * Actualizamos navbar.
+         */
+
+        renderNavbar();
+
+
+        alert(
+            "Sign up guardado en localStorage"
+        );
+
     }
 
-    // Escucha el scroll para sincronizar los dots (con debounce simple)
-    let scrollTimeout;
-    track.addEventListener("scroll", () => {
-        clearTimeout(scrollTimeout);
-        scrollTimeout = setTimeout(updateActiveDot, 100);
-    });
-
-    // Estado inicial
-    updateActiveDot();
 });
 
+
+/* =========================================================
+   INICIALIZACIÓN
+   ========================================================= */
+
+/*
+ * Mostrar Sign In al cargar.
+ */
+
+ShowSignIn();
+
+
+/*
+ * Dibujar navbar.
+ */
+
+renderNavbar();
