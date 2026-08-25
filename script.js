@@ -1,12 +1,12 @@
 const team = [
-    { name: "Cesar Ruiz Flores", role: "Scrum Master", img: "img/cesar.jpg", imgPosition: "center 10%" },
-    { name: "José Manuel Limon Avila", role: "Product Owner", img: "img/limon.jpeg" },
-    { name: "Anahi Ortiz Velazquez", role: "Fullstack Development", img: "img/Anahi.jpeg", imgPosition: "center 10%" },
-    { name: "Brenda Flores", role: "Fullstack Development", img: "img/brenda.jpg", imgPosition: "center 20%" },
-    { name: "Denisse", role: "Fullstack Development", img: "img/Denisse.jpeg", imgPosition: "center 10%"},
-    { name: "Diana Cruz", role: "Fullstack Development", img: "img/dianaProductOwner.jpg" },
-    { name: "Jose Aldo Napoles Garza", role: "Fullstack Development", img: "img/JoseAldo.jpg", imgPosition: "center 5%" },
-    { name: "Roberto Perez Velasco", role: "Fullstack Development", img: "img/robertFurry.jpg" }
+    { name: "Cesar Ruiz Flores", role: "Fullstack Development", img: "img/cesar.jpg", imgPosition: "center 10%", linkedin:"https://www.linkedin.com/in/cesar-ruiz-f/" },
+    { name: "José Manuel Limon Avila", role: "Fullstack Development", img: "img/limon.jpeg", linkedin:"https://www.linkedin.com/in/joselimonav/"},
+    { name: "Anai Ortiz Velazquez", role: "Fullstack Development", img: "img/Anahi.jpeg", imgPosition: "center 10%", linkedin:"https://www.linkedin.com/in/anai-ortiz-/" },
+    { name: "Brenda Lucrecia Flores Rivera", role: "Fullstack Development", img: "img/brenda.jpg", imgPosition: "center 20%", linkedin:"https://www.linkedin.com/in/brenda-flores-fi/" },
+    { name: "Denisse Azucena Garza Ascacio", role: "Fullstack Development", img: "img/Denisse.jpeg", imgPosition: "center 10%", linkedin:"https://www.linkedin.com/in/denissegarzas"},
+    { name: "Diana Cruz Delgado", role: "Fullstack Development", img: "img/dianaProductOwner.jpg", linkedin:"https://www.linkedin.com/in/diana-cd/" },
+    { name: "Jose Aldo Napoles Garza", role: "Fullstack Development", img: "img/JoseAldo.jpg", imgPosition: "center 5%", linkedin:"www.linkedin.com/in/jose-aldo-nápoles-garza-732106251"},
+    { name: "Roberto Perez Velasco", role: "Fullstack Development", img: "img/robertFurry.jpg", linkedin:"https://www.linkedin.com/in/robertopeve/" }
 ];
 
 

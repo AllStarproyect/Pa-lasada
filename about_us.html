@@ -14,40 +14,96 @@
 </head>
 
 <body>
+    <nav class="navbar navbar-expand-lg navbar-custom">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="img/Logo3.png" alt="Logo" class="logo">
+            </a>
+            <div class="d-flex align-items-center ms-auto d-lg-none">
+                <button class="btn icon-btn position-relative">
+                    <i class="bi bi-cart3"></i>
+                    <span class="cart-badge">3</span>
+                </button>
+                <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                    aria-label="Abrir menú">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+
+            <!-- MENÚ COLAPSABLE -->
+            <div class="collapse navbar-collapse nav-links" id="navbarNavDropdown">
+                <ul class="navbar-nav mx-auto gap-lg-4">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Productos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about_us.html">
+                            Acerca de
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contacto.html">
+                            Contacto
+                        </a>
+                    </li>
+                </ul>
+                <div class="nav-actions">
+                    <button class="btn icon-btn position-relative d-none d-lg-block">
+                        <i class="bi bi-cart3"></i>
+                        <span class="cart-badge">3</span>
+                    </button>
+                    <!-- login / perfil -->
+                    <div id="userMenu"></div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </nav>
     <!-- acerca de empresa -->
     <main>
         <div class="container-historia-wrapper">
             <section class="section-history">
                 <div class="container-history">
-                     <div class="carousel-track">
-                    <div class="card-img-box">
-                        <img src="https://2.bp.blogspot.com/--1X0hsR-95U/T2CFdnfZiHI/AAAAAAAAMaM/ROkX6Jl2eAM/s1600/i12339_1.jpg"
-                            alt="Historia 1">
-                    </div>
+                    <div class="carousel-track">
+                        <div class="card-img-box">
+                            <img src="https://2.bp.blogspot.com/--1X0hsR-95U/T2CFdnfZiHI/AAAAAAAAMaM/ROkX6Jl2eAM/s1600/i12339_1.jpg"
+                                alt="Historia 1">
+                        </div>
 
-                    <div class="card-img-box">
-                        <img src="https://2.bp.blogspot.com/--1X0hsR-95U/T2CFdnfZiHI/AAAAAAAAMaM/ROkX6Jl2eAM/s1600/i12339_1.jpg"
-                            alt="Historia 2">
-                    </div>
+                        <div class="card-img-box">
+                            <img src="https://2.bp.blogspot.com/--1X0hsR-95U/T2CFdnfZiHI/AAAAAAAAMaM/ROkX6Jl2eAM/s1600/i12339_1.jpg"
+                                alt="Historia 2">
+                        </div>
 
-                    <div class="card-img-box">
-                        <img src="https://2.bp.blogspot.com/--1X0hsR-95U/T2CFdnfZiHI/AAAAAAAAMaM/ROkX6Jl2eAM/s1600/i12339_1.jpg"
-                            alt="Historia 3">
-                    </div>
+                        <div class="card-img-box">
+                            <img src="https://2.bp.blogspot.com/--1X0hsR-95U/T2CFdnfZiHI/AAAAAAAAMaM/ROkX6Jl2eAM/s1600/i12339_1.jpg"
+                                alt="Historia 3">
+                        </div>
                     </div>
                     <!-- Bloque de texto separado -->
                     <div class="card-history text-infoMV">
                         <h3>Historia</h3>
                         <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique accusantium harum optio
-                            ea placeat ipsam perferendis eum saepe animi accusamus nostrum ab dignissimos ratione nobis,
-                            dolore sed aut modi eaque.
-                            In libero iste, magni voluptatem quas omnis amet fuga repellat et sequi dolore ullam aliquid
-                            eligendi. Dicta quaerat, repellat necessitatibus laborum, eligendi ab earum itaque eaque
-                            alias minus rerum enim.
+                            En Palasada, la carne es más que un producto: es parte de nuestra historia, nuestras
+                            tradiciones y la forma en que compartimos momentos con quienes más queremos. Nacimos con el
+                            compromiso de ofrecer carne de la más alta calidad, cuidando cada detalle desde la selección
+                            del corte hasta que llega a tu mesa.
+                            Con el paso del tiempo, mantenemos la esencia de una carnicería de confianza, pero
+                            evolucionamos para estar más cerca de nuestros clientes. Hoy puedes encontrar tus cortes
+                            favoritos, conocer su disponibilidad y pedirlos desde cualquier lugar, con la seguridad de
+                            recibir productos frescos y de calidad directamente en tu casa.
+                            Nuestra misión es conservar lo que nos hace diferentes: el sabor de la tradición, el
+                            compromiso con la calidad y la confianza de siempre, adaptándonos a una nueva forma de
+                            comprar carne.
                         </p>
                     </div>
-                    
+
                 </div>
             </section>
         </div>
@@ -144,6 +200,7 @@
 
 
 
+    <script src="navbar.js"></script>
     <script src="script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
