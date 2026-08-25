@@ -1,3 +1,4 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css");
 html {
     width: 100%;
     height: 100%;
@@ -13,7 +14,7 @@ html {
 
 /*Espacio para darle diseño a la NavBar*/
 
-@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css");
+
 
 :root {
     --color-mostaza: #D4A017;
