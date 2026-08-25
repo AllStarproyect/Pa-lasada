@@ -1,0 +1,1509 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css");
+html {
+    width: 100%;
+    height: 100%;
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+/*Espacio para darle diseño a la NavBar*/
+
+
+
+:root {
+    --color-mostaza: #D4A017;
+    --color-crema: #F5F1E8;
+    --color-carbon: #2B2B2B;
+    --color-verde-oliva: #6B7A4E;
+    --color-taupe: #A18C6E;
+}
+
+.btn-primary {
+    background-color: var(--color-mostaza);
+    border-color: var(--color-mostaza);
+    color: white;
+    font-weight: 500;
+}
+
+.btn-primary:hover {
+    background-color: #b88912;
+    border-color: #b88912;
+}
+
+.navbar {
+    background-color: var(--color-crema);
+    color: var(--color-carbon);
+}
+
+.navbar-custom {
+    background-color: var(--color-crema);
+    padding: 10px 0;
+    box-shadow: 0 3px 15px rgba(43, 43, 43, 0.08);
+}
+
+.logo {
+    width: 75px;
+    height: 75px;
+    object-fit: contain;
+}
+
+.nav-link {
+    color: var(--color-carbon);
+    font-weight: 500;
+    position: relative;
+    transition: 0.3s;
+}
+
+.nav-link:hover {
+    color: var(--color-mostaza);
+}
+
+.nav-link.active {
+    color: var(--color-mostaza) !important;
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.icon-btn {
+    color: var(--color-verde-oliva);
+    border: none;
+    font-size: 1.4rem;
+}
+
+.icon-btn:hover {
+    color: var(--color-mostaza);
+}
+
+.cart-badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: var(--color-mostaza);
+    color: white;
+    font-size: 10px;
+    width: 17px;
+    height: 17px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+.btn-profile {
+    background: transparent;
+    border: none;
+    color: var(--color-verde-oliva);
+    font-size: 1.4rem;
+}
+
+.btn-profile:hover {
+    color: var(--color-mostaza);
+}
+
+@media (max-width: 991px) {
+    .navbar-custom {
+        padding: 8px 15px;
+    }
+
+    .logo {
+        width: 65px;
+        height: 65px;
+    }
+
+    .navbar-collapse {
+        position: absolute;
+        top: 100%;
+        left: 10px;
+        right: 10px;
+        margin-top: 15px;
+        background-color: var(--color-crema);
+        padding: 20px;
+        border-radius: 0 0 15px 15px;
+        box-shadow: 0 8px 15px rgba(43, 43, 43, 0.08);
+    }
+
+    .navbar-nav {
+        gap: 5px !important;
+    }
+
+    .nav-link {
+        padding: 12px 5px;
+        border-bottom: 1px solid rgba(43, 43, 43, 0.1);
+    }
+
+    .nav-link.active::after {
+        display: none;
+    }
+
+    .nav-actions {
+        margin-top: 20px;
+        width: 100%;
+        flex-wrap: wrap;
+    }
+
+    #userMenu {
+        width: 100%;
+    }
+
+    #userMenu .btn-primary {
+        width: 100%;
+        margin-top: 8px;
+    }
+}
+
+/*Espacio para darle diseño al contenido principal*/
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.mainCont {
+    flex: 1;
+
+}
+
+.flexCont {
+    display: flex;
+    /*grid-template-columns: 2fr 1fr;*/
+    gap: 20px;
+    align-items: center;
+    width: 100%;
+
+}
+
+.txtCont {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+}
+
+/*Carrusel*/
+:root {
+    --card-bg: #e0e0e0;
+    --accent-red: #c23325;
+    --text-dark: #222222;
+    --text-muted: #555555;
+    --badge-bg: #8c8175;
+}
+
+/* Modificación de tu clase carrusel para soportar las escalas de las tarjetas sin cortarse */
+.carrusel {
+    position: relative;
+    width: 100%;
+    max-width: 1100px;
+    margin: 30px auto;
+    overflow: visible;
+    /* Cambiado de hidden a visible para lucir el escalado central */
+}
+
+/* Modificación de tu carruselTrack para renderizar las tarjetas alineadas */
+.carruselTrack {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    padding: 30px 0;
+}
+
+/* Modificación de tu carruselItem para adaptarlo al tamaño fijo de tarjeta */
+.carruselItem {
+    flex: 0 0 auto;
+    min-width: 320px;
+    scroll-snap-align: center;
+    transition: transform 0.4s ease;
+}
+
+/* Efecto de enfoque central */
+.carruselItem.active {
+    transform: scale(1.12);
+    z-index: 5;
+}
+
+/* --- Estructura interna de los elementos de la tarjeta --- */
+.card {
+    background-color: var(--card-bg);
+    border: 1.5px solid #222222;
+    border-radius: 24px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.carruselItem.active .card {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.card-header {
+    padding: 14px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-title {
+    font-size: 18px;
+    font-weight: 500;
+    margin: 0;
+    color: var(--text-dark);
+}
+
+.hot-sale-badge {
+    background-color: var(--badge-bg);
+    color: #000000;
+    font-size: 11px;
+    padding: 4px 12px;
+    border-radius: 12px;
+    border: 1px solid #222222;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+/* Control contenedor para que tus imágenes reales no se deformen */
+.card-image {
+    height: 160px;
+    width: 100%;
+    border-top: 1.5px solid #222222;
+    border-bottom: 1.5px solid #222222;
+    overflow: hidden;
+    transition: height 0.4s ease;
+}
+
+.carruselItem.active .card-image {
+    height: 200px;
+    /* La imagen se expande en la tarjeta activa */
+}
+
+/* Integración de tu código original 'img' pero adaptado a la tarjeta */
+.card-image img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+.card-body {
+    padding: 16px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100px;
+    position: relative;
+    transition: padding 0.4s ease;
+}
+
+.carruselItem.active .card-body {
+    padding: 24px 20px;
+}
+
+.card-description {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin: 0 0 12px 0;
+}
+
+.carruselItem.active .card-description {
+    margin-bottom: 40px;
+}
+
+.card-price {
+    font-size: 15px;
+    color: var(--text-dark);
+    font-weight: 500;
+}
+
+/* Botón flotante (+) */
+.add-btn {
+    position: absolute;
+    right: 20px;
+    bottom: 16px;
+    width: 44px;
+    height: 44px;
+    background-color: var(--accent-red);
+    color: white;
+    border: 1.5px solid #222222;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s ease;
+}
+
+.carruselItem.active .add-btn {
+    width: 54px;
+    height: 54px;
+    font-size: 28px;
+    bottom: 20px;
+}
+
+/* Ajustes de posición para tus flechas nativas (.arrow) */
+.left {
+    left: -25px;
+}
+
+.right {
+    right: -25px;
+}
+
+/* Contenedor centralizado para los puntos */
+.dots-container {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 30px;
+    width: 100%;
+}
+
+/* Estilo base para cada círculo */
+.dot {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: #d1c7bd;
+    /* Color beige claro original */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Asignación de los tonos por defecto del diagrama original */
+.dots-container .dot:nth-child(1) {
+    background-color: #d1c7bd;
+}
+
+.dots-container .dot:nth-child(2) {
+    background-color: #bfae9e;
+}
+
+/* Tono beige oscuro central */
+.dots-container .dot:nth-child(3) {
+    background-color: #d1c7bd;
+}
+
+/* Estado activo cuando la tarjeta es seleccionada (se vuelve roja) */
+.dots-container .dot.active {
+    background-color: var(--accent-red) !important;
+}
+
+/* ==========================================================================
+   DISEÑO RESPONSIVO (Añadir al final del archivo CSS)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .carrusel {
+        max-width: 100%;
+        overflow: hidden;
+        /* Evita que las tarjetas bloqueen el scroll vertical del sitio */
+        padding: 0 10px;
+        box-sizing: border-box;
+    }
+
+    .carruselTrack {
+        gap: 16px;
+        /* Ajusta la separación de las tarjetas en pantallas táctiles */
+        padding: 20px 0;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        /* Suavizado táctil para iOS */
+    }
+
+    .carruselItem {
+        min-width: 280px;
+        /* Tamaño ideal adaptable para teléfonos compactos */
+        max-width: 300px;
+    }
+
+    /* Reducción proporcional del escalado en móviles */
+    .carruselItem.active {
+        transform: scale(1.04);
+    }
+
+    /* Evitamos que la tarjeta central crezca de forma excesiva hacia abajo en celulares */
+    .carruselItem.active .card-image {
+        height: 170px;
+    }
+
+    .carruselItem.active .card-body {
+        padding: 16px 20px;
+    }
+
+    .carruselItem.active .card-description {
+        margin-bottom: 12px;
+        position: relative;
+        bottom: 0;
+        left: 0;
+    }
+
+    /* Reposición táctica de las flechas flotando por encima de los bordes del móvil */
+    .arrow {
+        padding: 12px;
+        font-size: 16px;
+        background: rgba(0, 0, 0, 0.75);
+    }
+
+    .left {
+        left: 5px;
+    }
+
+    .right {
+        right: 5px;
+    }
+
+    /* Reducción sutil de los círculos para que se mantengan centrados */
+    .dot {
+        width: 18px;
+        height: 18px;
+    }
+}
+
+
+/*Espacio para configurar las clases de las imagenes*/
+
+.img1 {
+    /*Se debe de modificar, no se muestra como se debe*/
+    /*max-width: 300px;*/
+    width: 300px;
+    height: auto;
+}
+
+.imgRedes {
+    width: 100%;
+    max-width: 40px;
+    height: auto;
+    display: block;
+}
+
+.logoFooter {
+    width: 100%;
+    max-width: 190px;
+    height: auto;
+    display: block;
+    border-radius: 50%;
+}
+
+.linkRedes {
+    display: inline-block;
+    transition: transform 0.2s ease;
+}
+
+.iconosCont {
+    display: flex;
+    gap: 20px;
+    position: static;
+    /*left: 20px;*/
+}
+
+.enlaceB {
+    display: block;
+    margin-bottom: 8px;
+    margin-right: 10px;
+    color: #C9A227;          
+    text-decoration: none;
+}
+
+.enlaceB:hover {
+    color: #E0B830;          
+}
+
+/*Los footer van hasta el final*/
+footer {
+    background-color: #222422;
+    color: #f5f1eb;
+    padding: 20px 0;
+    container-type: inline-size;
+    container-name: footer-container;
+
+}
+
+.footerCont {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.footerSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.footerBottom {
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 15px;
+    border-top: 1px solid #444444;
+    font-size: 14px;
+    color: #aaaaaa;
+}
+
+.redesSociales {
+    display: flex;
+    flex-direction: column;
+    /*Se agrega para responsive*/
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    width: 100%;
+    /*position: relative;*/
+    position: relative;
+}
+
+/* --- DISEÑO PARA COMPUTADORAS (Pantallas medianas y grandes) --- */
+
+/* Cuando el contenedor del footer mida más de 768px (Tablets grandes y PC) */
+@container footer-container (min-width: 768px) {
+
+    .redesSociales {
+        flex-direction: row;
+        /* Alinear horizontalmente */
+        justify-content: center;
+        position: relative;
+    }
+
+    .seccion-izq {
+        /* El truco definitivo: empuja todo lo que está a su derecha hacia el extremo opuesto, 
+           pero al estar dentro de flexbox mantiene al logo perfectamente centrado en el contenedor */
+        margin-right: auto;
+        text-align: left;
+    }
+
+    .footerSection {
+        /* Para asegurar un centrado milimétrico, compensamos el espacio absoluto si fuera necesario,
+           o simplemente lo dejamos fluir en el centro */
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+}
+
+
+
+.tomahawk-hero {
+    --dark: #222422;
+    --beige: #BAAF9A;
+    --brown: #6E6656;
+    --red: #A84A32;
+    --white: #EDF1FF;
+
+    position: relative;
+    width: 100%;
+    min-height: 62rem;
+    overflow: hidden;
+    background: var(--dark);
+
+    display: flex;
+    align-items: center;
+}
+
+/* Imagen */
+.tomahawk-hero__image {
+    position: absolute;
+    inset: 0;
+    background-image: url("https://images.openai.com/static-rsc-4/SIXdqZLGsEWVRroEyo-b38sTH9VGpE_jo23iby5-claysaGICVMqGEhLjv9YRmI90f9Hm5SPSTzoM-e6GT8t6Z82OBLO7ICSvPHLjGJ2avULhAJVSLN_G5ky0pNxK0iswyFGNOMDf7Or9G3kjSetPhNoz6RqDnKhEqsmmw-8fDWZYFNQTAye7sDZ_o147IuS?purpose=fullsize");
+    background-size: cover;
+    background-position: 25% center;
+
+    transform: scale(1.02);
+}
+
+/* Oscurecimiento de la imagen */
+.tomahawk-hero__overlay {
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(90deg,
+            rgba(34, 36, 34, 0.05) 0%,
+            rgba(34, 36, 34, 0.20) 35%,
+            rgba(34, 36, 34, 0.72) 62%,
+            rgba(34, 36, 34, 0.96) 100%);
+}
+
+/* Contenido */
+.tomahawk-hero__content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 125rem;
+    margin: 0 auto;
+    padding: 8rem 6rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: left;
+}
+
+/* Pequeño texto superior */
+.tomahawk-hero__eyebrow {
+    width: 48%;
+    margin-bottom: 2rem;
+
+    color: var(--beige);
+
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: 4px;
+}
+
+/* Título */
+.tomahawk-hero__content h1 {
+    width: 48%;
+    margin: 0;
+
+    color: var(--white);
+    font-size: clamp(48px, 5vw, 78px);
+    line-height: 0.95;
+    font-weight: 700;
+    letter-spacing: -2px;
+}
+
+.tomahawk-hero__content h1 span {
+    color: var(--beige);
+}
+
+/* Descripción */
+.tomahawk-hero__content p {
+    width: 48%;
+    max-width: 52rem;
+
+    margin: 2.8rem 0 3.5rem;
+
+    color: rgba(237, 241, 255, 0.78);
+
+    font-size: 1.7rem;
+    line-height: 1.7;
+}
+
+/* Botón */
+.tomahawk-hero__button {
+    align-self: flex-end;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 1.8rem;
+
+    padding: 1.6rem 2.5rem;
+
+    background: var(--red);
+    color: var(--white);
+
+    text-decoration: none;
+
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: 0.05rem;
+
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.tomahawk-hero__button span {
+    font-size: 2rem;
+    line-height: 1;
+}
+
+.tomahawk-hero__button:hover {
+    background: #913d2b;
+    transform: translateY(-2px);
+
+    box-shadow: 0 10px 30px rgba(168, 74, 50, 0.25);
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 900px) {
+
+    .tomahawk-hero {
+        min-height: 58rem;
+    }
+
+    .tomahawk-hero__content {
+        padding: 7rem 4rem;
+    }
+
+    .tomahawk-hero__eyebrow,
+    .tomahawk-hero__content h1,
+    .tomahawk-hero__content p {
+        width: 55%;
+    }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 650px) {
+
+    .tomahawk-hero {
+        min-height: 68rem;
+        align-items: flex-end;
+    }
+
+    .tomahawk-hero__image {
+        background-position: 30% center;
+    }
+
+    .tomahawk-hero__overlay {
+        background:
+            linear-gradient(180deg,
+                rgba(34, 36, 34, 0.05) 0%,
+                rgba(34, 36, 34, 0.25) 35%,
+                rgba(34, 36, 34, 0.88) 68%,
+                rgba(34, 36, 34, 1) 100%);
+    }
+
+    .tomahawk-hero__content {
+        padding: 4.5rem 2.5rem;
+        align-items: flex-start;
+    }
+
+    .tomahawk-hero__eyebrow,
+    .tomahawk-hero__content h1,
+    .tomahawk-hero__content p {
+        width: 100%;
+    }
+
+    .tomahawk-hero__eyebrow {
+        font-size: 1.3rem;
+        letter-spacing: 0.3rem;
+    }
+
+    .tomahawk-hero__content h1 {
+        font-size: clamp(42px, 13vw, 60px);
+        letter-spacing: -1.5px;
+    }
+
+    .tomahawk-hero__content p {
+        margin: 2.2rem 0 2.8rem;
+        font-size: 1.5rem;
+    }
+
+    .tomahawk-hero__button {
+        align-self: flex-start;
+    }
+}
+
+
+.why-us {
+    background: #EDF1FF;
+    color: #222422;
+    padding: 8rem;
+    font-family: inherit
+}
+
+.why-us__header {
+    max-width: 65rem;
+    margin: 0 auto 2rem;
+    text-align: center
+}
+
+.why-us__header>span {
+    color: #85704b;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 3px
+}
+
+.why-us__header h2 {
+    margin: 1rem 0 2rem;
+    font-size: clamp(36px, 4vw, 52px);
+    line-height: 1;
+    letter-spacing: -1px
+}
+
+.why-us__header p {
+    margin: 0;
+    color: #222422;
+    font-size: 1.6rem;
+    line-height: 1.7
+}
+
+.why-us__grid {
+    max-width: 110rem;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    border-top: 1px solid rgba(186, 175, 154, .2);
+    border-left: 1px solid rgba(186, 175, 154, .2)
+}
+
+.why-card {
+    display: flex;
+    gap: 2.4rem;
+    padding: 4.2rem;
+    border: 1px solid rgba(128, 101, 52, 0.5);
+    transition: .3s ease
+}
+
+.why-card:hover {
+    background: rgba(110, 102, 86, .08)
+}
+
+.why-card__icon {
+    flex: none;
+    width: 4.5rem;
+    height: 4.5rem;
+    border: 1px solid #A84A32;
+    color: #A84A32;
+    display: grid;
+    place-items: center;
+    font-size: 1.2rem;
+    font-weight: 700
+}
+
+.why-card h3 {
+    margin: 0.3rem 0 1rem;
+    font-size: 2.1rem
+}
+
+.why-card p {
+    margin: 0;
+    color: #222422;
+    font-size: 1.4rem;
+    line-height: 1.7
+}
+
+@media(max-width:650px) {
+    .why-us {
+        padding: 7.5rem 2.2rem
+    }
+
+    .why-us__header {
+        margin-bottom: 4rem
+    }
+
+    .why-us__grid {
+        grid-template-columns: 1fr
+    }
+
+    .why-card {
+        padding: 3rem 2.5rem
+    }
+}
+
+
+.products-hero {
+    position: relative;
+    min-height: 50rem;
+    overflow: hidden;
+    background: #222422;
+    color: #EDF1FF;
+    background: url("https://images.openai.com/static-rsc-4/lMsx794KJg5NN2kiEH_ArnsEGuvHH9h2WJ0xHsMFEpaQmUtEOR-AFxEhnOQPrwLD7koGlfQkgR3R2d_BeuWEUqgaYXSWE3gVtU_tlE2Jwuf_-vIZxrC6bN0V8YIdsMCHeHQJ40zLMQ5mciINPUVI8gO37U1svwULk_oUXwr4MPeosof7V77kfyYg1s3xywE5?purpose=fullsize") 25% center/cover no-repeat
+}
+
+.products-hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(34, 36, 34, .05) 0%, rgba(34, 36, 34, .12) 35%, rgba(34, 36, 34, .72) 62%, #222422 100%);
+}
+
+.products-hero__content {
+    position: relative;
+    z-index: 1;
+    width: 44%;
+    margin-left: auto;
+    margin-right: 7%;
+    min-height: 55rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.products-hero__eyebrow {
+    margin-bottom: 1.8rem;
+    color: #BAAF9A;
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: .35rem
+}
+
+.products-hero h1 {
+    margin: 0;
+    color: #EDF1FF;
+    font-size: clamp(4.5rem, 5.5vw, 7rem);
+    line-height: .95;
+    letter-spacing: -.15rem
+}
+
+.products-hero h1 em {
+    color: #BAAF9A;
+    font-style: normal
+}
+
+.products-hero p {
+    max-width: 48rem;
+    margin: 2.8rem 0 3.2rem;
+    color: rgba(237, 241, 255, .72);
+    font-size: 1.7rem;
+    line-height: 1.65
+}
+
+.products-hero__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 1.8rem;
+    padding: 1.6rem 2.5rem;
+    background: #A84A32;
+    color: #EDF1FF;
+    text-decoration: none;
+    font-size: 1.4rem;
+    font-weight: 700;
+    transition: .3s ease
+}
+
+.products-hero__cta span {
+    font-size: 2rem;
+    line-height: 1
+}
+
+.products-hero__cta:hover {
+    background: #913D2B;
+    transform: translateY(-.2rem);
+    box-shadow: 0 1rem 3rem rgba(168, 74, 50, .25)
+}
+
+@media(max-width:90rem) {
+    .products-hero__content {
+        width: 48%;
+        margin-right: 5%
+    }
+}
+
+@media(max-width:65rem) {
+    .products-hero {
+        min-height: 50rem;
+        background-position: 30% center
+    }
+
+
+    .products-hero__overlay {
+        /*background: linear-gradient(180deg, rgba(34, 36, 34, .05) 10%, rgba(34, 36, 34, .3) 42%, rgba(34, 36, 34, .95) 78%, #222422 100%)*/
+    }
+
+    .products-hero__content {
+        width: auto;
+        min-height: 50rem;
+        margin: 0;
+        padding: 4rem 3rem;
+        justify-content: flex-end
+    }
+
+    .products-hero h1 {
+        font-size: clamp(4.2rem, 10vw, 6rem)
+    }
+
+    .products-hero p {
+        font-size: 1.6rem;
+        margin: 2.2rem 0 2.8rem
+    }
+}
+
+@media(max-width:40rem) {
+    .products-hero {
+        min-height: 55rem
+    }
+
+    .products-hero__content {
+        min-height: 62rem;
+        padding: 3rem 2rem
+    }
+
+    .products-hero__eyebrow {
+        font-size: 1.1rem;
+        letter-spacing: .25rem
+    }
+
+    .products-hero h1 {
+        font-size: 4.5rem
+    }
+
+    .products-hero p {
+        font-size: 1.5rem
+    }
+
+    .products-hero__cta {
+        width: 100%;
+        justify-content: center
+    }
+}
+
+/* Carrusel y diseno de card de productos de napoles*/
+
+
+
+
+
+
+.product-card {
+    position: relative;
+    width: 30rem;
+    flex-shrink: 0;
+    overflow: hidden;
+    border: 0.1rem solid rgba(237, 241, 255, 0.15);
+    border-radius: 1.8rem;
+    background: rgba(237, 241, 255, 0.07);
+    box-shadow: 0 2.5rem 7rem rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(1.4rem);
+    -webkit-backdrop-filter: blur(1.4rem);
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease;
+    scroll-snap-align: center;
+    
+}
+
+/* Imagen */
+
+.product-card__image {
+    position: relative;
+    height: 28rem;
+    overflow: hidden;
+}
+
+.product-card__image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s ease;
+}
+
+.product-card:hover .product-card__image img {
+    transform: scale(1.06);
+}
+
+/* Overlay */
+.product-card__image::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom,
+            rgba(34, 36, 34, 0.05) 40%,
+            rgba(34, 36, 34, 0.65));
+}
+
+/* Badge */
+.product-card__badge {
+    position: absolute;
+    top: 1.8rem;
+    right: 1.8rem;
+    z-index: 2;
+    padding: 0.7rem 1.2rem;
+    border: 0.1rem solid rgba(237, 241, 255, 0.18);
+    border-radius: 10rem;
+    background: rgba(34, 36, 34, 0.65);
+    color: #EDF1FF;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.15rem;
+    backdrop-filter: blur(1rem);
+}
+
+/* Botón + */
+
+.product-card__add {
+    position: absolute;
+    right: 1.8rem;
+    bottom: 1.8rem;
+    z-index: 4;
+
+    width: 4.5rem;
+    height: 4.5rem;
+
+    border: 0;
+    border-radius: 50%;
+
+    background: #A84A32;
+    color: #EDF1FF;
+
+    font-size: 2.2rem;
+    font-weight: 300;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease;
+}
+
+.product-card__add:hover {
+    transform: rotate(90deg);
+    background: #BAAF9A;
+    color: #222422;
+}
+
+
+/* Contenido glass */
+
+.product-card__content {
+    position: relative;
+    z-index: 3;
+    min-height: 15.5rem;
+    margin-top: -4.2rem;
+    padding: 2.2rem;
+    border-top: 0.1rem solid rgba(237, 241, 255, 0.2);
+    background: linear-gradient(135deg,
+            rgba(237, 241, 255, 0.15),
+            rgba(110, 102, 86, 0.20));
+    backdrop-filter: blur(2rem);
+    -webkit-backdrop-filter: blur(2rem);
+}
+
+/* Categoría */
+
+.product-card__category {
+    color: #BAAF9A;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.2rem;
+}
+
+/* Nombre */
+
+.product-card__title {
+    margin: 0.8rem 0 0.4rem;
+    color: #EDF1FF;
+    font-family: Georgia, serif;
+    font-size: 2.4rem;
+    font-weight: 400;
+}
+
+
+/* Peso */
+
+.product-card__weight {
+    color: rgba(237, 241, 255, 0.55);
+    font-size: 1.2rem;
+}
+
+
+/* Footer */
+
+.product-card__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1.8rem;
+}
+
+
+/* Precio */
+
+.product-card__price {
+    color: #EDF1FF;
+    font-size: 1.9rem;
+    font-weight: 600;
+}
+
+
+/* Comprar */
+
+.product-card__button {
+    padding: 0.9rem 1.5rem;
+    border: 0;
+    border-radius: 0.6rem;
+    background: #A84A32;
+    color: #EDF1FF;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease;
+}
+
+.product-card__button:hover {
+    background: #BAAF9A;
+    color: #222422;
+    transform: translateY(-0.2rem);
+}
+
+
+/* =================================
+   MODIFICADOR: CARD DESTACADA
+================================= */
+
+.product-card--featured {
+    width: 35rem;
+    transform: translateY(-2rem);
+    box-shadow: 0 3.5rem 9rem rgba(0, 0, 0, 0.48);
+}
+
+.product-card--featured .product-card__image {
+    height: 33rem;
+}
+
+/* Hover de la card */
+
+.product-card:hover {
+    box-shadow: 0 3rem 8rem rgba(0, 0, 0, 0.45);
+}
+
+.product-card--featured:hover {
+    transform: translateY(-2.5rem);
+}
+
+.featured-products {
+    padding: 10rem 4rem;
+    overflow: hidden;
+
+    background:
+        radial-gradient(circle at 50% 45%,
+            rgba(110, 102, 86, 0.22),
+            transparent 45%),
+        #222422;
+    color: #EDF1FF;
+}
+
+.product-card__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+
+    padding: 2rem;
+
+    filter:
+        drop-shadow(0 2rem 2rem rgba(0, 0, 0, .45));
+
+    transition: transform .7s ease;
+}
+
+
+/* Header */
+.featured-products__header {
+    max-width: 70rem;
+    margin: 0 auto 5.5rem;
+    text-align: center;
+}
+
+.featured-products__eyebrow {
+    display: block;
+    margin-bottom: 1.2rem;
+    color: #BAAF9A;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.4rem;
+}
+
+.featured-products__title {
+    margin: 0;
+    color: #EDF1FF;
+    font-family: Georgia, serif;
+    font-size: clamp(3.8rem, 5vw, 6.2rem);
+    font-weight: 400;
+}
+
+.featured-products__description {
+    max-width: 50rem;
+    margin: 2rem auto 0;
+    color: rgba(237, 241, 255, 0.62);
+    font-size: 1.4rem;
+    line-height: 1.7;
+}
+
+
+/* Carousel */
+
+.featured-products__carousel {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 125rem;
+    margin: auto;
+}
+
+.featured-products__track {
+    display: flex;
+    overflow-x: auto;
+    align-items: center;
+    justify-content: safe center;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    gap: 2.2rem;
+    width: 100%;
+    scrollbar-width: none;
+}
+
+.featured-products__track::-webkit-scrollbar {
+    display: none;
+}
+
+/* Flechas */
+
+.featured-products__arrow {
+    position: absolute;
+    z-index: 10;
+    display: grid;
+    place-items: center;
+    width: 4.8rem;
+    height: 4.8rem;
+    border: 0.1rem solid rgba(237, 241, 255, 0.18);
+    border-radius: 50%;
+    background: rgba(237, 241, 255, 0.06);
+    color: #EDF1FF;
+    font-size: 2.2rem;
+    cursor: pointer;
+    backdrop-filter: blur(1.2rem);
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease;
+}
+
+.featured-products__arrow:hover {
+    background: rgba(168, 74, 50, 0.8);
+    transform: scale(1.08);
+}
+
+.featured-products__arrow--prev {
+    left: -2.5rem;
+}
+
+.featured-products__arrow--next {
+    right: -2.5rem;
+}
+
+
+/* Ver todo */
+
+.featured-products__view-all {
+    display: block;
+    width: fit-content;
+    margin: 5.5rem auto 2rem;
+    padding: 1.3rem 3rem;
+    border: 0.1rem solid rgba(237, 241, 255, 0.22);
+    border-radius: 0.6rem;
+    color: #EDF1FF;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.15rem;
+    text-decoration: none;
+    backdrop-filter: blur(1rem);
+    transition: 0.3s ease;
+}
+
+.featured-products__view-all:hover {
+    border-color: #A84A32;
+    background: #A84A32;
+}
+
+/* Dots */
+
+.featured-products__dots {
+    display: flex;
+    justify-content: center;
+
+    gap: 0.8rem;
+}
+
+.featured-products__dot {
+    width: 0.8rem;
+    height: 0.8rem;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: #BAAF9A;
+    opacity: 0.6;
+    cursor: pointer;
+}
+
+.featured-products__dot--active {
+    width: 2.5rem;
+    border-radius: 1rem;
+    background: #A84A32;
+    opacity: 1;
+}
+
+
+/* Responsive */
+
+@media (max-width: 90rem) {
+    .featured-products__track {
+        padding: 2rem;
+        overflow: auto;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        
+    }
+
+
+    .product-card--featured {
+        width: min(35rem, 90vw);
+
+        transform: none;
+    }
+
+    .product-card--featured:hover {
+        transform: none;
+    }
+
+    .featured-products__arrow--prev {
+        left: 0.5rem;
+    }
+
+    .featured-products__arrow--next {
+        right: 0.5rem;
+    }
+}
+
+@media (max-width: 50rem) {
+
+    .featured-products {
+        padding: 7rem 1.5rem;
+    }
+
+    .product-card:not(.product-card--featured) {
+        display: none;
+    }
+
+    .featured-products__title {
+        font-size: 4rem;
+    }
+
+    .product-card--featured {
+        width: 70%;
+    }
+
+    .product-card--featured .product-card__image {
+        height: 30rem;
+    }
+
+    .featured-products__arrow {
+        width: 3.8rem;
+        height: 3.8rem;
+    }
+}
