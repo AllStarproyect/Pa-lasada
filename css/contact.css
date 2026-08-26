@@ -1,3 +1,8 @@
+/* =========================================================
+   CONTACT PAGE
+   ========================================================= */
+
+
 .map-container {
   height: 250px;
   grid-column: 1 / -1;  /*Empieza en la primera columna y termina en la ultima*/
