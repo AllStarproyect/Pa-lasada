@@ -47,7 +47,7 @@
         linear-gradient(90deg,
             rgba(34, 36, 34, 0.35),
             rgba(34, 36, 34, 0.65)),
-        url("/img/backgrounndCarneLogin.png");
+        url("../assets/img/backgrounndCarneLogin.png");   /* ✅ igual que en about-us.css */
 
     background-size: cover;
     background-position: cover left;
