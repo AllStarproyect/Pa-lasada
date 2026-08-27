@@ -1,0 +1,419 @@
+/* =========================================================
+   SIGN IN PAGE
+   ========================================================= */
+
+/* =========================================================
+   SIGN IN - NAVBAR OVERRIDES
+   ========================================================= */
+
+.navbar-custom {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    max-width: 100%;
+    z-index: 1000;
+}
+
+.navbar-container {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    display: flex;
+    align-items: center;
+}
+
+/* =========================================================
+   WELCOME GRIDS
+   ========================================================= */
+
+.container {
+    --bs-gutter-x: 0;
+    display: grid;
+
+    width: 100%;
+    max-width: none;
+
+    margin: 0;
+    padding: 0;
+
+    grid-template-columns: 20% 60% 20%;
+
+    height: 100vh;
+
+    background-image:
+        linear-gradient(90deg,
+            rgba(34, 36, 34, 0.35),
+            rgba(34, 36, 34, 0.65)),
+        url("../assets/img/backgrounndCarneLogin.png");  
+
+    background-size: cover;
+    background-position: cover left;
+    background-repeat: no-repeat;
+}
+
+
+.container1 {
+
+    /* background-color: red; */
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    /* centra horizontal */
+
+    justify-content: center;
+
+    /* centra vertical */
+
+    width: 100%;
+    min-height: 100vh;
+
+    /* que ocupe toda la altura del main */
+
+    gap: 2rem;
+    padding: 2rem;
+
+    /* espacio fijo entre marca y login */
+}
+
+
+.brand {
+    flex: 0 0 auto;
+    /* altura natural del contenido */
+}
+
+
+.login {
+    flex: 0 0 auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    /* altura natural */
+}
+
+
+.login-box {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 2.2rem;
+
+    background: rgba(255, 255, 255, 0.05);
+
+    width: 100%;
+
+    /* soporte en Safari */
+
+    padding: 3rem;
+
+    border-radius: 1.2rem;
+
+    /* width: 40rem; */
+
+    border: 1px solid rgba(255, 255, 255, 0.3);
+
+    /* borde sutil */
+
+    min-height: 100%;
+
+    /* min-width: 50rem; */
+
+    /* fondo semitransparente */
+
+    backdrop-filter: blur(10px);
+
+    /* desenfoque detrás */
+
+    -webkit-backdrop-filter: blur(10px);
+}
+
+
+.tabs {
+    display: flex;
+    gap: 0.5rem;
+    width: 100%;
+}
+
+
+.tab-btn {
+    flex: 1;
+    padding: 1rem;
+    font-size: 1.4rem;
+    border: none;
+    border-radius: 0.4rem;
+    color: #f8f5f5;
+    cursor: pointer;
+    background-color: #4A3527;
+}
+
+
+.tab-btn.active {
+    background-color: #BAAF9A;
+    color: #100f0f;
+}
+
+
+#authForm {
+
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+
+input,
+#authForm button {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.4rem;
+}
+
+
+#authForm button {
+    background-color: #C9A26D;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   DESKTOP GRANDE
+   Mayor a 1108px
+   ========================================================= */
+
+@media (min-width: 1108px) {
+
+    .container {
+        grid-template-columns: 10% 80% 10%;
+    }
+
+
+    .container1 {
+        padding: 2rem;
+    }
+
+
+    .login-box {
+        width: 90%;
+        max-width: 80rem;
+        min-width: 60rem;
+        padding: 2.5rem;
+    }
+
+
+    .navbar-container {
+        max-width: none;
+    }
+
+}
+
+
+/* =========================================================
+   TABLET / PANTALLAS MEDIANAS
+   Desde 767px hasta 1107px
+   ========================================================= */
+
+@media (min-width: 767px) and (max-width: 1107px) {
+
+    .container {
+        grid-template-columns: 1fr;
+        min-height: 100vh;
+
+        /* background-position: center; */
+    }
+
+
+    .container>aside {
+        display: none;
+    }
+
+
+    .container1 {
+        width: 100%;
+        min-height: 100vh;
+        padding: 2rem;
+        gap: 2.5rem;
+    }
+
+
+    .login {
+
+        width: 100%;
+    }
+
+
+    .login-box {
+
+        width: 90%;
+
+        /*
+         * Mayor a 55rem
+         */
+
+        min-width: 55rem;
+
+        /*
+         * Nunca superar 120rem
+         */
+
+        max-width: 120rem;
+        padding: 2.5rem;
+        gap: 2rem;
+    }
+
+
+    .tab-btn {
+        padding: 1.2rem 0.8rem;
+        font-size: 1.5rem;
+    }
+
+
+    input,
+    #authForm button {
+        padding: 1.2rem;
+        font-size: 1.5rem;
+    }
+
+}
+
+
+/* =========================================================
+   CELULAR
+   Menor a 767px
+   ========================================================= */
+
+@media (max-width: 766px) {
+
+    .container {
+        grid-template-columns: 1fr;
+        min-height: 100vh;
+
+        /* background-position: center; */
+    }
+
+
+    .container>aside {
+        display: none;
+    }
+
+
+    .container1 {
+        width: 100%;
+        min-height: 100vh;
+        padding: 2rem;
+        gap: 2.5rem;
+    }
+
+
+    .login {
+        width: 100%;
+    }
+
+
+    .login-box {
+        width: 100%;
+        min-width: 25rem;
+        max-width: 55rem;
+        padding: 2.5rem;
+        gap: 2rem;
+        border-radius: 1.2rem;
+    }
+
+
+    .tab-btn {
+        padding: 1.2rem 0.8rem;
+        font-size: 1.5rem;
+    }
+
+
+    input,
+    #authForm button {
+        padding: 1.2rem;
+        font-size: 1.5rem;
+    }
+
+}
+
+
+
+/* =========================================================
+   CELULAR PEQUEÑO
+   Menor a 480px
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+    .container1 {
+
+        padding: 1.5rem;
+    }
+
+
+    .login-box {
+        min-width: 25rem;
+        width: 100%;
+        padding: 2rem;
+        border-radius: 1rem;
+    }
+
+
+    .tabs {
+        gap: 0.5rem;
+    }
+
+
+    .tab-btn {
+        font-size: 1.5rem;
+        padding: 1.2rem 0.8rem;
+    }
+
+
+    input,
+    #authForm button {
+        padding: 1.2rem;
+        font-size: 1.5rem;
+    }
+
+}
+
+
+/* =========================================================
+   CELULAR MUY PEQUEÑO
+   Menor a 360px
+   ========================================================= */
+
+@media (max-width: 360px) {
+
+    .container1 {
+        padding: 1rem;
+    }
+
+
+    .login-box {
+        min-width: 25rem;
+        padding: 1.5rem;
+    }
+
+
+    .tab-btn {
+        font-size: 1.4rem;
+    }
+
+
+    input,
+    #authForm button {
+        font-size: 1.4rem;
+        padding: 1.1rem;
+    }
+
+}

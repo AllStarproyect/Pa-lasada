@@ -4,24 +4,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio | Pa' la Asada</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="styles.css">
-    <title>prueba</title>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="./css/global.css">
+    <link rel="stylesheet" href="./css/home.css">
 </head>
 
 <body>
-
+    <!-- =====================================================
+         NAVBAR
+         ===================================================== -->
     <nav class="navbar navbar-expand-lg navbar-custom">
         <div class="container">
-            <a class="navbar-brand" href="#">
-                <img src="img/Logo3.png" alt="Logo" class="logo">
+            <a class="navbar-brand" href="./index.html" aria-label="Ir al inicio">
+                <img src="./assets/img/Logo3.png" alt="Logo de Pa' la Asada" class="logo">
             </a>
+
+            <!-- Mobile actions -->
             <div class="d-flex align-items-center ms-auto d-lg-none">
-                <button class="btn icon-btn position-relative">
+                <button class="btn icon-btn position-relative" type="button" aria-label="Ver carrito">
                     <i class="bi bi-cart3"></i>
                     <span class="cart-badge">3</span>
                 </button>
+
                 <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
                     aria-label="Abrir menú">
@@ -29,46 +46,414 @@
                 </button>
             </div>
 
-            <!-- MENÚ COLAPSABLE -->
+            <!-- Collapsible navigation -->
             <div class="collapse navbar-collapse nav-links" id="navbarNavDropdown">
                 <ul class="navbar-nav mx-auto gap-lg-4">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">Inicio</a>
+                        <a class="nav-link active" href="./index.html">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Productos</a>
+                        <a class="nav-link" href="./pages/catalog.html">Productos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="about_us.html">
-                            Acerca de
-                        </a>
+                        <a class="nav-link" href="./pages/about-us.html">Acerca de</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="contacto.html">
-                            Contacto
-                        </a>
+                        <a class="nav-link" href="./pages/contact.html">Contacto</a>
                     </li>
                 </ul>
+
+                <!-- Desktop actions -->
                 <div class="nav-actions">
-                    <button class="btn icon-btn position-relative d-none d-lg-block">
+                    <button class="btn icon-btn position-relative d-none d-lg-block" type="button" aria-label="Ver carrito">
                         <i class="bi bi-cart3"></i>
                         <span class="cart-badge">3</span>
                     </button>
-                    <!-- login / perfil -->
+
+                    <!-- Login / profile is rendered by navbar.js -->
                     <div id="userMenu"></div>
-
                 </div>
-
             </div>
-
         </div>
     </nav>
 
-    <script src="navbar.js"></script>
-    <script src="script.js"></script>
+
+    <!-- =====================================================
+         MAIN CONTENT
+         ===================================================== -->
+    <main class="mainCont">
+
+        <!-- =====================================================
+             HOME HERO
+             ===================================================== -->
+        <section class="products-hero">
+            <div class="products-hero__overlay"></div>
+
+            <div class="products-hero__content">
+                <span class="products-hero__eyebrow">PA' LA ASADA</span>
+
+                <h1>
+                    Cortes que hacen<br>
+                    <em>la diferencia.</em>
+                </h1>
+
+                <p>
+                    Seleccionamos cortes de primera calidad para llevar
+                    el verdadero sabor de una buena asada hasta tu mesa.
+                </p>
+
+                <a href="./pages/catalog.html" class="products-hero__cta">
+                    Ver nuestros cortes
+                    <span>→</span>
+                </a>
+            </div>
+        </section>
+
+
+        <!-- =====================================================
+             FEATURED PRODUCTS
+             ===================================================== -->
+        <section class="featured-products">
+            <!-- Featured products header -->
+            <header class="featured-products__header">
+                <span class="featured-products__eyebrow">
+                    SELECCIÓN PREMIUM
+                </span>
+                <h2 class="featured-products__title">
+                    Nuestras carnes
+                </h2>
+                <p class="featured-products__description">
+                    Cortes seleccionados para quienes buscan
+                    una experiencia gastronómica excepcional.
+                </p>
+            </header>
+            <!-- Product carousel -->
+            <div class="featured-products__carousel">
+                <!-- Flecha anterior -->
+                <button class="featured-products__arrow featured-products__arrow--prev" type="button"
+                    aria-label="Ver productos anteriores">
+                    &#10094;
+                </button>
+                <!-- Productos -->
+                <div class="featured-products__track">
+                    <!-- =================================
+           PRODUCT CARD
+      ================================== -->
+                    <article class="product-card">
+                        <div class="product-card__image">
+                            <img src="./assets/img/Rib Eye.png" alt="Ribeye Angus premium" loading="lazy">
+                            <span class="product-card__badge">
+                                PREMIUM
+                            </span>
+
+                        </div>
+                        <div class="product-card__content">
+
+                            <span class="product-card__category">
+                                CORTE PREMIUM
+                            </span>
+
+                            <h3 class="product-card__title">
+                                Ribeye Angus
+                            </h3>
+
+                            <span class="product-card__weight">
+                                350 g aprox.
+                            </span>
+
+                            <div class="product-card__footer">
+
+                                <span class="product-card__price">
+                                    $420
+                                </span>
+
+                                <button class="product-card__add" type="button"
+                                    aria-label="Agregar Ribeye Angus al carrito">
+                                    +
+                                </button>
+
+                            </div>
+
+                        </div>
+                    </article>
+                    <!-- =================================
+           PRODUCT CARD - FEATURED
+      ================================== -->
+
+                    <article class="product-card product-card--featured">
+                        <div class="product-card__image">
+                            <img src="./assets/img/tomahawk.png" alt="Tomahawk Prime premium">
+                            <span class="product-card__badge">
+                                HOT SALE
+                            </span>
+
+                        </div>
+                        <div class="product-card__content">
+
+                            <span class="product-card__category">
+                                CORTE PREMIUM
+                            </span>
+
+                            <h3 class="product-card__title">
+                                Tomahawk
+                            </h3>
+
+                            <span class="product-card__weight">
+                                450 g aprox.
+                            </span>
+
+                            <div class="product-card__footer">
+
+                                <span class="product-card__price">
+                                    $820
+                                </span>
+                                <button class="product-card__add" type="button"
+                                    aria-label="Agregar Tomahawk Prime al carrito">
+                                    +
+                                </button>
+
+                            </div>
+
+                        </div>
+                    </article>
+
+                     <!-- =================================
+           PRODUCT CARD - FEATURED
+      ================================== -->
+
+                    <article class="product-card product-card--featured">
+                        <div class="product-card__image">
+                            <img src="./assets/img/image_a871302d.png" alt="Arrachera Prime premium">
+                            <span class="product-card__badge">
+                                HOT SALE
+                            </span>
+
+                        </div>
+                        <div class="product-card__content">
+
+                            <span class="product-card__category">
+                                CORTE PREMIUM
+                            </span>
+
+                            <h3 class="product-card__title">
+                                Arrachera Certified Angus Beef 
+                            </h3>
+
+                            <span class="product-card__weight">
+                                950 g aprox.
+                            </span>
+
+                            <div class="product-card__footer">
+
+                                <span class="product-card__price">
+                                    $570
+                                </span>
+                                <button class="product-card__add" type="button"
+                                    aria-label="Agregar Arrachera Prime al carrito">
+                                    +
+                                </button>
+
+                            </div>
+
+                        </div>
+                    </article>
+
+                    <!-- =================================
+           PRODUCT CARD
+      ================================== -->
+
+                    <article class="product-card">
+                        <div class="product-card__image">
+                            <img src="./assets/img/New york.png" alt="New York Prime premium" loading="lazy">
+                            <span class="product-card__badge">
+                                PREMIUM
+                            </span>
+
+                        </div>
+                        <div class="product-card__content">
+
+                            <span class="product-card__category">
+                                CORTE PREMIUM
+                            </span>
+
+                            <h3 class="product-card__title">
+                                New York Angus
+                            </h3>
+
+                            <span class="product-card__weight">
+                                550 g aprox.
+                            </span>
+
+                            <div class="product-card__footer">
+
+                                <span class="product-card__price">
+                                    $620
+                                </span>
+                                <button class="product-card__add" type="button"
+                                    aria-label="Agregar New York Prime al carrito">
+                                    +
+                                </button>
+
+                            </div>
+
+                        </div>
+                    </article>
+                </div>
+                <!-- Flecha siguiente -->
+                <button class="featured-products__arrow featured-products__arrow--next" type="button"
+                    aria-label="Ver siguientes productos">
+                    &#10095;
+                </button>
+            </div>
+            
+            <!-- Catalog link -->
+            <a href="./pages/catalog.html" class="featured-products__view-all">
+                Ver toda la selección
+            </a>
+            <!-- Carousel pagination -->
+            <div class="featured-products__dots" aria-label="Navegación del carrusel">
+                <button class="featured-products__dot" type="button" aria-label="Página 1">
+                </button>
+                <button class="featured-products__dot featured-products__dot--active" type="button"
+                    aria-label="Página 2" aria-current="true">
+                </button>
+                <button class="featured-products__dot" type="button" aria-label="Página 3">
+                </button>
+            </div>
+        </section>
+
+        <!-- =====================================================
+             TOMAHAWK BANNER
+             ===================================================== -->
+        <section class="tomahawk-hero">
+            <div class="tomahawk-hero__image"></div>
+            <div class="tomahawk-hero__overlay"></div>
+            <div class="tomahawk-hero__content">
+                <span class="tomahawk-hero__eyebrow">CORTE PREMIUM</span>
+                <h1>
+                    El sabor que<br>
+                    <span>merece la ocasión.</span>
+                </h1>
+                <p>
+                    Descubre nuestro Tomahawk, un corte excepcional
+                    seleccionado para quienes saben apreciar la buena carne.
+                </p>
+                <a href="./pages/catalog.html" class="tomahawk-hero__button">
+                    Ver nuestros cortes
+                    <span>→</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- =====================================================
+             WHY CHOOSE US
+             ===================================================== -->
+        <section class="why-us">
+            <div class="why-us__header">
+                <span>PA' LA ASADA</span>
+                <h2>¿Por qué elegirnos?</h2>
+                <p>
+                    La experiencia de una buena carne comienza desde la selección.
+                    Llevamos la calidad y el sabor que nos representa hasta tu mesa.
+                </p>
+            </div>
+
+            <div class="why-us__grid">
+                <article class="why-card">
+                    <div class="why-card__icon">01</div>
+                    <div>
+                        <h3>Calidad de primera</h3>
+                        <p>
+                            Seleccionamos cada corte pensando en sabor, textura y calidad,
+                            para que cada asada esté a la altura de la ocasión.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="why-card">
+                    <div class="why-card__icon">02</div>
+                    <div>
+                        <h3>Siempre fresco</h3>
+                        <p>
+                            Cuidamos cada etapa de conservación y manejo para que recibas
+                            productos frescos, listos para disfrutar.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="why-card">
+                    <div class="why-card__icon">03</div>
+                    <div>
+                        <h3>De MTY a CDMX</h3>
+                        <p>
+                            Nacimos con la experiencia de Monterrey y llevamos nuestra
+                            pasión por la carne hasta Ciudad de México.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="why-card">
+                    <div class="why-card__icon">04</div>
+                    <div>
+                        <h3>Entrega rápida</h3>
+                        <p>
+                            Recibe tus cortes de forma rápida y segura para que lo único
+                            que tengas que preparar sea el fuego.
+                        </p>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+    </main>
+    <!-- End main content -->
+
+    <!-- =====================================================
+         FOOTER
+         ===================================================== -->
+    <footer class="footer">
+        <div class="footerCont">
+            <div class="redesSociales flexCont">
+                <div class="seccion-izq">
+                    <h2>Pa' la Asada</h2>
+                    <h3>Redes sociales</h3>
+
+                    <div class="iconosCont">
+                        <a href="https://instagram.com" class="linkRedes" target="_blank" rel="noopener noreferrer">
+                            <img src="https://dreamfoundry.org/wp-content/uploads/2018/12/instagram-logo-png-transparent-background.png"
+                                alt="Instagram" class="imgRedes">
+                        </a>
+                        <a href="https://facebook.com" class="linkRedes" target="_blank" rel="noopener noreferrer">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/1280px-Facebook_Logo_%282019%29.png"
+                                alt="Facebook" class="imgRedes">
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footerSection">
+                    <img src="./assets/img/LogoCuadrado.jpg" alt="Logo de Pa' la Asada" class="logoFooter">
+                </div>
+
+                <nav aria-label="Navegación del pie de página">
+                    <a class="enlaceB" href="./index.html">Inicio</a>
+                    <a class="enlaceB" href="./pages/about-us.html">Acerca de</a>
+                    <a class="enlaceB" href="./pages/catalog.html">Productos</a>
+                </nav>
+            </div>
+
+            <div class="footerBottom">
+                <p>&copy; Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- =====================================================
+         SCRIPTS
+         ===================================================== -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-
-
+    <script src="./js/navbar.js"></script>
+    <script src="./js/home.js"></script>
 </body>
 
 </html>
