@@ -92,3 +92,56 @@ if (teamContainer) {
         teamContainer.appendChild(card);
     });
 }
+
+
+// animacion parrafos
+function animarTodasLasSecciones() {
+  const secciones = document.querySelectorAll('.section-history, .mision-vision');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const seccion = entry.target;
+        const indexSeccion = Array.from(secciones).indexOf(seccion);
+        const contenedores = seccion.querySelectorAll('.text-infoMV');
+
+        contenedores.forEach((contenedor, indexContenedor) => {
+          const parrafos = contenedor.querySelectorAll('.parrafo-animado');
+
+          // ¿Este contenedor es el de Misión?
+          const esMision = contenedor.querySelector('.tituloMision') !== null;
+
+          // Si es Misión, entra desde la izquierda (-300px). Si no, desde la derecha (300px)
+          const desdeX = esMision ? -300 : 300;
+
+          parrafos.forEach((parrafo) => {
+            parrafo.animate(
+              [
+                { transform: `translateX(${desdeX}px)`, opacity: 0 },
+                { transform: 'translateX(0)', opacity: 1 }
+              ],
+              {
+                duration: 600,
+                delay: (indexSeccion * 700) + (indexContenedor * 500),
+                easing: 'ease-out',
+                fill: 'forwards'
+              }
+            );
+          });
+        });
+
+        observer.unobserve(seccion);
+      }
+    });
+  }, { threshold: 0.2 });
+
+  secciones.forEach(seccion => observer.observe(seccion));
+}
+
+animarTodasLasSecciones();
+
+
+
+
+
+

@@ -39,8 +39,8 @@ body {
 
 body {
     min-height: 100vh;
-    background-color: var(--color-crema);
-    color: var(--color-carbon);
+    background-color: var(--color-cream);
+    color: var(--color-charcoal);
 }
 
 main {
@@ -75,8 +75,8 @@ h6 {
    ========================================================= */
 
 .btn-primary {
-    background-color: var(--color-mostaza);
-    border-color: var(--color-mostaza);
+    background-color: var(--color-mustard);
+    border-color: var(--color-mustard);
     color: #ffffff;
     font-weight: 500;
 }
@@ -564,121 +564,121 @@ h6 {
     }
 }
 
-/* =========================================================
+    /* =========================================================
    FOOTER 
    ========================================================= */
 
 
-footer,
-.footer {
-    width: 100%;
-    background-color: #222422;
-    color: #f5f1eb;
-    padding: 20px 0;
-    container-type: inline-size;
-    container-name: footer-container;
-}
-
-.imgRedes {
-    width: 100%;
-    max-width: 40px;
-    height: auto;
-    display: block;
-}
-
-.logoFooter {
-    width: 100%;
-    max-width: 190px;
-    height: auto;
-    display: block;
-    border-radius: 50%;
-}
-
-.linkRedes {
-    display: inline-block;
-    transition: transform 0.2s ease;
-}
-
-.linkRedes:hover {
-    transform: scale(1.05);
-}
-
-.iconosCont {
-    display: flex;
-    gap: 20px;
-    position: static;
-}
-
-.enlaceB {
-    display: block;
-    margin-bottom: 8px;
-    color: #C9A227;
-    text-decoration: none;
-}
-
-.enlaceB:hover {
-    color: #E0B830;
-}
-
-.footerCont {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 15px;
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-.footerSection {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.footerBottom {
-    width: 100%;
-    text-align: center;
-    margin-top: 30px;
-    padding-top: 15px;
-    border-top: 1px solid #444444;
-    font-size: 14px;
-    color: #aaaaaa;
-}
-
-.footerBottom p {
-    margin: 0;
-}
-
-.redesSociales {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 25px;
-    width: 100%;
-    position: relative;
-}
-
-/* =========================================================
-   FOOTER - LARGE SCREENS
-   ========================================================= */
-
-@container footer-container (min-width: 768px) {
-    .redesSociales {
-        flex-direction: row;
-        justify-content: center;
+    footer,
+    .footer {
+        width: 100%;
+        background-color: #222422;
+        color: #f5f1eb;
+        padding: 20px 0;
+        container-type: inline-size;
+        container-name: footer-container;
     }
 
-    .seccion-izq {
-        margin-right: auto;
-        text-align: left;
+    .imgRedes {
+        width: 100%;
+        max-width: 40px;
+        height: auto;
+        display: block;
+    }
+
+    .logoFooter {
+        width: 100%;
+        max-width: 190px;
+        height: auto;
+        display: block;
+        border-radius: 50%;
+    }
+
+    .linkRedes {
+        display: inline-block;
+        transition: transform 0.2s ease;
+    }
+
+    .linkRedes:hover {
+        transform: scale(1.05);
+    }
+
+    .iconosCont {
+        display: flex;
+        gap: 20px;
+        position: static;
+    }
+
+    .enlaceB {
+        display: block;
+        margin-bottom: 8px;
+        color: #C9A227;
+        text-decoration: none;
+    }
+
+    .enlaceB:hover {
+        color: #E0B830;
+    }
+
+    .footerCont {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
     }
 
     .footerSection {
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
-}
+
+    .footerBottom {
+        width: 100%;
+        text-align: center;
+        margin-top: 30px;
+        padding-top: 15px;
+        border-top: 1px solid #444444;
+        font-size: 14px;
+        color: #aaaaaa;
+    }
+
+    .footerBottom p {
+        margin: 0;
+    }
+
+    .redesSociales {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 25px;
+        width: 100%;
+        position: relative;
+    }
+
+    /* =========================================================
+   FOOTER - LARGE SCREENS
+   ========================================================= */
+
+    @container footer-container (min-width: 768px) {
+        .redesSociales {
+            flex-direction: row;
+            justify-content: center;
+        }
+
+        .seccion-izq {
+            margin-right: auto;
+            text-align: left;
+        }
+
+        .footerSection {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
