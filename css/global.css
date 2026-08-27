@@ -75,10 +75,12 @@ h6 {
    ========================================================= */
 
 .btn-primary {
-    background-color: var(--color-mostaza);
-    border-color: var(--color-mostaza);
-    color: #ffffff;
+    background-color: var(--color-mustard);
+    border-color: var(--color-mustard);
+    color: var(--color-charcoal);
     font-weight: 500;
+    padding: 6px 12px;
+    transition: color 0.4s ease;
 }
 
 .btn-primary:hover {
@@ -86,26 +88,37 @@ h6 {
     border-color: #b88912;
 }
 
-
-
+.btn-outline-dark{
+    background-color: var(--color-cream);
+    border: none;
+    color: var(--color-charcoal);
+    font-weight: 500;
+    padding: 6px 12px;
+    transition: color 0.4s ease;
+}
+.btn-outline-dark:hover{
+    background-color: var(--color-cream);
+    border: none;
+  
+}
 /* =========================================================
    NAVBAR
    ========================================================= */
 .navbar,
 .navbar-custom {
-    background-color: var(--color-crema);
-    color: var(--color-carbon);
+    background-color: var(--color-charcoal);
+    color: var(--color-cream);
 }
 
 .navbar-custom {
-    padding: 10px 0;
+    padding: 8px 0;
     box-shadow: 0 3px 15px rgba(43, 43, 43, 0.08);
     position: relative;
     z-index: 1000;
 }
 
 .logo {
-    width: 200px;
+    width: 240px;
     height: 75px;
     object-fit: contain;
 }
@@ -113,13 +126,14 @@ h6 {
 .nav-link {
     color: var(--color-carbon);
     font-weight: 500;
+    font-size: 1.4rem;
     position: relative;
     transition: color 0.3s ease;
 }
 
 .nav-link:hover,
 .nav-link.active {
-    color: var(--color-mostaza) !important;
+    color: var(--color-mustard) !important;
 }
 
 .nav-actions {
@@ -130,15 +144,15 @@ h6 {
 
 .icon-btn,
 .btn-profile {
-    color: var(--color-verde-oliva);
+    color: var(--color-cream);
     border: none;
     background: transparent;
-    font-size: 1.4rem;
+    font-size: 1.8rem;
 }
 
 .icon-btn:hover,
 .btn-profile:hover {
-    color: var(--color-mostaza);
+    color: var(--color-mustard);
 }
 
 .cart-badge {
@@ -151,18 +165,19 @@ h6 {
     justify-content: center;
     align-items: center;
     border-radius: 50%;
-    background-color: var(--color-mostaza);
-    color: #ffffff;
+    background-color: var(--color-mustard);
+    color: var(--color-charcoal);
     font-size: 10px;
+    font-weight: 600;
 }
 
 .login-buttons {
     display: flex;
-    gap: 8px;
+    gap: 0.5rem;
 }
 
 .login-buttons .btn {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
 }
 
 /* =========================================================
