@@ -1,0 +1,363 @@
+/* =========================================================
+   VARIABLES
+   ========================================================= */
+
+:root {
+    --color-mustard: #D4A017;
+    --color-cream: #F5F1E8;
+    --color-charcoal: #2B2B2B;
+    --color-olive: #6B7A4E;
+    --color-taupe: #A18C6E;
+
+    --font-primary: "Montserrat", sans-serif;
+    --font-secondary: "Bitter", serif;
+}
+
+/* =========================================================
+   RESET / BASE
+   ========================================================= */
+
+html {
+    width: 100%;
+    min-height: 100%;
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+body {
+    min-height: 100vh;
+    background-color: var(--color-crema);
+    color: var(--color-carbon);
+}
+
+main {
+    width: 100%;
+}
+
+
+/* =========================================================
+   TYPOGRAPHY
+   ========================================================= */
+
+body,
+button,
+input,
+select,
+textarea {
+    font-family: var(--font-primary);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-secondary);
+}
+
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+.btn-primary {
+    background-color: var(--color-mostaza);
+    border-color: var(--color-mostaza);
+    color: #ffffff;
+    font-weight: 500;
+}
+
+.btn-primary:hover {
+    background-color: #b88912;
+    border-color: #b88912;
+}
+
+
+
+/* =========================================================
+   NAVBAR
+   ========================================================= */
+.navbar,
+.navbar-custom {
+    background-color: var(--color-crema);
+    color: var(--color-carbon);
+}
+
+.navbar-custom {
+    padding: 10px 0;
+    box-shadow: 0 3px 15px rgba(43, 43, 43, 0.08);
+    position: relative;
+    z-index: 1000;
+}
+
+.logo {
+    width: 200px;
+    height: 75px;
+    object-fit: contain;
+}
+
+.nav-link {
+    color: var(--color-carbon);
+    font-weight: 500;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--color-mostaza) !important;
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.icon-btn,
+.btn-profile {
+    color: var(--color-verde-oliva);
+    border: none;
+    background: transparent;
+    font-size: 1.4rem;
+}
+
+.icon-btn:hover,
+.btn-profile:hover {
+    color: var(--color-mostaza);
+}
+
+.cart-badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 17px;
+    height: 17px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: var(--color-mostaza);
+    color: #ffffff;
+    font-size: 10px;
+}
+
+.login-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.login-buttons .btn {
+    font-size: 1.4rem;
+}
+
+/* =========================================================
+   NAVBAR - MOBILE
+   ========================================================= */
+
+@media (max-width: 991px) {
+    .navbar-custom {
+        padding: 8px 15px;
+    }
+
+    .navbar-custom .d-lg-none {
+        gap: 1rem;
+    }
+
+    .logo {
+        width: 150px;
+        height: 65px;
+    }
+
+    .mobile-actions {
+        gap: 0.5rem;
+    }
+
+    .navbar-collapse {
+        position: absolute;
+        top: 100%;
+        left: 10px;
+        right: 10px;
+        margin-top: 15px;
+        padding: 20px;
+        background-color: var(--color-crema);
+        border-radius: 0 0 15px 15px;
+        box-shadow: 0 8px 15px rgba(43, 43, 43, 0.08);
+        z-index: 1000;
+    }
+
+    .navbar-nav {
+        gap: 5px !important;
+    }
+
+    .nav-link {
+        padding: 12px 5px;
+        border-bottom: 1px solid rgba(43, 43, 43, 0.1);
+    }
+
+    .nav-link.active::after {
+        display: none;
+    }
+
+    .nav-actions {
+        width: 100%;
+        margin-top: 20px;
+        flex-wrap: wrap;
+    }
+
+    #userMenu {
+        width: 100%;
+    }
+
+    .login-buttons {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        width: 100%;
+    }
+
+    .login-buttons .btn {
+        width: 100%;
+        height: 4rem;
+    }
+
+    .dropdown-menu {
+        position: static !important;
+        width: 100%;
+        margin-top: 1rem;
+        transform: none !important;
+    }
+}
+
+/* =========================================================
+   FOOTER 
+   ========================================================= */
+
+
+footer,
+.footer {
+    width: 100%;
+    background-color: #222422;
+    color: #f5f1eb;
+    padding: 20px 0;
+    container-type: inline-size;
+    container-name: footer-container;
+}
+
+.imgRedes {
+    width: 100%;
+    max-width: 40px;
+    height: auto;
+    display: block;
+}
+
+.logoFooter {
+    width: 100%;
+    max-width: 190px;
+    height: auto;
+    display: block;
+    border-radius: 50%;
+}
+
+.linkRedes {
+    display: inline-block;
+    transition: transform 0.2s ease;
+}
+
+.linkRedes:hover {
+    transform: scale(1.05);
+}
+
+.iconosCont {
+    display: flex;
+    gap: 20px;
+    position: static;
+}
+
+.enlaceB {
+    display: block;
+    margin-bottom: 8px;
+    color: #C9A227;
+    text-decoration: none;
+}
+
+.enlaceB:hover {
+    color: #E0B830;
+}
+
+.footerCont {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footerSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footerBottom {
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 15px;
+    border-top: 1px solid #444444;
+    font-size: 14px;
+    color: #aaaaaa;
+}
+
+.footerBottom p {
+    margin: 0;
+}
+
+.redesSociales {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    width: 100%;
+    position: relative;
+}
+
+/* =========================================================
+   FOOTER - LARGE SCREENS
+   ========================================================= */
+
+@container footer-container (min-width: 768px) {
+    .redesSociales {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .seccion-izq {
+        margin-right: auto;
+        text-align: left;
+    }
+
+    .footerSection {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
