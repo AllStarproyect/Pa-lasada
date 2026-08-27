@@ -1,299 +1,278 @@
-@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css");
+/* =====================================================
+   CATALOG.CSS
+   Estilos de la sección de catálogo (Más Pedidos / Carne de res)
+   - Flexbox puro, sin clases de Bootstrap.
+   - Usa la paleta y tipografías globales (global.css).
+   - Selectores prefijados con "main" para no chocar con
+     los estilos del navbar / footer que viven en otros .css.
+   - Cards con el mismo estilo visual (glass, imagen con badge
+     flotante, contenido superpuesto) que las product-card de home.css,
+     adaptado al grid y a las variables de este proyecto.
+   ===================================================== */
 
-/* Estilos */
-:root {
-    --color-mostaza: #D4A017;
-    --color-crema: #F5F1E8;
-    --color-carbon: #2B2B2B;
-    --color-verde-oliva: #6B7A4E;
-    --color-taupe: #A18C6E;
+main .catalog-section {
+    padding: 48px 0;
 }
 
-/*1 rem = 10px */
-
-html {
-    /*Parametros para hacer responsive los tamanos*/
-    font-size: 62.5%;
-    box-sizing: border-box;
+main .catalog-section--dark {
+    background-color: var(--color-charcoal);
 }
 
-/* un minimo de normalize*/
-
-*,
-*::before,
-*::after {
-    box-sizing: inherit;
+main .catalog-section--light {
+    background-color: var(--color-cream);
 }
 
-html,
-body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    width: 100%;
+main .catalog-section .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
 }
 
-main {
-    width: 100%;
-}
-
-body {
-    background-color: var(--color-crema);
-    color: var(--color-carbon);
-}
-
-.btn-primary {
-    background-color: var(--color-mostaza);
-    border-color: var(--color-mostaza);
-    color: white;
-    font-weight: 500;
-}
-
-.btn-primary:hover {
-    background-color: #b88912;
-    border-color: #b88912;
-}
-
-/* NAVBAR */
-.navbar-custom {
-    background-color: var(--color-crema);
-    padding: 10px 0;
-    box-shadow: 0 3px 15px rgba(43, 43, 43, 0.08);
-}
-
-.logo {
-    width: 200px;
-    height: 75px;
-    object-fit: contain;
-}
-
-.nav-link {
-    color: var(--color-carbon);
-    font-weight: 500;
-    position: relative;
-    transition: 0.3s;
-}
-
-.nav-link:hover {
-    color: var(--color-mostaza);
-}
-
-.nav-link.active {
-    color: var(--color-mostaza) !important;
-}
-
-.nav-actions {
+/* Header de cada sección */
+main .catalog-section .catalog-section__header {
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+}
+
+main .catalog-section .catalog-section__title {
+    font-family: var(--font-secondary);
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--color-cream);
+    margin: 0;
+}
+
+main .catalog-section .catalog-section__title--dark {
+    color: var(--color-charcoal);
+}
+
+main .catalog-section .catalog-section__link {
+    font-family: var(--font-primary);
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--color-mustard);
+    text-decoration: none;
+}
+
+main .catalog-section .catalog-section__link:hover {
+    text-decoration: underline;
+}
+
+/* Grid de productos con flexbox */
+main .catalog-section .product-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+/* =====================================================
+   PRODUCT CARD (estilo tomado de home.css)
+   ===================================================== */
+
+main .catalog-section .product-card {
+    position: relative;
+    flex: 1 1 calc(25% - 20px);
+    min-width: 220px;
+    overflow: hidden;
+    border-radius: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.07);
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+main .catalog-section .product-card:hover {
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
+}
+
+/* Variante destacada (Hot Sale) */
+main .catalog-section .product-card--featured {
+    border-color: var(--color-mustard);
+    box-shadow: 0 35px 90px rgba(0, 0, 0, 0.48);
+}
+
+/* Variante clara (sección Carne de res) */
+main .catalog-section .product-card--light {
+    background: rgba(25, 21, 16, 0.04);
+    border-color: var(--color-taupe);
+    box-shadow: 0 20px 50px rgba(25, 21, 16, 0.12);
+}
+
+/* Header (nombre + badge) — se superpone sobre la imagen */
+main .catalog-section .product-card__header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 3;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 16px;
     gap: 8px;
 }
 
-.icon-btn {
-    color: var(--color-verde-oliva);
-    border: none;
-    font-size: 1.4rem;
+main .catalog-section .product-card__header--simple {
+    justify-content: flex-start;
 }
 
-.icon-btn:hover {
-    color: var(--color-mostaza);
+main .catalog-section .product-card__name {
+    font-family: var(--font-primary);
+    font-weight: 600;
+    font-size: 1.05rem;
+    line-height: 1.3;
+    color: var(--color-cream);
+    margin: 0;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
 }
 
-.cart-badge {
-    position: absolute;
-    top: 0;
-    right: 0;
-    background-color: var(--color-mostaza);
-    color: white;
-    font-size: 10px;
-    width: 17px;
-    height: 17px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
+main .catalog-section .product-card__name--dark {
+    color: var(--color-charcoal);
+    text-shadow: none;
+    background: rgba(255, 255, 255, 0.85);
+    padding: 6px 10px;
+    border-radius: 6px;
 }
 
-.btn-profile {
-    background: transparent;
-    border: none;
-    color: var(--color-verde-oliva);
-    font-size: 1.4rem;
-}
-
-.btn-profile:hover {
-    color: var(--color-mostaza);
-}
-
-@media (max-width: 991px) {
-    .navbar-custom {
-        padding: 8px 15px;
-    }
-
-    .navbar-custom .d-lg-none {
-        gap: 1rem;
-    }
-
-    .logo {
-        width: 150px;
-        height: 65px;
-    }
-
-    .mobile-actions {
-        gap: 0.5rem;
-    }
-
-    .navbar-collapse {
-        position: absolute;
-        top: 100%;
-        left: 10px;
-        right: 10px;
-        margin-top: 15px;
-        background-color: var(--color-crema);
-        padding: 20px;
-        border-radius: 0 0 15px 15px;
-        box-shadow: 0 8px 15px rgba(43, 43, 43, 0.08);
-    }
-
-    .navbar-nav {
-        gap: 5px !important;
-    }
-
-    .nav-link {
-        padding: 12px 5px;
-        border-bottom: 1px solid rgba(43, 43, 43, 0.1);
-    }
-
-    .nav-actions {
-        width: 100%;
-        margin-top: 20px;
-    }
-
-    #userMenu {
-        width: 100%;
-    }
-
-    .login-buttons {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 1rem;
-        width: 100%;
-    }
-
-    .login-buttons .btn {
-        width: 100%;
-        height: 4rem;
-    }
-
-    .dropdown-menu {
-        position: static !important;
-        width: 100%;
-        margin-top: 1rem;
-        transform: none !important;
-    }
-}
-
-/* FOOTER */
-.imgRedes {
-    width: 100%;
-    max-width: 40px;
-    height: auto;
-    display: block;
-}
-
-.logoFooter {
-    width: 100%;
-    max-width: 190px;
-    height: auto;
-    display: block;
-    border-radius: 50%;
-}
-
-.linkRedes {
-    display: inline-block;
-    transition: transform 0.2s ease;
-}
-
-.iconosCont {
-    display: flex;
-    gap: 20px;
-    position: static;
-}
-
-.enlaceB {
-    display: block;
-    margin-bottom: 8px;
-}
-
-/*Los footer van hasta el final*/
-footer {
-    background-color: #222422;
-    color: #f5f1eb;
-    padding: 20px 0;
-    container-type: inline-size;
-    container-name: footer-container;
-    margin-top: 10%;
-}
-
-.footerCont {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 15px;
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-    box-sizing: border-box;
-}
-
-.footerSection {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.footerBottom {
-    width: 100%;
+main .catalog-section .product-card__badge {
+    flex-shrink: 0;
+    background-color: rgba(25, 21, 16, 0.65);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    color: var(--color-mustard);
+    font-family: var(--font-primary);
+    font-weight: 700;
+    font-size: 0.65rem;
     text-align: center;
-    margin-top: 30px;
-    padding-top: 15px;
-    border-top: 1px solid #444444;
-    font-size: 14px;
-    color: #aaaaaa;
+    line-height: 1.2;
+    padding: 6px 10px;
+    border-radius: 100px;
+    white-space: nowrap;
+    backdrop-filter: blur(6px);
 }
 
-.redesSociales {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 25px;
-    width: 100%;
+/* Imagen */
+main .catalog-section .product-card__image {
     position: relative;
+    height: 220px;
+    margin: 0;
+    border-radius: 0;
+    overflow: hidden;
+    background-color: var(--color-taupe);
 }
 
-/* --- DISEÑO PARA COMPUTADORAS (Pantallas medianas y grandes) --- */
-@container footer-container (min-width: 768px) {
+main .catalog-section .product-card__image::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom,
+            rgba(25, 21, 16, 0.05) 40%,
+            rgba(25, 21, 16, 0.65));
+}
 
-    .redesSociales {
-        flex-direction: row;
-        justify-content: center;
-        position: relative;
-    }
+main .catalog-section .product-card__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.7s ease;
+}
 
-    .seccion-izq {
-        margin-right: auto;
-        text-align: left;
-    }
+main .catalog-section .product-card:hover .product-card__image img {
+    transform: scale(1.06);
+}
 
-    .footerSection {
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
+/* Footer (precio + botón agregar) — glass superpuesto sobre la imagen */
+main .catalog-section .product-card__footer {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: -48px;
+    padding: 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    background: linear-gradient(135deg,
+            rgba(255, 255, 255, 0.15),
+            rgba(25, 21, 16, 0.20));
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+}
+
+main .catalog-section .product-card--light .product-card__footer {
+    border-top-color: rgba(25, 21, 16, 0.12);
+    background: rgba(255, 255, 255, 0.9);
+}
+
+main .catalog-section .product-card__price {
+    font-family: var(--font-primary);
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--color-cream);
+}
+
+main .catalog-section .product-card__price--dark {
+    color: var(--color-charcoal);
+}
+
+main .catalog-section .product-card__add {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    border: none;
+    border-radius: 50%;
+    background-color: var(--color-mustard);
+    color: var(--color-charcoal);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+main .catalog-section .product-card__add:hover {
+    transform: rotate(90deg);
+    background-color: var(--color-taupe);
+}
+
+/* =====================================================
+   RESPONSIVIDAD
+   ===================================================== */
+
+/* Tablets: 2 columnas */
+@media (max-width: 991px) {
+    main .catalog-section .product-card {
+        flex: 1 1 calc(50% - 20px);
     }
 }
 
-/* =========================================
-   ZONA DE CONTENIDO DEL CATÁLOGO
-   Agrega aquí los estilos del grid de productos
-========================================= */
+/* Móviles: 1 columna */
+@media (max-width: 575px) {
+    main .catalog-section {
+        padding: 32px 0;
+    }
+
+    main .catalog-section .catalog-section__header {
+        margin-bottom: 16px;
+    }
+
+    main .catalog-section .catalog-section__title {
+        font-size: 1.4rem;
+    }
+
+    main .catalog-section .product-grid {
+        gap: 16px;
+    }
+
+    main .catalog-section .product-card {
+        flex: 1 1 100%;
+    }
+
+    main .catalog-section .product-card__image {
+        height: 260px;
+    }
+}
