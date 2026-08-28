@@ -1,0 +1,1655 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css");
+
+/*Espacio para darle diseño al contenido principal*/
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.mainCont {
+    flex: 1;
+
+}
+
+.flexCont {
+    display: flex;
+    /*grid-template-columns: 2fr 1fr;*/
+    gap: 20px;
+    align-items: center;
+    width: 100%;
+
+}
+
+.txtCont {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+}
+
+/*Carrusel*/
+:root {
+    --card-bg: #e0e0e0;
+    --accent-red: #c23325;
+    --text-dark: #222222;
+    --text-muted: #555555;
+    --badge-bg: #8c8175;
+}
+
+/* Modificación de tu clase carrusel para soportar las escalas de las tarjetas sin cortarse */
+.carrusel {
+    position: relative;
+    width: 100%;
+    max-width: 1100px;
+    margin: 30px auto;
+    overflow: visible;
+    /* Cambiado de hidden a visible para lucir el escalado central */
+}
+
+/* Modificación de tu carruselTrack para renderizar las tarjetas alineadas */
+.carruselTrack {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    padding: 30px 0;
+}
+
+/* Modificación de tu carruselItem para adaptarlo al tamaño fijo de tarjeta */
+.carruselItem {
+    flex: 0 0 auto;
+    min-width: 320px;
+    scroll-snap-align: center;
+    transition: transform 0.4s ease;
+}
+
+/* Efecto de enfoque central */
+.carruselItem.active {
+    transform: scale(1.12);
+    z-index: 5;
+}
+
+/* --- Estructura interna de los elementos de la tarjeta --- */
+.card {
+    background-color: var(--card-bg);
+    border: 1.5px solid #222222;
+    border-radius: 24px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.carruselItem.active .card {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.card-header {
+    padding: 14px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-title {
+    font-size: 18px;
+    font-weight: 500;
+    margin: 0;
+    color: var(--text-dark);
+}
+
+.hot-sale-badge {
+    background-color: var(--badge-bg);
+    color: #000000;
+    font-size: 11px;
+    padding: 4px 12px;
+    border-radius: 12px;
+    border: 1px solid #222222;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+/* Control contenedor para que tus imágenes reales no se deformen */
+.card-image {
+    height: 160px;
+    width: 100%;
+    border-top: 1.5px solid #222222;
+    border-bottom: 1.5px solid #222222;
+    overflow: hidden;
+    transition: height 0.4s ease;
+}
+
+.carruselItem.active .card-image {
+    height: 200px;
+    /* La imagen se expande en la tarjeta activa */
+}
+
+/* Integración de tu código original 'img' pero adaptado a la tarjeta */
+.card-image img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+.card-body {
+    padding: 16px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100px;
+    position: relative;
+    transition: padding 0.4s ease;
+}
+
+.carruselItem.active .card-body {
+    padding: 24px 20px;
+}
+
+.card-description {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin: 0 0 12px 0;
+}
+
+.carruselItem.active .card-description {
+    margin-bottom: 40px;
+}
+
+.card-price {
+    font-size: 15px;
+    color: var(--text-dark);
+    font-weight: 500;
+}
+
+/* Botón flotante (+) */
+.add-btn {
+    position: absolute;
+    right: 20px;
+    bottom: 16px;
+    width: 44px;
+    height: 44px;
+    background-color: var(--accent-red);
+    color: white;
+    border: 1.5px solid #222222;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s ease;
+}
+
+.carruselItem.active .add-btn {
+    width: 54px;
+    height: 54px;
+    font-size: 28px;
+    bottom: 20px;
+}
+
+/* Ajustes de posición para tus flechas nativas (.arrow) */
+.left {
+    left: -25px;
+}
+
+.right {
+    right: -25px;
+}
+
+/* Contenedor centralizado para los puntos */
+.dots-container {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 30px;
+    width: 100%;
+}
+
+/* Estilo base para cada círculo */
+.dot {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: #d1c7bd;
+    /* Color beige claro original */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Asignación de los tonos por defecto del diagrama original */
+.dots-container .dot:nth-child(1) {
+    background-color: #d1c7bd;
+}
+
+.dots-container .dot:nth-child(2) {
+    background-color: #bfae9e;
+}
+
+/* Tono beige oscuro central */
+.dots-container .dot:nth-child(3) {
+    background-color: #d1c7bd;
+}
+
+/* Estado activo cuando la tarjeta es seleccionada (se vuelve roja) */
+.dots-container .dot.active {
+    background-color: var(--accent-red) !important;
+}
+
+/* ==========================================================================
+   DISEÑO RESPONSIVO (Añadir al final del archivo CSS)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .carrusel {
+        max-width: 100%;
+        overflow: hidden;
+        /* Evita que las tarjetas bloqueen el scroll vertical del sitio */
+        padding: 0 10px;
+        box-sizing: border-box;
+    }
+
+    .carruselTrack {
+        gap: 16px;
+        /* Ajusta la separación de las tarjetas en pantallas táctiles */
+        padding: 20px 0;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        /* Suavizado táctil para iOS */
+    }
+
+    .carruselItem {
+        min-width: 280px;
+        /* Tamaño ideal adaptable para teléfonos compactos */
+        max-width: 300px;
+    }
+
+    /* Reducción proporcional del escalado en móviles */
+    .carruselItem.active {
+        transform: scale(1.04);
+    }
+
+    /* Evitamos que la tarjeta central crezca de forma excesiva hacia abajo en celulares */
+    .carruselItem.active .card-image {
+        height: 170px;
+    }
+
+    .carruselItem.active .card-body {
+        padding: 16px 20px;
+    }
+
+    .carruselItem.active .card-description {
+        margin-bottom: 12px;
+        position: relative;
+        bottom: 0;
+        left: 0;
+    }
+
+    /* Reposición táctica de las flechas flotando por encima de los bordes del móvil */
+    .arrow {
+        padding: 12px;
+        font-size: 16px;
+        background: rgba(0, 0, 0, 0.75);
+    }
+
+    .left {
+        left: 5px;
+    }
+
+    .right {
+        right: 5px;
+    }
+
+    /* Reducción sutil de los círculos para que se mantengan centrados */
+    .dot {
+        width: 18px;
+        height: 18px;
+    }
+}
+
+
+/*Espacio para configurar las clases de las imagenes*/
+
+.img1 {
+    /*Se debe de modificar, no se muestra como se debe*/
+    /*max-width: 300px;*/
+    width: 300px;
+    height: auto;
+}
+
+.imgRedes {
+    width: 100%;
+    max-width: 40px;
+    height: auto;
+    display: block;
+}
+
+.logoFooter {
+    width: 100%;
+    max-width: 190px;
+    height: auto;
+    display: block;
+    border-radius: 50%;
+}
+
+.linkRedes {
+    display: inline-block;
+    transition: transform 0.2s ease;
+}
+
+.iconosCont {
+    display: flex;
+    gap: 20px;
+    position: static;
+    /*left: 20px;*/
+}
+
+.enlaceB {
+    display: block;
+    margin-bottom: 8px;
+    margin-right: 10px;
+    color: #C9A227;
+    text-decoration: none;
+}
+
+.enlaceB:hover {
+    color: #E0B830;
+}
+
+/*Los footer van hasta el final*/
+footer {
+    background-color: #222422;
+    color: #f5f1eb;
+    padding: 20px 0;
+    container-type: inline-size;
+    container-name: footer-container;
+
+}
+
+.footerCont {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.footerSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.footerBottom {
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 15px;
+    border-top: 1px solid #444444;
+    font-size: 14px;
+    color: #aaaaaa;
+}
+
+.redesSociales {
+    display: flex;
+    flex-direction: column;
+    /*Se agrega para responsive*/
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    width: 100%;
+    /*position: relative;*/
+    position: relative;
+}
+
+/* --- DISEÑO PARA COMPUTADORAS (Pantallas medianas y grandes) --- */
+
+/* Cuando el contenedor del footer mida más de 768px (Tablets grandes y PC) */
+@container footer-container (min-width: 768px) {
+
+    .redesSociales {
+        flex-direction: row;
+        /* Alinear horizontalmente */
+        justify-content: center;
+        position: relative;
+    }
+
+    .seccion-izq {
+        /* El truco definitivo: empuja todo lo que está a su derecha hacia el extremo opuesto, 
+           pero al estar dentro de flexbox mantiene al logo perfectamente centrado en el contenedor */
+        margin-right: auto;
+        text-align: left;
+    }
+
+    .footerSection {
+        /* Para asegurar un centrado milimétrico, compensamos el espacio absoluto si fuera necesario,
+           o simplemente lo dejamos fluir en el centro */
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+}
+
+
+/* =========================================================
+   QUALITY BANNER
+   ========================================================= */
+.tomahawk-hero {
+    position: relative;
+    width: 100%;
+    min-height: 62rem;
+    overflow: hidden;
+    background: #14110F;
+    color: #F4EFE6;
+    display: flex;
+    align-items: center
+}
+
+.tomahawk-hero__image {
+    position: absolute;
+    inset: 0;
+    background-image: url("https://images.openai.com/static-rsc-4/SIXdqZLGsEWVRroEyo-b38sTH9VGpE_jo23iby5-claysaGICVMqGEhLjv9YRmI90f9Hm5SPSTzoM-e6GT8t6Z82OBLO7ICSvPHLjGJ2avULhAJVSLN_G5ky0pNxK0iswyFGNOMDf7Or9G3kjSetPhNoz6RqDnKhEqsmmw-8fDWZYFNQTAye7sDZ_o147IuS?purpose=fullsize");
+    background-size: cover;
+    background-position: 25% center;
+    transform: scale(1.02)
+}
+
+.tomahawk-hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(20, 17, 15, .08) 0%, rgba(20, 17, 15, .18) 35%, rgba(20, 17, 15, .68) 62%, rgba(20, 17, 15, .94) 100%)
+}
+
+.tomahawk-hero__content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 125rem;
+    margin: 0 auto;
+    padding: 8rem 6rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: left
+}
+
+.tomahawk-hero__eyebrow,
+.tomahawk-hero__content h2,
+.tomahawk-hero__content p {
+    width: 48%
+}
+
+.tomahawk-hero__eyebrow {
+    margin-bottom: 2rem;
+    color: #D4A017;
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: .3rem
+}
+
+.tomahawk-hero__content h2 {
+    margin: 0;
+    color: #F4EFE6;
+    font-size: clamp(4.5rem, 5vw, 7rem);
+    line-height: 1;
+    letter-spacing: -.15rem;
+    font-weight: 700
+}
+
+.tomahawk-hero__content h2 span {
+    color: #D4A017
+}
+
+.tomahawk-hero__content p {
+    max-width: 52rem;
+    margin: 2.8rem 0 3.5rem;
+    color: rgba(244, 239, 230, .78);
+    font-size: 1.7rem;
+    line-height: 1.7
+}
+
+.tomahawk-hero__button {
+    align-self: flex-end;
+    display: inline-flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.5rem 2.5rem;
+    background: #D4A017;
+    color: #2B2723;
+    text-decoration: none;
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: .04rem;
+    border-radius: .4rem;
+    transition: background-color .3s ease, color .3s ease, transform .3s ease, box-shadow .3s ease
+}
+
+.tomahawk-hero__button span {
+    font-size: 2rem;
+    line-height: 1;
+    transition: transform .3s ease
+}
+
+.tomahawk-hero__button:hover {
+    background: #FFFFFF;
+    color: #2B2723;
+    transform: translateY(-.2rem);
+    box-shadow: 0 1rem 3rem rgba(20, 17, 15, .25)
+}
+
+.tomahawk-hero__button:hover span {
+    transform: translateX(.3rem)
+}
+
+@media(max-width:90rem) {
+    .tomahawk-hero__content {
+        padding: 7rem 5rem
+    }
+
+    .tomahawk-hero__eyebrow,
+    .tomahawk-hero__content h2,
+    .tomahawk-hero__content p {
+        width: 50%
+    }
+}
+
+@media(max-width:65rem) {
+    .tomahawk-hero {
+        min-height: 58rem
+    }
+
+    .tomahawk-hero__image {
+        background-position: 25% center
+    }
+
+    .tomahawk-hero__overlay {
+        background: linear-gradient(90deg, rgba(20, 17, 15, .12) 0%, rgba(20, 17, 15, .22) 35%, rgba(20, 17, 15, .7) 62%, rgba(20, 17, 15, .94) 100%)
+    }
+
+    .tomahawk-hero__content {
+        padding: 7rem 4rem
+    }
+
+    .tomahawk-hero__eyebrow,
+    .tomahawk-hero__content h2,
+    .tomahawk-hero__content p {
+        width: 52%
+    }
+
+    .tomahawk-hero__content h2 {
+        font-size: clamp(4rem, 7vw, 6rem)
+    }
+
+    .tomahawk-hero__content p {
+        font-size: 1.6rem;
+        margin: 2.2rem 0 2.8rem
+    }
+}
+
+@media(max-width:40rem) {
+    .tomahawk-hero {
+        min-height: 68rem;
+        align-items: flex-end
+    }
+
+    .tomahawk-hero__image {
+        background-position: 30% center
+    }
+
+    .tomahawk-hero__overlay {
+        background: linear-gradient(180deg, rgba(20, 17, 15, .08) 0%, rgba(20, 17, 15, .25) 35%, rgba(20, 17, 15, .78) 68%, rgba(20, 17, 15, .96) 100%)
+    }
+
+    .tomahawk-hero__content {
+        padding: 4.5rem 2.5rem;
+        align-items: center;
+        text-align: center
+    }
+
+    .tomahawk-hero__eyebrow,
+    .tomahawk-hero__content h2,
+    .tomahawk-hero__content p {
+        width: 100%
+    }
+
+    .tomahawk-hero__eyebrow {
+        font-size: 1.1rem;
+        letter-spacing: .25rem
+    }
+
+    .tomahawk-hero__content h2 {
+        font-size: clamp(4rem, 11vw, 5.8rem);
+        letter-spacing: -.1rem
+    }
+
+    .tomahawk-hero__content p {
+        margin: 2.2rem 0 2.8rem;
+        font-size: 1.5rem
+    }
+
+    .tomahawk-hero__button {
+        align-self: center
+    }
+}
+
+
+/* =========================================================
+   WHY US
+   ========================================================= */
+.why-us {
+    padding: 10rem 4rem;
+    background: #F4EFE6;
+    color: #2B2723
+}
+
+.why-us__header {
+    max-width: 65rem;
+    margin: 0 auto 6rem;
+    text-align: center
+}
+
+.why-us__title {
+    margin: 0;
+    color: #2B2723;
+    font-family: var(--font-primary);
+    font-size: clamp(3.8rem, 5vw, 6rem);
+    font-weight: 700;
+    line-height: 1.1
+}
+
+.why-us__line {
+    display: block;
+    width: 5rem;
+    height: .3rem;
+    margin: 1.8rem auto 0;
+    background: #D4A017;
+    border-radius: 1rem
+}
+
+.why-us__description {
+    margin: 1.8rem auto 0;
+    color: rgba(43, 39, 35, .65);
+    font-size: 1.4rem;
+    line-height: 1.7
+}
+
+.why-us__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2.5rem;
+    max-width: 110rem;
+    margin: auto
+}
+
+.why-us__item {
+    position: relative;
+    min-height: 27rem;
+    padding: 3.5rem;
+    border: .1rem solid rgba(43, 39, 35, .1);
+    border-radius: 1.2rem;
+    background: rgba(255, 255, 255, .58);
+    box-shadow: 0 1.5rem 3.5rem rgba(43, 39, 35, .1);
+    backdrop-filter: blur(1.2rem);
+    -webkit-backdrop-filter: blur(1.2rem);
+    overflow: hidden;
+    transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease
+}
+
+.why-us__item:hover {
+    transform: translateY(-.5rem);
+    border-color: rgba(212, 160, 23, .35);
+    box-shadow: 0 2rem 4rem rgba(43, 39, 35, .14)
+}
+
+.why-us__icon {
+    display: grid;
+    place-items: center;
+    width: 5.5rem;
+    height: 5.5rem;
+    margin-bottom: 2.2rem;
+    border: .1rem solid rgba(212, 160, 23, .4);
+    border-radius: 50%;
+    background: rgba(212, 160, 23, .1);
+    color: #D4A017;
+    font-size: 2.3rem;
+    backdrop-filter: blur(.8rem);
+    -webkit-backdrop-filter: blur(.8rem)
+}
+
+.why-us__number {
+    position: absolute;
+    top: 2.8rem;
+    right: 3rem;
+    color: rgba(212, 160, 23, .25);
+    font-size: 3.8rem;
+    font-weight: 700;
+    line-height: 1
+}
+
+.why-us__item h3 {
+    margin: 0 0 1rem;
+    color: #2B2723;
+    font-family: var(--font-primary);
+    font-size: 2.4rem;
+    font-weight: 700
+}
+
+.why-us__item p {
+    max-width: 45rem;
+    margin: 0;
+    color: rgba(43, 39, 35, .65);
+    font-size: 1.3rem;
+    line-height: 1.7
+}
+
+@media(max-width:65rem) {
+    .why-us {
+        padding: 8rem 2rem
+    }
+
+    .why-us__header {
+        margin-bottom: 4.5rem
+    }
+
+    .why-us__grid {
+        gap: 2rem
+    }
+
+    .why-us__item {
+        min-height: 25rem;
+        padding: 3rem
+    }
+
+    .why-us__item h3 {
+        font-size: 2.2rem
+    }
+}
+
+@media(max-width:40rem) {
+    .why-us {
+        padding: 7rem 1.5rem
+    }
+
+    .why-us__header {
+        margin-bottom: 4rem
+    }
+
+    .why-us__title {
+        font-size: 3.8rem
+    }
+
+    .why-us__description {
+        font-size: 1.3rem
+    }
+
+    .why-us__grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem
+    }
+
+    .why-us__item {
+        min-height: 23rem;
+        padding: 2.5rem
+    }
+
+    .why-us__icon {
+        width: 5rem;
+        height: 5rem;
+        font-size: 2rem
+    }
+
+    .why-us__number {
+        top: 2.5rem;
+        right: 2.5rem;
+        font-size: 3.2rem
+    }
+
+    .why-us__item h3 {
+        font-size: 2.1rem
+    }
+
+    .why-us__item p {
+        font-size: 1.25rem
+    }
+}
+
+
+/* =========================================================
+   HOME HERO
+   ========================================================= */
+
+.products-hero {
+    position: relative;
+
+    width: 100%;
+    min-height: 50rem;
+
+    overflow: hidden;
+
+    background-color: #14110F;
+
+    /*
+        MISMA IMAGEN DEL HERO ACTUAL.
+        La imagen se mantiene porque la carne está
+        principalmente en el lado izquierdo.
+    */
+    background-image: url("https://images.openai.com/static-rsc-4/lMsx794KJg5NN2kiEH_ArnsEGuvHH9h2WJ0xHsMFEpaQmUtEOR-AFxEhnOQPrwLD7koGlfQkgR3R2d_BeuWEUqgaYXSWE3gVtU_tlE2Jwuf_-vIZxrC6bN0V8YIdsMCHeHQJ40zLMQ5mciINPUVI8gO37U1svwULk_oUXwr4MPeosof7V77kfyYg1s3xywE5?purpose=fullsize");
+
+    background-size: cover;
+
+    /*
+        La imagen importante está a la izquierda.
+        Dejamos esa zona visible y reservamos
+        espacio visual para el contenido a la derecha.
+    */
+    background-position: 25% center;
+
+    background-repeat: no-repeat;
+
+    color: #FFFFFF;
+}
+
+
+/* =========================================================
+   HERO - OVERLAY
+   ========================================================= */
+
+.products-hero__overlay {
+    position: absolute;
+    inset: 0;
+
+    /*
+        Utilizamos los tonos oscuros de la nueva paleta.
+
+        #14110F = negro principal
+        #2B2723 = carbón
+
+        El lado izquierdo conserva más detalle
+        de la fotografía.
+        El lado derecho recibe mayor oscurecimiento
+        para favorecer la lectura.
+    */
+    background:
+        linear-gradient(90deg,
+            rgba(20, 17, 15, 0.10) 0%,
+            rgba(20, 17, 15, 0.16) 35%,
+            rgba(20, 17, 15, 0.62) 62%,
+            rgba(20, 17, 15, 0.92) 100%);
+
+    z-index: 0;
+}
+
+
+/* =========================================================
+   HERO - CONTENIDO
+   ========================================================= */
+
+.products-hero__content {
+    position: relative;
+    z-index: 1;
+
+    width: 44%;
+
+    /*
+        Mantiene el contenido del lado derecho.
+    */
+    margin-left: auto;
+    margin-right: 7%;
+
+    min-height: 55rem;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+
+    /*
+        El contenido se mantiene alineado hacia
+        el lado derecho del bloque.
+    */
+    align-items: flex-start;
+
+    text-align: left;
+}
+
+
+/* =========================================================
+   HERO - EYEBROW
+   ========================================================= */
+
+.products-hero__eyebrow {
+    margin-bottom: 1.8rem;
+
+    color: #D4A017;
+
+    font-size: 1.2rem;
+    font-weight: 700;
+
+    letter-spacing: 0.25rem;
+}
+
+
+/* =========================================================
+   HERO - TÍTULO
+   ========================================================= */
+
+.products-hero h1 {
+    margin: 0;
+
+    /*
+        No utilizamos blanco puro.
+        El color crema forma parte de la nueva identidad.
+    */
+    color: #F4EFE6;
+
+    font-size: clamp(4.5rem, 5.5vw, 7rem);
+
+    line-height: 0.98;
+
+    letter-spacing: -0.15rem;
+
+    font-weight: 700;
+}
+
+
+/*
+    Énfasis del título
+*/
+
+.products-hero h1 em {
+    color: #D4A017;
+
+    font-style: normal;
+}
+
+
+/* =========================================================
+   HERO - DESCRIPCIÓN
+   ========================================================= */
+
+.products-hero p {
+    max-width: 48rem;
+
+    margin: 2.8rem 0 3.2rem;
+
+    color: #F4EFE6;
+
+    font-size: 1.7rem;
+
+    line-height: 1.65;
+}
+
+
+/* =========================================================
+   HERO - BOTÓN
+   ========================================================= */
+
+.products-hero__cta {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 1.2rem;
+
+    padding: 1.4rem 2.4rem;
+
+    background-color: #D4A017;
+
+    color: #2B2723;
+
+    text-decoration: none;
+
+    font-size: 1.4rem;
+    font-weight: 700;
+
+    border-radius: 0.4rem;
+
+    transition:
+        background-color 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+/* Flecha */
+
+.products-hero__cta span {
+    font-size: 1.8rem;
+    line-height: 1;
+
+    transition: transform 0.25s ease;
+}
+
+
+/* Hover */
+
+.products-hero__cta:hover {
+    background-color: #FFFFFF;
+
+    color: #2B2723;
+
+    transform: translateY(-0.2rem);
+
+    box-shadow:
+        0 0.8rem 2rem rgba(20, 17, 15, 0.30);
+}
+
+
+.products-hero__cta:hover span {
+    transform: translateX(0.3rem);
+}
+
+
+/* =========================================================
+   HERO - AJUSTE PARA PANTALLAS MEDIANAS
+   ========================================================= */
+
+@media (max-width: 90rem) {
+
+    .products-hero__content {
+        width: 48%;
+
+        margin-right: 5%;
+    }
+
+}
+
+
+/* =========================================================
+   HERO - TABLET
+   ========================================================= */
+
+@media (max-width: 65rem) {
+
+    .products-hero {
+
+        /*
+            Se conserva la altura existente.
+        */
+        min-height: 50rem;
+
+        /*
+            La carne permanece del lado izquierdo.
+        */
+        background-position: 25% center;
+    }
+
+
+    .products-hero__overlay {
+        background:
+            linear-gradient(90deg,
+                rgba(20, 17, 15, 0.14) 0%,
+                rgba(20, 17, 15, 0.22) 35%,
+                rgba(20, 17, 15, 0.68) 62%,
+                rgba(20, 17, 15, 0.94) 100%);
+    }
+
+
+    .products-hero__content {
+
+        /*
+            Sigue estando del lado derecho.
+        */
+        width: 48%;
+
+        min-height: 50rem;
+
+        margin-left: auto;
+        margin-right: 4%;
+
+        padding: 4rem 3rem;
+
+        justify-content: center;
+
+        align-items: flex-start;
+
+        text-align: left;
+    }
+
+
+    .products-hero h1 {
+        font-size: clamp(4.2rem, 7vw, 6rem);
+    }
+
+
+    .products-hero p {
+        font-size: 1.6rem;
+
+        margin:
+            2.2rem 0 2.8rem;
+    }
+
+}
+
+
+/* =========================================================
+   HERO - MOBILE
+   ========================================================= */
+
+@media (max-width: 40rem) {
+
+    .products-hero {
+
+        /*
+            Se conserva la altura definida originalmente.
+        */
+        min-height: 55rem;
+
+        /*
+            En móvil necesitamos desplazar la imagen
+            ligeramente para conservar visible
+            la zona importante de la fotografía.
+        */
+        background-position: 30% center;
+    }
+
+
+    .products-hero__overlay {
+
+        /*
+            En móvil el contenido se centra.
+            El overlay es más uniforme verticalmente
+            para que el texto tenga buena lectura.
+        */
+        background:
+            linear-gradient(180deg,
+                rgba(20, 17, 15, 0.16) 0%,
+                rgba(20, 17, 15, 0.28) 35%,
+                rgba(20, 17, 15, 0.72) 68%,
+                rgba(20, 17, 15, 0.94) 100%);
+    }
+
+
+    .products-hero__content {
+
+        /*
+            Conservamos la altura existente.
+        */
+        min-height: 62rem;
+
+        width: 100%;
+
+        margin: 0;
+
+        padding: 3rem 2rem;
+
+        /*
+            MOBILE:
+            contenido centrado.
+        */
+        justify-content: center;
+
+        align-items: center;
+
+        text-align: center;
+    }
+
+
+    .products-hero__eyebrow {
+
+        font-size: 1.1rem;
+
+        letter-spacing: 0.25rem;
+
+        margin-bottom: 1.5rem;
+    }
+
+
+    .products-hero h1 {
+
+        font-size: 4.5rem;
+
+        line-height: 1;
+
+        letter-spacing: -0.1rem;
+    }
+
+
+    .products-hero p {
+
+        max-width: 42rem;
+
+        margin:
+            2.2rem auto 2.8rem;
+
+        font-size: 1.5rem;
+
+        line-height: 1.6;
+    }
+
+
+    .products-hero__cta {
+
+        width: auto;
+
+        min-width: 20rem;
+
+        padding:
+            1.3rem 2.2rem;
+    }
+
+}
+
+/* =========================================================
+   FEATURED PRODUCTS
+   ========================================================= */
+.featured-products {
+    padding: 10rem 4rem;
+    overflow: hidden;
+    background: #F4EFE6;
+    color: #2B2723
+}
+
+.featured-products__header {
+    max-width: 70rem;
+    margin: 0 auto 5rem;
+    text-align: center
+}
+
+.featured-products__title {
+    position: relative;
+    margin: 0;
+    color: #2B2723;
+    font-family: var(--font-primary);
+    font-size: clamp(3.8rem, 5vw, 6rem);
+    font-weight: 700;
+    line-height: 1.1
+}
+
+.featured-products__line {
+    display: block;
+    width: 5rem;
+    height: .3rem;
+    margin: 1.8rem auto 0;
+    background: #D4A017;
+    border-radius: 1rem
+}
+
+.featured-products__description {
+    max-width: 55rem;
+    margin: 1.8rem auto 0;
+    color: rgba(43, 39, 35, .65);
+    font-size: 1.4rem;
+    line-height: 1.7
+}
+
+/* =========================================================
+   CAROUSEL
+   ========================================================= */
+.featured-products__carousel {
+    position: relative;
+    max-width: 125rem;
+    margin: auto;
+    overflow: hidden
+}
+
+.featured-products__track {
+    display: flex;
+    align-items: center;
+    gap: 2.2rem;
+    width: 100%;
+    padding: 3rem 5rem;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none
+}
+
+.featured-products__track::-webkit-scrollbar {
+    display: none
+}
+
+/* =========================================================
+   PRODUCT CARD
+   ========================================================= */
+.product-card {
+    position: relative;
+    flex: 0 0 30rem;
+    width: 30rem;
+    min-width: 30rem;
+    height: 48rem;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: .1rem solid rgba(43, 39, 35, .12);
+    border-radius: 1.2rem;
+    background: rgba(255, 255, 255, .62);
+    box-shadow: 0 1.8rem 4rem rgba(43, 39, 35, .12);
+    backdrop-filter: blur(1.2rem);
+    -webkit-backdrop-filter: blur(1.2rem);
+    transform: scale(.92);
+    transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease
+}
+
+.product-card.is-main {
+    transform: translateY(-2rem) scale(1.05);
+    z-index: 2;
+    border-color: rgba(212, 160, 23, .3);
+    box-shadow: 0 2.5rem 5rem rgba(43, 39, 35, .18)
+}
+
+.product-card__image {
+    position: relative;
+    flex: 0 0 28rem;
+    height: 28rem;
+    overflow: hidden;
+    background: rgba(217, 201, 174, .16)
+}
+
+.product-card__image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 2rem;
+    object-fit: contain;
+    filter: drop-shadow(0 1.5rem 1.8rem rgba(43, 39, 35, .2));
+    transition: transform .5s ease
+}
+
+.product-card:hover .product-card__image img {
+    transform: scale(1.04)
+}
+
+/* =========================================================
+   BADGE
+   ========================================================= */
+.product-card__badge {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    z-index: 2;
+    padding: .7rem 1.1rem;
+    border: 0;
+    border-radius: 10rem;
+    background: #D4A017;
+    color: #2B2723;
+    font-size: .9rem;
+    font-weight: 700;
+    letter-spacing: .1rem;
+    backdrop-filter: blur(.8rem);
+    -webkit-backdrop-filter: blur(.8rem)
+}
+
+/* =========================================================
+   CARD CONTENT
+   ========================================================= */
+.product-card__content {
+    position: relative;
+    z-index: 3;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 2.2rem;
+    background: rgba(255, 255, 255, .48);
+    border-top: .1rem solid rgba(255, 255, 255, .7);
+    backdrop-filter: blur(1.6rem);
+    -webkit-backdrop-filter: blur(1.6rem)
+}
+
+.product-card__category {
+    color: #D4A017;
+    font-size: .95rem;
+    font-weight: 700;
+    letter-spacing: .16rem
+}
+
+.product-card__title {
+    margin: .8rem 0 .4rem;
+    color: #2B2723;
+    font-family: var(--font-primary);
+    font-size: 2.25rem;
+    font-weight: 700;
+    line-height: 1.15
+}
+
+.product-card__weight {
+    color: rgba(43, 39, 35, .58);
+    font-size: 1.2rem
+}
+
+.product-card__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: auto;
+    padding-top: 1.8rem
+}
+
+.product-card__price {
+    color: #2B2723;
+    font-size: 2rem;
+    font-weight: 700
+}
+
+.product-card__add {
+    display: grid;
+    place-items: center;
+    width: 4.5rem;
+    height: 4.5rem;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: #D4A017;
+    color: #2B2723;
+    font-size: 2.5rem;
+    font-weight: 400;
+    line-height: 1;
+    cursor: pointer;
+    transition: transform .3s ease, background-color .3s ease, color .3s ease
+}
+
+.product-card__add:hover {
+    transform: rotate(90deg) scale(1.08);
+    background: #2B2723;
+    color: #D4A017
+}
+
+/* =========================================================
+   ARROWS
+   ========================================================= */
+.featured-products__arrow {
+    position: absolute;
+    top: 50%;
+    z-index: 10;
+    display: grid;
+    place-items: center;
+    width: 4.8rem;
+    height: 4.8rem;
+    padding: 0;
+    border: .1rem solid rgba(43, 39, 35, .16);
+    border-radius: 50%;
+    background: rgba(255, 255, 255, .6);
+    color: #2B2723;
+    font-size: 2.2rem;
+    cursor: pointer;
+    transform: translateY(-50%);
+    backdrop-filter: blur(1rem);
+    -webkit-backdrop-filter: blur(1rem);
+    transition: background-color .25s ease, color .25s ease, transform .25s ease
+}
+
+.featured-products__arrow:hover {
+    background: #D4A017;
+    color: #2B2723;
+    transform: translateY(-50%) scale(1.08)
+}
+
+.featured-products__arrow--prev {
+    left: .8rem
+}
+
+.featured-products__arrow--next {
+    right: .8rem
+}
+
+/* =========================================================
+   VIEW ALL
+   ========================================================= */
+.featured-products__view-all {
+    display: block;
+    width: fit-content;
+    margin: 5.5rem auto 2rem;
+    padding: 1.3rem 3rem;
+    border: .1rem solid #D4A017;
+    border-radius: .6rem;
+    background: #D4A017;
+    color: #2B2723;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: .08rem;
+    text-decoration: none;
+    transition: background-color .25s ease, color .25s ease, transform .25s ease
+}
+
+.featured-products__view-all:hover {
+    background: #2B2723;
+    color: #D4A017;
+    transform: translateY(-.15rem)
+}
+
+/* =========================================================
+   DOTS
+   ========================================================= */
+.featured-products__dots {
+    display: flex;
+    justify-content: center;
+    gap: .8rem
+}
+
+.featured-products__dot {
+    width: .8rem;
+    height: .8rem;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: #D9C9AE;
+    opacity: .7;
+    cursor: pointer;
+    transition: width .25s ease, background-color .25s ease, opacity .25s ease
+}
+
+.featured-products__dot--active {
+    width: 2.5rem;
+    border-radius: 1rem;
+    background: #D4A017;
+    opacity: 1
+}
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+@media(max-width:90rem) {
+    .featured-products__track {
+        padding: 3rem 4rem;
+        gap: 2rem
+    }
+
+    .product-card {
+        flex-basis: 28rem;
+        width: 28rem;
+        min-width: 28rem
+    }
+
+    .product-card.is-main {
+        transform: translateY(-1.5rem) scale(1.05)
+    }
+
+    .featured-products__arrow--prev {
+        left: .5rem
+    }
+
+    .featured-products__arrow--next {
+        right: .5rem
+    }
+}
+
+@media(max-width:65rem) {
+    .featured-products {
+        padding: 8rem 2rem
+    }
+
+    .featured-products__track {
+        padding: 3rem 4rem;
+        gap: 2rem
+    }
+
+    .product-card {
+        flex-basis: 27rem;
+        width: 27rem;
+        min-width: 27rem;
+        height: 46rem
+    }
+
+    .product-card.is-main {
+        transform: translateY(-1.2rem) scale(1.05)
+    }
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+@media(max-width:50rem) {
+    .featured-products {
+        padding: 7rem 1.5rem
+    }
+
+    .featured-products__header {
+        margin-bottom: 3rem
+    }
+
+    .featured-products__title {
+        font-size: 3.8rem
+    }
+
+    .featured-products__description {
+        font-size: 1.3rem
+    }
+
+    .featured-products__track {
+        gap: 1.5rem;
+        padding: 2rem 3rem
+    }
+
+    .product-card {
+        flex: 0 0 82vw;
+        width: 82vw;
+        min-width: 82vw;
+        height: 45rem;
+        transform: scale(1)
+    }
+
+    .product-card.is-main {
+        transform: scale(1.02)
+    }
+
+    .product-card__image {
+        flex-basis: 25rem;
+        height: 25rem
+    }
+
+    .featured-products__arrow {
+        width: 3.8rem;
+        height: 3.8rem
+    }
+
+    .featured-products__arrow--prev {
+        left: .2rem
+    }
+
+    .featured-products__arrow--next {
+        right: .2rem
+    }
+}

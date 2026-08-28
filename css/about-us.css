@@ -1,3 +1,5 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css");
+
 /* Estilos */
 :root {
     --color-mostaza: #D4A017;
@@ -30,7 +32,6 @@ body {
 }
 
 /* welcome grids */
-@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css");
 
 :root {
     --color-mostaza: #D4A017;
@@ -66,7 +67,9 @@ body {
 /* Contenedor principal */
 .container-historia-wrapper {
     display: grid;
-    margin: 0;
+    max-width: 120rem;   /* ajusta al ancho máximo que quieras */
+    margin: 0 auto;
+    padding: 0 2rem;      /* para que no toque los bordes en pantallas medianas */
 }
 
 /* Sección Historia */
@@ -78,22 +81,57 @@ body {
 
 .container-history {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr)) minmax(300px, 2fr);
-    gap: 2rem;
-    min-height: 25rem;
-    /* background-color: red; */
-    width: 100%;
-    padding: 3rem;
-}
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-areas:
+            "titulo titulo titulo"
+            "img1   img2   img3"
+            "parrafo parrafo parrafo";
+        gap: 2rem;
+        /* background-color: rgb(55, 6, 252); */
+    }
+
+    .card-history {
+        display: contents;
+        /* "desaparece" el div, deja pasar a sus hijos como items del grid */
+    }
+
+    .card-history h3 {
+        grid-area: titulo;
+        text-align: center;
+    }
+
+    .card-history p {
+        grid-area: parrafo;
+        background: white;
+        padding: 2rem;
+        border-radius: 1rem;
+    }
+
+    .card-img-box:nth-child(1) {
+        grid-area: img1;
+    }
+
+    .card-img-box:nth-child(2) {
+        grid-area: img2;
+    }
+
+    .card-img-box:nth-child(3) {
+        grid-area: img3;
+    }
+
+    /* .card-img-box img {
+        width: 100%;
+        margin-top: 0;
+    } */
 
 /* Imágenes */
 .card-img-box img {
     width: 100%;
-    max-width: 30rem;
+    max-width: 35rem;   /* tope opcional en pantallas muy grandes */
     height: auto;
     margin-top: 5rem;
+    border-radius: 1rem;
 }
-
 /* Texto Historia */
 .card-history {
     background: white;
@@ -249,51 +287,7 @@ body {
 }
 
 /* tablet responsivo */
-@media (min-width: 48rem) and (max-width: 80rem) {
-    .container-history {
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-areas:
-            "titulo titulo titulo"
-            "img1   img2   img3"
-            "parrafo parrafo parrafo";
-        gap: 2rem;
-        /* background-color: rgb(55, 6, 252); */
-    }
 
-    .card-history {
-        display: contents;
-        /* "desaparece" el div, deja pasar a sus hijos como items del grid */
-    }
-
-    .card-history h3 {
-        grid-area: titulo;
-        text-align: center;
-    }
-
-    .card-history p {
-        grid-area: parrafo;
-        background: white;
-        padding: 2rem;
-        border-radius: 1rem;
-    }
-
-    .card-img-box:nth-child(1) {
-        grid-area: img1;
-    }
-
-    .card-img-box:nth-child(2) {
-        grid-area: img2;
-    }
-
-    .card-img-box:nth-child(3) {
-        grid-area: img3;
-    }
-
-    .card-img-box img {
-        width: 100%;
-        margin-top: 0;
-    }
-}
 
 /* Equipo de desarrolladores*/
 .title-team {
@@ -673,5 +667,118 @@ body {
     .cart-footer {
         padding: 16px;
     }
+}
+
+
+
+.imgRedes {
+    width: 100%;
+    max-width: 40px;
+    height: auto;
+    display: block;
+}
+
+.logoFooter {
+    width: 100%;
+    max-width: 190px;
+    height: auto;
+    display: block;
+    border-radius: 50%;
+}
+
+.linkRedes {
+    display: inline-block;
+    transition: transform 0.2s ease;
+}
+
+.iconosCont {
+    display: flex;
+    gap: 20px;
+    position: static;
+    /*left: 20px;*/
+}
+
+.enlaceB {
+    display: block;
+    margin-bottom: 8px;
+}
+
+/*Los footer van hasta el final*/
+footer {
+    background-color: #222422;
+    color: #f5f1eb;
+    padding: 20px 0;
+    container-type: inline-size;
+    container-name: footer-container;
+    margin-top: 10%;
 
 }
+
+.footerCont {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.footerSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.footerBottom {
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 15px;
+    border-top: 1px solid #444444;
+    font-size: 14px;
+    color: #aaaaaa;
+}
+
+.redesSociales {
+    display: flex;
+    flex-direction: column; /*Se agrega para responsive*/
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    width: 100%;
+    /*position: relative;*/
+    position: relative;
+}
+
+/* --- DISEÑO PARA COMPUTADORAS (Pantallas medianas y grandes) --- */
+
+/* Cuando el contenedor del footer mida más de 768px (Tablets grandes y PC) */
+@container footer-container (min-width: 768px) {
+    
+    .redesSociales {
+        flex-direction: row; /* Alinear horizontalmente */
+        justify-content: center;
+        position: relative;
+    }
+
+     .seccion-izq {
+        /* El truco definitivo: empuja todo lo que está a su derecha hacia el extremo opuesto, 
+           pero al estar dentro de flexbox mantiene al logo perfectamente centrado en el contenedor */
+        margin-right: auto; 
+        text-align: left;
+    }
+
+    .footerSection {
+        /* Para asegurar un centrado milimétrico, compensamos el espacio absoluto si fuera necesario,
+           o simplemente lo dejamos fluir en el centro */
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+}
+

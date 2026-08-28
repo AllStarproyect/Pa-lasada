@@ -4,119 +4,615 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="styles.css">
 
-    <title>prueba</title>
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="./css/global.css">
+    <link rel="stylesheet" href="./css/home.css">
 </head>
 
 <body>
+    <!-- =====================================================
+         NAVBAR
+         ===================================================== -->
+    <template>
+        <nav class="navbar navbar-expand-lg navbar-custom">
+            <div class="container">
+                <a class="navbar-brand" href="./index.html" aria-label="Ir al inicio">
+                    <img src="./assets/img/Logo3.png" alt="Logo de Pa' la Asada" class="logo">
+                </a>
 
+                <!-- Mobile actions -->
+                <div class="d-flex align-items-center ms-auto d-lg-none">
+                    <button class="btn icon-btn position-relative" type="button" aria-label="Ver carrito">
+                        <i class="bi bi-cart3"></i>
+                        <span class="cart-badge">3</span>
+                    </button>
+
+                    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                        aria-label="Abrir menú">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+
+                <!-- Collapsible navigation -->
+                <div class="collapse navbar-collapse nav-links" id="navbarNavDropdown">
+                    <ul class="navbar-nav mx-auto gap-lg-4">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="./index.html">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./pages/catalog.html">Productos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./pages/about-us.html">Acerca de</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./pages/contact.html">Contacto</a>
+                        </li>
+                    </ul>
+
+                    <!-- Desktop actions -->
+                    <div class="nav-actions">
+                        <button class="btn icon-btn position-relative d-none d-lg-block" type="button"
+                            aria-label="Ver carrito">
+                            <i class="bi bi-cart3"></i>
+                            <span class="cart-badge">3</span>
+                        </button>
+
+                        <!-- Login / profile is rendered by navbar.js -->
+                        <div id="userMenu"></div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </template>
+
+    <!-- =====================================================
+     NAVBAR
+     ===================================================== -->
     <nav class="navbar navbar-expand-lg navbar-custom">
         <div class="container">
-
-            <a class="navbar-brand" href="#">
-                <img src="img/Logo.png" alt="Logo" class="logo">
+            <!-- Logo -->
+            <a class="navbar-brand" href="./index.html" aria-label="Ir al inicio">
+                <img src="./assets/img/logooscuroancho.png" alt="Logo de Pa' la Asada" class="logo">
             </a>
+            <!-- Mobile actions -->
+            <div class="d-flex align-items-center ms-auto d-lg-none">
+                <!-- Carrito -->
+                <button class="btn icon-btn position-relative" type="button" aria-label="Ver carrito">
+                    <i class="bi bi-cart3"></i>
+                    <span class="cart-badge">3</span>
+                </button>
+                <!-- Menú hamburguesa -->
+                <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                    aria-label="Abrir menú">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
 
-            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
-                aria-label="Abrir menú">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
+            <!-- Navegación -->
             <div class="collapse navbar-collapse nav-links" id="navbarNavDropdown">
 
                 <ul class="navbar-nav mx-auto gap-lg-4">
 
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">Inicio</a>
+                        <a class="nav-link active" href="./index.html">
+                            Inicio
+                        </a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Productos</a>
+                        <a class="nav-link" href="./pages/catalog.html">
+                            Productos
+                        </a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Acerca de</a>
+                        <a class="nav-link" href="./pages/about-us.html">
+                            Acerca de
+                        </a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Contacto</a>
+                        <a class="nav-link" href="./pages/contact.html">
+                            Contacto
+                        </a>
                     </li>
 
                 </ul>
 
+                <!-- Desktop actions -->
                 <div class="nav-actions">
-
-                    <!-- BOTÓN DEL CARRITO -->
-                    <button class="btn icon-btn position-relative" id="openCart">
+                    <!-- Carrito -->
+                    <button class="btn icon-btn position-relative d-none d-lg-block" type="button"
+                        aria-label="Ver carrito">
                         <i class="bi bi-cart3"></i>
 
                         <span class="cart-badge">
                             !
                         </span>
                     </button>
-
+                    <!-- Login / profile -->
                     <div id="userMenu"></div>
-
                 </div>
-
             </div>
         </div>
     </nav>
 
 
-    <!-- FONDO OSCURO DEL CARRITO -->
-    <div class="cart-overlay" id="cartOverlay"></div>
+    <!-- =====================================================
+         MAIN CONTENT
+         ===================================================== -->
+    <main class="mainCont">
+        <template>
+            <section class="products-hero">
+                <div class="products-hero__overlay"></div>
 
+                <div class="products-hero__content">
+                    <span class="products-hero__eyebrow">PA' LA ASADA</span>
 
-    <!-- BARRA LATERAL DEL CARRITO -->
-    <aside class="cart-sidebar" id="cartSidebar">
+                    <h1>
+                        Cortes que hacen<br>
+                        <em>la diferencia.</em>
+                    </h1>
 
-        <!-- ENCABEZADO -->
-        <div class="cart-header">
+                    <p>
+                        Seleccionamos cortes de primera calidad para llevar
+                        el verdadero sabor de una buena asada hasta tu mesa.
+                    </p>
 
-            <h3>Carrito</h3>
+                    <a href="./pages/catalog.html" class="products-hero__cta">
+                        Ver nuestros cortes
+                        <span>→</span>
+                    </a>
+                </div>
+            </section>
+        </template>
 
-            <button class="cart-close" id="closeCart" aria-label="Cerrar carrito">
-                <i class="bi bi-x-lg"></i>
-            </button>
+        <!-- =====================================================
+     HOME HERO
+     ===================================================== -->
+        <section class="products-hero">
+            <!-- Overlay para mejorar la lectura del contenido -->
+            <div class="products-hero__overlay"></div>
+            <div class="products-hero__content">
+                <!-- Eyebrow -->
+                <span class="products-hero__eyebrow">
+                    CARNICERÍA BOUTIQUE
+                </span>
+                <!-- Título -->
+                <h1>
+                    El Sabor <em>Auténtico</em> de la
+                    Parrilla
+                </h1>
+                <!-- Descripción -->
+                <p>
+                    Cortes premium seleccionados meticulosamente para los
+                    verdaderos amantes del asado.
+                </p>
+                <!-- CTA -->
+                <a href="./pages/catalog.html" class="products-hero__cta">
+                    Explorar Productos
+                    <span>→</span>
+                </a>
+            </div>
+        </section>
 
-        </div>
+        <template>
+            <section class="featured-products">
+                <!-- Featured products header -->
+                <header class="featured-products__header">
+                    <span class="featured-products__eyebrow">
+                        SELECCIÓN PREMIUM
+                    </span>
+                    <h2 class="featured-products__title">
+                        Nuestras carnes
+                    </h2>
+                    <p class="featured-products__description">
+                        Cortes seleccionados para quienes buscan
+                        una experiencia gastronómica excepcional.
+                    </p>
+                </header>
+                <!-- Product carousel -->
+                <div class="featured-products__carousel">
+                    <!-- Flecha anterior -->
+                    <button class="featured-products__arrow featured-products__arrow--prev" type="button"
+                        aria-label="Ver productos anteriores">
+                        &#10094;
+                    </button>
+                    <!-- Productos -->
+                    <div class="featured-products__track">
+                        <!-- =================================
+           PRODUCT CARD
+      ================================== -->
+                        <article class="product-card">
+                            <div class="product-card__image">
+                                <img src="./assets/img/Rib Eye.png" alt="Ribeye Angus premium" loading="lazy">
+                                <span class="product-card__badge">
+                                    PREMIUM
+                                </span>
 
+                            </div>
+                            <div class="product-card__content">
 
-        <!-- CONTENIDO DEL CARRITO -->
-        <div class="cart-body">
+                                <span class="product-card__category">
+                                    CORTE PREMIUM
+                                </span>
 
-            <div class="empty-cart">
+                                <h3 class="product-card__title">
+                                    Ribeye Angus
+                                </h3>
 
-                <i class="bi bi-cart-x"></i>
+                                <span class="product-card__weight">
+                                    350 g aprox.
+                                </span>
 
-                <p>Carrito vacío</p>
+                                <div class="product-card__footer">
 
+                                    <span class="product-card__price">
+                                        $420
+                                    </span>
+
+                                    <button class="product-card__add" type="button"
+                                        aria-label="Agregar Ribeye Angus al carrito">
+                                        +
+                                    </button>
+
+                                </div>
+
+                            </div>
+                        </article>
+                        <!-- =================================
+           PRODUCT CARD - FEATURED
+      ================================== -->
+
+                        <article class="product-card product-card--featured">
+                            <div class="product-card__image">
+                                <img src="./assets/img/tomahawk.png" alt="Tomahawk Prime premium">
+                                <span class="product-card__badge">
+                                    HOT SALE
+                                </span>
+
+                            </div>
+                            <div class="product-card__content">
+
+                                <span class="product-card__category">
+                                    CORTE PREMIUM
+                                </span>
+
+                                <h3 class="product-card__title">
+                                    Tomahawk
+                                </h3>
+
+                                <span class="product-card__weight">
+                                    450 g aprox.
+                                </span>
+
+                                <div class="product-card__footer">
+
+                                    <span class="product-card__price">
+                                        $820
+                                    </span>
+                                    <button class="product-card__add" type="button"
+                                        aria-label="Agregar Tomahawk Prime al carrito">
+                                        +
+                                    </button>
+
+                                </div>
+
+                            </div>
+                        </article>
+
+                        <!-- =================================
+           PRODUCT CARD - FEATURED
+      ================================== -->
+
+                        <article class="product-card product-card--featured">
+                            <div class="product-card__image">
+                                <img src="./assets/img/image_a871302d.png" alt="Arrachera Prime premium">
+                                <span class="product-card__badge">
+                                    HOT SALE
+                                </span>
+
+                            </div>
+                            <div class="product-card__content">
+
+                                <span class="product-card__category">
+                                    CORTE PREMIUM
+                                </span>
+
+                                <h3 class="product-card__title">
+                                    Arrachera Certified Angus Beef
+                                </h3>
+
+                                <span class="product-card__weight">
+                                    950 g aprox.
+                                </span>
+
+                                <div class="product-card__footer">
+
+                                    <span class="product-card__price">
+                                        $570
+                                    </span>
+                                    <button class="product-card__add" type="button"
+                                        aria-label="Agregar Arrachera Prime al carrito">
+                                        +
+                                    </button>
+
+                                </div>
+
+                            </div>
+                        </article>
+
+                        <!-- =================================
+           PRODUCT CARD
+      ================================== -->
+
+                        <article class="product-card">
+                            <div class="product-card__image">
+                                <img src="./assets/img/New york.png" alt="New York Prime premium" loading="lazy">
+                                <span class="product-card__badge">
+                                    PREMIUM
+                                </span>
+
+                            </div>
+                            <div class="product-card__content">
+
+                                <span class="product-card__category">
+                                    CORTE PREMIUM
+                                </span>
+
+                                <h3 class="product-card__title">
+                                    New York Angus
+                                </h3>
+
+                                <span class="product-card__weight">
+                                    550 g aprox.
+                                </span>
+
+                                <div class="product-card__footer">
+
+                                    <span class="product-card__price">
+                                        $620
+                                    </span>
+                                    <button class="product-card__add" type="button"
+                                        aria-label="Agregar New York Prime al carrito">
+                                        +
+                                    </button>
+
+                                </div>
+
+                            </div>
+                        </article>
+                    </div>
+                    <!-- Flecha siguiente -->
+                    <button class="featured-products__arrow featured-products__arrow--next" type="button"
+                        aria-label="Ver siguientes productos">
+                        &#10095;
+                    </button>
+                </div>
+
+                <!-- Catalog link -->
+                <a href="./pages/catalog.html" class="featured-products__view-all">
+                    Ver toda la selección
+                </a>
+                <!-- Carousel pagination -->
+                <div class="featured-products__dots" aria-label="Navegación del carrusel">
+                    <button class="featured-products__dot" type="button" aria-label="Página 1">
+                    </button>
+                    <button class="featured-products__dot featured-products__dot--active" type="button"
+                        aria-label="Página 2" aria-current="true">
+                    </button>
+                    <button class="featured-products__dot" type="button" aria-label="Página 3">
+                    </button>
+                </div>
+            </section>
+        </template>
+
+        <!-- =====================================================
+     FEATURED PRODUCTS
+     ===================================================== -->
+        <section class="featured-products">
+            <header class="featured-products__header">
+                <h2 class="featured-products__title">Productos Destacados</h2>
+                <span class="featured-products__line"></span>
+                <p class="featured-products__description">Lo mejor de nuestra selección boutique directo a tu asador.
+                </p>
+            </header>
+            <div class="featured-products__carousel">
+                <button class="featured-products__arrow featured-products__arrow--prev" type="button"
+                    aria-label="Ver productos anteriores">&#10094;</button>
+                <div class="featured-products__track">
+                    <article class="product-card">
+                        <div class="product-card__image">
+                            <img src="./assets/img/Rib Eye.png" alt="Ribeye Angus premium" loading="lazy">
+                            <span class="product-card__badge">PREMIUM</span>
+                        </div>
+                        <div class="product-card__content">
+                            <span class="product-card__category">CORTE PREMIUM</span>
+                            <h3 class="product-card__title">Ribeye Angus</h3>
+                            <span class="product-card__weight">350 g aprox.</span>
+                            <div class="product-card__footer">
+                                <span class="product-card__price">$420</span>
+                                <button class="product-card__add" type="button"
+                                    aria-label="Agregar Ribeye Angus al carrito">+</button>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="product-card">
+                        <div class="product-card__image">
+                            <img src="./assets/img/tomahawk.png" alt="Tomahawk Prime premium" loading="lazy">
+                            <span class="product-card__badge">HOT SALE</span>
+                        </div>
+                        <div class="product-card__content">
+                            <span class="product-card__category">CORTE PREMIUM</span>
+                            <h3 class="product-card__title">Tomahawk</h3>
+                            <span class="product-card__weight">450 g aprox.</span>
+                            <div class="product-card__footer">
+                                <span class="product-card__price">$820</span>
+                                <button class="product-card__add" type="button"
+                                    aria-label="Agregar Tomahawk Prime al carrito">+</button>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="product-card">
+                        <div class="product-card__image">
+                            <img src="./assets/img/image_a871302d.png" alt="Arrachera Prime premium" loading="lazy">
+                            <span class="product-card__badge">HOT SALE</span>
+                        </div>
+                        <div class="product-card__content">
+                            <span class="product-card__category">CORTE PREMIUM</span>
+                            <h3 class="product-card__title">Arrachera Certified Angus Beef</h3>
+                            <span class="product-card__weight">950 g aprox.</span>
+                            <div class="product-card__footer">
+                                <span class="product-card__price">$570</span>
+                                <button class="product-card__add" type="button"
+                                    aria-label="Agregar Arrachera Prime al carrito">+</button>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="product-card">
+                        <div class="product-card__image">
+                            <img src="./assets/img/New york.png" alt="New York Prime premium" loading="lazy">
+                            <span class="product-card__badge">PREMIUM</span>
+                        </div>
+                        <div class="product-card__content">
+                            <span class="product-card__category">CORTE PREMIUM</span>
+                            <h3 class="product-card__title">New York Angus</h3>
+                            <span class="product-card__weight">550 g aprox.</span>
+                            <div class="product-card__footer">
+                                <span class="product-card__price">$620</span>
+                                <button class="product-card__add" type="button"
+                                    aria-label="Agregar New York Prime al carrito">+</button>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                <button class="featured-products__arrow featured-products__arrow--next" type="button"
+                    aria-label="Ver siguientes productos">&#10095;</button>
+            </div>
+            <a href="./pages/catalog.html" class="featured-products__view-all">Ver Todos los Productos</a>
+            <div class="featured-products__dots" aria-label="Navegación del carrusel">
+                <button class="featured-products__dot featured-products__dot--active" type="button"
+                    aria-label="Página 1" aria-current="true"></button>
+                <button class="featured-products__dot" type="button" aria-label="Página 2"></button>
+                <button class="featured-products__dot" type="button" aria-label="Página 3"></button>
+            </div>
+        </section>
+
+        <!-- =====================================================
+             TOMAHAWK BANNER
+             ===================================================== -->
+        <section class="tomahawk-hero">
+            <div class="tomahawk-hero__image"></div>
+            <div class="tomahawk-hero__overlay"></div>
+            <div class="tomahawk-hero__content">
+                <span class="tomahawk-hero__eyebrow">CALIDAD QUE SE DISFRUTA</span>
+                <h2>Calidad que se <span>Saborea en Cada Corte</span></h2>
+                <p>Desde los mejores ranchos nacionales y de importación hasta tu parrilla, garantizamos frescura
+                    extraordinaria y un sabor incomparable.</p>
+                <a href="./pages/about-us.html" class="tomahawk-hero__button">Conoce Nuestra Historia <span>→</span></a>
+            </div>
+        </section>
+
+        <!-- =====================================================
+     WHY US
+     ===================================================== -->
+        <section class="why-us">
+            <header class="why-us__header">
+                <h2 class="why-us__title">¿Por qué elegirnos?</h2>
+                <span class="why-us__line"></span>
+                <p class="why-us__description">La excelencia detrás del asado perfecto.</p>
+            </header>
+
+            <div class="why-us__grid">
+                <article class="why-us__item">
+                    <div class="why-us__icon"><i class="bi bi-award"></i></div>
+                    <div class="why-us__number">01</div>
+                    <h3>Cortes Premium</h3>
+                    <p>Seleccionamos cuidadosamente cada corte para garantizar una experiencia excepcional en cada
+                        asado.</p>
+                </article>
+
+                <article class="why-us__item">
+                    <div class="why-us__icon"><i class="bi bi-snow"></i></div>
+                    <div class="why-us__number">02</div>
+                    <h3>Frescura Garantizada</h3>
+                    <p>Mantenemos nuestros productos en las mejores condiciones para conservar su sabor y calidad.</p>
+                </article>
+
+                <article class="why-us__item">
+                    <div class="why-us__icon"><i class="bi bi-fire"></i></div>
+                    <div class="why-us__number">03</div>
+                    <h3>Tradición Mexicana</h3>
+                    <p>Honramos la tradición del buen asado con productos seleccionados para compartir momentos
+                        especiales.</p>
+                </article>
+
+                <article class="why-us__item">
+                    <div class="why-us__icon"><i class="bi bi-truck"></i></div>
+                    <div class="why-us__number">04</div>
+                    <h3>Envío a Domicilio</h3>
+                    <p>Recibe tus cortes directamente en casa, listos para disfrutar de una gran experiencia en la
+                        parrilla.</p>
+                </article>
+            </div>
+        </section>
+    </main>
+    <!-- End main content -->
+
+    <!-- =====================================================
+         FOOTER
+         ===================================================== -->
+    <footer class="footer">
+        <div class="footerCont">
+            <div class="redesSociales flexCont">
+                <div class="seccion-izq">
+                    <h2>Pa' la Asada</h2>
+                    <h3>Redes sociales</h3>
+
+                    <div class="iconosCont">
+                        <a href="https://instagram.com" class="linkRedes" target="_blank" rel="noopener noreferrer">
+                            <img src="https://dreamfoundry.org/wp-content/uploads/2018/12/instagram-logo-png-transparent-background.png"
+                                alt="Instagram" class="imgRedes">
+                        </a>
+                        <a href="https://facebook.com" class="linkRedes" target="_blank" rel="noopener noreferrer">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/1280px-Facebook_Logo_%282019%29.png"
+                                alt="Facebook" class="imgRedes">
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footerSection">
+                    <img src="./assets/img/LogoCuadrado.jpg" alt="Logo de Pa' la Asada" class="logoFooter">
+                </div>
+
+                <nav aria-label="Navegación del pie de página">
+                    <a class="enlaceB" href="./index.html">Inicio</a>
+                    <a class="enlaceB" href="./pages/about-us.html">Acerca de</a>
+                    <a class="enlaceB" href="./pages/catalog.html">Productos</a>
+                </nav>
             </div>
 
+            <div class="footerBottom">
+                <p>&copy; Todos los derechos reservados.</p>
+            </div>
         </div>
+    </footer>
 
 
-        <!-- BOTÓN FINALIZAR COMPRA -->
-        <div class="cart-footer">
-
-            <button class="checkout-btn">
-                Finalizar compra
-            </button>
-
-        </div>
-
-    </aside>
-
-
+    <!-- =====================================================
+         SCRIPTS
+         ===================================================== -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="script.js"></script>
-
+    <script src="./js/navbar.js"></script>
+    <script src="./js/home.js"></script>
 </body>
 
 </html>
