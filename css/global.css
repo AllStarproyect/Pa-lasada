@@ -69,6 +69,34 @@ h6 {
     font-family: var(--font-secondary);
 }
 
+/* =========================================================
+   Forms
+   ========================================================= */
+
+.form-control{
+    height: 3.5rem;
+}
+.form-control:focus {
+    border-color: var(--color-mustard);
+    box-shadow: 0 0 0 0.25rem rgba(218, 165, 32, 0.25);
+    outline: none;
+}
+::placeholder{
+    font-size: 1.2rem ;
+}
+.form-label{
+    font-family: var(--font-secondary);
+    font-size: 1.4rem ;
+}
+
+.invalid-feedback, .valid-feedback{
+    font-size: 1.15rem;
+
+}
+.alert, .bi-exclamation-triangle-fill{
+    font-size: 1.15rem;
+}
+
 
 /* =========================================================
    BUTTONS
