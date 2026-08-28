@@ -2,38 +2,210 @@
    CONTACT PAGE
    ========================================================= */
 
-
-.map-container {
-  height: 250px;
-  grid-column: 1 / -1;  /*Empieza en la primera columna y termina en la ultima*/
+.contactLayout {
+  background-color: var(--color-cream);
+  padding: 4rem;
+  border-radius: 2rem;
+  box-shadow:
+    0px -1px 24px 0px #c3c4c7;
 }
 
 
-/*Computadora*/
+/* =========================================================
+   FORMULARIO
+   ========================================================= */
+
+.contactForm {
+  padding: 1rem;
+}
+
+.contactForm h1 {
+  margin-bottom: 1rem;
+}
+
+
+/* =========================================================
+   BLOQUE MOSTAZA
+   ========================================================= */
+
+.contactRight {
+  background-color: var(--color-mustard);
+  padding: 4rem;
+  border-radius: 1.6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  gap: 3rem;
+}
+
+.contactRightHeader h2 {
+  font-size: 2.4rem;
+  margin-bottom: 1rem;
+}
+
+.contactRightHeader p {
+  font-size: 1.rem;
+  margin: 0;
+}
+
+
+/* =========================================================
+   TARJETAS DE CONTACTO
+   ========================================================= */
+
+.contactCards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.contactCard {
+  width: 100%;
+  min-height: 10rem;
+  padding: 2rem;
+  background-color: rgba(255, 255, 255, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  border-radius: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  box-sizing: border-box;
+  text-decoration: none;
+  color: var(--color-charcoal);
+  cursor: pointer;
+  transition:
+    transform 0.3s ease,
+    background-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.contactCard:hover {
+  color: var(--color-charcoal);
+  background-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+}
+
+.contactCard:focus {
+  outline: none;
+  box-shadow:
+    0 0 0 0.25rem rgba(255, 255, 255, 0.4);
+}
+
+/* =========================================================
+   MAPA
+   ========================================================= */
+
+.contactMap {
+  grid-column: 1 / -1;
+  margin-top: 2rem;
+}
+
+.mapHeader {
+  margin-bottom: 1.5rem;
+}
+
+.mapHeader h2 {
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.mapHeader p {
+  font-size: 1.3rem;
+  margin: 0;
+}
+
+.map-container {
+  width: 100%;
+  height: 35rem;
+  overflow: hidden;
+  border-radius: 1.6rem;
+}
+
+
+/* =========================================================
+   DESKTOP
+   ========================================================= */
+
 @media (min-width: 992px) {
+
   .contactLayout {
     display: grid;
-    grid-template-columns: 5fr 3fr;
-    gap: 1.5rem;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+
+  .contactLayout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    padding: 3rem;
   }
 
   .contactRight {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
+    padding: 2.5rem;
   }
+
+  .contactCards {
+    grid-template-columns: 1fr;
+  }
+
+  .map-container {
+    height: 30rem;
+  }
+
 }
-  
-/*Telefono*/
-@media (max-width: 767.98px) { 
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 767.98px) {
+
   .contactLayout {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem;
+  }
+
+  .contactForm {
+    order: 1;
+  }
+
+  .contactRight {
+    order: 2;
+
+    padding: 2.5rem;
+  }
+
+  .contactMap {
+    order: 3;
+
+    margin-top: 0;
+  }
+
+  .contactCards {
     grid-template-columns: 1fr;
   }
-}
 
-/*tableta*/
-@media (min-width: 768px) and (max-width: 991.98px ) {
-  .contactLayout{
-    grid-template-columns: 3fr 1fr;  }
-}
+  .contactCard {
+    padding: 1.5rem;
+  }
 
+  .map-container {
+    height: 25rem;
+  }
+
+}
