@@ -383,6 +383,7 @@ body {
     border-color: #b88912;
 }
 
+/* NAVBAR */
 .navbar-custom {
     background-color: var(--color-crema);
     padding: 10px 0;
@@ -390,7 +391,7 @@ body {
 }
 
 .logo {
-    width: 75px;
+    width: 200px;
     height: 75px;
     object-fit: contain;
 }
@@ -457,9 +458,17 @@ body {
         padding: 8px 15px;
     }
 
+    .navbar-custom .d-lg-none {
+        gap: 1rem;
+    }
+
     .logo {
-        width: 65px;
+        width: 150px;
         height: 65px;
+    }
+
+    .mobile-actions {
+        gap: 0.5rem;
     }
 
     .navbar-collapse {
@@ -483,189 +492,31 @@ body {
         border-bottom: 1px solid rgba(43, 43, 43, 0.1);
     }
 
-    .nav-link.active::after {
-        display: none;
-    }
-
     .nav-actions {
-        margin-top: 20px;
         width: 100%;
-        flex-wrap: wrap;
+        margin-top: 20px;
     }
 
     #userMenu {
         width: 100%;
     }
 
-    #userMenu .btn-primary {
-        width: 100%;
-        margin-top: 8px;
-    }
-}
-
-/* =========================
-   CARRITO LATERAL
-   ========================= */
-
-.cart-sidebar {
-    position: fixed;
-    top: 0;
-    right: 0;
-
-    width: 400px;
-    max-width: 100%;
-    height: 100vh;
-
-    background-color: white;
-
-    z-index: 1050;
-
-    transform: translateX(100%);
-    transition: transform 0.35s ease;
-
-    display: flex;
-    flex-direction: column;
-}
-
-.cart-sidebar.active {
-    transform: translateX(0);
-}
-
-
-/* =========================
-   FONDO OSCURO
-   ========================= */
-
-.cart-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    height: 100%;
-
-    background-color: rgba(0, 0, 0, 0.45);
-
-    z-index: 1040;
-
-    opacity: 0;
-    visibility: hidden;
-
-    transition: opacity 0.35s ease;
-}
-
-.cart-overlay.active {
-    opacity: 1;
-    visibility: visible;
-}
-
-
-/* =========================
-   ENCABEZADO
-   ========================= */
-
-.cart-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    padding: 20px;
-
-    border-bottom: 1px solid #ddd;
-}
-
-.cart-header h3 {
-    margin: 0;
-}
-
-
-/* =========================
-   BOTÓN CERRAR
-   ========================= */
-
-.cart-close {
-    border: none;
-    background: transparent;
-
-    font-size: 1.5rem;
-
-    cursor: pointer;
-}
-
-
-/* =========================
-   CUERPO
-   ========================= */
-
-.cart-body {
-    flex: 1;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    padding: 20px;
-}
-
-.empty-cart {
-    text-align: center;
-}
-
-.empty-cart i {
-    display: block;
-
-    font-size: 4rem;
-
-    margin-bottom: 15px;
-
-    opacity: 0.5;
-}
-
-.empty-cart p {
-    margin: 0;
-}
-
-
-/* =========================
-   FOOTER
-   ========================= */
-
-.cart-footer {
-    padding: 20px;
-
-    border-top: 1px solid #ddd;
-}
-
-.checkout-btn {
-    width: 100%;
-
-    padding: 12px;
-
-    border: none;
-    border-radius: 6px;
-
-    cursor: pointer;
-
-    font-size: 1rem;
-}
-
-
-/* =========================
-   RESPONSIVE
-   ========================= */
-
-@media (max-width: 576px) {
-
-    .cart-sidebar {
+    .login-buttons {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
         width: 100%;
     }
 
-    .cart-header {
-        padding: 16px;
+    .login-buttons .btn {
+        width: 100%;
+        height: 4rem;
     }
-
-    .cart-footer {
-        padding: 16px;
+    .dropdown-menu {
+        position: static !important;
+        width: 100%;
+        margin-top: 1rem;
+        transform: none !important;
     }
 }
 
