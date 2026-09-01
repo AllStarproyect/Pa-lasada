@@ -1,0 +1,1124 @@
+/* =========================================================
+   CONFIGURACIÓN ORIGINAL
+   ========================================================= */
+
+/* 1 rem = 10px */
+
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* Un mínimo de normalize */
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+
+body {
+    width: 100%;
+    min-width: 100%;
+    min-height: 100vh;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+
+/* =========================================================
+   NAVBAR
+   ========================================================= */
+
+.navbar-custom {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    max-width: 100%;
+
+    z-index: 1000;
+
+    background-color: #f3ead8;
+    padding: 10px 0;
+
+    box-shadow: 0 3px 15px rgba(43, 43, 43, 0.08);
+}
+
+
+/*
+   IMPORTANTE:
+
+   NO utilizamos .container aquí.
+
+   Tu .container ya controla el grid principal:
+   20% / 60% / 20%
+
+   Por eso usamos una clase independiente.
+*/
+
+.navbar-container {
+    width: 100%;
+    max-width: none;
+
+    margin: 0;
+
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+
+    display: flex;
+    align-items: center;
+}
+
+
+/* Logo */
+
+.logo {
+    width: 200px;
+    height: 75px;
+    object-fit: contain;
+}
+
+
+/* Links */
+
+.nav-link {
+    color: #2b2b2b;
+    font-weight: 500;
+
+    position: relative;
+
+    transition: 0.3s;
+}
+
+
+.nav-link:hover {
+    color: #c49a3a;
+}
+
+
+.nav-link.active {
+    color: #c49a3a !important;
+}
+
+
+/* Acciones */
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+
+/* Botón carrito */
+
+.icon-btn {
+    color: #657044;
+    border: none;
+    font-size: 1.4rem;
+}
+
+
+.icon-btn:hover {
+    color: #c49a3a;
+}
+
+
+/* Badge carrito */
+
+.cart-badge {
+    position: absolute;
+
+    top: 0;
+    right: 0;
+
+    background-color: #c49a3a;
+    color: white;
+
+    font-size: 10px;
+
+    width: 17px;
+    height: 17px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 50%;
+}
+
+
+/* Perfil */
+
+.btn-profile {
+    background: transparent;
+    border: none;
+
+    color: #657044;
+
+    font-size: 1.4rem;
+}
+
+
+.btn-profile:hover {
+    color: #c49a3a;
+}
+
+
+/* Botones login */
+
+.login-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+
+.login-buttons .btn {
+    font-size: 1.4rem;
+}
+
+
+/* Botón iniciar sesión */
+
+.login-buttons .btn-outline-dark {
+    border-color: #2b2b2b;
+    color: #2b2b2b;
+}
+
+
+.login-buttons .btn-outline-dark:hover {
+    background-color: #2b2b2b;
+    color: white;
+}
+
+
+/* Botón registrarse */
+
+.login-buttons .btn-primary {
+    background-color: #c49a3a;
+    border-color: #c49a3a;
+}
+
+
+.login-buttons .btn-primary:hover {
+    background-color: #a9822e;
+    border-color: #a9822e;
+}
+
+
+/* =========================================================
+   WELCOME GRIDS
+   ========================================================= */
+
+.container {
+    --bs-gutter-x: 0;
+    display: grid;
+
+    width: 100%;
+    max-width: none;
+
+    margin: 0;
+    padding: 0;
+
+    grid-template-columns: 20% 60% 20%;
+
+    height: 100vh;
+
+    background-image:
+        linear-gradient(
+            90deg,
+            rgba(34, 36, 34, 0.35),
+            rgba(34, 36, 34, 0.65)
+        ),
+        url("/img/backgrounndCarneLogin.png");
+
+    background-size: cover;
+    background-position: cover left;
+    background-repeat: no-repeat;
+}
+
+
+.container1 {
+
+    /* background-color: red; */
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    /* centra horizontal */
+
+    justify-content: center;
+
+    /* centra vertical */
+
+    width: 100%;
+
+    min-height: 100vh;
+
+    /* que ocupe toda la altura del main */
+
+    gap: 2rem;
+
+    padding: 2rem;
+
+    /* espacio fijo entre marca y login */
+}
+
+
+.brand {
+
+    flex: 0 0 auto;
+
+    /* altura natural del contenido */
+}
+
+
+.login {
+
+    flex: 0 0 auto;
+
+    width: 100%;
+
+    display: flex;
+
+    justify-content: center;
+
+    /* altura natural */
+}
+
+
+.login-box {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 2.2rem;
+
+    background: rgba(255, 255, 255, 0.05);
+
+    width: 100%;
+
+    /* soporte en Safari */
+
+    padding: 3rem;
+
+    border-radius: 1.2rem;
+
+    /* width: 40rem; */
+
+    border: 1px solid rgba(255, 255, 255, 0.3);
+
+    /* borde sutil */
+
+    min-height: 100%;
+
+    /* min-width: 50rem; */
+
+    /* fondo semitransparente */
+
+    backdrop-filter: blur(10px);
+
+    /* desenfoque detrás */
+
+    -webkit-backdrop-filter: blur(10px);
+}
+
+
+.tabs {
+
+    display: flex;
+
+    gap: 0.5rem;
+
+    width: 100%;
+}
+
+
+.tab-btn {
+
+    flex: 1;
+
+    padding: 1rem;
+
+    font-size: 1.4rem;
+
+    border: none;
+
+    border-radius: 0.4rem;
+
+    color: #f8f5f5;
+
+    cursor: pointer;
+
+    background-color: #4A3527;
+}
+
+
+.tab-btn.active {
+
+    background-color: #BAAF9A;
+
+    color: #100f0f;
+}
+
+
+#authForm {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 1.2rem;
+}
+
+
+input,
+#authForm button {
+
+    width: 100%;
+
+    padding: 1rem;
+
+    font-size: 1.4rem;
+}
+
+
+#authForm button {
+
+    background-color: #C9A26D;
+
+    color: white;
+
+    border: none;
+
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   DESKTOP GRANDE
+   Mayor a 1108px
+   ========================================================= */
+
+@media (min-width: 1108px) {
+
+    .container {
+
+        grid-template-columns: 10% 80% 10%;
+    }
+
+
+    .container1 {
+
+        padding: 2rem;
+    }
+
+
+    .login-box {
+
+        width: 90%;
+
+        max-width: 80rem;
+
+        min-width: 60rem;
+
+        padding: 2.5rem;
+    }
+
+
+    .navbar-container {
+        max-width: none;
+    }
+
+}
+
+
+/* =========================================================
+   TABLET / PANTALLAS MEDIANAS
+   Desde 767px hasta 1107px
+   ========================================================= */
+
+@media (min-width: 767px) and (max-width: 1107px) {
+
+    .container {
+
+        grid-template-columns: 1fr;
+
+        min-height: 100vh;
+
+        /* background-position: center; */
+    }
+
+
+    .container>aside {
+
+        display: none;
+    }
+
+
+    .container1 {
+
+        width: 100%;
+
+        min-height: 100vh;
+
+        padding: 2rem;
+
+        gap: 2.5rem;
+    }
+
+
+    .login {
+
+        width: 100%;
+    }
+
+
+    .login-box {
+
+        width: 90%;
+
+        /*
+         * Mayor a 55rem
+         */
+
+        min-width: 55rem;
+
+        /*
+         * Nunca superar 120rem
+         */
+
+        max-width: 120rem;
+
+        padding: 2.5rem;
+
+        gap: 2rem;
+    }
+
+
+    .tab-btn {
+
+        padding: 1.2rem 0.8rem;
+
+        font-size: 1.5rem;
+    }
+
+
+    input,
+    #authForm button {
+
+        padding: 1.2rem;
+
+        font-size: 1.5rem;
+    }
+
+}
+
+
+/* =========================================================
+   CELULAR
+   Menor a 767px
+   ========================================================= */
+
+@media (max-width: 766px) {
+
+    .container {
+
+        grid-template-columns: 1fr;
+
+        min-height: 100vh;
+
+        /* background-position: center; */
+    }
+
+
+    .container>aside {
+
+        display: none;
+    }
+
+
+    .container1 {
+
+        width: 100%;
+
+        min-height: 100vh;
+
+        padding: 2rem;
+
+        gap: 2.5rem;
+    }
+
+
+    .login {
+
+        width: 100%;
+    }
+
+
+    .login-box {
+
+        width: 100%;
+
+        min-width: 25rem;
+
+        max-width: 55rem;
+
+        padding: 2.5rem;
+
+        gap: 2rem;
+
+        border-radius: 1.2rem;
+    }
+
+
+    .tab-btn {
+
+        padding: 1.2rem 0.8rem;
+
+        font-size: 1.5rem;
+    }
+
+
+    input,
+    #authForm button {
+
+        padding: 1.2rem;
+
+        font-size: 1.5rem;
+    }
+
+}
+
+
+/* =========================================================
+   NAVBAR MOBILE
+   ========================================================= */
+
+@media (max-width: 991px) {
+
+    .navbar-custom {
+
+        padding: 8px 15px;
+    }
+
+
+    .navbar-custom .d-lg-none {
+
+        gap: 1rem;
+    }
+
+
+    .navbar-container {
+
+       /* padding-left: 0;
+
+        padding-right: 0;*/
+    }
+
+
+    .logo {
+
+        width: 150px;
+
+        height: 65px;
+    }
+
+
+    .navbar-collapse {
+
+        position: absolute;
+
+        top: 100%;
+
+        left: 10px;
+
+        right: 10px;
+
+        margin-top: 15px;
+
+        background-color: #f3ead8;
+
+        padding: 20px;
+
+        border-radius: 0 0 15px 15px;
+
+        box-shadow: 0 8px 15px rgba(43, 43, 43, 0.08);
+    }
+
+
+    .navbar-nav {
+
+        gap: 5px !important;
+    }
+
+
+    .nav-link {
+
+        padding: 12px 5px;
+
+        border-bottom:
+            1px solid rgba(43, 43, 43, 0.1);
+    }
+
+
+    .nav-actions {
+
+        width: 100%;
+
+        margin-top: 20px;
+    }
+
+
+    #userMenu {
+
+        width: 100%;
+    }
+
+
+    .login-buttons {
+
+        display: grid;
+
+        grid-template-columns: 1fr 1fr;
+
+        gap: 1rem;
+
+        width: 100%;
+    }
+
+
+    .login-buttons .btn {
+
+        width: 100%;
+
+        height: 4rem;
+    }
+
+
+    .dropdown-menu {
+
+        position: static !important;
+
+        width: 100%;
+
+        margin-top: 1rem;
+
+        transform: none !important;
+    }
+
+}
+
+
+/* =========================================================
+   CELULAR PEQUEÑO
+   Menor a 480px
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+    .container1 {
+
+        padding: 1.5rem;
+    }
+
+
+    .login-box {
+
+        min-width: 25rem;
+
+        width: 100%;
+
+        padding: 2rem;
+
+        border-radius: 1rem;
+    }
+
+
+    .tabs {
+
+        gap: 0.5rem;
+    }
+
+
+    .tab-btn {
+
+        font-size: 1.5rem;
+
+        padding: 1.2rem 0.8rem;
+    }
+
+
+    input,
+    #authForm button {
+
+        padding: 1.2rem;
+
+        font-size: 1.5rem;
+    }
+
+}
+
+
+/* =========================================================
+   CELULAR MUY PEQUEÑO
+   Menor a 360px
+   ========================================================= */
+
+@media (max-width: 360px) {
+
+    .container1 {
+
+        padding: 1rem;
+    }
+
+
+    .login-box {
+
+        min-width: 25rem;
+
+        padding: 1.5rem;
+    }
+
+
+    .tab-btn {
+
+        font-size: 1.4rem;
+    }
+
+
+    input,
+    #authForm button {
+
+        font-size: 1.4rem;
+
+        padding: 1.1rem;
+    }
+
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.footer {
+    width: 100%;
+    background-color: #2b2b2b;
+    color: #ffffff;
+
+    margin: 0;
+    padding: 50px 0 20px;
+
+    box-sizing: border-box;
+}
+
+
+/* Contenedor general */
+
+.footerCont {
+    width: 100%;
+    max-width: 1200px;
+
+    margin: 0 auto;
+    padding: 0 20px;
+
+    display: flex;
+    flex-direction: column;
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   CONTENIDO PRINCIPAL DEL FOOTER
+   ========================================================= */
+
+.redesSociales {
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 40px;
+
+    position: relative;
+}
+
+
+/* =========================================================
+   SECCIÓN IZQUIERDA
+   ========================================================= */
+
+.seccion-izq {
+    flex: 1;
+
+    text-align: left;
+}
+
+
+.seccion-izq h2 {
+    margin: 0 0 10px;
+
+    font-size: 2.4rem;
+}
+
+
+.seccion-izq h3 {
+    margin: 20px 0 10px;
+
+    font-size: 1.6rem;
+}
+
+
+.seccion-izq p {
+    margin: 0;
+}
+
+
+/* =========================================================
+   REDES SOCIALES
+   ========================================================= */
+
+.iconosCont {
+    display: flex;
+    align-items: center;
+
+    gap: 15px;
+}
+
+
+.linkRedes {
+    display: flex;
+
+    width: 40px;
+    height: 40px;
+
+    align-items: center;
+    justify-content: center;
+
+    text-decoration: none;
+}
+
+
+.imgRedes {
+    width: 32px;
+    height: 32px;
+
+    object-fit: contain;
+
+    transition: transform 0.2s ease;
+}
+
+
+.imgRedes:hover {
+    transform: scale(1.1);
+}
+
+
+/* =========================================================
+   LOGO CENTRAL
+   ========================================================= */
+
+.footerSection {
+    flex: 0 0 auto;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.logoFooter {
+    width: 150px;
+    height: 150px;
+
+    object-fit: contain;
+
+    border-radius: 50%;
+}
+
+
+/* =========================================================
+   LINKS DERECHA
+   ========================================================= */
+
+.redesSociales > div:last-child {
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: flex-end;
+
+    gap: 12px;
+}
+
+
+.enlaceB {
+    color: #ffffff;
+
+    font-size: 1.5rem;
+
+    text-decoration: none;
+
+    transition: color 0.2s ease;
+}
+
+
+.enlaceB:hover {
+    color: #c9a26d;
+}
+
+
+/* =========================================================
+   PARTE INFERIOR
+   ========================================================= */
+
+.footerBottom {
+    width: 100%;
+
+    text-align: center;
+
+    margin-top: 40px;
+    padding-top: 20px;
+
+    border-top: 1px solid #444444;
+
+    font-size: 1.4rem;
+
+    color: #aaaaaa;
+}
+
+
+.footerBottom p {
+    margin: 0;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 767px) {
+
+    .footer {
+        padding: 40px 0 20px;
+    }
+
+
+    .redesSociales {
+        flex-direction: column;
+
+        justify-content: center;
+        align-items: center;
+
+        gap: 30px;
+
+        text-align: center;
+    }
+
+
+    .seccion-izq {
+        flex: none;
+
+        width: 100%;
+
+        text-align: center;
+    }
+
+
+    .iconosCont {
+        justify-content: center;
+    }
+
+
+    .footerSection {
+        position: static;
+
+        transform: none;
+    }
+
+
+    .logoFooter {
+        width: 120px;
+        height: 120px;
+    }
+
+
+    .redesSociales > div:last-child {
+        flex: none;
+
+        width: 100%;
+
+        align-items: center;
+    }
+
+
+    .footerBottom {
+        margin-top: 30px;
+    }
+
+}
+
+
+/* =========================================================
+   CELULAR
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+    .footerCont {
+        padding: 0 15px;
+    }
+
+
+    .footer {
+        padding: 35px 0 20px;
+    }
+
+
+    .seccion-izq h2 {
+        font-size: 2.1rem;
+    }
+
+
+    .seccion-izq h3 {
+        font-size: 1.5rem;
+    }
+
+
+    .logoFooter {
+        width: 100px;
+        height: 100px;
+    }
+
+
+    .enlaceB {
+        font-size: 1.4rem;
+    }
+
+
+    .footerBottom {
+        font-size: 1.3rem;
+    }
+
+}
