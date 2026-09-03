@@ -36,6 +36,11 @@
 
             <!-- Mobile actions -->
             <div class="d-flex align-items-center ms-auto d-lg-none">
+                <button class="btn icon-btn position-relative" type="button" aria-label="Ver carrito">
+                    <i class="bi bi-cart3"></i>
+                    <span class="cart-badge">3</span>
+                </button>
+
                 <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
                     aria-label="Abrir menú">
@@ -62,8 +67,11 @@
 
                 <!-- Desktop actions -->
                 <div class="nav-actions">
-            
-
+                    <button class="btn icon-btn position-relative d-none d-lg-block" type="button"
+                        aria-label="Ver carrito">
+                        <i class="bi bi-cart3"></i>
+                        <span class="cart-badge">3</span>
+                    </button>
 
                     <!-- Login / profile is rendered by navbar.js -->
                     <div id="userMenu"></div>
