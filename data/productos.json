@@ -8,7 +8,7 @@
         "Carne",
         "Res",
         "Nacional"
-      ],
+      ], 
       "precio": {
         "monto": 445.0,
         "moneda": "MXN",
