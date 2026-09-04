@@ -17,7 +17,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Bootstrap Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 
     <!-- Styles -->
     <link rel="stylesheet" href="../css/global.css">
@@ -29,74 +30,110 @@
 </head>
 
 <body>
+
     <!-- =====================================================
          NAVBAR
          ===================================================== -->
+
     <nav class="navbar navbar-expand-lg navbar-custom">
+
         <div class="container">
             <!-- Logo -->
             <a class="navbar-brand" href="../index.html" aria-label="Ir al inicio">
                 <img src="../assets/img/logooscuroancho.png" alt="Logo de Pa' la Asada" class="logo">
             </a>
             <!-- Mobile actions -->
+
             <div class="d-flex align-items-center ms-auto d-lg-none">
                 <!-- Carrito -->
                 <button class="btn icon-btn position-relative" type="button" aria-label="Ver carrito">
                     <i class="bi bi-cart3"></i>
-                    <span class="cart-badge">0</span>
+
+                    <span class="cart-badge">
+                        0
+                    </span>
+
                 </button>
-                <!-- Menú hamburguesa -->
-                <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+
+                <button
+                    class="navbar-toggler border-0"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavDropdown"
+                    aria-controls="navbarNavDropdown"
+                    aria-expanded="false"
                     aria-label="Abrir menú">
+
                     <span class="navbar-toggler-icon"></span>
+
                 </button>
+
             </div>
 
             <!-- Navegación -->
             <div class="collapse navbar-collapse nav-links" id="navbarNavDropdown">
                 <ul class="navbar-nav mx-auto gap-lg-4">
+
                     <li class="nav-item">
                         <a class="nav-link active" href="../index.html">
                             Inicio
                         </a>
                     </li>
+
                     <li class="nav-item">
                         <a class="nav-link" href="../pages/catalog.html">
                             Productos
                         </a>
                     </li>
+
                     <li class="nav-item">
                         <a class="nav-link" href="../pages/about-us.html">
                             Acerca de
                         </a>
                     </li>
+
                     <li class="nav-item">
                         <a class="nav-link" href="../pages/contact.html">
                             Contacto
                         </a>
                     </li>
+
                 </ul>
 
                 <!-- Desktop actions -->
+
                 <div class="nav-actions">
                     <!-- Carrito -->
                     <button class="btn icon-btn position-relative d-none d-lg-block" type="button"
                         aria-label="Ver carrito">
+
                         <i class="bi bi-cart3"></i>
-                        <span class="cart-badge">0</span>
+
+                        <span class="cart-badge">
+                            0
+                        </span>
+
                     </button>
-                    <!-- Login / profile -->
+
+                    <!-- Login / profile is rendered by navbar.js -->
+
                     <div id="userMenu"></div>
+
                 </div>
+
             </div>
+
         </div>
+
     </nav>
+
 
     <!-- =====================================================
          CATALOG CONTENT
          ===================================================== -->
+
     <main>
+
         <!-- =====================================================
             SECCIÓN: Búsqueda
         ===================================================== -->
@@ -116,8 +153,11 @@
                         Buscar
                     </button>
                 </div>
+
             </div>
+
         </section>
+
 
         <!-- =====================================================
             SECCIÓN: CATEGORÍAS
@@ -175,7 +215,9 @@
                         HOT SALE
                     </button>
                 </div>
+
             </div>
+
         </section>
 
 
@@ -542,53 +584,122 @@
 
     </main>
 
+
     <!-- =====================================================
          FOOTER
          ===================================================== -->
+
     <footer class="footer">
 
         <div class="footerCont">
+
             <div class="redesSociales flexCont">
+
                 <div class="seccion-izq">
-                    <h2>Pa' la Asada</h2>
-                    <h3>Redes sociales</h3>
+
+                    <h2>
+                        Pa' la Asada
+                    </h2>
+
+                    <h3>
+                        Redes sociales
+                    </h3>
 
                     <div class="iconosCont">
-                        <a href="https://instagram.com" class="linkRedes" target="_blank" rel="noopener noreferrer">
-                            <img src="https://dreamfoundry.org/wp-content/uploads/2018/12/instagram-logo-png-transparent-background.png"
-                                alt="Instagram" class="imgRedes">
+
+                        <a
+                            href="https://instagram.com"
+                            class="linkRedes"
+                            target="_blank"
+                            rel="noopener noreferrer">
+
+                            <img
+                                src="https://dreamfoundry.org/wp-content/uploads/2018/12/instagram-logo-png-transparent-background.png"
+                                alt="Instagram"
+                                class="imgRedes">
+
                         </a>
-                        <a href="https://facebook.com" class="linkRedes" target="_blank" rel="noopener noreferrer">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/1280px-Facebook_Logo_%282019%29.png"
-                                alt="Facebook" class="imgRedes">
+
+                        <a
+                            href="https://facebook.com"
+                            class="linkRedes"
+                            target="_blank"
+                            rel="noopener noreferrer">
+
+                            <img
+                                src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/1280px-Facebook_Logo_%282019%29.png"
+                                alt="Facebook"
+                                class="imgRedes">
+
                         </a>
+
                     </div>
+
                 </div>
+
 
                 <div class="footerSection">
-                    <img src="../assets/img/LogoCuadrado.jpg" alt="Logo de Pa' la Asada" class="logoFooter">
+
+                    <img
+                        src="../assets/img/LogoCuadrado.jpg"
+                        alt="Logo de Pa' la Asada"
+                        class="logoFooter">
+
                 </div>
 
+
                 <nav aria-label="Navegación del pie de página">
-                    <a class="enlaceB" href="../index.html">Inicio</a>
-                    <a class="enlaceB" href="./about-us.html">Acerca de</a>
-                    <a class="enlaceB" href="./catalog.html">Productos</a>
+
+                    <a
+                        class="enlaceB"
+                        href="../index.html">
+                        Inicio
+                    </a>
+
+                    <a
+                        class="enlaceB"
+                        href="./about-us.html">
+                        Acerca de
+                    </a>
+
+                    <a
+                        class="enlaceB"
+                        href="./catalog.html">
+                        Productos
+                    </a>
+
                 </nav>
+
             </div>
 
+
             <div class="footerBottom">
-                <p>&copy; Todos los derechos reservados.</p>
+
+                <p>
+                    &copy; Todos los derechos reservados.
+                </p>
+
             </div>
+
         </div>
+
     </footer>
 
 
     <!-- =====================================================
          SCRIPTS
          ===================================================== -->
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
     <script src="../js/navbar.js"></script>
+
     <script src="../js/catalog.js"></script>
+
+    <!-- DATOS DE PRODUCTOS -->
+    <script src="../data/catalogoData.js"></script>
+
+    <!-- CARRITO -->
     <script src="../js/cart.js"></script>
     <script src="../js/categorias-catalog.js"></script>
 </body>
