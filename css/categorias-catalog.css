@@ -1,0 +1,174 @@
+/* =====================================================
+   SECCIÓN: CATEGORÍAS
+   ===================================================== */
+.category-section {
+    background-color: #14110F;
+    padding: 0 0 4.8rem;
+}
+
+/* =====================================================
+   HEADER
+   ===================================================== */
+.category-section__header {
+    margin-bottom: 2rem;
+}
+
+.category-section__eyebrow {
+    display: block;
+    margin-bottom: 0.6rem;
+    color: #D4A017;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+}
+
+.category-section__title {
+    margin: 0;
+    color: #FFFFFF;
+    font-size: 2.4rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+
+/* =====================================================
+   LISTA DE CATEGORÍAS
+   ===================================================== */
+
+.category-list {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1rem;
+    width: 100%;
+}
+
+
+/* =====================================================
+   BOTÓN
+   ===================================================== */
+
+.category-button {
+    min-height: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.2rem 1.6rem;
+    border: 0.1rem solid rgba(217, 201, 174, 0.2);
+    border-radius: 1rem;
+    background-color: #2B2723;
+    color: #D9C9AE;
+    font-family: inherit;
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+/* Hover */
+
+.category-button:hover {
+    background-color: #332E29;
+    border-color: rgba(212, 160, 23, 0.6);
+    color: #FFFFFF;
+    transform: translateY(-0.1rem);
+}
+
+
+/* Categoría seleccionada */
+.category-button--active {
+    background-color: #D4A017;
+    border-color: #D4A017;
+    color: #14110F;
+}
+
+.category-button--active:hover {
+    background-color: #E2B32B;
+    border-color: #E2B32B;
+    color: #14110F;
+}
+
+
+/* =====================================================
+   TABLET
+   ===================================================== */
+
+@media (max-width: 90rem) {
+    .category-list {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+}
+
+
+/* =====================================================
+   MÓVIL
+   ===================================================== */
+
+@media (max-width: 57.6rem) {
+    .category-section {
+        padding: 0 0 3.2rem;
+    }
+
+    .category-section__header {
+        margin-bottom: 1.6rem;
+    }
+
+    .category-section__eyebrow {
+        font-size: 1rem;
+    }
+
+    .category-section__title {
+        font-size: 2rem;
+    }
+    /*
+       En móvil dejamos de usar Grid.
+
+       Las categorías se convierten en una
+       fila horizontal desplazable.
+    */
+    .category-list {
+        display: flex;
+
+        gap: 0.8rem;
+
+        width: calc(100% + 3.2rem);
+
+        margin-left: -1.6rem;
+
+        padding: 0 1.6rem 0.8rem;
+
+        overflow-x: auto;
+        overflow-y: hidden;
+
+        /*
+         * Permite que el scroll se sienta
+         * como un carrusel nativo.
+         */
+        scroll-snap-type: x proximity;
+
+        /*
+         * Ocultar scrollbar.
+         */
+        scrollbar-width: none;
+
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .category-list::-webkit-scrollbar {
+        display: none;
+    }
+
+    .category-button {
+        flex: 0 0 auto;
+        min-height: 4.2rem;
+        padding: 1rem 1.5rem;
+        border-radius: 2.5rem;
+        font-size: 1.2rem;
+        scroll-snap-align: start;
+    }
+
+}

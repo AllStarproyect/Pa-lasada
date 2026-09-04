@@ -84,22 +84,28 @@
          CONTACT CONTENT
          ===================================================== -->
     <main class="container my-5">
-        <div class="contactLayout"> <!-- Clase con la Distribucion principal, diseño responsivo-->
 
-            <!-- Columna Izquierda: Formulario -->
-            <div>
+        <div class="contactLayout">
+
+            <!-- FORMULARIO -->
+            <div class="contactForm">
+
+                <h1>CONTÁCTANOS</h1>
+                <p>¿Tienes alguna pregunta? Escríbenos.</p>
+
                 <form id="formContacto" class="d-flex flex-column gap-3 needs-validation" novalidate>
+
                     <!-- NOMBRE -->
                     <div>
-                        <label for="nombre" class="form-label fw-bold">Nombre</label>
+                        <label for="nombre" class="form-label fw-bold">
+                            Nombre
+                        </label>
 
                         <input type="text" class="form-control" id="nombre" placeholder="Tu nombre" minlength="3"
                             required>
-
                         <div class="valid-feedback">
                             Nombre válido.
                         </div>
-
                         <div class="invalid-feedback">
                             Ingresa un nombre de al menos 3 caracteres.
                         </div>
@@ -107,14 +113,13 @@
 
                     <!-- EMAIL -->
                     <div>
-                        <label for="email" class="form-label fw-bold">Email</label>
-
+                        <label for="email" class="form-label fw-bold">
+                            Email
+                        </label>
                         <input type="email" class="form-control" id="email" placeholder="correo@ejemplo.com" required>
-
                         <div class="valid-feedback">
                             Correo válido.
                         </div>
-
                         <div class="invalid-feedback">
                             Ingresa un correo electrónico válido.
                         </div>
@@ -141,62 +146,95 @@
                             Mensaje
                         </label>
 
-                        <textarea class="form-control" id="mensaje" rows="6" minlength="10"
+                        <textarea class="form-control" id="mensaje" rows="7" minlength="10"
                             placeholder="Escribe tu mensaje aquí..." required></textarea>
-
                         <div class="valid-feedback">
                             Mensaje válido.
                         </div>
-
                         <div class="invalid-feedback">
                             Ingresa un mensaje de al menos 10 caracteres.
                         </div>
                     </div>
-                    <!-- ALERTA -->
+
                     <div id="alertaFormulario"></div>
-                    <!-- BOTÓN -->
                     <button type="submit" class="btn btn-dark w-100 mt-2 py-2">
                         Enviar mensaje
                     </button>
+
                 </form>
+
             </div>
 
-            <!-- Contenedor Tarjetas y mapa diseño ordenador -->
-            <div class="contactRight">
 
-                <!-- Contenedor de Tarjetas -->
-                <div class="row row-cols-2 row-cols-md-1 row-cols-lg-2 g-3">
-                    <div class="col">
-                        <div
-                            class="card h-100 text-center p-3 shadow-sm border-secondary d-flex align-items-center justify-content-center">
-                            <i class="bi bi-envelope-at fs-1"></i>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div
-                            class="card h-100 text-center p-3 shadow-sm border-secondary d-flex align-items-center justify-content-center">
-                            <i class="bi bi-telephone fs-1"></i>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div
-                            class="card h-100 text-center p-3 shadow-sm border-secondary d-flex align-items-center justify-content-center">
-                            <i class="bi bi-geo-alt fs-1"></i>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div
-                            class="card h-100 text-center p-3 shadow-sm border-secondary d-flex align-items-center justify-content-center">
-                            <i class="bi bi-instagram fs-1"></i>
-                        </div>
-                    </div>
+            <!-- INFORMACIÓN DE CONTACTO -->
+            <div class="contactRight">
+                <div class="contactRightHeader">
+                    <h2>Estamos para ayudarte</h2>
+                    <p>
+                        Contáctanos por cualquiera de nuestros medios.
+                        Será un gusto atenderte.
+                    </p>
                 </div>
 
-                <!-- Contenedor del Mapa -->
-                <div class="map-container overflow-hidden rounded-4 shadow-sm">
+                <div class="contactCards">
+
+                    <!-- CORREO -->
+                    <a href="mailto:contacto@palasada.com" class="contactCard">
+                        <i class="bi bi-envelope-at"></i>
+                        <div class="contactCardText">
+                            <h3>Correo</h3>
+                            <p>contacto@palasada.com</p>
+                        </div>
+                    </a>
+
+                    <!-- TELÉFONO -->
+                    <a href="tel:+525555555555" class="contactCard">
+                        <i class="bi bi-telephone"></i>
+                        <div class="contactCardText">
+                            <h3>Teléfono</h3>
+                            <p>55 1234 5678</p>
+                        </div>
+                    </a>
+
+                    <!-- UBICACIÓN -->
+                    <a href="https://www.google.com/maps/search/?api=1&query=Ciudad+de+Mexico" target="_blank"
+                        rel="noopener noreferrer" class="contactCard">
+                        <i class="bi bi-geo-alt"></i>
+                        <div class="contactCardText">
+                            <h3>Ubicación</h3>
+                            <p>Ciudad de México</p>
+                        </div>
+                    </a>
+
+                    <!-- INSTAGRAM -->
+                    <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"
+                        class="contactCard">
+                        <i class="bi bi-instagram"></i>
+                        <div class="contactCardText">
+                            <h3>Instagram</h3>
+                            <p>@palasada</p>
+                        </div>
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- MAPA -->
+            <div class="contactMap">
+                <div class="mapHeader">
+                    <h2>Encuéntranos en Ciudad de México</h2>
+                    <p>
+                        Visítanos y conoce nuestros productos directamente.
+                    </p>
+
+                </div>
+
+                <div class="map-container">
                     <iframe
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.539598283946!2d-99.1654134!3d19.4270206!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1ff35f5bd15a7%3A0x10842e4ec558b029!2sEl%20%C3%81ngel%20de%20la%20Independencia!5e0!3m2!1ses!2smx!4v1700000000000!5m2!1ses!2smx"
-                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                        width="100%" height="100%" style="border:0;" allowfullscreen loading="lazy"
                         referrerpolicy="no-referrer-when-downgrade">
                     </iframe>
                 </div>

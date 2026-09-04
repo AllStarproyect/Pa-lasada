@@ -67,7 +67,9 @@ body {
 /* Contenedor principal */
 .container-historia-wrapper {
     display: grid;
-    margin: 0;
+    max-width: 120rem;   /* ajusta al ancho máximo que quieras */
+    margin: 0 auto;
+    padding: 0 2rem;      /* para que no toque los bordes en pantallas medianas */
 }
 
 /* Sección Historia */
@@ -79,22 +81,57 @@ body {
 
 .container-history {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr)) minmax(300px, 2fr);
-    gap: 2rem;
-    min-height: 25rem;
-    /* background-color: red; */
-    width: 100%;
-    padding: 3rem;
-}
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-areas:
+            "titulo titulo titulo"
+            "img1   img2   img3"
+            "parrafo parrafo parrafo";
+        gap: 2rem;
+        /* background-color: rgb(55, 6, 252); */
+    }
+
+    .card-history {
+        display: contents;
+        /* "desaparece" el div, deja pasar a sus hijos como items del grid */
+    }
+
+    .card-history h3 {
+        grid-area: titulo;
+        text-align: center;
+    }
+
+    .card-history p {
+        grid-area: parrafo;
+        background: white;
+        padding: 2rem;
+        border-radius: 1rem;
+    }
+
+    .card-img-box:nth-child(1) {
+        grid-area: img1;
+    }
+
+    .card-img-box:nth-child(2) {
+        grid-area: img2;
+    }
+
+    .card-img-box:nth-child(3) {
+        grid-area: img3;
+    }
+
+    /* .card-img-box img {
+        width: 100%;
+        margin-top: 0;
+    } */
 
 /* Imágenes */
 .card-img-box img {
     width: 100%;
-    max-width: 30rem;
+    max-width: 35rem;   /* tope opcional en pantallas muy grandes */
     height: auto;
     margin-top: 5rem;
+    border-radius: 1rem;
 }
-
 /* Texto Historia */
 .card-history {
     background: white;
@@ -250,51 +287,7 @@ body {
 }
 
 /* tablet responsivo */
-@media (min-width: 48rem) and (max-width: 80rem) {
-    .container-history {
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-areas:
-            "titulo titulo titulo"
-            "img1   img2   img3"
-            "parrafo parrafo parrafo";
-        gap: 2rem;
-        /* background-color: rgb(55, 6, 252); */
-    }
 
-    .card-history {
-        display: contents;
-        /* "desaparece" el div, deja pasar a sus hijos como items del grid */
-    }
-
-    .card-history h3 {
-        grid-area: titulo;
-        text-align: center;
-    }
-
-    .card-history p {
-        grid-area: parrafo;
-        background: white;
-        padding: 2rem;
-        border-radius: 1rem;
-    }
-
-    .card-img-box:nth-child(1) {
-        grid-area: img1;
-    }
-
-    .card-img-box:nth-child(2) {
-        grid-area: img2;
-    }
-
-    .card-img-box:nth-child(3) {
-        grid-area: img3;
-    }
-
-    .card-img-box img {
-        width: 100%;
-        margin-top: 0;
-    }
-}
 
 /* Equipo de desarrolladores*/
 .title-team {

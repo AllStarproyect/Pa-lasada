@@ -1,0 +1,2078 @@
+{
+  "productos": [
+    {
+      "id": "aguja-nortena-nacional",
+      "sku": "AGUJA-NORTENA-NACIONAL",
+      "nombre": "Aguja Norteña - Nacional",
+      "categoria": [
+        "Carne",
+        "Res",
+        "Nacional"
+      ], 
+      "precio": {
+        "monto": 445.0,
+        "moneda": "MXN",
+        "texto": "$445.00",
+        "nota": null
+      },
+      "inventario": {
+        "estado": "agotado",
+        "cantidad": 0,
+        "sku": "AGUJA-NORTENA-NACIONAL"
+      },
+      "tieneVariantes": true,
+      "descripcion": "Aguja Norteña – Nacional\nRaza: Angus Black, Hereford, Charolesa, Limousin. No mayor a 30 meses.\nAlimentación: 90 días con Grano\nMaduración: 21+ días en húmedo.\nDescripción: Corte central y hecho a mano.\nEmbalaje: envuelto individualmente y sellado al vacío.\nCondiciones: El producto se encuentra congelado para conservar el sabor y le será entregado congelado o parcialmente descongelado.\nCasa Brassa\nSíguenos en Facebook\nConoce nuestra línea de carne importada de Estados Unidos:\nT-Bone High Choice\nPorterhouse High Choice\nSirloin High Choice\nRibEye Prime\nNewYork Prime",
+      "infoAdicional": {
+        "Peso": "1 kg",
+        "Lugar de orígen": "Chihuahua",
+        "Nivel de Marmoleado": "Suprema de Engorda"
+      },
+      "imagenes": {
+        "url": "https://casabrassa.mx/product/aguja-nortena-nacional/",
+        "remota": "https://casabrassa.mx/wp-content/uploads/2021/01/aguja-nortena-4-1-A.jpg",
+        "local": "assets/img/catalogo/placeholder.png"
+      }
+    },
+    {
+      "id": "arrachera-natural-importada",
+      "sku": "ARRACHERA-NATURAL-IMPORTADA",
+      "nombre": "Arrachera Natural Importada",
+      "categoria": [
+        "Carne",
+        "Res",
+        "USA",
+        "Choice"
+      ],
+      "precio": {
+        "monto": 990.0,
+        "moneda": "MXN",
+        "texto": "$990.00",
+        "nota": null
+      },
+      "inventario": {
+        "estado": "agotado",
+        "cantidad": 0,
+        "sku": "ARRACHERA-NATURAL-IMPORTADA"
+      },
+      "tieneVariantes": true,
+      "descripcion": "Arrachera Natural Importada\nRaza: Angus Black, Hereford.\nAlimentación: Grano y Pastizales\nMaduración: 21+ días en húmedo.\nDescripción: Corte central y hecho a mano.\nEmbalaje: envuelto individualmente y sellado al vacío.\nCondiciones: El producto se encuentra congelado para conservar el sabor y le será entregado congelado o parcialmente descongelado.",
+      "infoAdicional": {
+        "Lugar de orígen": "USA",
+        "Nivel de Marmoleado": "Choice o Superior"
+      },
+      "imagenes": {
+        "url": "https://casabrassa.mx/product/arrachera-natural-importada/",
+        "remota": "https://casabrassa.mx/wp-content/uploads/2021/01/aguja-nortena-4-1-ok.jpg",
+        "local": "assets/img/catalogo/placeholder.png"
+      }
+    },
+    {
+      "id": "arrachera-natural-nacional",
+      "sku": "ARRACHERA-NATURAL-NACIONAL",
+      "nombre": "Arrachera Natural - Nacional",
+      "categoria": [
+        "Carne",
+        "Res",
+        "Nacional"
+      ],
+      "precio": {
+        "monto": 462.0,
+        "moneda": "MXN",
+        "texto": "$462.00",
+        "nota": null
+      },
+      "inventario": {
+        "estado": "disponible",
+        "cantidad": 0,
+        "sku": "ARRACHERA-NATURAL-NACIONAL"
+      },
+      "tieneVariantes": true,
+      "descripcion": "Arrachera Natural – Nacional\nRaza: Angus Black, Hereford, Charolesa, Limousin. No mayor a 30 meses.\nAlimentación: 90 días con Grano\nMaduración: 21+ días en húmedo.\nDescripción: Corte central y hecho a mano.\nEmbalaje: envuelto individualmente y sellado al vacío.\nCondiciones: El producto se encuentra congelado para conservar el sabor y le será entregado congelado o parcialmente descongelado.\nCasa Brassa\nSíguenos en Facebook\nConoce nuestra línea de carne importada de Estados Unidos:\nT-Bone High Choice\nPorterhouse High Choice\nSirloin High Choice\nRibEye Prime\nNewYork Prime",
+      "infoAdicional": {
+        "Peso": "1 kg",
+        "Lugar de orígen": "Chihuahua",
+        "Nivel de Marmoleado": "Suprema de Engorda"
+      },
+      "imagenes": {
+        "url": "https://casabrassa.mx/product/arrachera-natural-nacional/",
+        "remota": "https://casabrassa.mx/wp-content/uploads/2021/01/arrachera-natural-2-1024x683.jpg",
+        "local": "assets/img/catalogo/placeholder.png"
+      }
+    },
+    {
+      "id": "arrachera-texana-importada",
+      "sku": "ARRACHERA-TEXANA-IMPORTADA",
+      "nombre": "Arrachera Texana Importada",
+      "categoria": [
+        "Carne",
+        "Res",
+        "USA",
+        "Choice"
+      ],
+      "precio": {
+        "monto": 1238.0,
+        "moneda": "MXN",
+        "texto": "$1,238.00",
+        "nota": null
+      },
+      "inventario": {
+        "estado": "agotado",
+        "cantidad": 0,
+        "sku": "ARRACHERA-TEXANA-IMPORTADA"
+      },
+      "tieneVariantes": true,
+      "descripcion": "Arrachera Texana Importada\nRaza: Angus Black, Hereford.\nAlimentación: Grano y Pastizales\nMaduración: 21+ días en húmedo.\nDescripción: Corte central y hecho a mano.\nEmbalaje: envuelto individualmente y sellado al vacío.\nCondiciones: El producto se encuentra congelado para conservar el sabor y le será entregado congelado o parcialmente descongelado.",
+      "infoAdicional": {
+        "Lugar de orígen": "USA",
+        "Nivel de Marmoleado": "Choice o Superior"
+      },
+      "imagenes": {
+        "url": "https://casabrassa.mx/product/arrachera-texana-importada/",
+        "remota": "https://casabrassa.mx/wp-content/uploads/2021/01/arrachera-texana-sterling-2-ok.jpg",
+        "local": "assets/img/catalogo/placeholder.png"
+      }
+    },
+    {
+      "id": "brisket-choice",
+      "sku": "BRISKET-CHOICE",
+      "nombre": "Brisket Choice",
+      "categoria": [
+        "Carne",
+        "Res",
+        "USA",
+        "Choice"
+      ],
+      "precio": {
+        "monto": 2415.0,
+        "moneda": "MXN",
+        "texto": "$2,415.00",
+        "nota": null
+      },
+      "inventario": {
+        "estado": "agotado",
+        "cantidad": 0,
+        "sku": "BRISKET-CHOICE"
+      },
+      "tieneVariantes": true,
+      "descripcion": "Brisket Choice – Sterling Silver\nRaza: Angus Black, Hereford.\nAlimentación: Grano y Pastizales\nMaduración: 21+ días en húmedo.\nDescripción: Corte central y hecho a mano.\nEmbalaje: envuelto individualmente y sellado al vacío.\nCondiciones: El producto se encuentra congelado para conservar el sabor y le será entregado congelado o parcialmente descongelado.\nCasa Brassa\nSíguenos en Facebook",
+      "infoAdicional": {
+        "Peso": "1 kg",
+        "Lugar de orígen": "USA",
+        "Nivel de Marmoleado": "Choice o Superior"
+      },
+      "imagenes": {
+        "url": "https://casabrassa.mx/product/brisket-choice/",
+        "remota": "https://casabrassa.mx/wp-content/uploads/2021/01/brisket-sterling--scaled-e1696989619383-1024x614.jpg",
+        "local": "assets/img/catalogo/placeholder.png"
+      }
+    },
+    {
+      "id": "brisket-nacional",
+      "sku": "BRISKET-NACIONAL",
+      "nombre": "Brisket Nacional",
+      "categoria": [
+        "Carne",
+        "Res",
+        "Nacional"
+      ],
+      "precio": {
+        "monto": 1350.0,
+        "moneda": "MXN",
+        "texto": "$1,350.00",
+        "nota": null
+      },
+      "inventario": {
+        "estado": "disponible",
+        "cantidad": 0,
+        "sku": "BRISKET-NACIONAL"
+      },
+      "tieneVariantes": true,
+      "descripcion": "Brisket Nacional\nRaza: Angus Black, Hereford, Charolesa, Limousin. No mayor a 30 meses.\nAlimentación: 90 días con Grano\nMaduración: 21+ días en húmedo.\nDescripción: Corte central y hecho a mano.\nEmbalaje: envuelto individualmente y sellado al vacío.\nCondiciones: El producto se encuentra congelado para conservar el sabor y le será entregado congelado o parcialmente descongelado.\nCasa Brassa\nSíguenos en Facebook",
+      "infoAdicional": {
+        "Peso": "1 kg",
+        "Lugar de orígen": "Chihuahua",
+        "Nivel de Marmoleado": "Suprema de Engorda"
+      },
+      "imagenes": {
+        "url": "https://casabrassa.mx/product/brisket-nacional/",
+        "remota": "https://casabrassa.mx/wp-content/uploads/2022/06/brisket-nacional-1.jpg",
+        "local": "assets/img/catalogo/placeholder.png"
+      }
+    },
+    {
+      "id": "cabeza-de-lomo-de-puerco",
+      "sku": "CABEZA-DE-LOMO-DE-PUERCO",
+      "nombre": "Cabeza De Lomo De Puerco",
+      "categoria": [
+        "Carne",
+        "Cerdo"
+      ],
+      "precio": {
+        "monto": 869.0,
+        "moneda": "MXN",
+        "texto": "$869.00",
+        "nota": null
+      },
+      "inventario": {
+        "estado": "agotado",
+        "cantidad": 0,
+        "sku": "CABEZA-DE-LOMO-DE-PUERCO"
+      },
+      "tieneVariantes": true,
+      "descripcion": "Descripción: Corte central y hecho a mano.\nEmbalaje: envuelto individualmente y sellado al vacío.\nCondiciones: El producto se encuentra congelado para conservar el sabor y le será entregado congelado o parcialmente descongelado.",
+      "infoAdicional": {
+        "Peso": "1 kg",
+        "Lugar de orígen": "México",
+        "Nivel de Marmoleado": "N/A"
+      },
+      "imagenes": {
+        "url": "https://casabrassa.mx/product/cabeza-de-lomo-de-puerco/",
+        "remota": "https://casabrassa.mx/wp-content/uploads/2022/06/cabeza-de-lomo-de-puerco-1.jpg",
+        "local": "assets/img/catalogo/placeholder.png"
+      }
+    },
+    {
+      "id": "cabreria-nacional",
+      "sku": "CABRERIA-NACIONAL",
+      "nombre": "Cabreria - Nacional",
+      "categoria": [
+        "Carne",
+        "Res",
+        "Nacional"
+      ],
+      "precio": {
+        "monto": 760.0,
+        "moneda": "MXN",
+        "texto": "$760.00",
+        "nota": null
+      },
+      "inventario": {
+        "estado": "agotado",
+        "cantidad": 0,
+        "sku": "CABRERIA-NACIONAL"
+      },
+      "tieneVariantes": true,
+      "descripcion": "Raza: Angus Black, Hereford, Charolesa, Limousin. No mayor a 30 meses.\nAlimentación: 90 días con Grano\nMaduración: 21+ días en húmedo.\nDescripción: Corte central y hecho a mano.\nEmbalaje: envuelto individualmente y sellado al vacío.\nCondiciones: El producto se encuentra congelado para conservar el sabor y le será entregado congelado o parcialmente descongelado.",
+      "infoAdicional": {
+        "Peso": "1 kg",
+        "Lugar de orígen": "Chihuahua",
+        "Nivel de Marmoleado": "Suprema de Engorda"
+      },
+      "imagenes": {
+        "url": "https://casabrassa.mx/product/cabreria-nacional/",
+        "remota": "https://casabrassa.mx/wp-content/uploads/2021/01/cabreria-nacional-4-1-1024x683.jpg",
+        "local": "assets/img/catalogo/placeholder.png"
+      }
+    },
+    {
+      "id": "cana-de-lomo-de-puerco",
+      "sku": "CANA-DE-LOMO-DE-PUERCO",
+      "nombre": "Caña De Lomo De Puerco",
+      "categoria": [
+        "Carne",
+        "Cerdo"
+      ],
+      "precio": {
+        "monto": 195.0,
+        "moneda": "MXN",
+        "texto": "$195.00",
+        "nota": null
+      },
+      "inventario": {
+        "estado": "agotado",
+        "cantidad": 0,
+        "sku": "CANA-DE-LOMO-DE-PUERCO"
+      },
+      "tieneVariantes": true,
+      "descripcion": "Caña De Lomo De Puerco\nDescripción: Corte central y hecho a mano.\nEmbalaje: envuelto individualmente y sellado al vacío.\nCondiciones: El producto se encuentra congelado para conservar el sabor y le será entregado congelado o parcialmente descongelado.\nCasa Brassa\nSíguenos en Facebook",
+      "infoAdicional": {
+        "Lugar de orígen": "México",
+        "Nivel de Marmoleado": "N/A"
+      },
+      "imagenes": {
+        "url": "https://casabrassa.mx/product/cana-de-lomo-de-puerco/",
+        "remota": "https://casabrassa.mx/wp-content/uploads/2021/01/filete-nacional-3-1024x683.jpg",
+        "local": "assets/img/catalogo/placeholder.png"
+      }
+    },
+    {
+      "id": "cecina-de-yecapixtla",
+      "sku": "CECINA-DE-YECAPIXTLA",
+      "nombre": "Cecina de Yecapixtla",
+      "categoria": [
+        "Carne",
+        "Res",
+        "Nacional"
+      ],
+      "precio": {
+        "monto": 540.0,
+        "moneda": "MXN",
+        "texto": "$540.00",
+        "nota": null
+      },
+      "inventario": {
+        "estado": "agotado",
+        "cantidad": 0,
+        "sku": "CECINA-DE-YECAPIXTLA"
+      },
+      "tieneVariantes": true,
+      "descripcion": "Cecina de Yecapixtla\nDescripción: Corte central y hecho a mano.\nEmbalaje: envuelto individualmente y sellado al vacío.\nCondiciones: El producto se encuentra congelado para conservar el sabor y le será entregado congelado o parcialmente descongelado.\nCecina de Yecapixtla\nCasa Brassa\nSíguenos en Facebook\nConoce nuestra línea de carne importada de Estados Unidos:\nT-Bone High Choice\nPorterhouse High Choice\nSirloin High Choice\nRibEye Prime\nNewYork Prime",
+      "infoAdicional": {
+        "Peso": "1 kg",
+        "Lugar de orígen": "Yecapixtla",
+        "Nivel de Marmoleado": "0"
+      },
+      "imagenes": {
+        "url": "https://casabrassa.mx/product/cecina-de-yecapixtla/",
+        "remota": "https://casabrassa.mx/wp-content/uploads/2021/01/cecina-2-1-1024x683.jpg",
+        "local": "assets/img/catalogo/cecina-de-yecapixtla-removebg-preview.png"
+      }
+    },
+    {
+      "id": "costilla-cargada-nacional",
+      "sku": "COSTILLA-CARGADA-NACIONAL",
+      "nombre": "Costilla Cargada - Nacional",
+      "categoria": [
+        "Carne",
+        "Res",
+        "Nacional"
+      ],
+      "precio": {
+        "monto": 360.0,
+        "moneda": "MXN",
+        "texto": "$360.00",
+        "nota": null
+      },
+      "inventario": {
+        "estado": "disponible",
+        "cantidad": 0,
+        "sku": "COSTILLA-CARGADA-NACIONAL"
+      },
+      "tieneVariantes": true,
+      "descripcion": "COSTILLA CARGADA:\nRaza: Angus Black, Hereford, Charolesa, Limousin. No mayor a 30 meses.\nAlimentación: 90 días con Grano\nMaduración: 21+ días en húmedo.\nDescripción: Corte central y hecho a mano.\nEmbalaje: envuelto individualmente y sellado al vacío.\nCondiciones: El producto se encuentra congelado para conservar el sabor y le será entregado congelado o parcialmente descongelado.\nConoce nuestra línea de carne importada de Estados Unidos:\nArrachera Natural Importada\nArrachera Texana Importada\nCowboy Choice\nRibEye Francés Choice\nSirloin Choice\nSíguenos en Facebook",
+      "infoAdicional": {
+        "Peso": "1 kg",
+        "Lugar de orígen": "Chihuahua",
+        "Nivel de Marmoleado": "Suprema de Engorda"
+      },
+      "imagenes": {
+        "url": "https://casabrassa.mx/product/costilla-cargada-nacional/",
+        "remota": "https://casabrassa.mx/wp-content/uploads/2021/01/costilla-cargada-1024x683.jpg",
+        "local": "assets/img/catalogo/costilla-cargada-removebg-preview.png"
+      }
+    },
+    {
+      "id": "costilla-descarnada-nacional",
+      "sku": "COSTILLA-DESCARNADA-NACIONAL",
+      "nombre": "Costilla Descarnada - Nacional",
+      "categoria": [
+        "Carne",
+        "Res",
+        "Nacional"
+      ],
+      "precio": {
+        "monto": 260.0,
+        "moneda": "MXN",
+        "texto": "$260.00",
+        "nota": null
+      },
+      "inventario": {
+        "estado": "agotado",
+        "cantidad": 0,
+        "sku": "COSTILLA-DESCARNADA-NACIONAL"
+      },
+      "tieneVariantes": true,
+      "descripcion": "Costilla Descarnada – Nacional\nRaza: Angus Black, Hereford, Charolesa, Limousin. No mayor a 30 meses.\nAlimentación: 90 días con Grano\nMaduración: 21+ días en húmedo.\nDescripción: Corte central y hecho a mano.\nEmbalaje: envuelto individualmente y sellado al vacío.\nCondiciones: El producto se encuentra congelado para conservar el sabor y le será entregado congelado o parcialmente descongelado.\nCasa Brassa\nSíguenos en Facebook\nConoce nuestra línea de carne importada de Estados Unidos:\nT-Bone High Choice\nPorterhouse High Choice\nSirloin High Choice\nRibEye Prime\nNewYork Prime",
+      "infoAdicional": {
+        "Peso": "1 kg",
+        "Lugar de orígen": "Chihuahua",
+        "Nivel de Marmoleado": "Suprema de Engorda"
+      },
+      "imagenes": {
+        "url": "https://casabrassa.mx/product/costilla-descarnada-nacional/",
+        "remota": "https://casabrassa.mx/wp-content/uploads/2021/01/costilla-descarnada-2-2-1024x683.jpg",
+        "local": "assets/img/catalogo/costilla-descarnada-2-removebg-preview.png"
+      }
+    },
+    {
+      "id": "costilla-sin-hueso-nacional",
+      "sku": "COSTILLA-SIN-HUESO-NACIONAL",
+      "nombre": "Costilla Sin Hueso - Nacional",
+      "categoria": [
+        "Carne",
+        "Res",
+        "Nacional"
+      ],
+      "precio": {
+        "monto": 295.0,
+        "moneda": "MXN",
+        "texto": "$295.00",
+        "nota": null
+      },
+      "inventario": {
+        "estado": "agotado",
+        "cantidad": 0,
+        "sku": "COSTILLA-SIN-HUESO-NACIONAL"
+      },
+      "tieneVariantes": true,
+      "descripcion": "Costilla Sin Hueso – Nacional\nRaza: Angus Black, Hereford, Charolesa, Limousin. No mayor a 30 meses.\nAlimentación: 90 días con Grano\nMaduración: 21+ días en húmedo.\nDescripción: Corte central y hecho a mano.\nEmbalaje: envuelto individualmente y sellado al vacío.\nCondiciones: El producto se encuentra congelado para conservar el sabor y le será entregado congelado o parcialmente descongelado.\nCasa Brassa\nSíguenos en Facebook\nConoce nuestra línea de carne importada de Estados Unidos:\nT-Bone High Choice\nPorterhouse High Choice\nSirloin High Choice\nRibEye Prime\nNewYork Prime",
+      "infoAdicional": {
+        "Peso": "1 kg",
+        "Lugar de orígen": "Chihuahua",
+        "Nivel de Marmoleado": "Suprema de Engorda"
+      },
+      "imagenes": {
+        "url": "https://casabrassa.mx/product/costilla-s-hueso-nacional/",
+        "remota": "https://casabrassa.mx/wp-content/uploads/2021/01/costilla-sin-hueso-2-1024x683.jpg",
+        "local": "assets/img/catalogo/costilla-sin-hueso-removebg-preview.png"
+      }
+    },
+    {
+      "id": "costilla-st-louis",
+      "sku": "COSTILLA-ST-LOUIS",
+      "nombre": "Costilla St. Louis",
+      "categoria": [
+        "Carne",
+        "Cerdo"
+      ],
+      "precio": {
+        "monto": 198.0,
+        "moneda": "MXN",
+        "texto": "$198.00",
+        "nota": null
+      },
+      "inventario": {
+        "estado": "disponible",
+        "cantidad": 0,
+        "sku": "COSTILLA-ST-LOUIS"
+      },
+      "tieneVariantes": true,
+      "descripcion": "Costilla St. Louis\nDescripción: Empacado individualmente o en paquetes de 2 piezas y sellado al vacío.\nCondiciones: El producto se encuentra congelado para conservar el sabor y le será entregado congelado o parcialmente descongelado.\nCasa Brassa\nSíguenos en Facebook",
+      "infoAdicional": {
+        "Peso": "1 kg",
+        "Lugar de orígen": "México",
+        "Nivel de Marmoleado": "N/A"
+      },
+      "imagenes": {
+        "url": "https://casabrassa.mx/product/costilla-st-louise/",
+        "remota": "https://casabrassa.mx/wp-content/uploads/2022/06/costilla-st.-louis.jpg",
+        "local": "assets/img/catalogo/costilla-st-louis.png"
+      }
+    },
+    {
+      "id": "cowboy-choice",
+      "sku": "COWBOY-CHOICE",
+      "nombre": "Cowboy Choice",
+      "categoria": [
+        "Carne",
+        "Res",
+        "USA",
+        "Choice"
+      ],
+      "precio": {
+        "monto": 513.0,
+        "moneda": "MXN",
+        "texto": "$513.00",
+        "nota": null
+      },
+      "inventario": {
+        "estado": "agotado",
+        "cantidad": 0,
+        "sku": "COWBOY-CHOICE"
+      },
+      "tieneVariantes": true,
+      "descripcion": "Cowboy High Choice\nRaza: Angus Black, Hereford.\nAlimentación: Grano y Pastizales\nMaduración: 21+ días en húmedo.\nDescripción: Corte central y hecho a mano.\nEmbalaje: envuelto individualmente y sellado al vacío.\nCondiciones: El producto se encuentra congelado para conservar el sabor y le será entregado congelado o parcialmente descongelado.\nCasa Brassa\nSíguenos en Facebook",
+      "infoAdicional": {
+        "Lugar de orígen": "USA",
+        "Nivel de Marmoleado": "Choice o Superior"
+      },
+      "imagenes": {
+        "url": "https://casabrassa.mx/product/cowboy-choice/",
+        "remota": "https://casabrassa.mx/wp-content/uploads/2021/01/cowboy-sterling-scaled-e1696989321641-1024x618.jpg",
+        "local": "assets/img/catalogo/cowboy-choice-sterling-silver-removebg-preview.png"
+      }
+    },
+    {
+      "id": "cowboy-importado-anejo",
+      "sku": "COWBOY-IMPORTADO-ANEJO",
+      "nombre": "Cowboy Importado - Añejo",
+      "categoria": [
+        "Carne",
+        "Res",
+        "Añejos"
+      ],
+      "precio": {
+        "monto": 683.0,
+        "moneda": "MXN",
+        "texto": "$683.00 - $2,095.00",
+        "nota": null
+      },
+      "inventario": {
+        "estado": "agotado",
+        "cantidad": 0,
+        "sku": "COWBOY-IMPORTADO-ANEJO"
+      },
+      "tieneVariantes": true,
+      "descripcion": "Maduración.\nSe recomienda como mínimo 28 días, sin embargo, se podría consumir desde los 21 días. Menor a esto no se recomienda ya que las fibras aún no han terminado de consumirse por lo que la suavidad pudiera verse afectada.\nTipo de carne:\nSolo se recomienda madurar cortes de gran calidad ya que el proceso requiere de carne con alto contenido graso (marmoleo)",
+      "infoAdicional": {
+        "Peso": "1 kg"
+      },
+      "imagenes": {
+        "url": "https://casabrassa.mx/product/cowboy-importado-anejo/",
+        "remota": "https://casabrassa.mx/wp-content/uploads/2021/04/cowboy-anejo-sterling-scaled-e1696989418253-1024x759.jpg",
+        "local": "assets/img/catalogo/cowboy-a-ejo-sterling-removebg-preview.png"
+      }
+    },
+    {
+      "id": "cowboy-nacional",
+      "sku": "COWBOY-NACIONAL",
+      "nombre": "Cowboy - Nacional",
+      "categoria": [
+        "Carne",
+        "Res",
+        "Nacional"
+      ],
+      "precio": {
+        "monto": 713.0,
+        "moneda": "MXN",
+        "texto": "$713.00",
+        "nota": null
+      },
+      "inventario": {
+        "estado": "agotado",
+        "cantidad": 0,
+        "sku": "COWBOY-NACIONAL"
+      },
+      "tieneVariantes": true,
+      "descripcion": "Cowboy – Nacional\nRaza: Angus Black, Hereford, Charolesa, Limousin. No mayor a 30 meses.\nAlimentación: 90 días con Grano\nMaduración: 21+ días en húmedo.\nDescripción: Corte central y hecho a mano.\nEmbalaje: envuelto individualmente y sellado al vacío.\nCondiciones: El producto se encuentra congelado para conservar el sabor y le será entregado congelado o parcialmente descongelado.\nCasa Brassa\nSíguenos en Facebook\nConoce nuestra línea de carne importada de Estados Unidos:\nT-Bone High Choice\nPorterhouse High Choice\nSirloin High Choice\nRibEye Prime\nNewYork Prime",
+      "infoAdicional": {
+        "Peso": "1 kg",
+        "Lugar de orígen": "Chihuahua",
+        "Nivel de Marmoleado": "Suprema de Engorda"
+      },
+      "imagenes": {
+        "url": "https://casabrassa.mx/product/cowboy-nacional/",
+        "remota": "https://casabrassa.mx/wp-content/uploads/2021/01/cowboy-nacional--1024x684.jpg",
+        "local": "assets/img/catalogo/cowboy-nacional-removebg-preview.png"
+      }
+    },
+    {
+      "id": "diezmillo-s-hueso-nacional",
+      "sku": "DIEZMILLO-S-HUESO-NACIONAL",
+      "nombre": "Diezmillo S/Hueso Nacional",
+      "categoria": [
+        "Carne",
+        "Res",
+        "Nacional"
+      ],
+      "precio": {
+        "monto": 325.0,
+        "moneda": "MXN",
+        "texto": "$325.00",
+        "nota": null
+      },
+      "inventario": {
+        "estado": "disponible",
+        "cantidad": 0,
+        "sku": "DIEZMILLO-S-HUESO-NACIONAL"
+      },
+      "tieneVariantes": true,
+      "descripcion": "DIEZMILLO S/HUESO NACIONAL\nRaza: Angus Black, Hereford, Charolesa, Limousin. No mayor a 30 meses.\nAlimentación: 90 días con Grano\nMaduración: 21+ días en húmedo.\nDescripción: Corte central y hecho a mano.\nEmbalaje: envuelto individualmente y sellado al vacío.\nCondiciones: El producto se encuentra congelado para conservar el sabor y le será entregado congelado o parcialmente descongelado.\nConoce nuestra línea de carne importada de Estados Unidos:\nArrachera Natural Importada\nArrachera Texana Importada\nCowboy Choice\nRibEye Francés Choice\nSirloin Choice\nSíguenos en Facebook",
+      "infoAdicional": {
+        "Peso": "1 kg",
+        "Lugar de orígen": "Chihuahua",
+        "Nivel de Marmoleado": "Suprema de Engorda"
+      },
+      "imagenes": {
+        "url": "https://casabrassa.mx/product/diezmillo-s-hueso-nacional/",
+        "remota": "",
+        "local": "assets/img/catalogo/placeholder.png"
+      }
+    },
+    {
+      "id": "filete-choice",
+      "sku": "FILETE-CHOICE",
+      "nombre": "Filete Choice",
+      "categoria": [
+        "Carne",
+        "Res",
+        "USA",
+        "Choice"
+      ],
+      "precio": {
+        "monto": 998.0,
+        "moneda": "MXN",
+        "texto": "$998.00",
+        "nota": null
+      },
+      "inventario": {
+        "estado": "agotado",
+        "cantidad": 0,
+        "sku": "FILETE-CHOICE"
+      },
+      "tieneVariantes": true,
+      "descripcion": "Filete Choice – Sterling Silver\nRaza: Angus Black, Hereford.\nAlimentación: Grano y Pastizales\nMaduración: 21+ días en húmedo.\nDescripción: Corte central y hecho a mano.\nEmbalaje: envuelto individualmente y sellado al vacío.\nCondiciones: El producto se encuentra congelado para conservar el sabor y le será entregado congelado o parcialmente descongelado.\nCasa Brassa\nSíguenos en Facebook",
+      "infoAdicional": {
+        "Peso": "1 kg",
+        "Lugar de orígen": "USA",
+        "Nivel de Marmoleado": "Choice o Superior"
+      },
+      "imagenes": {
+        "url": "https://casabrassa.mx/product/filete-choice/",
+        "remota": "https://casabrassa.mx/wp-content/uploads/2021/01/filete-sterling--scaled-e1696989179921-1024x616.jpg",
+        "local": "assets/img/catalogo/filete-choice-sterling-silver-removebg-preview.png"
+      }
+    },
+    {
+      "id": "filete-nacional",
+      "sku": "FILETE-NACIONAL",
+      "nombre": "Filete Nacional",
+      "categoria": [
+        "Carne",
+        "Res",
+        "Nacional"
+      ],
+      "precio": {
+        "monto": 473.0,
+        "moneda": "MXN",
+        "texto": "$473.00",
+        "nota": null
+      },
+      "inventario": {
+        "estado": "disponible",
+        "cantidad": 0,
+        "sku": "FILETE-NACIONAL"
+      },
+      "tieneVariantes": true,
+      "descripcion": "Filete Nacional\nRaza: Angus Black, Hereford, Charolesa, Limousin. No mayor a 30 meses.\nAlimentación: 90 días con Grano\nMaduración: 21+ días en húmedo.\nDescripción: Corte central y hecho a mano.\nEmbalaje: envuelto individualmente y sellado al vacío.\nCondiciones: El producto se encuentra congelado para conservar el sabor y le será entregado congelado o parcialmente descongelado.\nCasa Brassa\nSíguenos en Facebook",
+      "infoAdicional": {
+        "Peso": "1 kg",
+        "Lugar de orígen": "Chihuahua",
+        "Nivel de Marmoleado": "Suprema de Engorda"
+      },
+      "imagenes": {
+        "url": "https://casabrassa.mx/product/filete-nacional/",
+        "remota": "https://casabrassa.mx/wp-content/uploads/2021/01/filete-nacional-2-1-1024x683.jpg",
+        "local": "assets/img/catalogo/filete-nacional-2-removebg-preview.png"
+      }
+    },
+    {
+      "id": "hamburguesa-de-brisket-nacional",
+      "sku": "HAMBURGUESA-DE-BRISKET-NACIONAL",
+      "nombre": "Hamburguesa de Brisket Nacional",
+      "categoria": [
+        "Carne",
+        "Res",
+        "Nacional"
+      ],
+      "precio": {
+        "monto": 290.0,
+        "moneda": "MXN",
+        "texto": "$290.00",
+        "nota": null
+      },
+      "inventario": {
+        "estado": "disponible",
+        "cantidad": 0,
+        "sku": "HAMBURGUESA-DE-BRISKET-NACIONAL"
+      },
+      "tieneVariantes": true,
+      "descripcion": "Hamburguesa de Brisket Nacional\nRaza: Angus Black, Hereford, Charolesa, Limousin. No mayor a 30 meses.\nAlimentación: 90 días con Grano\nMaduración: 21+ días en húmedo.\nDescripción: Corte central y hecho a mano.\nEmbalaje: envuelto individualmente y sellado al vacío.\nCondiciones: El producto se encuentra congelado para conservar el sabor y le será entregado congelado o parcialmente descongelado.\nCasa Brassa\nSíguenos en Facebook\nConoce nuestra línea de carne importada de Estados Unidos:\nT-Bone High Choice\nPorterhouse High Choice\nSirloin High Choice\nRibEye Prime\nNewYork Prime",
+      "infoAdicional": {
+        "Peso": "1 kg",
+        "Lugar de orígen": "Chihuahua",
+        "Nivel de Marmoleado": "Suprema de Engorda"
+      },
+      "imagenes": {
+        "url": "https://casabrassa.mx/product/hamburguesa-de-brisket-nacional/",
+        "remota": "https://casabrassa.mx/wp-content/uploads/2022/06/hamburguesa-de-brisket-nacional.jpg",
+        "local": "assets/img/catalogo/hamburguesa-de-brisket-removebg-preview.png"
+      }
+    },
+    {
+      "id": "hamburguesa-de-la-casa",
+      "sku": "HAMBURGUESA-DE-LA-CASA",
+      "nombre": "Hamburguesa De La Casa",
+      "categoria": [
+        "Carne",
+        "Res",
+        "Nacional"
+      ],
+      "precio": {
+        "monto": 295.0,
+        "moneda": "MXN",
+        "texto": "$295.00",
+        "nota": null
+      },
+      "inventario": {
+        "estado": "disponible",
+        "cantidad": 0,
+        "sku": "HAMBURGUESA-DE-LA-CASA"
+      },
+      "tieneVariantes": true,
+      "descripcion": "Hamburguesa de la Casa Gourmet\nRaza: Angus Black, Hereford, Charolesa, Limousin. No mayor a 30 meses.\nAlimentación: 90 días con Grano\nMaduración: 21+ días en húmedo.\nDescripción: Corte central y hecho a mano.\nEmbalaje: envuelto individualmente y sellado al vacío.\nCondiciones: El producto se encuentra congelado para conservar el sabor y le será entregado congelado o parcialmente descongelado.\nCasa Brassa\nSíguenos en Facebook\nConoce nuestra línea de carne importada de Estados Unidos:\nArrachera Natural Importada\nArrachera Texana Importada\nCowboy Choice\nRibEye Francés Choice\nSirloin Choice",
+      "infoAdicional": {
+        "Peso": "1 kg",
+        "Lugar de orígen": "Chihuahua",
+        "Nivel de Marmoleado": "Suprema de Engorda"
+      },
+      "imagenes": {
+        "url": "https://casabrassa.mx/product/hamburguesa-de-la-casa/",
+        "remota": "https://casabrassa.mx/wp-content/uploads/2022/06/hamburguesa-gourmet-1.jpg",
+        "local": "assets/img/catalogo/hamburguesa-gourmet-removebg-preview.png"
+      }
+    },
+    {
+      "id": "hamburguesa-de-short-rib-nacional",
+      "sku": "HAMBURGUESA-DE-SHORT-RIB-NACIONAL",
+      "nombre": "Hamburguesa de Short Rib Nacional",
+      "categoria": [
+        "Carne",
+        "Res",
+        "Nacional"
+      ],
+      "precio": {
+        "monto": 290.0,
+        "moneda": "MXN",
+        "texto": "$290.00",
+        "nota": null
+      },
+      "inventario": {
+        "estado": "agotado",
+        "cantidad": 0,
+        "sku": "HAMBURGUESA-DE-SHORT-RIB-NACIONAL"
+      },
+      "tieneVariantes": true,
+      "descripcion": "Hamburguesa de Short Rib Nacional\nRaza: Angus Black, Hereford, Charolesa, Limousin. No mayor a 30 meses.\nAlimentación: 90 días con Grano\nMaduración: 21+ días en húmedo.\nDescripción: Corte central y hecho a mano.\nEmbalaje: envuelto individualmente y sellado al vacío.\nCondiciones: El producto se encuentra congelado para conservar el sabor y le será entregado congelado o parcialmente descongelado.\nCasa Brassa\nSíguenos en Facebook\nConoce nuestra línea de carne importada de Estados Unidos:\nArrachera Natural Importada\nArrachera Texana Importada\nCowboy Choice\nRibEye Francés Choice\nSirloin Choice",
+      "infoAdicional": {
+        "Peso": "1 kg",
+        "Lugar de orígen": "Chihuahua",
+        "Nivel de Marmoleado": "Suprema de Engorda"
+      },
+      "imagenes": {
+        "url": "https://casabrassa.mx/product/hamburguesa-de-short-rib-nacional/",
+        "remota": "https://casabrassa.mx/wp-content/uploads/2022/06/hamburguesa-de-short-rib-nacional.jpg",
+        "local": "assets/img/catalogo/hamburguesa-de-short-rib-nacional-removebg-preview.png"
+      }
+    },
+    {
+      "id": "hamburguesa-de-sirloin-con-tocino-nacional",
+      "sku": "HAMBURGUESA-DE-SIRLOIN-CON-TOCINO-NACIONAL",
+      "nombre": "Hamburguesa de Sirloin con Tocino Nacional",
+      "categoria": [
+        "Carne",
+        "Res",
+        "Nacional"
+      ],
+      "precio": {
+        "monto": 290.0,
+        "moneda": "MXN",
+        "texto": "$290.00",
+        "nota": null
+      },
+      "inventario": {
+        "estado": "agotado",
+        "cantidad": 0,
+        "sku": "HAMBURGUESA-DE-SIRLOIN-CON-TOCINO-NACIONAL"
+      },
+      "tieneVariantes": true,
+      "descripcion": "Hamburguesa de Sirloin con Tocino Nacional\nRaza: Angus Black, Hereford, Charolesa, Limousin. No mayor a 30 meses.\nAlimentación: 90 días con Grano\nMaduración: 21+ días en húmedo.\nDescripción: Corte central y hecho a mano.\nEmbalaje: envuelto individualmente y sellado al vacío.\nCondiciones: El producto se encuentra congelado para conservar el sabor y le será entregado congelado o parcialmente descongelado.\nCasa Brassa\nSíguenos en Facebook",
+      "infoAdicional": {
+        "Peso": "1 kg",
+        "Lugar de orígen": "Chihuahua",
+        "Nivel de Marmoleado": "Suprema de Engorda"
+      },
+      "imagenes": {
+        "url": "https://casabrassa.mx/product/hamburguesa-de-sirloin-con-tocino-nacional/",
+        "remota": "https://casabrassa.mx/wp-content/uploads/2022/06/hamburguesa-de-sirlon-con-tocino-nacional.jpg",
+        "local": "assets/img/catalogo/hamburguesa-de-sirloin-removebg-preview.png"
+      }
+    },
+    {
+      "id": "hamburguesa-clasica",
+      "sku": "HAMBURGUESA-CLASICA",
+      "nombre": "Hamburguesa Clásica",
+      "categoria": [
+        "Carne",
+        "Res",
+        "Nacional"
+      ],
+      "precio": {
+        "monto": 195.0,
+        "moneda": "MXN",
+        "texto": "$195.00",
+        "nota": null
+      },
+      "inventario": {
+        "estado": "agotado",
+        "cantidad": 0,
+        "sku": "HAMBURGUESA-CLASICA"
+      },
+      "tieneVariantes": true,
+      "descripcion": "Hamburguesa Clásica\nRaza: Angus Black, Hereford, Charolesa, Limousin. No mayor a 30 meses.\nAlimentación: 90 días con Grano\nMaduración: 21+ días en húmedo.\nDescripción: Corte central y hecho a mano.\nEmbalaje: envuelto individualmente y sellado al vacío.\nCondiciones: El producto se encuentra congelado para conservar el sabor y le será entregado congelado o parcialmente descongelado.\nCasa Brassa\nSíguenos en Facebook\nConoce nuestra línea de carne importada de Estados Unidos:\nT-Bone High Choice\nPorterhouse High Choice\nSirloin High Choice\nRibEye Prime\nNewYork Prime",
+      "infoAdicional": {
+        "Peso": "1 kg",
+        "Lugar de orígen": "Chihuahua",
+        "Nivel de Marmoleado": "Suprema de Engorda"
+      },
+      "imagenes": {
+        "url": "https://casabrassa.mx/product/hamburguesa-estandar/",
+        "remota": "https://casabrassa.mx/wp-content/uploads/2021/01/hamburguesa-clasica--1024x683.jpg",
+        "local": "assets/img/catalogo/hamburguesa-cl-sica-removebg-preview.png"
+      }
+    },
+    {
+      "id": "lechon-tierno",
+      "sku": "LECHON-TIERNO",
+      "nombre": "Lechón Tierno",
+      "categoria": [
+        "Carne",
+        "Cerdo"
+      ],
+      "precio": {
+        "monto": 1985.0,
+        "moneda": "MXN",
+        "texto": "$1,985.00",
+        "nota": null
+      },
+      "inventario": {
+        "estado": "agotado",
+        "cantidad": 0,
+        "sku": "LECHON-TIERNO"
+      },
+      "tieneVariantes": true,
+      "descripcion": "Lechón Tierno\nDescripción: Pieza entera con peso estimado entre 5 y 6Kg\nCondiciones: El producto se encuentra congelado para conservar el sabor y le será entregado congelado o parcialmente descongelado.\nCasa Brassa\nSíguenos en Facebook",
+      "infoAdicional": {
+        "Lugar de orígen": "México",
+        "Nivel de Marmoleado": "N/A"
+      },
+      "imagenes": {
+        "url": "https://casabrassa.mx/product/lechon-tierno/",
+        "remota": "https://casabrassa.mx/wp-content/uploads/2022/06/LECHON-TIERNO-1.jpg",
+        "local": "assets/img/catalogo/lech-n-tierno-removebg-preview.png"
+      }
+    },
+    {
+      "id": "molida-100-nacional-casa-brassa-mx",
+      "sku": "MOLIDA-100-NACIONAL-CASA-BRASSA-MX",
+      "nombre": "Molida 100% Nacional | Casa Brassa Mx",
+      "categoria": [
+        "Carne",
+        "Res",
+        "Nacional"
+      ],
+      "precio": {
+        "monto": 295.0,
+        "moneda": "MXN",
+        "texto": "$295.00",
+        "nota": null
+      },
+      "inventario": {
+        "estado": "disponible",
+        "cantidad": 0,
+        "sku": "MOLIDA-100-NACIONAL-CASA-BRASSA-MX"
+      },
+      "tieneVariantes": true,
+      "descripcion": "Molida 100% Nacional\nRaza: Angus Black, Hereford, Charolesa, Limousin. No mayor a 30 meses.\nAlimentación: 90 días con Grano\nMaduración: 21+ días en húmedo.\nDescripción: Corte central y hecho a mano.\nEmbalaje: envuelto individualmente y sellado al vacío.\nCondiciones: El producto se encuentra congelado para conservar el sabor y le será entregado congelado o parcialmente descongelado.\nCasa Brassa\nSíguenos en Facebook\nConoce nuestra línea de carne importada de Estados Unidos:\nArrachera Natural Importada\nArrachera Texana Importada\nCowboy Choice\nRibEye Francés Choice\nSirloin Choice",
+      "infoAdicional": {
+        "Peso": "1 kg",
+        "Lugar de orígen": "Chihuahua",
+        "Nivel de Marmoleado": "Suprema de Engorda"
+      },
+      "imagenes": {
+        "url": "https://casabrassa.mx/product/molida-100-nacional/",
+        "remota": "https://casabrassa.mx/wp-content/uploads/2022/06/MOLIDA-100-NACIONAL.jpg",
+        "local": "assets/img/catalogo/molida-100-nacional-removebg-preview.png"
+      }
+    },
+    {
+      "id": "molida-80-20-nacional",
+      "sku": "MOLIDA-80-20-NACIONAL",
+      "nombre": "Molida 80/20 Nacional",
+      "categoria": [
+        "Carne",
+        "Res",
+        "Nacional"
+      ],
+      "precio": {
+        "monto": 260.0,
+        "moneda": "MXN",
+        "texto": "$260.00",
+        "nota": null
+      },
+      "inventario": {
+        "estado": "disponible",
+        "cantidad": 0,
+        "sku": "MOLIDA-80-20-NACIONAL"
+      },
+      "tieneVariantes": true,
+      "descripcion": "Molida 80/20 Nacional\nRaza: Angus Black, Hereford, Charolesa, Limousin. No mayor a 30 meses.\nAlimentación: 90 días con Grano\nMaduración: 21+ días en húmedo.\nDescripción: Corte central y hecho a mano.\nEmbalaje: envuelto individualmente y sellado al vacío.\nCondiciones: El producto se encuentra congelado para conservar el sabor y le será entregado congelado o parcialmente descongelado.\nCasa Brassa\nSíguenos en Facebook\nConoce nuestra línea de carne importada de Estados Unidos:\nArrachera Natural Importada\nArrachera Texana Importada\nCowboy Choice\nRibEye Francés Choice\nSirloin Choice",
+      "infoAdicional": {
+        "Peso": "1 kg",
+        "Lugar de orígen": "Chihuahua",
+        "Nivel de Marmoleado": "Suprema de Engorda"
+      },
+      "imagenes": {
+        "url": "https://casabrassa.mx/product/molida-80-20-nacional/",
+        "remota": "https://casabrassa.mx/wp-content/uploads/2022/06/molida-80-20-nacional.jpg",
+        "local": "assets/img/catalogo/placeholder.png"
+      }
+    },
+    {
+      "id": "molida-90-10-nacional",
+      "sku": "MOLIDA-90-10-NACIONAL",
+      "nombre": "Molida 90/10 Nacional",
+      "categoria": [
+        "Carne",
+        "Res",
+        "Nacional"
+      ],
+      "precio": {
+        "monto": 280.0,
+        "moneda": "MXN",
+        "texto": "$280.00",
+        "nota": null
+      },
+      "inventario": {
+        "estado": "disponible",
+        "cantidad": 0,
+        "sku": "MOLIDA-90-10-NACIONAL"
+      },
+      "tieneVariantes": true,
+      "descripcion": "Molida 90/10 Nacional\nRaza: Angus Black, Hereford, Charolesa, Limousin. No mayor a 30 meses.\nAlimentación: 90 días con Grano\nMaduración: 21+ días en húmedo.\nDescripción: Corte central y hecho a mano.\nEmbalaje: envuelto individualmente y sellado al vacío.\nCondiciones: El producto se encuentra congelado para conservar el sabor y le será entregado congelado o parcialmente descongelado.\nCasa Brassa\nSíguenos en Facebook",
+      "infoAdicional": {
+        "Peso": "1 kg",
+        "Lugar de orígen": "Chihuahua",
+        "Nivel de Marmoleado": "Suprema de Engorda"
+      },
+      "imagenes": {
+        "url": "https://casabrassa.mx/product/molida-90-10-nacional/",
+        "remota": "https://casabrassa.mx/wp-content/uploads/2022/06/MOLIDA-90-10-NACIONAL.jpg",
+        "local": "assets/img/catalogo/placeholder.png"
+      }
+    },
+    {
+      "id": "molleja",
+      "sku": "MOLLEJA",
+      "nombre": "Molleja",
+      "categoria": [
+        "Carne",
+        "Res",
+        "Nacional"
+      ],
+      "precio": {
+        "monto": 365.0,
+        "moneda": "MXN",
+        "texto": "$365.00",
+        "nota": null
+      },
+      "inventario": {
+        "estado": "agotado",
+        "cantidad": 0,
+        "sku": "MOLLEJA"
+      },
+      "tieneVariantes": true,
+      "descripcion": "Molleja\nRaza: Angus Black, Hereford, Charolesa, Limousin. No mayor a 30 meses.\nAlimentación: 90 días con Grano\nMaduración: 21+ días en húmedo.\nDescripción: Corte central y hecho a mano.\nEmbalaje: envuelto individualmente y sellado al vacío.\nCondiciones: El producto se encuentra congelado para conservar el sabor y le será entregado congelado o parcialmente descongelado.\nCasa Brassa\nSíguenos en Facebook\nConoce nuestra línea de carne importada de Estados Unidos:\nT-Bone High Choice\nPorterhouse High Choice\nSirloin High Choice\nRibEye Prime\nNewYork Prime",
+      "infoAdicional": {
+        "Peso": "1 kg",
+        "Lugar de orígen": "Chihuahua",
+        "Nivel de Marmoleado": "Suprema de Engorda"
+      },
+      "imagenes": {
+        "url": "https://casabrassa.mx/product/molleja-nacional/",
+        "remota": "https://casabrassa.mx/wp-content/uploads/2021/01/molleja-1024x683.jpg",
+        "local": "assets/img/catalogo/placeholder.png"
+      }
+    },
+    {
+      "id": "morcilla-de-cebolla",
+      "sku": "MORCILLA-DE-CEBOLLA",
+      "nombre": "Morcilla De Cebolla",
+      "categoria": [
+        "Carne",
+        "Cerdo"
+      ],
+      "precio": {
+        "monto": 38.0,
+        "moneda": "MXN",
+        "texto": "$38.00",
+        "nota": null
+      },
+      "inventario": {
+        "estado": "agotado",
+        "cantidad": 0,
+        "sku": "MORCILLA-DE-CEBOLLA"
+      },
+      "tieneVariantes": true,
+      "descripcion": "Morcilla De Cebolla\nDescripción: Paquetes con 2 piezas (190 a 200gr aprox) y sellado al vacío.\nCondiciones: El producto se encuentra congelado para conservar el sabor y le será entregado congelado o parcialmente descongelado.\nCasa Brassa\nSíguenos en Facebook",
+      "infoAdicional": {
+        "Peso": "1 kg",
+        "Lugar de orígen": "Chihuahua",
+        "Nivel de Marmoleado": "N/A"
+      },
+      "imagenes": {
+        "url": "https://casabrassa.mx/product/morcilla-de-cebolla/",
+        "remota": "https://casabrassa.mx/wp-content/uploads/2022/06/MORCILLA-DE-CEBOLLA.jpg",
+        "local": "assets/img/catalogo/placeholder.png"
+      }
+    },
+    {
+      "id": "new-york-choice",
+      "sku": "NEW-YORK-CHOICE",
+      "nombre": "New York Choice",
+      "categoria": [
+        "Carne",
+        "Res",
+        "USA",
+        "Choice"
+      ],
+      "precio": {
+        "monto": 695.0,
+        "moneda": "MXN",
+        "texto": "$695.00",
+        "nota": null
+      },
+      "inventario": {
+        "estado": "agotado",
+        "cantidad": 0,
+        "sku": "NEW-YORK-CHOICE"
+      },
+      "tieneVariantes": true,
+      "descripcion": "New York Choice\nRaza: Angus Black, Hereford.\nAlimentación: Grano y Pastizales\nMaduración: 21+ días en húmedo.\nDescripción: Corte central y hecho a mano.\nEmbalaje: envuelto individualmente y sellado al vacío.\nCondiciones: El producto se encuentra congelado para conservar el sabor y le será entregado congelado o parcialmente descongelado.",
+      "infoAdicional": {
+        "Peso": "1 kg",
+        "Lugar de orígen": "USA",
+        "Nivel de Marmoleado": "Choice o Superior"
+      },
+      "imagenes": {
+        "url": "https://casabrassa.mx/product/new-york-choice/",
+        "remota": "https://casabrassa.mx/wp-content/uploads/2021/01/newyork-sterling-scaled-e1696988954442-1024x616.jpg",
+        "local": "assets/img/catalogo/placeholder.png"
+      }
+    },
+    {
+      "id": "new-york-nacional",
+      "sku": "NEW-YORK-NACIONAL",
+      "nombre": "New York - Nacional",
+      "categoria": [
+        "Carne",
+        "Res",
+        "Nacional"
+      ],
+      "precio": {
+        "monto": 415.0,
+        "moneda": "MXN",
+        "texto": "$415.00",
+        "nota": null
+      },
+      "inventario": {
+        "estado": "disponible",
+        "cantidad": 0,
+        "sku": "NEW-YORK-NACIONAL"
+      },
+      "tieneVariantes": true,
+      "descripcion": "New York – Nacional\nRaza: Angus Black, Hereford, Charolesa, Limousin. No mayor a 30 meses.\nAlimentación: 90 días con Grano\nMaduración: 21+ días en húmedo.\nDescripción: Corte central y hecho a mano.\nEmbalaje: envuelto individualmente y sellado al vacío.\nCondiciones: El producto se encuentra congelado para conservar el sabor y le será entregado congelado o parcialmente descongelado.\nCasa Brassa\nSíguenos en Facebook\nConoce nuestra línea de carne importada de Estados Unidos:\nArrachera Natural Importada\nArrachera Texana Importada\nCowboy Choice\nRibEye Francés Choice\nSirloin Choice",
+      "infoAdicional": {
+        "Peso": "1 kg",
+        "Lugar de orígen": "Chihuahua",
+        "Nivel de Marmoleado": "Suprema de Engorda"
+      },
+      "imagenes": {
+        "url": "https://casabrassa.mx/product/new-york-nacional/",
+        "remota": "https://casabrassa.mx/wp-content/uploads/2021/01/newyork-nacional-3-1024x683.jpg",
+        "local": "assets/img/catalogo/placeholder.png"
+      }
+    },
+    {
+      "id": "new-york-prime",
+      "sku": "NEW-YORK-PRIME",
+      "nombre": "New York Prime",
+      "categoria": [
+        "Carne",
+        "Res",
+        "USA",
+        "Prime"
+      ],
+      "precio": {
+        "monto": 835.0,
+        "moneda": "MXN",
+        "texto": "$835.00",
+        "nota": null
+      },
+      "inventario": {
+        "estado": "agotado",
+        "cantidad": 0,
+        "sku": "NEW-YORK-PRIME"
+      },
+      "tieneVariantes": true,
+      "descripcion": "New York Prime\nRaza: Black Angus 100%\nAlimentación: Grano y Pastizales\nHGP free, Libre de Hormonas y Aceleradores\nMaduración: 21+ días en húmedo.\nDescripción: Corte central y hecho a mano.\nEmbalaje: envuelto individualmente y sellado al vacío.\nCondiciones: El producto se encuentra congelado para conservar el sabor y le será entregado congelado o parcialmente descongelado.\nCasa Brassa\nSíguenos en Facebook",
+      "infoAdicional": {
+        "Peso": "1 kg",
+        "Lugar de orígen": "USA",
+        "Nivel de Marmoleado": "Prime",
+        "Maridaje": "Pinot Noir Americano"
+      },
+      "imagenes": {
+        "url": "https://casabrassa.mx/product/new-york-prime/",
+        "remota": "https://casabrassa.mx/wp-content/uploads/2021/01/newyork-prime-scaled-e1696989051709-1024x614.jpg",
+        "local": "assets/img/catalogo/placeholder.png"
+      }
+    },
+    {
+      "id": "panceta",
+      "sku": "PANCETA",
+      "nombre": "Panceta",
+      "categoria": [
+        "Carne",
+        "Cerdo"
+      ],
+      "precio": {
+        "monto": 495.0,
+        "moneda": "MXN",
+        "texto": "$495.00",
+        "nota": null
+      },
+      "inventario": {
+        "estado": "disponible",
+        "cantidad": 0,
+        "sku": "PANCETA"
+      },
+      "tieneVariantes": true,
+      "descripcion": "Panceta\nDescripción: Se rebana conforme la necesidad y cantidad requerida por el cliente y es sellado al vacío.\nCondiciones: El producto se encuentra refrigerado para conservar el sabor.\nCasa Brassa\nSíguenos en Facebook",
+      "infoAdicional": {
+        "Peso": "1 kg",
+        "Lugar de orígen": "México",
+        "Nivel de Marmoleado": "N/A"
+      },
+      "imagenes": {
+        "url": "https://casabrassa.mx/product/panceta/",
+        "remota": "https://casabrassa.mx/wp-content/uploads/2021/01/panceta-2-1-1024x683.jpg",
+        "local": "assets/img/catalogo/placeholder.png"
+      }
+    },
+    {
+      "id": "picana-choice",
+      "sku": "PICANA-CHOICE",
+      "nombre": "Picaña Choice",
+      "categoria": [
+        "Carne",
+        "Res",
+        "USA",
+        "Choice"
+      ],
+      "precio": {
+        "monto": 1131.0,
+        "moneda": "MXN",
+        "texto": "$1,131.00",
+        "nota": null
+      },
+      "inventario": {
+        "estado": "disponible",
+        "cantidad": 0,
+        "sku": "PICANA-CHOICE"
+      },
+      "tieneVariantes": true,
+      "descripcion": "Picaña Choice\nRaza: Angus Black, Hereford.\nAlimentación: Grano y Pastizales\nMaduración: 21+ días en húmedo.\nDescripción: Corte central y hecho a mano.\nEmbalaje: envuelto individualmente y sellado al vacío.\nCondiciones: El producto se encuentra congelado para conservar el sabor y le será entregado congelado o parcialmente descongelado.\nCasa Brassa\nSíguenos en Facebook",
+      "infoAdicional": {
+        "Lugar de orígen": "USA",
+        "Nivel de Marmoleado": "Choice o Superior"
+      },
+      "imagenes": {
+        "url": "https://casabrassa.mx/product/picana-sterling-silver/",
+        "remota": "https://casabrassa.mx/wp-content/uploads/2021/01/picana-sterling-4-1024x683.jpg",
+        "local": "assets/img/catalogo/placeholder.png"
+      }
+    },
+    {
+      "id": "pierna-de-cerdo-s-hueso",
+      "sku": "PIERNA-DE-CERDO-S-HUESO",
+      "nombre": "Pierna De Cerdo S/Hueso",
+      "categoria": [
+        "Carne",
+        "Cerdo"
+      ],
+      "precio": {
+        "monto": 1200.0,
+        "moneda": "MXN",
+        "texto": "$1,200.00",
+        "nota": null
+      },
+      "inventario": {
+        "estado": "disponible",
+        "cantidad": 0,
+        "sku": "PIERNA-DE-CERDO-S-HUESO"
+      },
+      "tieneVariantes": true,
+      "descripcion": "Pierna De Cerdo S/Hueso\nDescripción: Corte central y hecho a mano.\nEmbalaje: envuelto individualmente y sellado al vacío.\nCondiciones: El producto se encuentra congelado para conservar el sabor y le será entregado congelado o parcialmente descongelado.\nCasa Brassa\nSíguenos en Facebook",
+      "infoAdicional": {
+        "Peso": "1 kg",
+        "Lugar de orígen": "México",
+        "Nivel de Marmoleado": "N/A"
+      },
+      "imagenes": {
+        "url": "https://casabrassa.mx/product/pierna-de-cerdo-s-hueso/",
+        "remota": "https://casabrassa.mx/wp-content/uploads/2022/06/PIERNA-DE-CERDO-Sin-HUESO.jpg",
+        "local": "assets/img/catalogo/placeholder.png"
+      }
+    },
+    {
+      "id": "pork-belly-premium",
+      "sku": "PORK-BELLY-PREMIUM",
+      "nombre": "Pork Belly Premium",
+      "categoria": [
+        "Carne",
+        "Cerdo"
+      ],
+      "precio": {
+        "monto": 195.0,
+        "moneda": "MXN",
+        "texto": "$195.00",
+        "nota": null
+      },
+      "inventario": {
+        "estado": "agotado",
+        "cantidad": 0,
+        "sku": "PORK-BELLY-PREMIUM"
+      },
+      "tieneVariantes": true,
+      "descripcion": "Pork Belly Premium\nDescripción: Corte central y hecho a mano.\nEmbalaje: envuelto individualmente y sellado al vacío.\nCondiciones: El producto se encuentra congelado para conservar el sabor y le será entregado congelado o parcialmente descongelado.\nCasa Brassa\nSíguenos en Facebook",
+      "infoAdicional": {
+        "Peso": "1 kg",
+        "Lugar de orígen": "México",
+        "Nivel de Marmoleado": "N/A"
+      },
+      "imagenes": {
+        "url": "https://casabrassa.mx/product/pork-belly-premium/",
+        "remota": "https://casabrassa.mx/wp-content/uploads/2021/01/pork-belly--1024x683.jpg",
+        "local": "assets/img/catalogo/pork-belly-premium-removebg-preview.png"
+      }
+    },
+    {
+      "id": "pork-butt",
+      "sku": "PORK-BUTT",
+      "nombre": "Pork Butt",
+      "categoria": [
+        "Carne",
+        "Cerdo"
+      ],
+      "precio": {
+        "monto": 891.0,
+        "moneda": "MXN",
+        "texto": "$891.00",
+        "nota": null
+      },
+      "inventario": {
+        "estado": "agotado",
+        "cantidad": 0,
+        "sku": "PORK-BUTT"
+      },
+      "tieneVariantes": true,
+      "descripcion": "Pork Butt\nDescripción: Pieza entera entre 2.5 y 4.5 Kg empacado y sellado al vacío.\nCondiciones: El producto se encuentra congelado para conservar el sabor y le será entregado congelado o parcialmente descongelado.\nCasa Brassa\nSíguenos en Facebook",
+      "infoAdicional": {
+        "Peso": "1 kg",
+        "Lugar de orígen": "México",
+        "Nivel de Marmoleado": "N/A"
+      },
+      "imagenes": {
+        "url": "https://casabrassa.mx/product/pork-butt/",
+        "remota": "https://casabrassa.mx/wp-content/uploads/2021/01/pork-butt-1024x683.jpg",
+        "local": "assets/img/catalogo/pork-butt-removebg-preview.png"
+      }
+    },
+    {
+      "id": "pork-chop",
+      "sku": "PORK-CHOP",
+      "nombre": "Pork Chop",
+      "categoria": [
+        "Carne",
+        "Cerdo"
+      ],
+      "precio": {
+        "monto": 561.0,
+        "moneda": "MXN",
+        "texto": "$561.00",
+        "nota": null
+      },
+      "inventario": {
+        "estado": "agotado",
+        "cantidad": 0,
+        "sku": "PORK-CHOP"
+      },
+      "tieneVariantes": true,
+      "descripcion": "Pork Chop\nCasa Brassa\nSíguenos en Facebook",
+      "infoAdicional": {},
+      "imagenes": {
+        "url": "https://casabrassa.mx/product/pork-chop/",
+        "remota": "https://casabrassa.mx/wp-content/uploads/2021/08/pork-chop--1024x683.jpg",
+        "local": "assets/img/catalogo/pork-chop-removebg-preview.png"
+      }
+    },
+    {
+      "id": "porterhouse-choice",
+      "sku": "PORTERHOUSE-CHOICE",
+      "nombre": "Porterhouse Choice",
+      "categoria": [
+        "Carne",
+        "Res",
+        "USA",
+        "Choice"
+      ],
+      "precio": {
+        "monto": 714.0,
+        "moneda": "MXN",
+        "texto": "$714.00",
+        "nota": null
+      },
+      "inventario": {
+        "estado": "agotado",
+        "cantidad": 0,
+        "sku": "PORTERHOUSE-CHOICE"
+      },
+      "tieneVariantes": true,
+      "descripcion": "Porterhouse High\nChoice\nRaza: Angus Black, Hereford.\nAlimentación: Grano y Pastizales\nMaduración: 21+ días en húmedo.\nDescripción: Corte central y hecho a mano.\nEmbalaje: envuelto individualmente y sellado al vacío.\nCondiciones: El producto se encuentra congelado para conservar el sabor y le será entregado congelado o parcialmente descongelado.\nCasa Brassa\nSíguenos en Facebook",
+      "infoAdicional": {
+        "Peso": "1 kg",
+        "Lugar de orígen": "USA",
+        "Nivel de Marmoleado": "Choice o Superior"
+      },
+      "imagenes": {
+        "url": "https://casabrassa.mx/product/porterhouse-choice/",
+        "remota": "https://casabrassa.mx/wp-content/uploads/2021/01/porterhouse-sterling-scaled-e1696988701228-1024x616.jpg",
+        "local": "assets/img/catalogo/placeholder.png"
+      }
+    },
+    {
+      "id": "porterhouse-nacional",
+      "sku": "PORTERHOUSE-NACIONAL",
+      "nombre": "Porterhouse Nacional",
+      "categoria": [
+        "Carne",
+        "Res",
+        "Nacional"
+      ],
+      "precio": {
+        "monto": 387.0,
+        "moneda": "MXN",
+        "texto": "$387.00",
+        "nota": null
+      },
+      "inventario": {
+        "estado": "disponible",
+        "cantidad": 0,
+        "sku": "PORTERHOUSE-NACIONAL"
+      },
+      "tieneVariantes": true,
+      "descripcion": "Porterhouse Nacional\nRaza: Angus Black, Hereford, Charolesa, Limousin. No mayor a 30 meses.\nAlimentación: 90 días con Grano\nMaduración: 21+ días en húmedo.\nDescripción: Corte central y hecho a mano.\nEmbalaje: envuelto individualmente y sellado al vacío.\nCondiciones: El producto se encuentra congelado para conservar el sabor y le será entregado congelado o parcialmente descongelado.\nCasa Brassa\nSíguenos en Facebook",
+      "infoAdicional": {
+        "Peso": "1 kg",
+        "Lugar de orígen": "Chihuahua",
+        "Nivel de Marmoleado": "Suprema de Engorda"
+      },
+      "imagenes": {
+        "url": "https://casabrassa.mx/product/porterhouse-nacional/",
+        "remota": "https://casabrassa.mx/wp-content/uploads/2021/01/porterhouse-nacional-2-1-1024x683.jpg",
+        "local": "assets/img/catalogo/porterhouse-nacional-2-removebg-preview.png"
+      }
+    },
+    {
+      "id": "pulpa-negra-nacional",
+      "sku": "PULPA-NEGRA-NACIONAL",
+      "nombre": "Pulpa Negra Nacional",
+      "categoria": [
+        "Carne",
+        "Res",
+        "Nacional"
+      ],
+      "precio": {
+        "monto": 250.0,
+        "moneda": "MXN",
+        "texto": "$250.00",
+        "nota": null
+      },
+      "inventario": {
+        "estado": "agotado",
+        "cantidad": 0,
+        "sku": "PULPA-NEGRA-NACIONAL"
+      },
+      "tieneVariantes": true,
+      "descripcion": "Pulpa Negra Nacional\nRaza: Angus Black, Hereford, Charolesa, Limousin. No mayor a 30 meses.\nAlimentación: 90 días con Grano\nMaduración: 21+ días en húmedo.\nDescripción: Corte central y hecho a mano.\nEmbalaje: envuelto individualmente y sellado al vacío.\nCondiciones: El producto se encuentra congelado para conservar el sabor y le será entregado congelado o parcialmente descongelado.\nCasa Brassa\nSíguenos en Facebook\nConoce nuestra línea de carne importada de Estados Unidos:\nArrachera Natural Importada\nArrachera Texana Importada\nCowboy Choice\nRibEye Francés Choice\nSirloin Choice",
+      "infoAdicional": {
+        "Peso": "1 kg",
+        "Lugar de orígen": "Chihuahua",
+        "Nivel de Marmoleado": "Suprema de Engorda"
+      },
+      "imagenes": {
+        "url": "https://casabrassa.mx/product/pulpa-negra-nacional/",
+        "remota": "https://casabrassa.mx/wp-content/uploads/2022/06/PULPA-NEGRA-NACIONAL.jpg",
+        "local": "assets/img/catalogo/pulpa-negra-nacional-removebg-preview.png"
+      }
+    },
+    {
+      "id": "rib-eye-prime-argentina",
+      "sku": "RIB-EYE-PRIME-ARGENTINA",
+      "nombre": "Rib Eye Prime Argentina",
+      "categoria": [
+        "Carne",
+        "Res",
+        "Ultra Premium",
+        "Argentina"
+      ],
+      "precio": {
+        "monto": 897.0,
+        "moneda": "MXN",
+        "texto": "$897.00",
+        "nota": null
+      },
+      "inventario": {
+        "estado": "agotado",
+        "cantidad": 0,
+        "sku": "RIB-EYE-PRIME-ARGENTINA"
+      },
+      "tieneVariantes": true,
+      "descripcion": "Rib Eye Prime Argentina\nRaza: Black Angus.\nAlimentación: _____\nMaduración: ____\nDescripción: _____\nEmbalaje: _____\nCondiciones: El producto se encuentra congelado para conservar el sabor y le será entregado congelado o parcialmente descongelado.\nCasa Brassa\nSíguenos en Facebook",
+      "infoAdicional": {
+        "Peso": "1 kg",
+        "Lugar de orígen": "Argentina",
+        "Maridaje": "Merlot con Barrica, Malbec con Barrica"
+      },
+      "imagenes": {
+        "url": "https://casabrassa.mx/product/rib-eye-prime-argentina/",
+        "remota": "",
+        "local": "assets/img/catalogo/placeholder.png"
+      }
+    },
+    {
+      "id": "ribeye-frances-choice",
+      "sku": "RIBEYE-FRANCES-CHOICE",
+      "nombre": "RibEye Frances Choice",
+      "categoria": [
+        "Carne",
+        "Res",
+        "USA",
+        "Choice"
+      ],
+      "precio": {
+        "monto": 855.0,
+        "moneda": "MXN",
+        "texto": "$855.00",
+        "nota": null
+      },
+      "inventario": {
+        "estado": "agotado",
+        "cantidad": 0,
+        "sku": "RIBEYE-FRANCES-CHOICE"
+      },
+      "tieneVariantes": true,
+      "descripcion": "Raza: Angus Black, Hereford.\nAlimentación: Grano y Pastizales\nMaduración: 21+ días en húmedo.\nDescripción: Corte central y hecho a mano.\nEmbalaje: envuelto individualmente y sellado al vacío.\nCondiciones: El producto se encuentra congelado para conservar el sabor y le será entregado congelado o parcialmente descongelado.",
+      "infoAdicional": {
+        "Peso": "1 kg",
+        "Lugar de orígen": "USA",
+        "Nivel de Marmoleado": "Choice o Superior"
+      },
+      "imagenes": {
+        "url": "https://casabrassa.mx/product/ribeye-frances-choice/",
+        "remota": "https://casabrassa.mx/wp-content/uploads/2021/01/ribeye-frances-importado-1024x683.jpg",
+        "local": "assets/img/catalogo/ribeye-frances-importado-removebg-preview.png"
+      }
+    },
+    {
+      "id": "ribeye-nacional",
+      "sku": "RIBEYE-NACIONAL",
+      "nombre": "RibEye - Nacional",
+      "categoria": [
+        "Carne",
+        "Res",
+        "Nacional"
+      ],
+      "precio": {
+        "monto": 440.0,
+        "moneda": "MXN",
+        "texto": "$440.00",
+        "nota": null
+      },
+      "inventario": {
+        "estado": "disponible",
+        "cantidad": 0,
+        "sku": "RIBEYE-NACIONAL"
+      },
+      "tieneVariantes": true,
+      "descripcion": "RibEye – Nacional\nRaza: Angus Black, Hereford, Charolesa, Limousin. No mayor a 30 meses.\nAlimentación: 90 días con Grano\nMaduración: 21+ días en húmedo.\nDescripción: Corte central y hecho a mano.\nEmbalaje: envuelto individualmente y sellado al vacío.\nCondiciones: El producto se encuentra congelado para conservar el sabor y le será entregado congelado o parcialmente descongelado.\nCasa Brassa\nSíguenos en Facebook\nConoce nuestra línea de carne importada de Estados Unidos:\nT-Bone High Choice\nPorterhouse High Choice\nSirloin High Choice\nRibEye Prime\nNewYork Prime",
+      "infoAdicional": {
+        "Lugar de orígen": "Chihuahua",
+        "Nivel de Marmoleado": "Suprema de Engorda"
+      },
+      "imagenes": {
+        "url": "https://casabrassa.mx/product/ribeye-nacional/",
+        "remota": "https://casabrassa.mx/wp-content/uploads/2021/01/ribeye-nacional-2-1-1024x683.jpg",
+        "local": "assets/img/catalogo/ribeye-nacional-removebg-preview.png"
+      }
+    },
+    {
+      "id": "ribeye-prime",
+      "sku": "RIBEYE-PRIME",
+      "nombre": "RibEye Prime",
+      "categoria": [
+        "Carne",
+        "Res",
+        "USA",
+        "Prime"
+      ],
+      "precio": {
+        "monto": 1135.0,
+        "moneda": "MXN",
+        "texto": "$1,135.00",
+        "nota": null
+      },
+      "inventario": {
+        "estado": "disponible",
+        "cantidad": 0,
+        "sku": "RIBEYE-PRIME"
+      },
+      "tieneVariantes": true,
+      "descripcion": "RibEye Prime\nRaza: Black Angus 100%\nAlimentación: Grano y Pastizales\nHGP free, Libre de Hormonas y Aceleradores\nMaduración: 21+ días en húmedo.\nDescripción: Corte central y hecho a mano.\nEmbalaje: envuelto individualmente y sellado al vacío.\nCondiciones: El producto se encuentra congelado para conservar el sabor y le será entregado congelado o parcialmente descongelado.\nCasa Brassa\nSíguenos en Facebook",
+      "infoAdicional": {
+        "Peso": "1 kg",
+        "Lugar de orígen": "USA",
+        "Nivel de Marmoleado": "Prime",
+        "Maridaje": "Pinot Noir Americano"
+      },
+      "imagenes": {
+        "url": "https://casabrassa.mx/product/ribeye-prime/",
+        "remota": "https://casabrassa.mx/wp-content/uploads/2021/01/ribeye-prime-2-1-scaled-e1696988463678-1024x616.jpg",
+        "local": "assets/img/catalogo/ribeye-prime-removebg-preview.png"
+      }
+    },
+    {
+      "id": "rib-eye-choice",
+      "sku": "RIB-EYE-CHOICE",
+      "nombre": "Rib Eye Choice",
+      "categoria": [
+        "Carne",
+        "Res",
+        "USA",
+        "Choice"
+      ],
+      "precio": {
+        "monto": 695.0,
+        "moneda": "MXN",
+        "texto": "$695.00",
+        "nota": null
+      },
+      "inventario": {
+        "estado": "agotado",
+        "cantidad": 0,
+        "sku": "RIB-EYE-CHOICE"
+      },
+      "tieneVariantes": true,
+      "descripcion": "RibEye Choice\nRaza: Angus Black, Hereford.\nAlimentación: Grano y Pastizales\nMaduración: 21+ días en húmedo.\nDescripción: Corte central y hecho a mano.\nEmbalaje: envuelto individualmente y sellado al vacío.\nCondiciones: El producto se encuentra congelado para conservar el sabor y le será entregado congelado o parcialmente descongelado.\nCasa Brassa\nSíguenos en Facebook",
+      "infoAdicional": {
+        "Peso": "1 kg",
+        "Lugar de orígen": "USA",
+        "Nivel de Marmoleado": "Choice o Superior"
+      },
+      "imagenes": {
+        "url": "https://casabrassa.mx/product/ribeye-sterling-silver/",
+        "remota": "https://casabrassa.mx/wp-content/uploads/2021/01/ribeye-sterling-scaled-e1696988124933-1024x614.jpg",
+        "local": "assets/img/catalogo/ribeye-choice-removebg-preview.png"
+      }
+    },
+    {
+      "id": "short-rib-choice",
+      "sku": "SHORT-RIB-CHOICE",
+      "nombre": "Short Rib Choice",
+      "categoria": [
+        "Carne",
+        "Res",
+        "USA",
+        "Choice"
+      ],
+      "precio": {
+        "monto": 580.0,
+        "moneda": "MXN",
+        "texto": "$580.00",
+        "nota": null
+      },
+      "inventario": {
+        "estado": "agotado",
+        "cantidad": 0,
+        "sku": "SHORT-RIB-CHOICE"
+      },
+      "tieneVariantes": true,
+      "descripcion": "Short Rib Choice\nRaza: Angus Black, Hereford.\nAlimentación: Grano y Pastizales\nMaduración: 21+ días en húmedo.\nDescripción: Corte central y hecho a mano.\nEmbalaje: envuelto individualmente y sellado al vacío.\nCondiciones: El producto se encuentra congelado para conservar el sabor y le será entregado congelado o parcialmente descongelado.\nCasa Brassa\nSíguenos en Facebook",
+      "infoAdicional": {
+        "Peso": "1 kg",
+        "Lugar de orígen": "USA",
+        "Nivel de Marmoleado": "Choice o Superior"
+      },
+      "imagenes": {
+        "url": "https://casabrassa.mx/product/short-rib-choice/",
+        "remota": "https://casabrassa.mx/wp-content/uploads/2021/01/shortrib-sterling-scaled-e1696988009173-1024x628.jpg",
+        "local": "assets/img/catalogo/short-rib-choice-removebg-preview.png"
+      }
+    },
+    {
+      "id": "sliders-de-ribeye-choice",
+      "sku": "SLIDERS-DE-RIBEYE-CHOICE",
+      "nombre": "Sliders de RibEye Choice",
+      "categoria": [
+        "Carne",
+        "Res",
+        "USA",
+        "Choice"
+      ],
+      "precio": {
+        "monto": 695.0,
+        "moneda": "MXN",
+        "texto": "$695.00",
+        "nota": null
+      },
+      "inventario": {
+        "estado": "agotado",
+        "cantidad": 0,
+        "sku": "SLIDERS-DE-RIBEYE-CHOICE"
+      },
+      "tieneVariantes": true,
+      "descripcion": "Sliders de RibEye Choice\nRaza: Angus Black, Hereford.\nAlimentación: Grano y Pastizales\nMaduración: 21+ días en húmedo.\nDescripción: Corte central y hecho a mano.\nEmbalaje: envuelto individualmente y sellado al vacío.\nCondiciones: El producto se encuentra congelado para conservar el sabor y le será entregado congelado o parcialmente descongelado.",
+      "infoAdicional": {
+        "Peso": "1 kg",
+        "Lugar de orígen": "USA",
+        "Nivel de Marmoleado": "Choice o Superior"
+      },
+      "imagenes": {
+        "url": "https://casabrassa.mx/product/sliders-de-ribeye-choice/",
+        "remota": "https://casabrassa.mx/wp-content/uploads/2021/01/slider--1024x683.jpg",
+        "local": "assets/img/catalogo/sliders-de-ribeye-choice-sterling-silver-removebg-preview.png"
+      }
+    },
+    {
+      "id": "t-bone-choice",
+      "sku": "T-BONE-CHOICE",
+      "nombre": "T-Bone Choice",
+      "categoria": [
+        "Carne",
+        "Res",
+        "USA",
+        "Choice"
+      ],
+      "precio": {
+        "monto": 620.0,
+        "moneda": "MXN",
+        "texto": "$620.00",
+        "nota": null
+      },
+      "inventario": {
+        "estado": "agotado",
+        "cantidad": 0,
+        "sku": "T-BONE-CHOICE"
+      },
+      "tieneVariantes": true,
+      "descripcion": "T-Bone Choice\nRaza: Angus Black, Hereford.\nAlimentación: Grano y Pastizales\nMaduración: 21+ días en húmedo.\nDescripción: Corte central y hecho a mano.\nEmbalaje: envuelto individualmente y sellado al vacío.\nCondiciones: El producto se encuentra congelado para conservar el sabor y le será entregado congelado o parcialmente descongelado.\nCasa Brassa\nSíguenos en Facebook",
+      "infoAdicional": {
+        "Peso": "1 kg",
+        "Lugar de orígen": "USA",
+        "Nivel de Marmoleado": "Choice o Superior"
+      },
+      "imagenes": {
+        "url": "https://casabrassa.mx/product/t-bone-choice/",
+        "remota": "https://casabrassa.mx/wp-content/uploads/2021/01/t-bone-sterling-2-1-scaled-e1696987815970-1024x616.jpg",
+        "local": "assets/img/catalogo/t-bone-choice-sterling-silver-removebg-preview.png"
+      }
+    },
+    {
+      "id": "t-bone-nacional-por-casa-brassa-mx",
+      "sku": "T-BONE-NACIONAL-POR-CASA-BRASSA-MX",
+      "nombre": "T-Bone Nacional por Casa Brassa Mx",
+      "categoria": [
+        "Carne",
+        "Res",
+        "Nacional"
+      ],
+      "precio": {
+        "monto": 324.0,
+        "moneda": "MXN",
+        "texto": "$324.00",
+        "nota": null
+      },
+      "inventario": {
+        "estado": "disponible",
+        "cantidad": 0,
+        "sku": "T-BONE-NACIONAL-POR-CASA-BRASSA-MX"
+      },
+      "tieneVariantes": true,
+      "descripcion": "T-Bone Nacional\nRaza: Angus Black, Hereford, Charolesa, Limousin. No mayor a 30 meses.\nAlimentación: 90 días con Grano\nMaduración: 21+ días en húmedo.\nDescripción: Corte central y hecho a mano.\nEmbalaje: envuelto individualmente y sellado al vacío.\nCondiciones: El T-Bone Nacional se encuentra congelado para conservar el sabor y le será entregado congelado o parcialmente descongelado.\nCasa Brassa Mx\nSíguenos en Redes Sociales",
+      "infoAdicional": {
+        "Peso": "1 kg",
+        "Lugar de orígen": "Chihuahua",
+        "Nivel de Marmoleado": "Suprema de Engorda"
+      },
+      "imagenes": {
+        "url": "https://casabrassa.mx/product/t-bone-nacional/",
+        "remota": "https://casabrassa.mx/wp-content/uploads/2021/01/t-bone-nacional-3-1024x683.jpg",
+        "local": "assets/img/catalogo/t-bone-nacional-removebg-preview.png"
+      }
+    },
+    {
+      "id": "tocino",
+      "sku": "TOCINO",
+      "nombre": "Tocino",
+      "categoria": [
+        "Carne",
+        "Cerdo"
+      ],
+      "precio": {
+        "monto": 495.0,
+        "moneda": "MXN",
+        "texto": "$495.00",
+        "nota": null
+      },
+      "inventario": {
+        "estado": "disponible",
+        "cantidad": 0,
+        "sku": "TOCINO"
+      },
+      "tieneVariantes": true,
+      "descripcion": "Tocino\nDescripción: Se rebana conforme la necesidad y cantidad requerida por el cliente y es sellado al vacío.\nCondiciones: El producto se encuentra refrigerado para conservar el sabor.\nCasa Brassa\nSíguenos en Facebook",
+      "infoAdicional": {
+        "Peso": "1 kg",
+        "Lugar de orígen": "México",
+        "Nivel de Marmoleado": "N/A"
+      },
+      "imagenes": {
+        "url": "https://casabrassa.mx/product/tocino-applewood-o-red-lable/",
+        "remota": "https://casabrassa.mx/wp-content/uploads/2021/01/tocino-2-1024x683.jpg",
+        "local": "assets/img/catalogo/tocino-removebg-preview.png"
+      }
+    },
+    {
+      "id": "tomahawk-choice",
+      "sku": "TOMAHAWK-CHOICE",
+      "nombre": "Tomahawk Choice",
+      "categoria": [
+        "Carne",
+        "Res",
+        "USA",
+        "Choice"
+      ],
+      "precio": {
+        "monto": 1313.0,
+        "moneda": "MXN",
+        "texto": "$1,313.00",
+        "nota": null
+      },
+      "inventario": {
+        "estado": "agotado",
+        "cantidad": 0,
+        "sku": "TOMAHAWK-CHOICE"
+      },
+      "tieneVariantes": true,
+      "descripcion": "Tomahawk Choice\nRaza: Angus Black, Hereford.\nAlimentación: Grano y Pastizales\nMaduración: 21+ días en húmedo.\nDescripción: Corte central y hecho a mano.\nEmbalaje: envuelto individualmente y sellado al vacío.\nCondiciones: El producto se encuentra congelado para conservar el sabor y le será entregado congelado o parcialmente descongelado.",
+      "infoAdicional": {
+        "Lugar de orígen": "USA",
+        "Nivel de Marmoleado": "Choice o Superior"
+      },
+      "imagenes": {
+        "url": "https://casabrassa.mx/product/tomahawk-choice-sterling-silver/",
+        "remota": "https://casabrassa.mx/wp-content/uploads/2021/01/tomahawk-importado-scaled-e1696987707207-1024x618.jpg",
+        "local": "assets/img/catalogo/tomahawk-choice-removebg-preview.png"
+      }
+    },
+    {
+      "id": "tomahawk-de-cerdo",
+      "sku": "TOMAHAWK-DE-CERDO",
+      "nombre": "Tomahawk De Cerdo",
+      "categoria": [
+        "Carne",
+        "Cerdo"
+      ],
+      "precio": {
+        "monto": 75.0,
+        "moneda": "MXN",
+        "texto": "$75.00",
+        "nota": null
+      },
+      "inventario": {
+        "estado": "agotado",
+        "cantidad": 0,
+        "sku": "TOMAHAWK-DE-CERDO"
+      },
+      "tieneVariantes": true,
+      "descripcion": "Tomahawk de Cerdo\nDescripción: Empacado individualmente y sellado al vacío.\nCondiciones: El producto se encuentra congelado para conservar el sabor y le será entregado congelado o parcialmente descongelado.\nCasa Brassa\nSíguenos en Facebook",
+      "infoAdicional": {
+        "Peso": "0.35 kg",
+        "Lugar de orígen": "México",
+        "Nivel de Marmoleado": "N/A"
+      },
+      "imagenes": {
+        "url": "https://casabrassa.mx/product/tomahawk-de-cerdo/",
+        "remota": "https://casabrassa.mx/wp-content/uploads/2021/01/tomahawk-de-cerdo-2-1-1024x683.jpg",
+        "local": "assets/img/catalogo/tomahawk-de-cerdo-removebg-preview.png"
+      }
+    },
+    {
+      "id": "tomahawk-nacional",
+      "sku": "TOMAHAWK-NACIONAL",
+      "nombre": "Tomahawk Nacional",
+      "categoria": [
+        "Carne",
+        "Res",
+        "Nacional"
+      ],
+      "precio": {
+        "monto": 954.0,
+        "moneda": "MXN",
+        "texto": "$954.00",
+        "nota": null
+      },
+      "inventario": {
+        "estado": "disponible",
+        "cantidad": 0,
+        "sku": "TOMAHAWK-NACIONAL"
+      },
+      "tieneVariantes": true,
+      "descripcion": "Tomahawk Nacional\nRaza: Angus Black, Hereford, Charolesa, Limousin. No mayor a 30 meses.\nAlimentación: 90 días con Grano\nMaduración: 21+ días en húmedo.\nDescripción: Corte central y hecho a mano.\nEmbalaje: envuelto individualmente y sellado al vacío.\nCondiciones: El producto se encuentra congelado para conservar el sabor y le será entregado congelado o parcialmente descongelado.\nCasa Brassa\nSíguenos en Facebook",
+      "infoAdicional": {
+        "Peso": "1 kg",
+        "Lugar de orígen": "Chihuahua",
+        "Nivel de Marmoleado": "Suprema de Engorda"
+      },
+      "imagenes": {
+        "url": "https://casabrassa.mx/product/tomahawk-nacional/",
+        "remota": "https://casabrassa.mx/wp-content/uploads/2021/01/tomahawk-nacional-2-1-1024x683.jpg",
+        "local": "assets/img/catalogo/tomahawk-nacional-2-removebg-preview.png"
+      }
+    },
+    {
+      "id": "sirloin-choice",
+      "sku": "SIRLOIN-CHOICE",
+      "nombre": "Sirloin Choice",
+      "categoria": [
+        "Carne",
+        "Res",
+        "USA",
+        "Choice"
+      ],
+      "precio": {
+        "monto": 346.0,
+        "moneda": "MXN",
+        "texto": "$346.00",
+        "nota": null
+      },
+      "inventario": {
+        "estado": "agotado",
+        "cantidad": 0,
+        "sku": "SIRLOIN-CHOICE"
+      },
+      "tieneVariantes": true,
+      "descripcion": "Sirloin Choice\nRaza: Angus Black, Hereford.\nAlimentación: Grano y Pastizales\nMaduración: 21+ días en húmedo.\nDescripción: Corte central y hecho a mano.\nEmbalaje: envuelto individualmente y sellado al vacío.\nCondiciones: El producto se encuentra congelado para conservar el sabor y le será entregado congelado o parcialmente descongelado.",
+      "infoAdicional": {
+        "Lugar de orígen": "USA",
+        "Nivel de Marmoleado": "Choice o Superior"
+      },
+      "imagenes": {
+        "url": "https://casabrassa.mx/product/top-sirloin-choice/",
+        "remota": "https://casabrassa.mx/wp-content/uploads/2021/01/sirloin-sterling-2-1-scaled-e1696987917971-1024x620.jpg",
+        "local": "assets/img/catalogo/sirloin-choice-sterling-silver-removebg-preview.png"
+      }
+    },
+    {
+      "id": "sirloin-nacional",
+      "sku": "SIRLOIN-NACIONAL",
+      "nombre": "Sirloin Nacional",
+      "categoria": [
+        "Carne",
+        "Res",
+        "Nacional"
+      ],
+      "precio": {
+        "monto": 310.0,
+        "moneda": "MXN",
+        "texto": "$310.00",
+        "nota": null
+      },
+      "inventario": {
+        "estado": "agotado",
+        "cantidad": 0,
+        "sku": "SIRLOIN-NACIONAL"
+      },
+      "tieneVariantes": true,
+      "descripcion": "Sirloin Nacional\nRaza: Angus Black, Hereford, Charolesa, Limousin. No mayor a 30 meses.\nAlimentación: 90 días con Grano\nMaduración: 21+ días en húmedo.\nDescripción: Corte central y hecho a mano.\nEmbalaje: envuelto individualmente y sellado al vacío.\nCondiciones: El producto se encuentra congelado para conservar el sabor y le será entregado congelado o parcialmente descongelado.\nCasa Brassa\nSíguenos en Facebook\nConoce nuestra línea de carne importada de Estados Unidos:\nArrachera Natural Importada\nArrachera Texana Importada\nCowboy Choice\nRibEye Francés Choice\nSirloin Choice",
+      "infoAdicional": {
+        "Peso": "1 kg",
+        "Lugar de orígen": "Chihuahua",
+        "Nivel de Marmoleado": "Suprema de Engorda"
+      },
+      "imagenes": {
+        "url": "https://casabrassa.mx/product/top-sirloin-nacional/",
+        "remota": "https://casabrassa.mx/wp-content/uploads/2021/01/sirloin-nacional-2-1024x683.jpg",
+        "local": "assets/img/catalogo/top-sirloin-nacional-top-sirloin-corte-removebg-preview.png"
+      }
+    },
+    {
+      "id": "tuetano",
+      "sku": "TUETANO",
+      "nombre": "Tuetano",
+      "categoria": [
+        "Carne",
+        "Res",
+        "Nacional"
+      ],
+      "precio": {
+        "monto": 133.0,
+        "moneda": "MXN",
+        "texto": "$133.00",
+        "nota": null
+      },
+      "inventario": {
+        "estado": "agotado",
+        "cantidad": 0,
+        "sku": "TUETANO"
+      },
+      "tieneVariantes": true,
+      "descripcion": "Tuetano\nRaza: Angus Black, Hereford, Charolesa, Limousin. No mayor a 30 meses.\nAlimentación: 90 días con Grano\nMaduración: 21+ días en húmedo.\nDescripción: Corte central y hecho a mano.\nEmbalaje: envuelto individualmente y sellado al vacío.\nCondiciones: El producto se encuentra congelado para conservar el sabor y le será entregado congelado o parcialmente descongelado.\nCasa Brassa\nSíguenos en Facebook",
+      "infoAdicional": {
+        "Peso": "1 kg",
+        "Lugar de orígen": "Chihuahua",
+        "Nivel de Marmoleado": "Suprema de Engorda"
+      },
+      "imagenes": {
+        "url": "https://casabrassa.mx/product/tuetano/",
+        "remota": "https://casabrassa.mx/wp-content/uploads/2021/01/tuetano--1024x683.jpg",
+        "local": "assets/img/catalogo/tuetano.png"
+      }
+    },
+    {
+      "id": "vacio-importado",
+      "sku": "VACIO-IMPORTADO",
+      "nombre": "Vacio Importado",
+      "categoria": [
+        "Carne",
+        "Res",
+        "USA",
+        "Choice"
+      ],
+      "precio": {
+        "monto": 1973.0,
+        "moneda": "MXN",
+        "texto": "$1,973.00",
+        "nota": null
+      },
+      "inventario": {
+        "estado": "disponible",
+        "cantidad": 0,
+        "sku": "VACIO-IMPORTADO"
+      },
+      "tieneVariantes": true,
+      "descripcion": "Vacio Importado\nRaza: Angus Black, Hereford.\nAlimentación: Grano y Pastizales\nMaduración: 21+ días en húmedo.\nDescripción: Corte central y hecho a mano.\nEmbalaje: envuelto individualmente y sellado al vacío.\nCondiciones: El producto se encuentra congelado para conservar el sabor y le será entregado congelado o parcialmente descongelado.\nCasa Brassa\nSíguenos en Facebook",
+      "infoAdicional": {
+        "Peso": "1 kg",
+        "Lugar de orígen": "USA",
+        "Nivel de Marmoleado": "Choice o Superior"
+      },
+      "imagenes": {
+        "url": "https://casabrassa.mx/product/vacio-importado/",
+        "remota": "https://casabrassa.mx/wp-content/uploads/2021/01/vacio-sterling--scaled-e1696987583481-1024x618.jpg",
+        "local": "assets/img/catalogo/vacio-importado-removebg-preview.png"
+      }
+    },
+    {
+      "id": "wagyu-rib-eye-japon-a5",
+      "sku": "WAGYU-RIB-EYE-JAPON-A5",
+      "nombre": "Wagyu Rib Eye-Japón A5",
+      "categoria": [
+        "Carne",
+        "Res",
+        "Ultra Premium",
+        "Japón"
+      ],
+      "precio": {
+        "monto": 4400.0,
+        "moneda": "MXN",
+        "texto": "$4,400.00",
+        "nota": null
+      },
+      "inventario": {
+        "estado": "agotado",
+        "cantidad": 0,
+        "sku": "WAGYU-RIB-EYE-JAPON-A5"
+      },
+      "tieneVariantes": true,
+      "descripcion": "Wagyu Rib Eye-Japón A5\nGrado: A5+\nRaza: Japanese Black (Kuroge).\nAlimentación: 28 meses (700-900Kg) con pajas de arroz, forraje y grano\n10Kg de Alimento = 1Kg de peso corporal\nMaduración: 21+ dias en húmedo\nDescripción: Corte central y hecho a mano.\nEmbalaje: envuelto individualmente y sellado al vacío.\nCondiciones: El producto se encuentra congelado para conservar el sabor y le será entregado congelado o parcialmente descongelado.\nCasa Brassa\nSíguenos en Facebook",
+      "infoAdicional": {
+        "Peso": "1 kg",
+        "Lugar de orígen": "Japón",
+        "Maridaje": "Merlot con Barrica, Nebbiolo con Barrica"
+      },
+      "imagenes": {
+        "url": "https://casabrassa.mx/product/wagyu-rib-eye-japon-a5/",
+        "remota": "https://casabrassa.mx/wp-content/uploads/2021/01/ribeye-a5-wagyu-2-1024x683.jpg",
+        "local": "assets/img/catalogo/wagyu-rib-eye-jap-n-a5-removebg-preview.png"
+      }
+    },
+    {
+      "id": "wx-filete-3",
+      "sku": "WX-FILETE-3",
+      "nombre": "WX Filete 3+",
+      "categoria": [
+        "Carne",
+        "Res",
+        "Ultra Premium",
+        "Australia"
+      ],
+      "precio": {
+        "monto": 1895.0,
+        "moneda": "MXN",
+        "texto": "$1,895.00",
+        "nota": null
+      },
+      "inventario": {
+        "estado": "agotado",
+        "cantidad": 0,
+        "sku": "WX-FILETE-3"
+      },
+      "tieneVariantes": true,
+      "descripcion": "WX Filete 3+\nRaza: Wagyu & Black Angus.\nAlimentación: 360 días con granos\nHGP free, Libre de Hormonas y Aceleradores\nMaduración: 21+ días en húmedo.\nDescripción: Corte central y hecho a mano.\nEmbalaje: envuelto individualmente y sellado al vacío.\nCondiciones WX Filete 3+: El producto se encuentra congelado para conservar el sabor y le será entregado congelado o parcialmente descongelado.\nCasa Brassa\nSíguenos en Facebook\nNuestra selección de la cava de vinos:\nVino Tinto Mexicano – Hacienda Encinillas – Mezcla Bordalesa – Chihuahua\nVino Tinto Francés – Côté Mas – Ensamble\nVino Tinto Español – Las Ocho – Ensamble – Vino de Pago\nVino Tinto Sudafricano – Mullineaux – Syrah\nVino Tinto Mexicano – Trasiego – Mezcla Mediterranea – Baja California",
+      "infoAdicional": {
+        "Lugar de origen": "Australia",
+        "Nivel de marmoleado": "BMS 3"
+      },
+      "imagenes": {
+        "url": "https://casabrassa.mx/product/wx-filete-3/",
+        "remota": "https://casabrassa.mx/wp-content/uploads/2022/06/WX-FILETE-3.jpg",
+        "local": "assets/img/catalogo/wx-filete-3-removebg-preview.png"
+      }
+    },
+    {
+      "id": "wx-filete-5",
+      "sku": "WX-FILETE-5",
+      "nombre": "WX Filete 5+",
+      "categoria": [
+        "Carne",
+        "Res",
+        "Ultra Premium",
+        "Australia"
+      ],
+      "precio": {
+        "monto": 2190.0,
+        "moneda": "MXN",
+        "texto": "$2,190.00",
+        "nota": null
+      },
+      "inventario": {
+        "estado": "agotado",
+        "cantidad": 0,
+        "sku": "WX-FILETE-5"
+      },
+      "tieneVariantes": true,
+      "descripcion": "WX Filete 5+\nRaza: Wagyu&Black Angus.\nAlimentación: 360 días con granos\nHGP free, Libre de Hormonas y Aceleradores\nMaduración: 21+ días en húmedo.\nDescripción: Corte central y hecho a mano.\nEmbalaje: envuelto individualmente y sellado al vacío.\nCondiciones: El producto se encuentra congelado para conservar el sabor y le será entregado congelado o parcialmente descongelado.\nCasa Brassa\nSíguenos en Facebook\nNuestra selección de la cava de vinos:\nVino Tinto Mexicano – Hacienda Encinillas – Mezcla Bordalesa – Chihuahua\nVino Tinto Francés – Côté Mas – Ensamble\nVino Tinto Español – Las Ocho – Ensamble – Vino de Pago\nVino Tinto Sudafricano – Mullineaux – Syrah\nVino Tinto Mexicano – Trasiego – Mezcla Mediterranea – Baja California",
+      "infoAdicional": {
+        "Lugar de origen": "Australia",
+        "Nivel de marmoleado": "BMS 5"
+      },
+      "imagenes": {
+        "url": "https://casabrassa.mx/product/wx-filete-5/",
+        "remota": "https://casabrassa.mx/wp-content/uploads/2022/06/WX-FILETE-5.jpg",
+        "local": "assets/img/catalogo/wx-filete-5-removebg-preview.png"
+      }
+    }
+  ]
+}
