@@ -1,0 +1,170 @@
+
+/* =====================================================
+   CONFIGURACIÓN REM
+   1rem = 10px
+   ===================================================== */
+
+html {
+    font-size: 62.5%;
+}
+
+
+/* =====================================================
+   SECCIÓN: BÚSQUEDA
+   ===================================================== */
+
+.search-section {
+    background-color: #14110F;
+    padding: 3.2rem 0 4rem;
+}
+
+.search-box {
+    width: 100%;
+    max-width: 85rem;
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+
+    background-color: #2B2723;
+    border: 0.1rem solid rgba(217, 201, 174, 0.18);
+    border-radius: 3rem;
+
+    padding: 0.7rem;
+
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.search-box:focus-within {
+    border-color: #D4A017;
+    box-shadow: 0 0 0 0.3rem rgba(212, 160, 23, 0.12);
+}
+
+
+/* =====================================================
+   ICONO
+   ===================================================== */
+
+.search-box__icon {
+    width: 4.6rem;
+    height: 4.6rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+}
+
+.search-box__icon svg {
+    width: 2.1rem;
+    height: 2.1rem;
+
+    stroke: #D9C9AE;
+    stroke-width: 1.8;
+
+    stroke-linecap: round;
+}
+
+
+/* =====================================================
+   INPUT
+   ===================================================== */
+
+.search-box__input {
+    flex: 1;
+    min-width: 0;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+
+    color: #F4EFE6;
+
+    font-family: inherit;
+    font-size: 1.6rem;
+    font-weight: 400;
+
+    padding: 0 1.4rem;
+}
+
+.search-box__input::placeholder {
+    color: #D9C9AE;
+    opacity: 0.75;
+}
+
+
+/* =====================================================
+   BOTÓN
+   ===================================================== */
+
+.search-box__button {
+    border: none;
+    outline: none;
+
+    background-color: #D4A017;
+    color: #14110F;
+
+    padding: 1.3rem 2.4rem;
+
+    border-radius: 3rem;
+
+    font-family: inherit;
+    font-size: 1.4rem;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.search-box__button:hover {
+    background-color: #E2B32B;
+}
+
+.search-box__button:active {
+    transform: scale(0.97);
+}
+
+
+/* =====================================================
+   RESPONSIVE
+   ===================================================== */
+
+@media (max-width: 57.6rem) {
+
+    .search-section {
+        padding: 2.5rem 2rem 2.5rem 2rem;
+    }
+
+    .search-box {
+        border-radius: 3rem;
+        padding: 0.5rem;
+    }
+
+    .search-box__icon {
+        width: 4rem;
+        height: 4rem;
+    }
+
+    .search-box__icon svg {
+        width: 1.9rem;
+        height: 1.9rem;
+    }
+
+    .search-box__input {
+        font-size: 1.4rem;
+        padding: 0 0.8rem;
+    }
+
+    .search-box__button {
+        padding: 1.1rem 1.6rem;
+        font-size: 1.3rem;
+    }
+}
+

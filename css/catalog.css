@@ -62,16 +62,30 @@ main .catalog-section .catalog-section__link:hover {
 
 /* Grid de productos con flexbox */
 main .catalog-section .product-grid {
-    display: flex;
+    /*display: flex;
     flex-wrap: wrap;
     gap: 20px;
+    justify-content: center;*/
+
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr)); 
+    gap: 20px; 
+    max-width: 120rem; 
+    margin: 0 auto;
+    
+}
+
+main .catalog-section .product-grid .product-card {
+    width: 100%;
+    min-width: 0;
+    flex: initial;
 }
 
 /* =====================================================
    PRODUCT CARD (estilo tomado de home.css)
    ===================================================== */
 
-main .catalog-section .product-card {
+/*main .catalog-section .product-card {
     position: relative;
     flex: 1 1 calc(25% - 20px);
     min-width: 220px;
@@ -87,23 +101,23 @@ main .catalog-section .product-card {
 
 main .catalog-section .product-card:hover {
     box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
-}
+}*/
 
 /* Variante destacada (Hot Sale) */
-main .catalog-section .product-card--featured {
+/*main .catalog-section .product-card--featured {
     border-color: var(--color-mustard);
     box-shadow: 0 35px 90px rgba(0, 0, 0, 0.48);
-}
+}*/
 
 /* Variante clara (sección Carne de res) */
-main .catalog-section .product-card--light {
+/*main .catalog-section .product-card--light {
     background: rgba(25, 21, 16, 0.04);
     border-color: var(--color-taupe);
     box-shadow: 0 20px 50px rgba(25, 21, 16, 0.12);
-}
+}*/
 
 /* Header (nombre + badge) — se superpone sobre la imagen */
-main .catalog-section .product-card__header {
+/*main .catalog-section .product-card__header {
     position: absolute;
     top: 0;
     left: 0;
@@ -152,10 +166,10 @@ main .catalog-section .product-card__badge {
     border-radius: 100px;
     white-space: nowrap;
     backdrop-filter: blur(6px);
-}
+}*/
 
 /* Imagen */
-main .catalog-section .product-card__image {
+/*main .catalog-section .product-card__image {
     position: relative;
     height: 220px;
     margin: 0;
@@ -183,10 +197,10 @@ main .catalog-section .product-card__image img {
 
 main .catalog-section .product-card:hover .product-card__image img {
     transform: scale(1.06);
-}
+}*/
 
 /* Footer (precio + botón agregar) — glass superpuesto sobre la imagen */
-main .catalog-section .product-card__footer {
+/*main .catalog-section .product-card__footer {
     position: relative;
     z-index: 2;
     display: flex;
@@ -237,7 +251,7 @@ main .catalog-section .product-card__add {
 main .catalog-section .product-card__add:hover {
     transform: rotate(90deg);
     background-color: var(--color-taupe);
-}
+}*/
 
 /* =====================================================
    RESPONSIVIDAD
@@ -245,8 +259,9 @@ main .catalog-section .product-card__add:hover {
 
 /* Tablets: 2 columnas */
 @media (max-width: 991px) {
-    main .catalog-section .product-card {
-        flex: 1 1 calc(50% - 20px);
+    main .catalog-section .product-grid /*.product-card*/ {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        /*flex: 1 1 calc(50% - 20px);*/
     }
 }
 
@@ -265,14 +280,16 @@ main .catalog-section .product-card__add:hover {
     }
 
     main .catalog-section .product-grid {
+        grid-template-columns: 1fr;
         gap: 16px;
     }
 
+    /*
     main .catalog-section .product-card {
         flex: 1 1 100%;
     }
 
     main .catalog-section .product-card__image {
         height: 260px;
-    }
+    }*/
 }
