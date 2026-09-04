@@ -28,6 +28,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     productGrid.appendChild(card);
                 }
             });
+            // Una vez que ya existen las cards en el DOM, aplica el
+            // filtro del botón que esté activo en ese momento
+            // (por defecto "CARNE", que trae todo el catálogo).
+            aplicarFiltroActivo();
         })
         .catch((error) => {
             console.error('Catálogo: error al cargar productos.json', error);
@@ -56,6 +60,11 @@ document.addEventListener('DOMContentLoaded', () => {
         // integrarlo después con el carrito (cart.js) sin tocar clases.
         if (producto.id) article.dataset.productId = producto.id;
         if (producto.sku) article.dataset.sku = producto.sku;
+
+        // Texto normalizado (sin acentos, minúsculas) con nombre + categorías,
+        // usado por el filtrado de .category-button para saber si esta card
+        // coincide con la categoría elegida.
+        article.dataset.search = normalizarTexto([...categorias, nombre].join(' '));
 
         // --- Imagen ---
         const img = article.querySelector('.product-card__image img');
@@ -127,4 +136,79 @@ document.addEventListener('DOMContentLoaded', () => {
 
         return article;
     }
+
+    // =====================================================
+    // SECCIÓN: FILTRADO POR CATEGORÍA
+    // Botones en <section class="category-section"> → .category-list > .category-button
+    // =====================================================
+
+    const categoryList = document.querySelector('.category-section .category-list');
+
+    if (categoryList) {
+        // Delegación de eventos: un solo listener en el contenedor sirve
+        // para todos los .category-button actuales y para los que se
+        // agreguen o eliminen a futuro (no hace falta volver a engancharlos).
+        categoryList.addEventListener('click', (event) => {
+            const boton = event.target.closest('.category-button');
+            if (!boton || !categoryList.contains(boton)) return;
+
+            categoryList
+                .querySelectorAll('.category-button')
+                .forEach((btn) => btn.classList.remove('category-button--active'));
+            boton.classList.add('category-button--active');
+
+            aplicarFiltro(boton.textContent);
+        });
+    }
+
+    /**
+     * Aplica el filtro correspondiente al botón .category-button--active
+     * actual (o muestra todo si no hay ninguno activo). Se llama otra vez
+     * después de cargar los productos por si el usuario hizo clic en un
+     * botón antes de que terminara el fetch.
+     */
+    function aplicarFiltroActivo() {
+        const botonActivo = categoryList?.querySelector('.category-button--active');
+        aplicarFiltro(botonActivo ? botonActivo.textContent : '');
+    }
+
+    /**
+     * Muestra u oculta las .product-card ya renderizadas según si su
+     * data-search contiene el texto del botón de categoría clickeado.
+     */
+    function aplicarFiltro(textoBoton) {
+        const filtro = normalizarTexto(textoBoton);
+        const cards = productGrid.querySelectorAll('.product-card');
+
+        cards.forEach((card) => {
+            const coincide = !filtro || (card.dataset.search || '').includes(filtro);
+            card.style.display = coincide ? '' : 'none';
+        });
+    }
+
+    /**
+     * Quita acentos, pasa a minúsculas y recorta espacios, para poder
+     * comparar el texto de un botón (ej. "NACIONAL") contra las
+     * categorías del producto (ej. "Nacional") sin importar mayúsculas
+     * o tildes.
+     */
+    function normalizarTexto(texto) {
+        return (texto || '')
+            .normalize('NFD')
+            .replace(/[\u0300-\u036f]/g, '')
+            .toLowerCase()
+            .trim();
+    }
 });
+ 
+
+/*NOTA IMPORTANTE, POR FAVOR LEER ANTES DE REALIZAR OTRA ACCION
+Botones sin datos correspondientes en el JSON todavía 
+(NUEVO, DESCUENTO, MÁS VENDIDO, HOT SALE) 
+simplemente no van a mostrar ninguna card por ahora,
+En cuanto se agreguen al JSON bastaría con incluirlos en el 
+data-search para que SE empiecen a filtrar solos.
+
+En el responsive design checar la seccion de categorias, ya que en pantallas
+chicas web, este no funciona adecuadamente
+*/ 
