@@ -17,282 +17,440 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Bootstrap Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 
     <!-- Styles -->
     <link rel="stylesheet" href="../css/global.css">
     <link rel="stylesheet" href="../css/catalog.css">
     <link rel="stylesheet" href="../css/cart.css">
+    <link rel="stylesheet" href="../css/search-bar.css">
+    <link rel="stylesheet" href="../css/cards.css">
+    <link rel="stylesheet" href="../css/categorias-catalog.css">
 </head>
 
 <body>
+
     <!-- =====================================================
          NAVBAR
          ===================================================== -->
-    <nav class="navbar navbar-expand-lg navbar-custom">
-        <div class="container">
-            <a class="navbar-brand" href="../index.html" aria-label="Ir al inicio">
-                <img src="../assets/img/Logo3.png" alt="Logo de Pa' la Asada" class="logo">
-            </a>
 
+    <nav class="navbar navbar-expand-lg navbar-custom">
+
+        <div class="container">
+            <!-- Logo -->
+            <a class="navbar-brand" href="../index.html" aria-label="Ir al inicio">
+                <img src="../assets/img/logooscuroancho.png" alt="Logo de Pa' la Asada" class="logo">
+            </a>
             <!-- Mobile actions -->
+
             <div class="d-flex align-items-center ms-auto d-lg-none">
+                <!-- Carrito -->
                 <button class="btn icon-btn position-relative" type="button" aria-label="Ver carrito">
                     <i class="bi bi-cart3"></i>
-                    <span class="cart-badge">0</span>
+
+                    <span class="cart-badge">
+                        0
+                    </span>
+
                 </button>
 
-                <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                <button
+                    class="navbar-toggler border-0"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavDropdown"
+                    aria-controls="navbarNavDropdown"
+                    aria-expanded="false"
                     aria-label="Abrir menú">
+
                     <span class="navbar-toggler-icon"></span>
+
                 </button>
+
             </div>
 
-            <!-- Collapsible navigation -->
+            <!-- Navegación -->
             <div class="collapse navbar-collapse nav-links" id="navbarNavDropdown">
                 <ul class="navbar-nav mx-auto gap-lg-4">
+
                     <li class="nav-item">
-                        <a class="nav-link" href="../index.html">Inicio</a>
+                        <a class="nav-link" href="../index.html">
+                            Inicio
+                        </a>
                     </li>
+
                     <li class="nav-item">
-                        <a class="nav-link active" href="./catalog.html">Productos</a>
+                        <a class="nav-link active" href="../pages/catalog.html">
+                            Productos
+                        </a>
                     </li>
+
                     <li class="nav-item">
-                        <a class="nav-link" href="./about-us.html">Acerca de</a>
+                        <a class="nav-link" href="../pages/about-us.html">
+                            Acerca de
+                        </a>
                     </li>
+
                     <li class="nav-item">
-                        <a class="nav-link" href="./contact.html">Contacto</a>
+                        <a class="nav-link" href="../pages/contact.html">
+                            Contacto
+                        </a>
                     </li>
+
                 </ul>
 
                 <!-- Desktop actions -->
+
                 <div class="nav-actions">
+                    <!-- Carrito -->
                     <button class="btn icon-btn position-relative d-none d-lg-block" type="button"
                         aria-label="Ver carrito">
+
                         <i class="bi bi-cart3"></i>
-                        <span class="cart-badge">0</span>
+
+                        <span class="cart-badge">
+                            0
+                        </span>
+
                     </button>
 
                     <!-- Login / profile is rendered by navbar.js -->
+
                     <div id="userMenu"></div>
+
                 </div>
+
             </div>
+
         </div>
+
     </nav>
+
 
     <!-- =====================================================
          CATALOG CONTENT
          ===================================================== -->
+
     <main>
+
         <!-- =====================================================
-             SECCIÓN: MÁS PEDIDOS
+            SECCIÓN: Búsqueda
+        ===================================================== -->
+        <section class="search-section">
+            <div class="container">
+                <div class="search-box">
+                    <div class="search-box__icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <circle cx="11" cy="11" r="7"></circle>
+                            <path d="M20 20L16.5 16.5"></path>
+                        </svg>
+                    </div>
+                    <input type="search" class="search-box__input" placeholder="¿Qué corte estás buscando?"
+                        aria-label="Buscar productos">
+
+                    <button type="button" class="search-box__button" aria-label="Buscar">
+                        Buscar
+                    </button>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+            SECCIÓN: CATEGORÍAS
+        ===================================================== -->
+        <section class="category-section">
+            <div class="container">
+
+                <div class="category-section__header">
+                    <span class="category-section__eyebrow">
+                        EXPLORA NUESTRO CATÁLOGO
+                    </span>
+                    <h2 class="category-section__title">
+                        Categorías
+                    </h2>
+                </div>
+                <div class="category-list" role="group" aria-label="Categorías de productos">
+                    <!-- CARNES -->
+                    <button class="category-button category-button--active" type="button">
+                        CARNE
+                    </button>
+                    <button class="category-button" type="button">
+                        RIBEYE
+                    </button>
+                    <button class="category-button" type="button">
+                        NEW YORK
+                    </button>
+                    <button class="category-button" type="button">
+                        PICANA
+                    </button>
+                    <button class="category-button" type="button">
+                        ARRACHERA
+                    </button>
+
+
+                    <!-- CARACTERÍSTICAS -->
+                    <button class="category-button" type="button">
+                        PREMIUM
+                    </button>
+                    <button class="category-button" type="button">
+                        NUEVO
+                    </button>
+                    <button class="category-button" type="button">
+                        DESCUENTO
+                    </button>
+                    <button class="category-button" type="button">
+                        NACIONAL
+                    </button>
+                    <button class="category-button" type="button">
+                        INTERNACIONAL
+                    </button>
+                    <button class="category-button" type="button">
+                        MÁS VENDIDO
+                    </button>
+                    <button class="category-button" type="button">
+                        HOT SALE
+                    </button>
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+                SECCIÓN: PRODUCTOS
              ===================================================== -->
         <section class="catalog-section catalog-section--dark">
             <div class="container">
                 <div class="catalog-section__header">
-                    <h2 class="catalog-section__title">Más Pedidos</h2>
-                    <a href="#" class="catalog-section__link">Ver todo</a>
+                    <h2 class="catalog-section__title">Cortes Finos</h2>
+                    <!--<a href="#" class="catalog-section__link">Ver todo</a>-->
                 </div>
-
                 <div class="product-grid">
-                    <article class="product-card product-card--featured">
-                        <div class="product-card__header">
-                            <h3 class="product-card__name">Arrachera<br>Premium</h3>
-                            <span class="product-card__badge">HOT<br>SALE</span>
-                        </div>
-                        <div class="product-card__image">
-                            <!-- TODO: reemplazar src con la imagen real de Arrachera Premium -->
-                            <img src="https://placehold.co/400x300/d9cbad/191510?text=Arrachera+Premium" alt="Arrachera Premium" loading="lazy">
-                        </div>
-                        <div class="product-card__footer">
-                            <span class="product-card__price">$189/kg</span>
-                            <button class="product-card__add" aria-label="Agregar Arrachera Premium al carrito">
-                                <i class="bi bi-plus-lg"></i>
-                            </button>
-                        </div>
-                    </article>
 
-                    <article class="product-card">
-                        <div class="product-card__header">
-                            <h3 class="product-card__name">Arrachera<br>Premium</h3>
-                            <span class="product-card__badge">HOT<br>SALE</span>
-                        </div>
-                        <div class="product-card__image">
-                            <!-- TODO: reemplazar src con la imagen real de Arrachera Premium -->
-                            <img src="https://placehold.co/400x300/d9cbad/191510?text=Arrachera+Premium" alt="Arrachera Premium" loading="lazy">
-                        </div>
-                        <div class="product-card__footer">
-                            <span class="product-card__price">$189/kg</span>
-                            <button class="product-card__add" aria-label="Agregar Arrachera Premium al carrito">
-                                <i class="bi bi-plus-lg"></i>
-                            </button>
-                        </div>
-                    </article>
+                    <template>
+                            <article class="product-card">
+                            <div class="product-card__image">
+                                <img src="../assets/img/New york.png" alt="New York Prime premium" loading="lazy">
+                                <span class="product-card__badge">
+                                    PREMIUM
+                                </span>
 
-                    <article class="product-card">
-                        <div class="product-card__header">
-                            <h3 class="product-card__name">Arrachera<br>Premium</h3>
-                            <span class="product-card__badge">HOT<br>SALE</span>
-                        </div>
-                        <div class="product-card__image">
-                            <!-- TODO: reemplazar src con la imagen real de Arrachera Premium -->
-                            <img src="https://placehold.co/400x300/d9cbad/191510?text=Arrachera+Premium" alt="Arrachera Premium" loading="lazy">
-                        </div>
-                        <div class="product-card__footer">
-                            <span class="product-card__price">$189/kg</span>
-                            <button class="product-card__add" aria-label="Agregar Arrachera Premium al carrito">
-                                <i class="bi bi-plus-lg"></i>
-                            </button>
-                        </div>
-                    </article>
+                            </div>
+                            <div class="product-card__content">
 
-                    <article class="product-card">
-                        <div class="product-card__header">
-                            <h3 class="product-card__name">Arrachera<br>Premium</h3>
-                            <span class="product-card__badge">HOT<br>SALE</span>
-                        </div>
-                        <div class="product-card__image">
-                            <!-- TODO: reemplazar src con la imagen real de Arrachera Premium -->
-                            <img src="https://placehold.co/400x300/d9cbad/191510?text=Arrachera+Premium" alt="Arrachera Premium" loading="lazy">
-                        </div>
-                        <div class="product-card__footer">
-                            <span class="product-card__price">$189/kg</span>
-                            <button class="product-card__add" aria-label="Agregar Arrachera Premium al carrito">
-                                <i class="bi bi-plus-lg"></i>
-                            </button>
-                        </div>
-                    </article>
+                                <span class="product-card__category">
+                                    CORTE PREMIUM
+                                </span>
+
+                                <h3 class="product-card__title">
+                                    New York Angus
+                                </h3>
+
+                                <span class="product-card__weight">
+                                    550 g aprox.
+                                </span>
+
+                                <div class="product-card__footer">
+
+                                    <span class="product-card__price">
+                                        $620
+                                    </span>
+                                    <button class="product-card__add" type="button"
+                                        aria-label="Agregar New York Prime al carrito">
+                                        +
+                                    </button>
+
+                                </div>
+
+                            </div>
+                        </article>
+                    </template>
+
                 </div>
             </div>
         </section>
+
 
         <!-- =====================================================
-             SECCIÓN: CARNE DE RES
-             ===================================================== -->
-        <section class="catalog-section catalog-section--light">
-            <div class="container">
-                <div class="catalog-section__header">
-                    <h2 class="catalog-section__title catalog-section__title--dark">Carne de res</h2>
-                    <a href="#" class="catalog-section__link">Ver todo</a>
-                </div>
+            MODAL
+         ===================================================== -->
 
-                <div class="product-grid">
-                    <article class="product-card product-card--light">
-                        <div class="product-card__header product-card__header--simple">
-                            <h3 class="product-card__name product-card__name--dark">Ribeye</h3>
-                        </div>
-                        <div class="product-card__image">
-                            <!-- TODO: reemplazar src con la imagen real de Ribeye -->
-                            <img src="https://placehold.co/400x300/d9cbad/191510?text=Ribeye" alt="Ribeye" loading="lazy">
-                        </div>
-                        <div class="product-card__footer">
-                            <span class="product-card__price product-card__price--dark">$219/kg</span>
-                            <button class="product-card__add" aria-label="Agregar Ribeye al carrito">
-                                <i class="bi bi-plus-lg"></i>
-                            </button>
-                        </div>
-                    </article>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Boton de prueba
+        </button>
 
-                    <article class="product-card product-card--light">
-                        <div class="product-card__header product-card__header--simple">
-                            <h3 class="product-card__name product-card__name--dark">Sirloin</h3>
-                        </div>
-                        <div class="product-card__image">
-                            <!-- TODO: reemplazar src con la imagen real de Sirloin -->
-                            <img src="https://placehold.co/400x300/d9cbad/191510?text=Sirloin" alt="Sirloin" loading="lazy">
-                        </div>
-                        <div class="product-card__footer">
-                            <span class="product-card__price product-card__price--dark">$219/kg</span>
-                            <button class="product-card__add" aria-label="Agregar Sirloin al carrito">
-                                <i class="bi bi-plus-lg"></i>
-                            </button>
-                        </div>
-                    </article>
+        <div class="modal .modal-dialog-centered fade" id="exampleModal" tabindex="-1"
+            aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
 
-                    <article class="product-card product-card--light">
-                        <div class="product-card__header product-card__header--simple">
-                            <h3 class="product-card__name product-card__name--dark">New York</h3>
-                        </div>
-                        <div class="product-card__image">
-                            <!-- TODO: reemplazar src con la imagen real de New York -->
-                            <img src="https://placehold.co/400x300/d9cbad/191510?text=New+York" alt="New York" loading="lazy">
-                        </div>
-                        <div class="product-card__footer">
-                            <span class="product-card__price product-card__price--dark">$219/kg</span>
-                            <button class="product-card__add" aria-label="Agregar New York al carrito">
-                                <i class="bi bi-plus-lg"></i>
-                            </button>
-                        </div>
-                    </article>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <img id="" class="img-fluid" src="./assets/img/tomahawk.png" alt="">
+                            </div>
+                            <!-- info -->
+                            <div class="col-md-6">
+                                <div id="">categorias</div>
+                                <p>descripcion</p>
+                                <h3>precio</h3>
 
-                    <article class="product-card product-card--light">
-                        <div class="product-card__header product-card__header--simple">
-                            <h3 class="product-card__name product-card__name--dark">T-Bone</h3>
+                                <div class="mb-3">
+                                    <label for=""></label>
+                                    <div class="input-group">
+                                        <button class="btn btn-outline-secondary">-</button>
+                                        <input 
+                                            class="form-control"
+                                            type="number" 
+                                            readonly value="1"
+                                            name="" 
+                                            id=""
+                                        >
+                                         <button>+</button>
+                                    </div>
+                                </div>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Ver más</button>
+                                <button type="button" class="btn btn-primary">Agregar al carrito</button>
+                            </div>
                         </div>
-                        <div class="product-card__image">
-                            <!-- TODO: reemplazar src con la imagen real de T-Bone -->
-                            <img src="https://placehold.co/400x300/d9cbad/191510?text=T-Bone" alt="T-Bone" loading="lazy">
-                        </div>
-                        <div class="product-card__footer">
-                            <span class="product-card__price product-card__price--dark">$219/kg</span>
-                            <button class="product-card__add" aria-label="Agregar T-Bone al carrito">
-                                <i class="bi bi-plus-lg"></i>
-                            </button>
-                        </div>
-                    </article>
+                    </div>
+
+
+
                 </div>
             </div>
-        </section>
+        </div>
+
+
     </main>
+
 
     <!-- =====================================================
          FOOTER
          ===================================================== -->
+
     <footer class="footer">
+
         <div class="footerCont">
+
             <div class="redesSociales flexCont">
+
                 <div class="seccion-izq">
-                    <h2>Pa' la Asada</h2>
-                    <h3>Redes sociales</h3>
+
+                    <h2>
+                        Pa' la Asada
+                    </h2>
+
+                    <h3>
+                        Redes sociales
+                    </h3>
 
                     <div class="iconosCont">
-                        <a href="https://instagram.com" class="linkRedes" target="_blank" rel="noopener noreferrer">
-                            <img src="https://dreamfoundry.org/wp-content/uploads/2018/12/instagram-logo-png-transparent-background.png"
-                                alt="Instagram" class="imgRedes">
+
+                        <a
+                            href="https://instagram.com"
+                            class="linkRedes"
+                            target="_blank"
+                            rel="noopener noreferrer">
+
+                            <img
+                                src="https://dreamfoundry.org/wp-content/uploads/2018/12/instagram-logo-png-transparent-background.png"
+                                alt="Instagram"
+                                class="imgRedes">
+
                         </a>
-                        <a href="https://facebook.com" class="linkRedes" target="_blank" rel="noopener noreferrer">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/1280px-Facebook_Logo_%282019%29.png"
-                                alt="Facebook" class="imgRedes">
+
+                        <a
+                            href="https://facebook.com"
+                            class="linkRedes"
+                            target="_blank"
+                            rel="noopener noreferrer">
+
+                            <img
+                                src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/1280px-Facebook_Logo_%282019%29.png"
+                                alt="Facebook"
+                                class="imgRedes">
+
                         </a>
+
                     </div>
+
                 </div>
+
 
                 <div class="footerSection">
-                    <img src="../assets/img/LogoCuadrado.jpg" alt="Logo de Pa' la Asada" class="logoFooter">
+
+                    <img
+                        src="../assets/img/LogoCuadrado.jpg"
+                        alt="Logo de Pa' la Asada"
+                        class="logoFooter">
+
                 </div>
 
+
                 <nav aria-label="Navegación del pie de página">
-                    <a class="enlaceB" href="../index.html">Inicio</a>
-                    <a class="enlaceB" href="./about-us.html">Acerca de</a>
-                    <a class="enlaceB" href="./catalog.html">Productos</a>
+
+                    <a
+                        class="enlaceB"
+                        href="../index.html">
+                        Inicio
+                    </a>
+
+                    <a
+                        class="enlaceB"
+                        href="./about-us.html">
+                        Acerca de
+                    </a>
+
+                    <a
+                        class="enlaceB"
+                        href="./catalog.html">
+                        Productos
+                    </a>
+
                 </nav>
+
             </div>
 
+
             <div class="footerBottom">
-                <p>&copy; Todos los derechos reservados.</p>
+
+                <p>
+                    &copy; Todos los derechos reservados.
+                </p>
+
             </div>
+
         </div>
+
     </footer>
 
 
     <!-- =====================================================
          SCRIPTS
          ===================================================== -->
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
     <script src="../js/navbar.js"></script>
+
     <script src="../js/catalog.js"></script>
+
+    <!-- DATOS DE PRODUCTOS -->
+    <script src="../data/catalogoData.js"></script>
+
+    <!-- CARRITO -->
     <script src="../js/cart.js"></script>
+    <script src="../js/categorias-catalog.js"></script>
 </body>
 
 </html>
