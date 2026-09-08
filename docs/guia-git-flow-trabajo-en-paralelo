@@ -1,0 +1,224 @@
+# Guía paso a paso: trabajar con `develop`/`master` y ramas de feature en paralelo
+
+Esta guía explica cómo dos (o más) personas pueden desarrollar features distintas al mismo tiempo, a partir de una rama base compartida (`develop` o `master`), sin pisarse el trabajo ni romper el código de la otra persona.
+
+---
+
+## 1. Estructura de ramas recomendada
+
+```
+master (o main)     → código en producción, siempre estable
+  └── develop        → rama de integración, donde se juntan los features terminados
+        ├── feature/nombre-feature-1   → tu feature
+        └── feature/nombre-feature-2   → feature de tu compañero
+```
+
+**Reglas de oro:**
+- Nadie trabaja directo sobre `master` ni sobre `develop`.
+- Cada persona crea su propia rama `feature/...` a partir de `develop`.
+- El código solo vuelve a `develop` mediante un **Pull Request (PR) / Merge Request (MR)**, revisado antes de fusionar.
+- `master` solo recibe código desde `develop` cuando se hace un release.
+
+---
+
+## 2. Preparar el entorno (una sola vez)
+
+```bash
+# Clonar el repositorio (si aún no lo tienes)
+git clone <url-del-repositorio>
+cd nombre-repo
+
+# Asegurarte de tener develop actualizado localmente
+git checkout develop
+git pull origin develop
+```
+
+Si `develop` no existe todavía en el repositorio:
+
+```bash
+git checkout -b develop master
+git push -u origin develop
+```
+
+---
+
+## 3. Crear tu rama de feature
+
+Cada persona, **antes de empezar a programar**, crea su propia rama desde `develop` actualizado.
+
+```bash
+# Vos (feature A)
+git checkout develop
+git pull origin develop
+git checkout -b feature/carrito-de-compras
+
+# Tu compañero (feature B), en su propia máquina
+git checkout develop
+git pull origin develop
+git checkout -b feature/login-social
+```
+
+Convención de nombres sugerida: `feature/descripcion-corta`, `bugfix/descripcion`, `hotfix/descripcion`.
+
+📌 **Punto clave:** como ambas ramas parten del mismo `develop`, cada quien trabaja en su copia aislada. Los cambios del otro **no aparecen** en tu rama hasta que decidas traerlos.
+
+---
+
+## 4. Trabajar en tu feature (día a día)
+
+Mientras programás, andá haciendo commits pequeños y descriptivos:
+
+```bash
+git add .
+git commit -m "Agrega botón para vaciar el carrito"
+```
+
+Subí tu rama al repositorio remoto seguido, para tener respaldo y para que otros puedan verla si hace falta:
+
+```bash
+git push -u origin feature/carrito-de-compras
+```
+
+(Las siguientes veces, con `git push` alcanza porque ya quedó configurado el upstream).
+
+---
+
+## 5. Mantener tu rama al día con `develop` (evitar conflictos grandes)
+
+Si tu compañero fusiona su feature a `develop` antes que vos, conviene traer esos cambios a tu rama **periódicamente**, no solo al final. Esto evita un conflicto gigante al momento de tu PR.
+
+Opción recomendada: **rebase** (historial más limpio):
+
+```bash
+git checkout feature/carrito-de-compras
+git fetch origin
+git rebase origin/develop
+```
+
+Si aparecen conflictos, Git te lo va a indicar archivo por archivo:
+
+```bash
+# Editás el/los archivo(s) en conflicto, buscando las marcas:
+# <<<<<<< HEAD
+# =======
+# >>>>>>> origin/develop
+
+git add archivo-resuelto.js
+git rebase --continue
+```
+
+Alternativa más simple si tu equipo prefiere evitar rebase: **merge**
+
+```bash
+git checkout feature/carrito-de-compras
+git fetch origin
+git merge origin/develop
+```
+
+> 💡 Regla práctica: si ya compartiste la rama con otras personas (por ejemplo, trabajan dos en el mismo feature), usá `merge`. Si la rama es solo tuya, `rebase` mantiene el historial más ordenado.
+
+---
+
+## 6. Terminar el feature y pedir integración
+
+Cuando tu feature está lista y probada:
+
+```bash
+git checkout feature/carrito-de-compras
+git fetch origin
+git rebase origin/develop   # o merge, según lo definido en el punto 5
+git push
+```
+
+Luego, desde la plataforma (GitHub, GitLab, Bitbucket, etc.):
+
+1. Abrí un **Pull Request / Merge Request** de `feature/carrito-de-compras` hacia `develop`.
+2. Asigná un revisor (idealmente tu compañero o un tercero).
+3. Esperá la revisión y los checks automáticos (tests, linter, CI).
+4. Resolvé los comentarios si los hay.
+5. Fusioná el PR (preferentemente con **squash merge** o **merge commit**, según la convención del equipo).
+
+```bash
+# Esto normalmente lo hace la plataforma con un clic,
+# pero si se hace manual desde local sería:
+git checkout develop
+git pull origin develop
+git merge --no-ff feature/carrito-de-compras
+git push origin develop
+```
+
+6. Borrá la rama de feature una vez fusionada (limpieza):
+
+```bash
+git branch -d feature/carrito-de-compras
+git push origin --delete feature/carrito-de-compras
+```
+
+---
+
+## 7. Pasar de `develop` a `master` (release)
+
+Cuando `develop` está estable y se decide liberar una nueva versión:
+
+```bash
+git checkout master
+git pull origin master
+git merge --no-ff develop
+git tag -a v1.2.0 -m "Release v1.2.0"
+git push origin master --tags
+```
+
+---
+
+## 8. Resumen visual del flujo con dos personas trabajando en paralelo
+
+```
+master   ──●───────────────────────────────●───────────
+             \                             /
+develop       ●───●───●───●───●───●───●───●
+                \       \       /       /
+persona A        ●───●───●     |       |
+(feature/carrito)                      |
+                                        |
+persona B                    ●───●───●
+(feature/login)
+```
+
+- Ambas ramas nacen del mismo punto de `develop`.
+- Cada una avanza de forma independiente.
+- Cada una se sincroniza con `develop` (paso 5) para no acumular conflictos.
+- Cada una se fusiona a `develop` por separado, vía PR.
+- `develop` finalmente se fusiona a `master` para el release.
+
+---
+
+## 9. Buenas prácticas para que nadie rompa nada
+
+| Práctica | Por qué importa |
+|---|---|
+| Commits pequeños y frecuentes | Facilita revertir o revisar cambios puntuales |
+| Nunca hacer `push --force` a `develop` o `master` | Evita borrar historial de otros |
+| Si necesitás forzar push en tu propia feature branch, usar `--force-with-lease` | Evita sobrescribir commits de otros sin darte cuenta |
+| Sincronizar seguido con `develop` | Conflictos chicos y frecuentes en vez de uno enorme al final |
+| Tests y CI antes de mergear | Detecta roturas antes de llegar a `develop` |
+| Code review obligatorio en el PR | Segundo par de ojos antes de integrar |
+| Nombrar ramas de forma clara (`feature/...`) | El equipo entiende qué se está haciendo en cada rama |
+| No mezclar features en una misma rama | Cada feature se revisa y revierte de forma independiente |
+
+---
+
+## 10. Comandos de referencia rápida
+
+```bash
+git checkout develop && git pull                # actualizar develop
+git checkout -b feature/mi-feature               # crear rama nueva
+git status                                       # ver estado actual
+git add . && git commit -m "mensaje"             # commitear cambios
+git push -u origin feature/mi-feature            # subir rama la primera vez
+git fetch origin && git rebase origin/develop    # traer cambios de develop
+git push --force-with-lease                      # subir después de un rebase
+```
+
+---
+
+**Tip final:** si vos y tu compañero llegaran a tocar el mismo archivo en zonas distintas del código, Git generalmente resuelve el conflicto solo al hacer merge/rebase. Los conflictos reales aparecen solo cuando ambos modifican **las mismas líneas**, y ahí Git les va a pedir que decidan manualmente qué versión dejar.

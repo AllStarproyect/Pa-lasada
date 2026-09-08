@@ -1,0 +1,362 @@
+    /* =====================================================
+    CARDS.CSS
+    Estilos de las cards a utilizar en diferentes HTML
+    - Flexbox puro, sin clases de Bootstrap.
+    - Selectores prefijados con "main" para no chocar con
+        los estilos del navbar / footer que viven en otros .css.
+    -Se establece el diseño de las cards para TODOS las cards a utilizar
+        en los diferentes páginas.
+    - Cards con el mismo estilo visual (glass, imagen con badge
+        flotante, contenido superpuesto) que las product-card de home.css,
+        adaptado al grid y a las variables de este proyecto.
+    ===================================================== */
+
+:root {
+    --card-bg: #e0e0e0;
+    --accent-red: #c23325;
+    --text-dark: #222222;
+    --text-muted: #555555;
+    --badge-bg: #8c8175;
+}
+
+/* =========================================================
+   PRODUCT CARD
+   ========================================================= */
+main .catalog-section .product-card {
+    position: relative;
+    flex: 0 0 30rem;
+    width: 30rem;
+    min-width: 30rem;
+    height: 48rem;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: .1rem solid rgba(43, 39, 35, .12);
+    border-radius: 1.2rem;
+    background: rgba(255, 255, 255, .62);
+    box-shadow: 0 1.8rem 4rem rgba(43, 39, 35, .12);
+    backdrop-filter: blur(1.2rem);
+    -webkit-backdrop-filter: blur(1.2rem);
+    transform: scale(.92);
+    transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease
+}
+
+.product-card.is-main {
+    transform: translateY(-2rem) scale(1.05);
+    z-index: 2;
+    border-color: rgba(212, 160, 23, .3);
+    box-shadow: 0 2.5rem 5rem rgba(43, 39, 35, .18)
+}
+
+.product-card__image {
+    position: relative;
+    flex: 0 0 28rem;
+    height: 28rem;
+    overflow: hidden;
+    background: rgba(217, 201, 174, .16)
+}
+
+.product-card__image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 2rem;
+    object-fit: contain;
+    filter: drop-shadow(0 1.5rem 1.8rem rgba(43, 39, 35, .2));
+    transition: transform .5s ease
+}
+
+.product-card:hover .product-card__image img {
+    transform: scale(1.04)
+}
+
+/* =========================================================
+   BADGE
+   ========================================================= */
+.product-card__badge {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    z-index: 2;
+    padding: .7rem 1.1rem;
+    border: 0;
+    border-radius: 10rem;
+    background: #D4A017;
+    color: #2B2723;
+    font-size: .9rem;
+    font-weight: 700;
+    letter-spacing: .1rem;
+    backdrop-filter: blur(.8rem);
+    -webkit-backdrop-filter: blur(.8rem)
+}
+
+/* =========================================================
+   CARD CONTENT
+   ========================================================= */
+.product-card__content {
+    position: relative;
+    z-index: 3;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 2.2rem;
+    background: rgba(255, 255, 255, .48);
+    border-top: .1rem solid rgba(255, 255, 255, .7);
+    backdrop-filter: blur(1.6rem);
+    -webkit-backdrop-filter: blur(1.6rem)
+}
+
+.product-card__category {
+    color: #D4A017;
+    font-size: .95rem;
+    font-weight: 700;
+    letter-spacing: .16rem
+}
+
+.product-card__title {
+    margin: .8rem 0 .4rem;
+    color: #2B2723;
+    font-family: var(--font-primary);
+    font-size: 2.25rem;
+    font-weight: 700;
+    line-height: 1.15
+}
+
+.product-card__weight {
+    color: rgba(43, 39, 35, .58);
+    font-size: 1.2rem
+}
+
+.product-card__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: auto;
+    padding-top: 1.8rem
+}
+
+.product-card__price {
+    color: #2B2723;
+    font-size: 2rem;
+    font-weight: 700
+}
+
+.product-card__add {
+    display: grid;
+    place-items: center;
+    width: 4.5rem;
+    height: 4.5rem;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: #D4A017;
+    color: #2B2723;
+    font-size: 2.5rem;
+    font-weight: 400;
+    line-height: 1;
+    cursor: pointer;
+    transition: transform .3s ease, background-color .3s ease, color .3s ease
+}
+
+.product-card__add:hover {
+    transform: rotate(90deg) scale(1.08);
+    background: #2B2723;
+    color: #D4A017
+}
+
+/* =========================================================
+   ARROWS
+   ========================================================= */
+.featured-products__arrow {
+    position: absolute;
+    top: 50%;
+    z-index: 10;
+    display: grid;
+    place-items: center;
+    width: 4.8rem;
+    height: 4.8rem;
+    padding: 0;
+    border: .1rem solid rgba(43, 39, 35, .16);
+    border-radius: 50%;
+    background: rgba(255, 255, 255, .6);
+    color: #2B2723;
+    font-size: 2.2rem;
+    cursor: pointer;
+    transform: translateY(-50%);
+    backdrop-filter: blur(1rem);
+    -webkit-backdrop-filter: blur(1rem);
+    transition: background-color .25s ease, color .25s ease, transform .25s ease
+}
+
+.featured-products__arrow:hover {
+    background: #D4A017;
+    color: #2B2723;
+    transform: translateY(-50%) scale(1.08)
+}
+
+.featured-products__arrow--prev {
+    left: .8rem
+}
+
+.featured-products__arrow--next {
+    right: .8rem
+}
+
+/* =========================================================
+   VIEW ALL
+   ========================================================= */
+.featured-products__view-all {
+    display: block;
+    width: fit-content;
+    margin: 5.5rem auto 2rem;
+    padding: 1.3rem 3rem;
+    border: .1rem solid #D4A017;
+    border-radius: .6rem;
+    background: #D4A017;
+    color: #2B2723;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: .08rem;
+    text-decoration: none;
+    transition: background-color .25s ease, color .25s ease, transform .25s ease
+}
+
+.featured-products__view-all:hover {
+    background: #2B2723;
+    color: #D4A017;
+    transform: translateY(-.15rem)
+}
+
+/* =========================================================
+   DOTS
+   ========================================================= */
+.featured-products__dots {
+    display: flex;
+    justify-content: center;
+    gap: .8rem
+}
+
+.featured-products__dot {
+    width: .8rem;
+    height: .8rem;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: #D9C9AE;
+    opacity: .7;
+    cursor: pointer;
+    transition: width .25s ease, background-color .25s ease, opacity .25s ease
+}
+
+.featured-products__dot--active {
+    width: 2.5rem;
+    border-radius: 1rem;
+    background: #D4A017;
+    opacity: 1
+}
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+@media(max-width:90rem) {
+    .featured-products__track {
+        padding: 3rem 4rem;
+        gap: 2rem
+    }
+
+    .product-card {
+        flex-basis: 28rem;
+        width: 28rem;
+        min-width: 28rem
+    }
+
+    .product-card.is-main {
+        transform: translateY(-1.5rem) scale(1.05)
+    }
+
+    .featured-products__arrow--prev {
+        left: .5rem
+    }
+
+    .featured-products__arrow--next {
+        right: .5rem
+    }
+}
+
+@media(max-width:65rem) {
+    .featured-products {
+        padding: 8rem 2rem
+    }
+
+    .featured-products__track {
+        padding: 3rem 4rem;
+        gap: 2rem
+    }
+
+    .product-card {
+        flex-basis: 27rem;
+        width: 27rem;
+        min-width: 27rem;
+        height: 46rem
+    }
+
+    .product-card.is-main {
+        transform: translateY(-1.2rem) scale(1.05)
+    }
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+@media(max-width:50rem) {
+    .featured-products {
+        padding: 7rem 1.5rem
+    }
+
+    .featured-products__header {
+        margin-bottom: 3rem
+    }
+
+    .featured-products__title {
+        font-size: 3.8rem
+    }
+
+    .featured-products__description {
+        font-size: 1.3rem
+    }
+
+    .featured-products__track {
+        gap: 1.5rem;
+        padding: 2rem 3rem
+    }
+
+    .product-card {
+        flex: 0 0 82vw;
+        width: 82vw;
+        min-width: 82vw;
+        height: 45rem;
+        transform: scale(1)
+    }
+
+    .product-card.is-main {
+        transform: scale(1.02)
+    }
+
+    .product-card__image {
+        flex-basis: 25rem;
+        height: 25rem
+    }
+
+    .featured-products__arrow {
+        width: 3.8rem;
+        height: 3.8rem
+    }
+
+    .featured-products__arrow--prev {
+        left: .2rem
+    }
+
+    .featured-products__arrow--next {
+        right: .2rem
+    }
+}
