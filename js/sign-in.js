@@ -65,6 +65,13 @@ const signUpFields = `
         required
     >
 
+     <input
+        type="Confirmpassword"
+        id="confirmPassword"
+        placeholder="Confirmar Contraseña"
+        required
+    >
+
     <button type="submit">Registrarse</button>
 `;
 
@@ -81,6 +88,7 @@ function showSignIn() {
     authForm.innerHTML = signInFields;
     signInButton.classList.add("active");
     signUpButton.classList.remove("active");
+
 }
 
 function showSignUp() {
