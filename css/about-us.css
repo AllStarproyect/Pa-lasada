@@ -31,30 +31,8 @@ body {
     margin: 0;
 }
 
-/* welcome grids */
-
-:root {
-    --color-mostaza: #D4A017;
-    --color-crema: #F5F1E8;
-    --color-carbon: #2B2B2B;
-    --color-verde-oliva: #6B7A4E;
-    --color-taupe: #A18C6E;
-}
-
 main {
     width: 100%;
-}
-
-/* 1rem = 10px */
-html {
-    font-size: 62.5%;
-    box-sizing: border-box;
-}
-
-*,
-*::before,
-*::after {
-    box-sizing: inherit;
 }
 
 html,
@@ -67,9 +45,11 @@ body {
 /* Contenedor principal */
 .container-historia-wrapper {
     display: grid;
-    max-width: 120rem;   /* ajusta al ancho máximo que quieras */
+    max-width: 120rem;
+    /* ajusta al ancho máximo que quieras */
     margin: 0 auto;
-    padding: 0 2rem;      /* para que no toque los bordes en pantallas medianas */
+    padding: 0 2rem;
+    /* para que no toque los bordes en pantallas medianas */
 }
 
 /* Sección Historia */
@@ -81,57 +61,54 @@ body {
 
 .container-history {
     display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-areas:
-            "titulo titulo titulo"
-            "img1   img2   img3"
-            "parrafo parrafo parrafo";
-        gap: 2rem;
-        /* background-color: rgb(55, 6, 252); */
-    }
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas:
+        "titulo titulo titulo"
+        "img1   img2   img3"
+        "parrafo parrafo parrafo";
+    gap: 2rem;
+    /* background-color: rgb(55, 6, 252); */
+}
 
-    .card-history {
-        display: contents;
-        /* "desaparece" el div, deja pasar a sus hijos como items del grid */
-    }
+.card-history {
+    display: contents;
+    /* "desaparece" el div, deja pasar a sus hijos como items del grid */
+}
 
-    .card-history h3 {
-        grid-area: titulo;
-        text-align: center;
-    }
+.card-history h3 {
+    grid-area: titulo;
+    text-align: center;
+}
 
-    .card-history p {
-        grid-area: parrafo;
-        background: white;
-        padding: 2rem;
-        border-radius: 1rem;
-    }
+.card-history p {
+    grid-area: parrafo;
+    background: white;
+    padding: 2rem;
+    border-radius: 1rem;
+}
 
-    .card-img-box:nth-child(1) {
-        grid-area: img1;
-    }
+.card-img-box:nth-child(1) {
+    grid-area: img1;
+}
 
-    .card-img-box:nth-child(2) {
-        grid-area: img2;
-    }
+.card-img-box:nth-child(2) {
+    grid-area: img2;
+}
 
-    .card-img-box:nth-child(3) {
-        grid-area: img3;
-    }
-
-    /* .card-img-box img {
-        width: 100%;
-        margin-top: 0;
-    } */
+.card-img-box:nth-child(3) {
+    grid-area: img3;
+}
 
 /* Imágenes */
 .card-img-box img {
     width: 100%;
-    max-width: 35rem;   /* tope opcional en pantallas muy grandes */
+    max-width: 35rem;
+    /* tope opcional en pantallas muy grandes */
     height: auto;
     margin-top: 5rem;
     border-radius: 1rem;
 }
+
 /* Texto Historia */
 .card-history {
     background: white;
@@ -383,31 +360,49 @@ body {
     border-color: #b88912;
 }
 
-/* NAVBAR */
+/* =========================================================
+   NAVBAR
+   ========================================================= */
+
 .navbar-custom {
     background-color: var(--color-crema);
     padding: 10px 0;
     box-shadow: 0 3px 15px rgba(43, 43, 43, 0.08);
 }
+.navbar-nav .nav-link {
+    color: var(--color-carbon) !important;
+    font-weight: 500;
+    position: relative;
+    transition: 0.3s;
+}
 
+.navbar-nav .nav-link:hover {
+    color: var(--color-mostaza) !important;
+}
 .logo {
     width: 200px;
     height: 75px;
     object-fit: contain;
 }
 
-.nav-link {
+/*
+   Bootstrap define ".navbar-nav .nav-link" (2 clases de especificidad).
+   ".nav-link" solo (1 clase) pierde ese empate siempre, sin importar
+   el orden de los <link> en el <head>. Por eso se iguala el selector
+   aquí para que tu color gane.
+*/
+.navbar-nav .nav-link {
     color: var(--color-carbon);
     font-weight: 500;
     position: relative;
     transition: 0.3s;
 }
 
-.nav-link:hover {
+.navbar-nav .nav-link:hover {
     color: var(--color-mostaza);
 }
 
-.nav-link.active {
+.navbar-nav .nav-link.active {
     color: var(--color-mostaza) !important;
 }
 
@@ -487,9 +482,10 @@ body {
         gap: 5px !important;
     }
 
-    .nav-link {
+    .navbar-nav .nav-link {
         padding: 12px 5px;
         border-bottom: 1px solid rgba(43, 43, 43, 0.1);
+        color: var(--color-carbon);
     }
 
     .nav-actions {
@@ -512,6 +508,7 @@ body {
         width: 100%;
         height: 4rem;
     }
+
     .dropdown-menu {
         position: static !important;
         width: 100%;
@@ -581,7 +578,7 @@ footer {
     display: flex;
     flex-direction: column;
     align-items: center;
-    
+
 }
 
 .footerBottom {
@@ -596,7 +593,8 @@ footer {
 
 .redesSociales {
     display: flex;
-    flex-direction: column; /*Se agrega para responsive*/
+    flex-direction: column;
+    /*Se agrega para responsive*/
     justify-content: center;
     align-items: center;
     gap: 25px;
@@ -609,17 +607,18 @@ footer {
 
 /* Cuando el contenedor del footer mida más de 768px (Tablets grandes y PC) */
 @container footer-container (min-width: 768px) {
-    
+
     .redesSociales {
-        flex-direction: row; /* Alinear horizontalmente */
+        flex-direction: row;
+        /* Alinear horizontalmente */
         justify-content: center;
         position: relative;
     }
 
-     .seccion-izq {
+    .seccion-izq {
         /* El truco definitivo: empuja todo lo que está a su derecha hacia el extremo opuesto, 
            pero al estar dentro de flexbox mantiene al logo perfectamente centrado en el contenedor */
-        margin-right: auto; 
+        margin-right: auto;
         text-align: left;
     }
 
@@ -630,6 +629,5 @@ footer {
         left: 50%;
         transform: translateX(-50%);
     }
-    
-}
 
+}
