@@ -47,7 +47,7 @@
         linear-gradient(90deg,
             rgba(34, 36, 34, 0.35),
             rgba(34, 36, 34, 0.65)),
-        url("../assets/img/backgrounndCarneLogin.png");  
+        url("../assets/img/backgrounndCarneLogin.png");
 
     background-size: cover;
     background-position: cover left;
@@ -56,36 +56,19 @@
 
 
 .container1 {
-
-    /* background-color: red; */
-
     display: flex;
-
     flex-direction: column;
-
     align-items: center;
-
-    /* centra horizontal */
-
     justify-content: center;
-
-    /* centra vertical */
-
     width: 100%;
     min-height: 100vh;
-
-    /* que ocupe toda la altura del main */
-
     gap: 2rem;
     padding: 2rem;
-
-    /* espacio fijo entre marca y login */
 }
 
 
 .brand {
     flex: 0 0 auto;
-    /* altura natural del contenido */
 }
 
 
@@ -94,45 +77,20 @@
     width: 100%;
     display: flex;
     justify-content: center;
-
-    /* altura natural */
 }
 
 
 .login-box {
-
     display: flex;
-
     flex-direction: column;
-
     gap: 2.2rem;
-
     background: rgba(255, 255, 255, 0.05);
-
     width: 100%;
-
-    /* soporte en Safari */
-
     padding: 3rem;
-
     border-radius: 1.2rem;
-
-    /* width: 40rem; */
-
     border: 1px solid rgba(255, 255, 255, 0.3);
-
-    /* borde sutil */
-
     min-height: 100%;
-
-    /* min-width: 50rem; */
-
-    /* fondo semitransparente */
-
     backdrop-filter: blur(10px);
-
-    /* desenfoque detrás */
-
     -webkit-backdrop-filter: blur(10px);
 }
 
@@ -153,6 +111,7 @@
     color: #f8f5f5;
     cursor: pointer;
     background-color: #4A3527;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 
@@ -163,10 +122,17 @@
 
 
 #authForm {
-
     display: flex;
     flex-direction: column;
     gap: 1.2rem;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#authForm.swapping {
+    opacity: 0;
+    transform: translateY(8px);
 }
 
 
@@ -187,6 +153,92 @@ input,
 
 
 /* =========================================================
+   SIGN IN - PANEL DESLIZANTE (café)
+   ========================================================= */
+
+.auth-wrapper {
+    position: relative;
+    display: flex;
+    overflow: hidden;
+    border-radius: 0.8rem;
+}
+
+/* --- panel del formulario --- */
+
+.form-panel {
+    position: relative;
+    width: 50%;
+    z-index: 1;
+    transition: transform 0.5s ease;
+}
+
+/* --- panel café --- */
+
+.brand-panel {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(160deg, #4A3527, #2e2018);
+    border-radius: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+    color: #f8f5f5;
+    transition: transform 0.5s ease;
+    z-index: 2;
+}
+
+.brand-msg {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    padding: 0 2rem;
+    transform: translateY(-50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.brand-msg h3 {
+    font-size: 1.9rem;
+    margin-bottom: 0.8rem;
+}
+
+.brand-msg p {
+    font-size: 1.3rem;
+    opacity: 0.85;
+    line-height: 1.4;
+}
+
+.brand-msg-signin {
+    opacity: 1;
+}
+
+/* --- estado "signup": los paneles se intercambian de lado --- */
+
+.auth-wrapper.signup .form-panel {
+    transform: translateX(100%);
+}
+
+.auth-wrapper.signup .brand-panel {
+    transform: translateX(-100%);
+}
+
+.auth-wrapper.signup .brand-msg-signin {
+    opacity: 0;
+}
+
+.auth-wrapper.signup .brand-msg-signup {
+    opacity: 1;
+}
+
+
+/* =========================================================
    DESKTOP GRANDE
    Mayor a 1108px
    ========================================================= */
@@ -197,11 +249,9 @@ input,
         grid-template-columns: 10% 80% 10%;
     }
 
-
     .container1 {
         padding: 2rem;
     }
-
 
     .login-box {
         width: 90%;
@@ -209,7 +259,6 @@ input,
         min-width: 60rem;
         padding: 2.5rem;
     }
-
 
     .navbar-container {
         max-width: none;
@@ -228,15 +277,11 @@ input,
     .container {
         grid-template-columns: 1fr;
         min-height: 100vh;
-
-        /* background-position: center; */
     }
-
 
     .container>aside {
         display: none;
     }
-
 
     .container1 {
         width: 100%;
@@ -245,38 +290,22 @@ input,
         gap: 2.5rem;
     }
 
-
     .login {
-
         width: 100%;
     }
 
-
     .login-box {
-
         width: 90%;
-
-        /*
-         * Mayor a 55rem
-         */
-
         min-width: 55rem;
-
-        /*
-         * Nunca superar 120rem
-         */
-
         max-width: 120rem;
         padding: 2.5rem;
         gap: 2rem;
     }
 
-
     .tab-btn {
         padding: 1.2rem 0.8rem;
         font-size: 1.5rem;
     }
-
 
     input,
     #authForm button {
@@ -297,15 +326,11 @@ input,
     .container {
         grid-template-columns: 1fr;
         min-height: 100vh;
-
-        /* background-position: center; */
     }
-
 
     .container>aside {
         display: none;
     }
-
 
     .container1 {
         width: 100%;
@@ -314,11 +339,9 @@ input,
         gap: 2.5rem;
     }
 
-
     .login {
         width: 100%;
     }
-
 
     .login-box {
         width: 100%;
@@ -329,12 +352,10 @@ input,
         border-radius: 1.2rem;
     }
 
-
     .tab-btn {
         padding: 1.2rem 0.8rem;
         font-size: 1.5rem;
     }
-
 
     input,
     #authForm button {
@@ -342,8 +363,51 @@ input,
         font-size: 1.5rem;
     }
 
-}
+    /* --- panel café: se apila arriba del formulario en vez de deslizar --- */
 
+    .auth-wrapper {
+        flex-direction: column;
+        min-height: auto;
+    }
+
+    .form-panel,
+    .brand-panel {
+        position: relative;
+        width: 100%;
+        transform: none !important;
+    }
+
+    .form-panel {
+        order: 2;
+    }
+
+    .brand-panel {
+        order: 1;
+        margin-bottom: 1.5rem;
+        min-height: 12rem;
+    }
+
+    .brand-msg {
+        position: relative;
+        top: auto;
+        transform: none;
+        opacity: 1 !important;
+        display: none;
+    }
+
+    .brand-msg-signin {
+        display: block;
+    }
+
+    .auth-wrapper.signup .brand-msg-signin {
+        display: none;
+    }
+
+    .auth-wrapper.signup .brand-msg-signup {
+        display: block;
+    }
+
+}
 
 
 /* =========================================================
@@ -354,10 +418,8 @@ input,
 @media (max-width: 480px) {
 
     .container1 {
-
         padding: 1.5rem;
     }
-
 
     .login-box {
         min-width: 25rem;
@@ -366,17 +428,14 @@ input,
         border-radius: 1rem;
     }
 
-
     .tabs {
         gap: 0.5rem;
     }
-
 
     .tab-btn {
         font-size: 1.5rem;
         padding: 1.2rem 0.8rem;
     }
-
 
     input,
     #authForm button {
@@ -398,17 +457,14 @@ input,
         padding: 1rem;
     }
 
-
     .login-box {
         min-width: 25rem;
         padding: 1.5rem;
     }
 
-
     .tab-btn {
         font-size: 1.4rem;
     }
-
 
     input,
     #authForm button {

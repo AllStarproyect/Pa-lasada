@@ -5,6 +5,7 @@
 const signInButton = document.querySelector("#SignInBtn");
 const signUpButton = document.querySelector("#SignUpBtn");
 const authForm = document.querySelector("#authForm");
+const authWrapper = document.querySelector("#authWrapper");
 
 
 /* =========================================================
@@ -12,16 +13,13 @@ const authForm = document.querySelector("#authForm");
    ========================================================= */
 
 const signInFields = `
-    
-
-
     <input
         type="text"
         id="username"
         placeholder="Usuario"
         required
     >
-    
+
     <input
         type="password"
         id="password"
@@ -29,11 +27,10 @@ const signInFields = `
         required
     >
 
-    <button type="submit">Inciar</button>
+    <button type="submit">Iniciar</button>
 `;
 
 const signUpFields = `
-
     <input
         type="email"
         id="email"
@@ -57,7 +54,6 @@ const signUpFields = `
         required
     >
 
-   
     <input
         type="password"
         id="password"
@@ -65,8 +61,8 @@ const signUpFields = `
         required
     >
 
-     <input
-        type="Confirmpassword"
+    <input
+        type="password"
         id="confirmPassword"
         placeholder="Confirmar Contraseña"
         required
@@ -74,6 +70,21 @@ const signUpFields = `
 
     <button type="submit">Registrarse</button>
 `;
+
+
+/* =========================================================
+   SIGN IN - TRANSICIÓN AL CAMBIAR innerHTML
+   ========================================================= */
+
+function swapFields(html) {
+    authForm.classList.add("swapping");
+
+    setTimeout(() => {
+        authForm.innerHTML = html;
+        void authForm.offsetWidth; // fuerza reflow para que la transición de entrada se vea
+        authForm.classList.remove("swapping");
+    }, 250);
+}
 
 
 /* =========================================================
@@ -85,10 +96,10 @@ function showSignIn() {
         return;
     }
 
-    authForm.innerHTML = signInFields;
+    swapFields(signInFields);
     signInButton.classList.add("active");
     signUpButton.classList.remove("active");
-
+    authWrapper?.classList.remove("signup");
 }
 
 function showSignUp() {
@@ -96,9 +107,10 @@ function showSignUp() {
         return;
     }
 
-    authForm.innerHTML = signUpFields;
+    swapFields(signUpFields);
     signUpButton.classList.add("active");
     signInButton.classList.remove("active");
+    authWrapper?.classList.add("signup");
 }
 
 
