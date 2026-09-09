@@ -12,13 +12,16 @@ const authForm = document.querySelector("#authForm");
    ========================================================= */
 
 const signInFields = `
+    
+
+
     <input
         type="text"
         id="username"
         placeholder="Usuario"
         required
     >
-
+    
     <input
         type="password"
         id="password"
@@ -26,10 +29,11 @@ const signInFields = `
         required
     >
 
-    <button type="submit">Entrar</button>
+    <button type="submit">Inciar</button>
 `;
 
 const signUpFields = `
+
     <input
         type="email"
         id="email"
@@ -37,6 +41,23 @@ const signUpFields = `
         required
     >
 
+    <input
+        type="tel"
+        id="phone"
+        placeholder="Teléfono"
+        pattern="[0-9]{10}"
+        maxlength="10"
+        required
+    >
+
+    <input
+        type="text"
+        id="username"
+        placeholder="Usuario"
+        required
+    >
+
+   
     <input
         type="password"
         id="password"
@@ -97,11 +118,15 @@ if (authForm) {
 
             localStorage.setItem("username", username);
             localStorage.setItem("password", password);
+
+            console.log(password);
         } else {
             const email = document.querySelector("#email")?.value ?? "";
+            const phone = document.querySelector("#phone")?.value ?? "";
             const password = document.querySelector("#password")?.value ?? "";
 
             localStorage.setItem("email", email);
+            localStorage.setItem("phone", phone);
             localStorage.setItem("password", password);
         }
 
