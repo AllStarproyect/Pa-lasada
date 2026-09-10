@@ -81,6 +81,22 @@ const signUpFields = `
     >
 
     <input
+        type="tel"
+        id="phone"
+        placeholder="Teléfono"
+        pattern="[0-9]{10}"
+        maxlength="10"
+        required
+    >
+
+    <input
+        type="text"
+        id="username"
+        placeholder="Usuario"
+        required
+    >
+
+    <input
         type="password"
         id="password"
         placeholder="Contraseña"
@@ -92,6 +108,13 @@ const signUpFields = `
         id="confirmPassword"
         placeholder="Confirmar Contraseña"
         autocomplete="new-password"
+    >
+
+    <input
+        type="password"
+        id="confirmPassword"
+        placeholder="Confirmar Contraseña"
+        required
     >
 
     <button type="submit">Registrarse</button>
@@ -301,6 +324,7 @@ function showSignIn() {
     signInButton.classList.add("active");
     signUpButton.classList.remove("active");
     authWrapper?.classList.remove("signup");
+    authWrapper?.classList.remove("signup");
 }
 
 
@@ -316,6 +340,7 @@ function showSignUp() {
 
     signUpButton.classList.add("active");
     signInButton.classList.remove("active");
+    authWrapper?.classList.add("signup");
     authWrapper?.classList.add("signup");
 }
 
