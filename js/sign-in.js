@@ -65,15 +65,6 @@ const signUpFields = `
     >
 
     <input
-        type="tel"
-        id="phone"
-        placeholder="Teléfono (10 dígitos)"
-        maxlength="10"
-        inputmode="numeric"
-        autocomplete="tel"
-    >
-
-    <input
         type="text"
         id="username"
         placeholder="Usuario"
@@ -89,12 +80,7 @@ const signUpFields = `
         required
     >
 
-    <input
-        type="text"
-        id="username"
-        placeholder="Usuario"
-        required
-    >
+   
 
     <input
         type="password"
@@ -108,13 +94,6 @@ const signUpFields = `
         id="confirmPassword"
         placeholder="Confirmar Contraseña"
         autocomplete="new-password"
-    >
-
-    <input
-        type="password"
-        id="confirmPassword"
-        placeholder="Confirmar Contraseña"
-        required
     >
 
     <button type="submit">Registrarse</button>
