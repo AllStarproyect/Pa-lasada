@@ -417,3 +417,122 @@ input,
     }
 
 }
+/* =========================================================
+   ALERTAS DE AUTENTICACIÓN
+   ========================================================= */
+
+#alert-container {
+    width: 100%;
+    margin-bottom: 16px;
+}
+
+
+/* Alerta general */
+.auth-alert {
+    width: 100%;
+    padding: 14px 16px;
+    margin: 0;
+
+    border: none;
+    border-radius: 10px;
+
+    gap: 12px;
+
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+
+/* Icono */
+.auth-alert-icon {
+    flex-shrink: 0;
+
+    font-size: 20px;
+}
+
+
+/* Mensaje */
+.auth-alert-message {
+    flex: 1;
+    line-height: 1.4;
+}
+
+
+/* Botón cerrar */
+.auth-alert .btn-close {
+    flex-shrink: 0;
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   ALERTA DE ERROR
+   ========================================================= */
+
+.auth-alert.alert-danger {
+    background-color: #f8e8e5;
+    color: #7c2d25;
+
+    border-left: 4px solid #9d3c31;
+}
+
+
+/* =========================================================
+   ALERTA DE ÉXITO
+   ========================================================= */
+
+.auth-alert.alert-success {
+    background-color: #edf4e8;
+    color: #3f5f35;
+
+    border-left: 4px solid #607d4d;
+}
+
+
+/* =========================================================
+   ALERTA DE ADVERTENCIA
+   ========================================================= */
+
+.auth-alert.alert-warning {
+    background-color: #faf1dc;
+    color: #76591e;
+
+    border-left: 4px solid #b68a35;
+}
+
+
+/* =========================================================
+   ALERTA INFORMATIVA
+   ========================================================= */
+
+.auth-alert.alert-info {
+    background-color: #e8f0f3;
+    color: #315765;
+
+    border-left: 4px solid #527d8d;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 576px) {
+
+    #alert-container {
+        margin-bottom: 12px;
+    }
+
+    .auth-alert {
+        padding: 12px 14px;
+        gap: 10px;
+
+        font-size: 13px;
+    }
+
+    .auth-alert-icon {
+        font-size: 18px;
+    }
+}
