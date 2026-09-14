@@ -107,13 +107,14 @@ h6 {
     border-color: var(--color-mustard);
     color: #ffffff;
     font-weight: 500;
+    padding: 6px 12px;
+    transition: color 0.4s ease;
 }
 
 .btn-primary:hover {
     background-color: #b88912;
     border-color: #b88912;
 }
-
 
 /* =========================================================
    NAVBAR

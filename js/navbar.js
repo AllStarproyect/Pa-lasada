@@ -82,11 +82,11 @@ function renderNavbar() {
 
     userMenu.innerHTML = `
         <div class="login-buttons">
-            <button class="btn btn-outline-dark" id="login" type="button">
+            <button class="btn btn-primary" id="login" type="button">
                 Iniciar sesión
             </button>
 
-            <button class="btn btn-primary" id="register" type="button">
+            <button class="btn btn-outline-dark" id="register" type="button">
                 Registrarse
             </button>
         </div>

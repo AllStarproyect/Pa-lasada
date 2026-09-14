@@ -17,8 +17,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Bootstrap Icons -->
-    <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 
     <!-- Styles -->
     <link rel="stylesheet" href="../css/global.css">
@@ -55,13 +54,8 @@
 
                 </button>
 
-                <button
-                    class="navbar-toggler border-0"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#navbarNavDropdown"
-                    aria-controls="navbarNavDropdown"
-                    aria-expanded="false"
+                <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
                     aria-label="Abrir menú">
 
                     <span class="navbar-toggler-icon"></span>
@@ -234,7 +228,7 @@
                 <div class="product-grid">
 
                     <template>
-                            <article class="product-card">
+                        <article class="product-card">
                             <div class="product-card__image">
                                 <img src="../assets/img/New york.png" alt="New York Prime premium" loading="lazy">
                                 <span class="product-card__badge">
@@ -276,60 +270,137 @@
             </div>
         </section>
 
-
         <!-- =====================================================
-            MODAL
-         ===================================================== -->
+     MODAL DETALLE PRODUCTO
+===================================================== -->
 
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            Boton de prueba
-        </button>
+        <div class="modal fade" id="productModal" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
 
-        <div class="modal .modal-dialog-centered fade" id="exampleModal" tabindex="-1"
-            aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
                 <div class="modal-content">
+
+                    <!-- HEADER -->
                     <div class="modal-header">
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+                        <h2 class="modal-title fs-4" id="productModalLabel">
+                            Detalle del producto
+                        </h2>
+
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+
                     </div>
+
+
+                    <!-- BODY -->
                     <div class="modal-body">
 
-                        <div class="row">
-                            <div class="col-md-6">
-                                <img id="" class="img-fluid" src="./assets/img/tomahawk.png" alt="">
-                            </div>
-                            <!-- info -->
-                            <div class="col-md-6">
-                                <div id="">categorias</div>
-                                <p>descripcion</p>
-                                <h3>precio</h3>
+                        <div class="row align-items-center g-4">
 
-                                <div class="mb-3">
-                                    <label for=""></label>
-                                    <div class="input-group">
-                                        <button class="btn btn-outline-secondary">-</button>
-                                        <input 
-                                            class="form-control"
-                                            type="number" 
-                                            readonly value="1"
-                                            name="" 
-                                            id=""
-                                        >
-                                         <button>+</button>
-                                    </div>
-                                </div>
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Ver más</button>
-                                <button type="button" class="btn btn-primary">Agregar al carrito</button>
+                            <!-- =========================
+                         IMAGEN
+                    ========================== -->
+                            <div class="col-md-6">
+
+                                <img id="modalProductoImagen" class="img-fluid rounded w-100" src="" alt="">
+
                             </div>
+
+
+                            <!-- =========================
+                         INFORMACIÓN
+                    ========================== -->
+                            <div class="col-md-6">
+
+                                <!-- CATEGORÍA -->
+                                <p id="modalProductoCategoria" class="text-uppercase fw-bold text-muted mb-2">
+                                </p>
+
+
+                                <!-- NOMBRE -->
+                                <h3 id="modalProductoNombre" class="mb-3">
+                                </h3>
+
+
+                                <!-- DESCRIPCIÓN -->
+                                <p id="modalProductoDescripcion" class="mb-3">
+                                </p>
+
+
+                                <!-- INFO ADICIONAL -->
+                                <div class="mb-3">
+
+                                    <p class="mb-1">
+                                        <strong>Peso:</strong>
+                                        <span id="modalProductoPeso"></span>
+                                    </p>
+
+                                    <p class="mb-1">
+                                        <strong>Origen:</strong>
+                                        <span id="modalProductoOrigen"></span>
+                                    </p>
+
+                                </div>
+
+
+                                <!-- =========================
+                             ESTADO DEL PRODUCTO
+                        ========================== -->
+
+                                <div id="modalProductoEstado" class="alert" role="alert">
+                                </div>
+
+
+                                <!-- PRECIO -->
+                                <h3 id="modalProductoPrecio" class="mb-4">
+                                </h3>
+
+
+                                <!-- =========================
+                             CANTIDAD
+                        ========================== -->
+
+                                <div class="mb-4">
+
+                                    <label for="modalCantidad" class="form-label fw-bold">
+                                        Cantidad
+                                    </label>
+
+                                    <div class="input-group" style="max-width: 180px;">
+
+                                        <button type="button" class="btn btn-outline-secondary" id="btnRestarCantidad">
+                                            −
+                                        </button>
+
+                                        <input id="modalCantidad" class="form-control text-center" type="number"
+                                            value="1" min="1" readonly>
+
+                                        <button type="button" class="btn btn-outline-secondary" id="btnSumarCantidad">
+                                            +
+                                        </button>
+
+                                    </div>
+
+                                </div>
+
+
+                                <!-- =========================
+                             AGREGAR AL CARRITO
+                        ========================== -->
+
+                                <button type="button" id="modalAgregarCarrito" class="btn btn-primary w-100">
+                                    Agregar al carrito
+                                </button>
+
+                            </div>
+
                         </div>
+
                     </div>
 
-
-
                 </div>
+
             </div>
         </div>
-
 
     </main>
 
@@ -356,29 +427,17 @@
 
                     <div class="iconosCont">
 
-                        <a
-                            href="https://instagram.com"
-                            class="linkRedes"
-                            target="_blank"
-                            rel="noopener noreferrer">
+                        <a href="https://instagram.com" class="linkRedes" target="_blank" rel="noopener noreferrer">
 
-                            <img
-                                src="https://dreamfoundry.org/wp-content/uploads/2018/12/instagram-logo-png-transparent-background.png"
-                                alt="Instagram"
-                                class="imgRedes">
+                            <img src="https://dreamfoundry.org/wp-content/uploads/2018/12/instagram-logo-png-transparent-background.png"
+                                alt="Instagram" class="imgRedes">
 
                         </a>
 
-                        <a
-                            href="https://facebook.com"
-                            class="linkRedes"
-                            target="_blank"
-                            rel="noopener noreferrer">
+                        <a href="https://facebook.com" class="linkRedes" target="_blank" rel="noopener noreferrer">
 
-                            <img
-                                src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/1280px-Facebook_Logo_%282019%29.png"
-                                alt="Facebook"
-                                class="imgRedes">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/1280px-Facebook_Logo_%282019%29.png"
+                                alt="Facebook" class="imgRedes">
 
                         </a>
 
@@ -389,31 +448,22 @@
 
                 <div class="footerSection">
 
-                    <img
-                        src="../assets/img/LogoCuadrado.jpg"
-                        alt="Logo de Pa' la Asada"
-                        class="logoFooter">
+                    <img src="../assets/img/LogoCuadrado.jpg" alt="Logo de Pa' la Asada" class="logoFooter">
 
                 </div>
 
 
                 <nav aria-label="Navegación del pie de página">
 
-                    <a
-                        class="enlaceB"
-                        href="../index.html">
+                    <a class="enlaceB" href="../index.html">
                         Inicio
                     </a>
 
-                    <a
-                        class="enlaceB"
-                        href="./about-us.html">
+                    <a class="enlaceB" href="./about-us.html">
                         Acerca de
                     </a>
 
-                    <a
-                        class="enlaceB"
-                        href="./catalog.html">
+                    <a class="enlaceB" href="./catalog.html">
                         Productos
                     </a>
 
@@ -444,6 +494,9 @@
     <script src="../js/navbar.js"></script>
 
     <script src="../js/catalog.js"></script>
+
+
+    <script src="../js/productModal.js"></script>
 
     <!-- DATOS DE PRODUCTOS -->
     <script src="../data/catalogoData.js"></script>
