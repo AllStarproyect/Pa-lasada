@@ -126,6 +126,7 @@ body {
 /* Mision, vision */
 
 .mision-vision {
+    text-align: justify;
     background-color: var(--color-crema);
     color: var(--color-carbon);
     overflow: hidden;
