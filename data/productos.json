@@ -16,8 +16,8 @@
         "nota": null
       },
       "inventario": {
-        "estado": "agotado",
-        "cantidad": 0,
+        "estado": "disponible",
+        "cantidad": 6,
         "sku": "AGUJA-NORTENA-NACIONAL"
       },
       "tieneVariantes": true,
