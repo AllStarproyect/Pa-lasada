@@ -8,8 +8,8 @@
 --   3. Carrito de compras, pedidos, pagos y entregas.
 -- Orden de creación respetado por las dependencias de llaves foráneas.
 -- =====================================================================
-
-USE tienda;
+create database palasada;
+USE palasada;
 
 SET FOREIGN_KEY_CHECKS = 0;
 
