@@ -8,7 +8,7 @@
         "Carne",
         "Res",
         "Nacional"
-      ], 
+      ],
       "precio": {
         "monto": 445.0,
         "moneda": "MXN",
@@ -30,7 +30,7 @@
       "imagenes": {
         "url": "https://casabrassa.mx/product/aguja-nortena-nacional/",
         "remota": "https://casabrassa.mx/wp-content/uploads/2021/01/aguja-nortena-4-1-A.jpg",
-        "local": "assets/img/catalogo/placeholder.png"
+        "local": "assets/img/catalogo/aguja_norteña_nacional.png"
       }
     },
     {
@@ -63,7 +63,7 @@
       "imagenes": {
         "url": "https://casabrassa.mx/product/arrachera-natural-importada/",
         "remota": "https://casabrassa.mx/wp-content/uploads/2021/01/aguja-nortena-4-1-ok.jpg",
-        "local": "assets/img/catalogo/placeholder.png"
+        "local": "assets/img/catalogo/arrachera_natural_importada.png"
       }
     },
     {
@@ -82,7 +82,7 @@
         "nota": null
       },
       "inventario": {
-        "estado": "disponible",
+        "estado": "agotado",
         "cantidad": 0,
         "sku": "ARRACHERA-NATURAL-NACIONAL"
       },
@@ -96,7 +96,7 @@
       "imagenes": {
         "url": "https://casabrassa.mx/product/arrachera-natural-nacional/",
         "remota": "https://casabrassa.mx/wp-content/uploads/2021/01/arrachera-natural-2-1024x683.jpg",
-        "local": "assets/img/catalogo/placeholder.png"
+        "local": "assets/img/catalogo/arrachera_natural_nacional.png"
       }
     },
     {
@@ -129,7 +129,7 @@
       "imagenes": {
         "url": "https://casabrassa.mx/product/arrachera-texana-importada/",
         "remota": "https://casabrassa.mx/wp-content/uploads/2021/01/arrachera-texana-sterling-2-ok.jpg",
-        "local": "assets/img/catalogo/placeholder.png"
+        "local": "assets/img/catalogo/arrachera_texana_importada.png"
       }
     },
     {
@@ -163,7 +163,7 @@
       "imagenes": {
         "url": "https://casabrassa.mx/product/brisket-choice/",
         "remota": "https://casabrassa.mx/wp-content/uploads/2021/01/brisket-sterling--scaled-e1696989619383-1024x614.jpg",
-        "local": "assets/img/catalogo/placeholder.png"
+        "local": "assets/img/catalogo/brisket_choice.png"
       }
     },
     {
@@ -182,7 +182,7 @@
         "nota": null
       },
       "inventario": {
-        "estado": "disponible",
+        "estado": "agotado",
         "cantidad": 0,
         "sku": "BRISKET-NACIONAL"
       },
@@ -196,7 +196,7 @@
       "imagenes": {
         "url": "https://casabrassa.mx/product/brisket-nacional/",
         "remota": "https://casabrassa.mx/wp-content/uploads/2022/06/brisket-nacional-1.jpg",
-        "local": "assets/img/catalogo/placeholder.png"
+        "local": "assets/img/catalogo/brisket_nacional.png"
       }
     },
     {
@@ -228,7 +228,7 @@
       "imagenes": {
         "url": "https://casabrassa.mx/product/cabeza-de-lomo-de-puerco/",
         "remota": "https://casabrassa.mx/wp-content/uploads/2022/06/cabeza-de-lomo-de-puerco-1.jpg",
-        "local": "assets/img/catalogo/placeholder.png"
+        "local": "assets/img/catalogo/cabeza_de_lomo_de_puerco.png"
       }
     },
     {
@@ -261,7 +261,7 @@
       "imagenes": {
         "url": "https://casabrassa.mx/product/cabreria-nacional/",
         "remota": "https://casabrassa.mx/wp-content/uploads/2021/01/cabreria-nacional-4-1-1024x683.jpg",
-        "local": "assets/img/catalogo/placeholder.png"
+        "local": "assets/img/catalogo/cabreria_nacional.png"
       }
     },
     {
@@ -292,7 +292,7 @@
       "imagenes": {
         "url": "https://casabrassa.mx/product/cana-de-lomo-de-puerco/",
         "remota": "https://casabrassa.mx/wp-content/uploads/2021/01/filete-nacional-3-1024x683.jpg",
-        "local": "assets/img/catalogo/placeholder.png"
+        "local": "assets/img/catalogo/caña_de_lomo_de_puerco.png"
       }
     },
     {
@@ -344,7 +344,7 @@
         "nota": null
       },
       "inventario": {
-        "estado": "disponible",
+        "estado": "agotado",
         "cantidad": 0,
         "sku": "COSTILLA-CARGADA-NACIONAL"
       },
@@ -442,7 +442,7 @@
         "nota": null
       },
       "inventario": {
-        "estado": "disponible",
+        "estado": "agotado",
         "cantidad": 0,
         "sku": "COSTILLA-ST-LOUIS"
       },
@@ -572,7 +572,7 @@
         "nota": null
       },
       "inventario": {
-        "estado": "disponible",
+        "estado": "agotado",
         "cantidad": 0,
         "sku": "DIEZMILLO-S-HUESO-NACIONAL"
       },
@@ -586,7 +586,7 @@
       "imagenes": {
         "url": "https://casabrassa.mx/product/diezmillo-s-hueso-nacional/",
         "remota": "",
-        "local": "assets/img/catalogo/placeholder.png"
+        "local": "assets/img/catalogo/diezmillo_shueso_nacional.png"
       }
     },
     {
@@ -639,7 +639,7 @@
         "nota": null
       },
       "inventario": {
-        "estado": "disponible",
+        "estado": "agotado",
         "cantidad": 0,
         "sku": "FILETE-NACIONAL"
       },
@@ -672,7 +672,7 @@
         "nota": null
       },
       "inventario": {
-        "estado": "disponible",
+        "estado": "agotado",
         "cantidad": 0,
         "sku": "HAMBURGUESA-DE-BRISKET-NACIONAL"
       },
@@ -705,7 +705,7 @@
         "nota": null
       },
       "inventario": {
-        "estado": "disponible",
+        "estado": "agotado",
         "cantidad": 0,
         "sku": "HAMBURGUESA-DE-LA-CASA"
       },
@@ -868,7 +868,7 @@
         "nota": null
       },
       "inventario": {
-        "estado": "disponible",
+        "estado": "agotado",
         "cantidad": 0,
         "sku": "MOLIDA-100-NACIONAL-CASA-BRASSA-MX"
       },
@@ -901,7 +901,7 @@
         "nota": null
       },
       "inventario": {
-        "estado": "disponible",
+        "estado": "agotado",
         "cantidad": 0,
         "sku": "MOLIDA-80-20-NACIONAL"
       },
@@ -915,7 +915,7 @@
       "imagenes": {
         "url": "https://casabrassa.mx/product/molida-80-20-nacional/",
         "remota": "https://casabrassa.mx/wp-content/uploads/2022/06/molida-80-20-nacional.jpg",
-        "local": "assets/img/catalogo/placeholder.png"
+        "local": "assets/img/catalogo/molida_8020_nacional.png"
       }
     },
     {
@@ -934,7 +934,7 @@
         "nota": null
       },
       "inventario": {
-        "estado": "disponible",
+        "estado": "agotado",
         "cantidad": 0,
         "sku": "MOLIDA-90-10-NACIONAL"
       },
@@ -948,7 +948,7 @@
       "imagenes": {
         "url": "https://casabrassa.mx/product/molida-90-10-nacional/",
         "remota": "https://casabrassa.mx/wp-content/uploads/2022/06/MOLIDA-90-10-NACIONAL.jpg",
-        "local": "assets/img/catalogo/placeholder.png"
+        "local": "assets/img/catalogo/molida_9010_nacional.png"
       }
     },
     {
@@ -981,7 +981,7 @@
       "imagenes": {
         "url": "https://casabrassa.mx/product/molleja-nacional/",
         "remota": "https://casabrassa.mx/wp-content/uploads/2021/01/molleja-1024x683.jpg",
-        "local": "assets/img/catalogo/placeholder.png"
+        "local": "assets/img/catalogo/molleja.png"
       }
     },
     {
@@ -1013,7 +1013,7 @@
       "imagenes": {
         "url": "https://casabrassa.mx/product/morcilla-de-cebolla/",
         "remota": "https://casabrassa.mx/wp-content/uploads/2022/06/MORCILLA-DE-CEBOLLA.jpg",
-        "local": "assets/img/catalogo/placeholder.png"
+        "local": "assets/img/catalogo/morcilla_de_cebolla.png"
       }
     },
     {
@@ -1047,7 +1047,7 @@
       "imagenes": {
         "url": "https://casabrassa.mx/product/new-york-choice/",
         "remota": "https://casabrassa.mx/wp-content/uploads/2021/01/newyork-sterling-scaled-e1696988954442-1024x616.jpg",
-        "local": "assets/img/catalogo/placeholder.png"
+        "local": "assets/img/catalogo/new_york_choice.png"
       }
     },
     {
@@ -1066,7 +1066,7 @@
         "nota": null
       },
       "inventario": {
-        "estado": "disponible",
+        "estado": "agotado",
         "cantidad": 0,
         "sku": "NEW-YORK-NACIONAL"
       },
@@ -1080,7 +1080,7 @@
       "imagenes": {
         "url": "https://casabrassa.mx/product/new-york-nacional/",
         "remota": "https://casabrassa.mx/wp-content/uploads/2021/01/newyork-nacional-3-1024x683.jpg",
-        "local": "assets/img/catalogo/placeholder.png"
+        "local": "assets/img/catalogo/new_york_nacional.png"
       }
     },
     {
@@ -1115,7 +1115,7 @@
       "imagenes": {
         "url": "https://casabrassa.mx/product/new-york-prime/",
         "remota": "https://casabrassa.mx/wp-content/uploads/2021/01/newyork-prime-scaled-e1696989051709-1024x614.jpg",
-        "local": "assets/img/catalogo/placeholder.png"
+        "local": "assets/img/catalogo/new_york_prime.png"
       }
     },
     {
@@ -1133,7 +1133,7 @@
         "nota": null
       },
       "inventario": {
-        "estado": "disponible",
+        "estado": "agotado",
         "cantidad": 0,
         "sku": "PANCETA"
       },
@@ -1147,7 +1147,7 @@
       "imagenes": {
         "url": "https://casabrassa.mx/product/panceta/",
         "remota": "https://casabrassa.mx/wp-content/uploads/2021/01/panceta-2-1-1024x683.jpg",
-        "local": "assets/img/catalogo/placeholder.png"
+        "local": "assets/img/catalogo/panceta.png"
       }
     },
     {
@@ -1167,7 +1167,7 @@
         "nota": null
       },
       "inventario": {
-        "estado": "disponible",
+        "estado": "agotado",
         "cantidad": 0,
         "sku": "PICANA-CHOICE"
       },
@@ -1180,7 +1180,7 @@
       "imagenes": {
         "url": "https://casabrassa.mx/product/picana-sterling-silver/",
         "remota": "https://casabrassa.mx/wp-content/uploads/2021/01/picana-sterling-4-1024x683.jpg",
-        "local": "assets/img/catalogo/placeholder.png"
+        "local": "assets/img/catalogo/picaña_choice.png"
       }
     },
     {
@@ -1198,7 +1198,7 @@
         "nota": null
       },
       "inventario": {
-        "estado": "disponible",
+        "estado": "agotado",
         "cantidad": 0,
         "sku": "PIERNA-DE-CERDO-S-HUESO"
       },
@@ -1212,7 +1212,7 @@
       "imagenes": {
         "url": "https://casabrassa.mx/product/pierna-de-cerdo-s-hueso/",
         "remota": "https://casabrassa.mx/wp-content/uploads/2022/06/PIERNA-DE-CERDO-Sin-HUESO.jpg",
-        "local": "assets/img/catalogo/placeholder.png"
+        "local": "assets/img/catalogo/pierna_de_cerdo_shueso.png"
       }
     },
     {
@@ -1338,7 +1338,7 @@
       "imagenes": {
         "url": "https://casabrassa.mx/product/porterhouse-choice/",
         "remota": "https://casabrassa.mx/wp-content/uploads/2021/01/porterhouse-sterling-scaled-e1696988701228-1024x616.jpg",
-        "local": "assets/img/catalogo/placeholder.png"
+        "local": "assets/img/catalogo/porterhouse_choice.png"
       }
     },
     {
@@ -1357,7 +1357,7 @@
         "nota": null
       },
       "inventario": {
-        "estado": "disponible",
+        "estado": "agotado",
         "cantidad": 0,
         "sku": "PORTERHOUSE-NACIONAL"
       },
@@ -1438,7 +1438,7 @@
       "imagenes": {
         "url": "https://casabrassa.mx/product/rib-eye-prime-argentina/",
         "remota": "",
-        "local": "assets/img/catalogo/placeholder.png"
+        "local": "assets/img/catalogo/rib_eye_prime_argentina.png"
       }
     },
     {
@@ -1491,7 +1491,7 @@
         "nota": null
       },
       "inventario": {
-        "estado": "disponible",
+        "estado": "agotado",
         "cantidad": 0,
         "sku": "RIBEYE-NACIONAL"
       },
@@ -1524,7 +1524,7 @@
         "nota": null
       },
       "inventario": {
-        "estado": "disponible",
+        "estado": "agotado",
         "cantidad": 0,
         "sku": "RIBEYE-PRIME"
       },
@@ -1694,7 +1694,7 @@
         "nota": null
       },
       "inventario": {
-        "estado": "disponible",
+        "estado": "agotado",
         "cantidad": 0,
         "sku": "T-BONE-NACIONAL-POR-CASA-BRASSA-MX"
       },
@@ -1726,7 +1726,7 @@
         "nota": null
       },
       "inventario": {
-        "estado": "disponible",
+        "estado": "agotado",
         "cantidad": 0,
         "sku": "TOCINO"
       },
@@ -1824,7 +1824,7 @@
         "nota": null
       },
       "inventario": {
-        "estado": "disponible",
+        "estado": "agotado",
         "cantidad": 0,
         "sku": "TOMAHAWK-NACIONAL"
       },
@@ -1957,7 +1957,7 @@
         "nota": null
       },
       "inventario": {
-        "estado": "disponible",
+        "estado": "agotado",
         "cantidad": 0,
         "sku": "VACIO-IMPORTADO"
       },
