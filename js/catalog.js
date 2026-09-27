@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const inventario = producto.inventario ?? {};
         const precio = producto.precio ?? {};
         const imagenes = producto.imagenes ?? {};
-        const agotado = inventario.estado === 'agotado';
+        const agotado = inventario.estado === 'agotado' || Number(inventario.cantidad) <= 0;
 
         // Identificadores del producto en el propio article, útiles para
         // integrarlo después con el carrito (cart.js) sin tocar clases.
@@ -69,10 +69,16 @@ document.addEventListener('DOMContentLoaded', () => {
         // --- Imagen ---
         const img = article.querySelector('.product-card__image img');
         if (img) {
+            const rutaPlaceholder = '../assets/img/catalogo/placeholder.png';
             const rutaLocal = imagenes.local || 'assets/img/catalogo/placeholder.png';
             const esUrlAbsoluta = /^https?:\/\//i.test(rutaLocal);
             img.src = esUrlAbsoluta ? rutaLocal : `../${rutaLocal}`;
             img.alt = nombre;
+            // Si la ruta del JSON está rota o el archivo no existe,
+            // se cae en el placeholder en vez de mostrar el ícono roto.
+            img.addEventListener('error', () => {
+                img.src = rutaPlaceholder;
+            }, { once: true });
         }
 
         // --- Badge ---
@@ -179,11 +185,18 @@ document.addEventListener('DOMContentLoaded', () => {
     function aplicarFiltro(textoBoton) {
         const filtro = normalizarTexto(textoBoton);
         const cards = productGrid.querySelectorAll('.product-card');
+        let visibles = 0;
 
         cards.forEach((card) => {
             const coincide = !filtro || (card.dataset.search || '').includes(filtro);
             card.style.display = coincide ? '' : 'none';
+            if (coincide) visibles += 1;
         });
+
+        const mensajeVacio = document.querySelector('.product-grid__empty');
+        if (mensajeVacio) {
+            mensajeVacio.hidden = visibles > 0;
+        }
     }
 
     /**
