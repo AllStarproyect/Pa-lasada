@@ -106,3 +106,49 @@ Se hace constar que para la primera versión de la plataforma **no se cuenta con
 ### 9. JURISDICCIÓN Y LEGISLACIÓN APLICABLE
 
 Para la interpretación, cumplimiento y resolución de cualquier controversia derivada de las transacciones, uso del Sitio o de los presentes Términos y Condiciones, las partes se someten expresamente a las leyes aplicables de los Estados Unidos Mexicanos, en particular a la **Ley Federal de Protección al Consumidor**, y a la jurisdicción de los **Tribunales competentes de la Ciudad de México (CDMX)**, renunciando expresamente a cualquier otro fuero que por razón de sus domicilios presentes o futuros pudiera corresponderles.
+
+---
+ 
+### 10. TICKET DIGITAL Y FACTURACIÓN ELECTRÓNICA (CFDI)
+ 
+#### 10.1 Ticket digital (comprobante de compra)
+*   Una vez cumplidas las tres condiciones de confirmación del pedido descritas en la sección 1, el sistema generará automáticamente un comprobante en formato PDF con diseño compacto tipo ticket, descargable desde la plataforma.
+*   El ticket sirve como respaldo de pago, comprobante de compra y orden de servicio, y es la base de información para la emisión de la factura electrónica.
+
+*   **Contenido del ticket:**
+    *   *Encabezado:* nombre comercial, R.F.C. (ventas al público en general), domicilio fiscal y datos de contacto.
+    *   *Información del pedido:* folio único (formato #CAR-YYYYMMDD-XXXX), fecha y hora de confirmación, método de pago, estatus inicial (*Confirmado*, pendiente de preparación), dirección de entrega, bloque de horario solicitado (09:00 a 14:00 hrs o 15:00 a 20:00 hrs), fecha programada de entrega y operador de reparto.
+    *   *Desglose:* producto, cantidad o peso solicitado, precio unitario y subtotal por producto.
+    *   *Totales:* subtotal, costo de entrega fijo, I.V.A. trasladado y total neto a pagar.
+    *   *Pie:* código QR que enlaza al historial de pedidos de la cuenta del Cliente para consultar el estatus en tiempo real (*En preparación → Listo para entrega → En ruta → Entregado*) y leyenda legal.
+*   **Ajuste de peso:** Debido a la naturaleza perecedera del producto, el peso final tras el corte y porcionado se ajustará al peso solicitado. En caso de variaciones menores por mermas inevitables del corte, se respetará el cobro total estipulado en el ticket.
+*   **Verificación:** El ticket es el documento con el que el negocio verifica que los productos y cantidades coincidan con el pedido antes de entregarlo al repartidor (sección 5).
+*   El ticket **no sustituye a la Factura Electrónica (CFDI)**.
+
+#### 10.2 Solicitud de factura electrónica
+*   El Cliente podrá solicitar su CFDI en el portal de facturación del Sitio, utilizando la información contenida en su ticket.
+*   **Datos obligatorios:**
+    1.  Registro Federal de Contribuyentes (R.F.C.).
+    2.  Nombre completo o Razón Social exacta.
+    3.  Código Postal del domicilio fiscal registrado ante el SAT.
+    4.  Régimen Fiscal vigente.
+    5.  Uso del CFDI (por ejemplo, "G03 - Gastos en general" o "S01 - Sin efectos fiscales").
+    6.  Correo electrónico para el envío de los archivos XML y PDF.
+*   El Cliente es responsable de la veracidad y exactitud de los datos fiscales proporcionados.
+
+#### 10.3 Plazos para facturar
+*   **Mes en curso:** El Cliente puede facturar su ticket desde que el pedido cambie a estatus **Entregado** y hasta el último día natural del mes en que se realizó la compra.
+*   **Cierre de mes:** Transcurrido el mes calendario, no se habilitará la emisión de facturas individuales de periodos anteriores en la plataforma. Dichos montos se integrarán de forma automatizada en la "Factura Global Diaria/Mensual de Operaciones con el Público en General", conforme a la Resolución Miscelánea Fiscal vigente.
+
+#### 10.4 Tratamiento fiscal (IVA)
+*   **Carnes frescas** (rojas y blancas en su estado natural: congeladas, enfriadas, cortadas o picadas): se facturan a **Tasa 0% de IVA**, conforme al Artículo 2A de la Ley del IVA.
+*   **Productos preparados o adobados** (con cocción, adobos industriales o listos para consumir), en caso de incorporarse al catálogo: se facturan a la tasa general del **16% de IVA**, desglosado por separado.
+*   **Servicio de envío:** el costo fijo de entrega a domicilio se factura como servicio logístico, sujeto a la tasa del **16% de IVA**.
+
+#### 10.5 Cancelaciones y facturas
+*   Si un pedido es cancelado conforme a la sección 7 y ya se había emitido la factura, el sistema emitirá un **CFDI de Egreso (Nota de Crédito)** que cancelará los efectos fiscales de la factura original.
+*   No se realizarán modificaciones manuales ni refacturaciones fuera de los flujos automáticos del sistema.
+
+#### 10.6 Protección de datos
+Los datos personales y fiscales proporcionados para el ticket y la facturación se tratarán conforme al Aviso de Privacidad.
+ 
