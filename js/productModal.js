@@ -1,14 +1,20 @@
+// Se captura aquí (fuera del listener async) porque document.currentScript
+// solo es válido durante la ejecución síncrona del script.
+const productModalScriptSrc = document.currentScript.src;
+
 document.addEventListener("DOMContentLoaded", () => {
 
     // =====================================================
     // ELEMENTOS PRINCIPALES
     // =====================================================
 
-    const productGrid = document.querySelector(
-        ".catalog-section .product-grid"
-    );
+    // Raíz del proyecto, calculada a partir de la ubicación real de este
+    // script (js/productModal.js) para que funcione igual desde index.html
+    // como desde pages/catalog.html.
+    const rutaBase = new URL("../", productModalScriptSrc);
+
     const modalElement = document.getElementById("productModal");
-    if (!productGrid || !modalElement) {
+    if (!modalElement) {
         return;
     }
 
@@ -53,7 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // CARGAR JSON
     // =====================================================
 
-    fetch("../data/productos.json")
+    fetch(new URL("data/productos.json", rutaBase))
 
         .then(response => {
             if (!response.ok) {
@@ -83,7 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // CLICK EN UNA CARD
     // =====================================================
 
-    productGrid.addEventListener("click", event => {
+    document.addEventListener("click", event => {
         if (event.target.closest(".product-card__add")) {
             return;
         }
@@ -258,7 +264,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         } else {
             modalImagen.src =
-                `../${rutaImagen}`;
+                new URL(rutaImagen, rutaBase).href;
 
         }
 
