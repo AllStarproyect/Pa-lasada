@@ -137,7 +137,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 : `Agregar ${nombre} al carrito`);
             if (producto.id) addBtn.dataset.id = producto.id;
             if (producto.sku) addBtn.dataset.sku = producto.sku;
-            addBtn.disabled = agotado;
+            addBtn.dataset.agotado = agotado ? 'true' : 'false';
+            addBtn.setAttribute('aria-disabled', agotado ? 'true' : 'false');
+            addBtn.classList.toggle('product-card__add--agotado', agotado);
         }
 
         return article;
