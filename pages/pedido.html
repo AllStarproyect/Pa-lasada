@@ -80,22 +80,71 @@
                 </section>
 
                 <section class="bg-white rounded-4 p-4 shadow-sm" aria-labelledby="direccion-titulo">
-                    <h2 class="fs-3 fw-bold mb-3" id="direccion-titulo">Dirección de envío</h2>
+                    <div class="d-flex justify-content-between align-items-center gap-3 mb-3 flex-wrap">
+                        <h2 class="fs-3 fw-bold mb-0" id="direccion-titulo">Dirección de envío</h2>
+                        <button id="btnNuevaDireccion" class="btn-agregar" type="button">+ Agregar nueva dirección</button>
+                    </div>
 
                     <div id="direccion-pedido">
-                        <p class="mb-0">Aún no has seleccionado una dirección de envío.</p>
+                        <select id="selDireccion" class="form-select fs-5 mb-2" aria-label="Dirección de envío"></select>
+                        <p id="dirDetalle" class="mb-0 fs-5 text-muted"></p>
+                        <p id="dirVacia" class="mb-0" hidden>Aún no tienes direcciones guardadas.</p>
                     </div>
+
+                    <form id="formDireccion" class="form-nuevo" hidden novalidate>
+                        <div class="row g-3">
+                            <div class="col-12 col-md-6"><label class="form-label" for="dNombre">Nombre (Casa, Oficina…)</label>
+                                <input id="dNombre" class="form-control" maxlength="50" autocomplete="off"></div>
+                            <div class="col-12 col-md-6"><label class="form-label" for="dCalle">Calle y número</label>
+                                <input id="dCalle" class="form-control" maxlength="150" autocomplete="street-address"></div>
+                            <div class="col-12 col-md-6"><label class="form-label" for="dColonia">Colonia</label>
+                                <input id="dColonia" class="form-control" maxlength="100"></div>
+                            <div class="col-12 col-md-6"><label class="form-label" for="dAlcaldia">Alcaldía</label>
+                                <input id="dAlcaldia" class="form-control" maxlength="100"></div>
+                            <div class="col-12 col-md-4"><label class="form-label" for="dCp">Código postal</label>
+                                <input id="dCp" class="form-control" inputmode="numeric" maxlength="5" autocomplete="postal-code"></div>
+                            <div class="col-12 col-md-8"><label class="form-label" for="dRef">Referencias (opcional)</label>
+                                <input id="dRef" class="form-control" maxlength="255"></div>
+                        </div>
+                        <p id="errDireccion" class="form-error" role="alert" hidden></p>
+                        <div class="form-nuevo__acciones">
+                            <button class="btn btn-primary" type="submit">Guardar y usar</button>
+                            <button class="btn btn-outline-secondary" type="button" data-cancelar="formDireccion">Cancelar</button>
+                        </div>
+                    </form>
                 </section>
             </div>
 
             <!-- COLUMNA DERECHA -->
             <div class="col-12 col-lg-6">
                 <section class="bg-white rounded-4 p-4 mb-4 shadow-sm" aria-labelledby="pago-titulo">
-                    <h2 class="fs-3 fw-bold mb-3" id="pago-titulo">Método de pago</h2>
+                    <div class="d-flex justify-content-between align-items-center gap-3 mb-3 flex-wrap">
+                        <h2 class="fs-3 fw-bold mb-0" id="pago-titulo">Método de pago</h2>
+                        <button id="btnNuevoPago" class="btn-agregar" type="button">+ Agregar nuevo método de pago</button>
+                    </div>
 
                     <div id="metodo-pago">
-                        <p class="mb-0">Aún no has seleccionado un método de pago.</p>
+                        <select id="selPago" class="form-select fs-5 mb-2" aria-label="Método de pago"></select>
+                        <p id="pagoDetalle" class="mb-0 fs-5 text-muted"></p>
+                        <p id="pagoVacio" class="mb-0" hidden>Aún no tienes métodos de pago guardados.</p>
                     </div>
+
+                    <form id="formPago" class="form-nuevo" hidden novalidate>
+                        <div class="row g-3">
+                            <div class="col-12"><label class="form-label" for="pTitular">Nombre del titular</label>
+                                <input id="pTitular" class="form-control" maxlength="80" autocomplete="cc-name"></div>
+                            <div class="col-12 col-md-8"><label class="form-label" for="pNumero">Número de tarjeta</label>
+                                <input id="pNumero" class="form-control" inputmode="numeric" maxlength="19" autocomplete="cc-number" placeholder="0000 0000 0000 0000"></div>
+                            <div class="col-12 col-md-4"><label class="form-label" for="pExpira">Vence (MM/AA)</label>
+                                <input id="pExpira" class="form-control" inputmode="numeric" maxlength="5" autocomplete="cc-exp" placeholder="MM/AA"></div>
+                        </div>
+                        <p class="form-nota">Solo guardamos la marca, los últimos 4 dígitos y el vencimiento. El CVV se pedirá al pagar.</p>
+                        <p id="errPago" class="form-error" role="alert" hidden></p>
+                        <div class="form-nuevo__acciones">
+                            <button class="btn btn-primary" type="submit">Guardar y usar</button>
+                            <button class="btn btn-outline-secondary" type="button" data-cancelar="formPago">Cancelar</button>
+                        </div>
+                    </form>
                 </section>
 
                 <section class="bg-white rounded-4 p-4 shadow-sm desglose-total" aria-labelledby="total-titulo">
@@ -128,6 +177,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../js/navbar.js"></script>
+    <script src="../js/perfil-storage.js"></script>
     <script src="../js/pedido.js"></script>
 </body>
 

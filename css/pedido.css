@@ -74,3 +74,21 @@
     border-radius: 8px;
     font-weight: 700;
 }
+
+/* ---------- Dirección / pago: selección y formularios nuevos ---------- */
+.btn-agregar {
+    padding: 8px 14px; border: .1rem solid var(--color-mustard); border-radius: 8px;
+    background: transparent; color: #8a6510; font-size: 1.3rem; font-weight: 600; cursor: pointer;
+    transition: background-color .2s, color .2s;
+}
+.btn-agregar:hover:not(:disabled) { background: var(--color-mustard); color: #fff; }
+.btn-agregar:disabled { opacity: .5; cursor: not-allowed; }
+
+.form-nuevo { margin-top: 1.6rem; padding-top: 1.6rem; border-top: 1px solid #e8dfce; }
+.form-nuevo .form-label { font-size: 1.2rem; margin-bottom: .3rem; }
+.form-nuevo .form-control { height: auto; padding: 8px 12px; font-size: 1.4rem; }
+.form-nuevo .form-control.is-invalid { border-color: #a64f31; }
+.form-nuevo__acciones { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.4rem; }
+.form-nuevo__acciones .btn { font-size: 1.4rem; padding: 8px 18px; }
+.form-error { margin: 1rem 0 0; color: #a64f31; font-size: 1.3rem; font-weight: 600; }
+.form-nota { margin: 1rem 0 0; color: #6b6f76; font-size: 1.2rem; }
