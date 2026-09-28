@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Realizar pedido | Pa' la Asada</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="icon" type="image/png" href="../assets/img/FAVICONCIRCULAR.png">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-custom">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html" aria-label="Ir al inicio">
+                <img src="../assets/img/logooscuroancho.png" alt="Logo de Pa' la Asada" class="logo">
+            </a>
+
+            <button
+                class="navbar-toggler border-0 ms-auto d-lg-none"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown"
+                aria-expanded="false"
+                aria-label="Abrir menú">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse nav-links" id="navbarNavDropdown">
+                <ul class="navbar-nav mx-auto gap-lg-4">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./catalog.html">Productos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./about-us.html">Acerca de</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./contact.html">Contacto</a>
+                    </li>
+                </ul>
+
+                <div class="nav-actions">
+                    <div id="userMenu"></div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container py-5 fs-4">
+        <header class="mb-4">
+            <h1 class="fw-bold">Realizar pedido</h1>
+            <p>Revisa los productos de tu carrito antes de continuar.</p>
+        </header>
+
+        <div class="row g-4">
+            <!-- COLUMNA IZQUIERDA -->
+            <div class="col-12 col-lg-6">
+                <section class="bg-white rounded-4 p-4 mb-4 shadow-sm" aria-labelledby="resumen-titulo">
+                    <div class="d-flex justify-content-between align-items-center gap-3 mb-3">
+                        <h2 class="fs-3 fw-bold mb-0" id="resumen-titulo">Resumen del pedido</h2>
+                        <a href="./catalog.html" class="fs-5">Modificar</a>
+                    </div>
+
+                    <!-- pedido.js agregará aquí una tarjeta por cada producto -->
+                    <div id="productos-pedido"></div>
+                </section>
+
+                <section class="bg-white rounded-4 p-4 shadow-sm" aria-labelledby="direccion-titulo">
+                    <h2 class="fs-3 fw-bold mb-3" id="direccion-titulo">Dirección de envío</h2>
+
+                    <div id="direccion-pedido">
+                        <p class="mb-0">Aún no has seleccionado una dirección de envío.</p>
+                    </div>
+                </section>
+            </div>
+
+            <!-- COLUMNA DERECHA -->
+            <div class="col-12 col-lg-6">
+                <section class="bg-white rounded-4 p-4 mb-4 shadow-sm" aria-labelledby="pago-titulo">
+                    <h2 class="fs-3 fw-bold mb-3" id="pago-titulo">Método de pago</h2>
+
+                    <div id="metodo-pago">
+                        <p class="mb-0">Aún no has seleccionado un método de pago.</p>
+                    </div>
+                </section>
+
+                <section class="bg-white rounded-4 p-4 shadow-sm" aria-labelledby="total-titulo">
+                    <h2 class="fs-3 fw-bold mb-4" id="total-titulo">Desglose del total</h2>
+
+                    <div class="d-flex justify-content-between mb-3">
+                        <span>Subtotal de productos</span>
+                        <span id="subtotal">$0.00</span>
+                    </div>
+
+                    <div class="d-flex justify-content-between mb-3">
+                        <span>Envío</span>
+                        <span>Por calcular</span>
+                    </div>
+
+                    <hr>
+
+                    <div class="d-flex justify-content-between fw-bold mb-4">
+                        <span>Total estimado de productos</span>
+                        <span id="total-pagar">$0.00</span>
+                    </div>
+
+                    <button class="btn btn-primary w-100 fs-4" type="button" disabled>
+                        Confirmar pedido
+                    </button>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/navbar.js"></script>
+    <script src="../js/pedido.js"></script>
+</body>
+
+</html>

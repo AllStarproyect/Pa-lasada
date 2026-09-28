@@ -1,0 +1,146 @@
+/* =========================================================
+   USER PROFILE
+   Reutiliza variables de global.css (--color-*, --font-*)
+   ========================================================= */
+
+:root {
+    --u-bg: #EEF1FA;
+    --u-card: #FFFFFF;
+    --u-soft: #EEF1FB;
+    --u-dark: #222422;
+    --u-accent: #B8322A;
+    --u-ok-bg: #DDF3E4;
+    --u-ok: #1E7A3C;
+    --u-muted: #6B6F76;
+    --u-radius: 1.4rem;
+    --u-shadow: 0 .4rem 1.6rem rgba(43, 43, 43, .07);
+}
+
+body { background: var(--u-bg); }
+
+.account { padding: 3rem 1.5rem 6rem; max-width: 118rem; }
+
+.account__title h1 { margin: 0; font-size: 2.6rem; font-weight: 700; }
+.account__title p { margin: .4rem 0 2rem; font-size: 1.3rem; color: var(--u-muted); }
+
+/* ---------- Banner oscuro ---------- */
+.hero-card {
+    display: grid;
+    grid-template-columns: auto 1fr auto auto;
+    align-items: center;
+    gap: 2.4rem;
+    padding: 2.4rem 3rem;
+    margin-bottom: 2.4rem;
+    color: #fff;
+    background: var(--u-dark);
+    border-radius: var(--u-radius);
+    box-shadow: var(--u-shadow);
+}
+.hero-card__avatar { width: 7.2rem; height: 7.2rem; border-radius: 50%; object-fit: cover; border: .3rem solid rgba(255,255,255,.25); }
+.hero-card__info h2 { margin: 0 1rem .6rem 0; display: inline; font-size: 2.2rem; }
+.hero-card__badge {
+    display: inline-block; padding: .3rem 1rem; border-radius: .5rem;
+    background: var(--u-accent); font-size: 1rem; font-weight: 700; letter-spacing: .06rem; text-transform: uppercase;
+}
+.hero-card__info p { margin: .6rem 0 0; font-size: 1.2rem; color: rgba(255,255,255,.6); }
+.hero-card__points { text-align: right; min-width: 22rem; }
+.hero-card__points span { display: block; font-size: 1.1rem; color: rgba(255,255,255,.6); }
+.hero-card__points strong { display: block; font-size: 3.4rem; line-height: 1.1; font-weight: 700; }
+.hero-card__points small { display: block; margin-top: .6rem; font-size: 1.1rem; color: #7FD69A; }
+.progress-track { height: .6rem; margin-top: .8rem; border-radius: 1rem; background: rgba(255,255,255,.18); overflow: hidden; }
+.progress-track__fill { height: 100%; width: 0; background: var(--color-mustard); border-radius: 1rem; transition: width .8s ease; }
+.hero-card__medal {
+    display: grid; place-items: center; width: 5.2rem; height: 5.2rem;
+    border-radius: 50%; background: var(--u-accent); font-size: 2.4rem;
+}
+
+/* ---------- Layout ---------- */
+.account__grid { display: grid; grid-template-columns: 1fr 1.35fr; gap: 2.4rem; align-items: start; }
+.account__col { display: flex; flex-direction: column; gap: 2.4rem; min-width: 0; }
+
+.panel { background: var(--u-card); border-radius: var(--u-radius); padding: 2.4rem; box-shadow: var(--u-shadow); }
+.panel__head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.8rem; }
+.panel__head h3 { margin: 0; font-size: 1.6rem; font-weight: 700; }
+
+.btn-soft {
+    padding: .6rem 1.4rem; border: 0; border-radius: .8rem;
+    background: var(--u-soft); color: var(--color-charcoal);
+    font-size: 1.2rem; font-weight: 600; cursor: pointer;
+    transition: background-color .2s, color .2s, transform .2s;
+}
+.btn-soft:hover { background: var(--color-mustard); color: #fff; transform: translateY(-1px); }
+.btn-soft.is-saving { background: var(--u-accent); color: #fff; }
+.link-accent { color: var(--u-accent); font-size: 1.2rem; font-weight: 600; text-decoration: none; }
+.link-accent:hover { text-decoration: underline; }
+.icon-plus { border: 0; background: none; color: var(--u-accent); font-size: 2rem; cursor: pointer; transition: transform .2s; }
+.icon-plus:hover { transform: rotate(90deg); }
+
+/* ---------- Información personal ---------- */
+.field { display: flex; gap: 1.2rem; align-items: flex-start; padding: .9rem 0; }
+.field > i { margin-top: 1.5rem; font-size: 1.6rem; color: var(--u-muted); }
+.field label { display: block; font-size: 1.1rem; color: var(--u-muted); }
+.field input {
+    width: 100%; padding: .4rem .8rem; margin-left: -.8rem;
+    border: .1rem solid transparent; border-radius: .8rem; background: transparent;
+    font: inherit; font-size: 1.4rem; font-weight: 600; color: var(--color-charcoal);
+}
+.field input:not([readonly]) { border-color: rgba(43,43,43,.25); background: var(--u-soft); }
+.field input:focus { outline: none; border-color: var(--color-mustard); box-shadow: 0 0 0 .25rem rgba(212,160,23,.25); }
+.field input.is-invalid { border-color: var(--u-accent); }
+.form-msg { margin: .8rem 0 0; font-size: 1.2rem; font-weight: 600; color: var(--u-ok); }
+.form-msg.is-error { color: var(--u-accent); }
+
+/* ---------- Pagos ---------- */
+.card-list, .order-list { list-style: none; margin: 0; padding: 0; }
+.card-list li {
+    display: flex; align-items: center; gap: 1.2rem; padding: 1.4rem 1.6rem; margin-bottom: 1rem;
+    background: var(--u-soft); border-radius: 1rem; font-size: 1.3rem;
+}
+.card-brand { padding: .3rem .8rem; border-radius: .4rem; background: #1F2A6B; color: #fff; font-size: 1rem; font-weight: 700; }
+.card-brand--mastercard { background: var(--u-dark); }
+.card-meta strong { display: block; letter-spacing: .1rem; }
+.card-meta small { color: var(--u-muted); font-size: 1.1rem; }
+.card-default { margin-left: auto; font-size: 1.1rem; color: var(--u-muted); }
+
+/* ---------- Pedidos ---------- */
+.order-list li { padding: 1.4rem 1.6rem; margin-bottom: 1rem; background: var(--u-soft); border-radius: 1rem; }
+.order-top { display: flex; align-items: center; gap: 1rem; font-size: 1.3rem; }
+.order-top strong { font-weight: 700; }
+.order-top time { color: var(--u-muted); font-size: 1.2rem; }
+.order-status { margin-left: auto; padding: .2rem .8rem; border-radius: .4rem; background: var(--u-ok-bg); color: var(--u-ok); font-size: 1rem; font-weight: 700; }
+.order-items { margin: .6rem 0; font-size: 1.2rem; color: var(--u-muted); }
+.order-total { display: flex; justify-content: space-between; font-size: 1.2rem; color: var(--u-muted); }
+.order-total strong { color: var(--u-accent); font-size: 1.5rem; }
+
+/* ---------- Favoritos ---------- */
+.picker { margin-bottom: 1.6rem; }
+.picker summary { cursor: pointer; font-size: 1.3rem; font-weight: 600; color: var(--u-accent); }
+.picker__list { display: grid; grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr)); gap: .6rem 1.4rem; padding: 1.2rem 0 0; }
+.picker__list label { display: flex; align-items: center; gap: .8rem; font-size: 1.3rem; cursor: pointer; }
+.picker__list input { accent-color: var(--u-accent); width: 1.6rem; height: 1.6rem; }
+
+.fav-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.4rem; }
+.fav-card { background: var(--u-soft); border-radius: 1.2rem; overflow: hidden; }
+.fav-card img { display: block; width: 100%; height: 12rem; object-fit: cover; background: #ddd; }
+.fav-card__body { padding: 1.2rem 1.4rem 1.4rem; }
+.fav-card__body h4 { margin: 0; font-size: 1.4rem; font-weight: 700; }
+.fav-card__price { color: var(--u-accent); font-size: 1.2rem; font-weight: 700; }
+.fav-card__body p { margin: .4rem 0 0; font-size: 1.1rem; line-height: 1.5; color: var(--u-muted); }
+.fav-empty { grid-column: 1 / -1; padding: 2rem; text-align: center; font-size: 1.3rem; color: var(--u-muted); }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 991px) {
+    .account__grid { grid-template-columns: 1fr; }
+    .hero-card { grid-template-columns: auto 1fr; }
+    .hero-card__points { grid-column: 1 / -1; text-align: left; }
+    .hero-card__medal { display: none; }
+}
+@media (max-width: 575px) {
+    .account { padding: 2rem 1.2rem 4rem; }
+    .hero-card { padding: 2rem; gap: 1.6rem; }
+    .fav-grid { grid-template-columns: 1fr; }
+    .panel { padding: 1.8rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; }
+}

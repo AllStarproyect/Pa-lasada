@@ -5,6 +5,7 @@
 (() => {
 
     const STORAGE_KEY = 'paLaAsadaCart';
+    const pedidoUrl = new URL('../pages/pedido.html', document.currentScript.src);
 
     // =====================================================
     // LEER CARRITO DESDE LOCALSTORAGE
@@ -666,9 +667,8 @@
                 return;
             }
 
-            showToast(
-                'El checkout se conectará en la siguiente etapa'
-            );
+            window.location.href = pedidoUrl.href;
+            return;
         }
 
     });

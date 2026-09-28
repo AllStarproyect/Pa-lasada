@@ -21,6 +21,12 @@ function getSignInPath(mode = "signin") {
     return `${basePath}?mode=${mode}`;
 }
 
+function getProfilePath() {
+    const isInsidePages = window.location.pathname.includes("/pages/");
+
+    return isInsidePages ? "./user.html" : "./pages/user.html";
+}
+
 function closeMobileMenu() {
     if (!navbarCollapse || window.innerWidth > 991 || typeof bootstrap === "undefined") {
         return;
@@ -54,7 +60,7 @@ function renderNavbar() {
                 </button>
 
                 <ul class="dropdown-menu dropdown-menu-end">
-                    <li><a class="dropdown-item" href="#">Mi perfil</a></li>
+                    <li><a class="dropdown-item" href="${getProfilePath()}">Mi perfil</a></li>
                     <li><a class="dropdown-item" href="#">Mis pedidos</a></li>
                     <li><hr class="dropdown-divider"></li>
                     <li>
