@@ -6,7 +6,24 @@ document.querySelectorAll(".featured-products__carousel").forEach((carousel) => 
     const originals = [...track.querySelectorAll(".product-card")];
     if (!track || !originals.length) return;
 
-    let cloneCount = 0, currentIndex = 0, scrollTimer, resizeTimer;
+    let cloneCount = 0, currentIndex = 0, targetPosition = 0, mainOffset = 0, mainPosition = null, scrollTimer, resizeTimer;
+
+    const jumpTo = (scrollLeft) => {
+        track.style.scrollBehavior = "auto";
+        track.scrollLeft = scrollLeft;
+        void track.offsetHeight;
+        track.style.scrollBehavior = "";
+    };
+
+    const withoutCardTransitions = (callback) => {
+        const cards = track.querySelectorAll(".product-card");
+        cards.forEach(card => { card.style.transition = "none"; });
+        callback();
+        void track.offsetHeight;
+        requestAnimationFrame(() => {
+            cards.forEach(card => { card.style.transition = ""; });
+        });
+    };
 
     const getConfig = () => {
         const width = window.innerWidth;
@@ -40,20 +57,35 @@ document.querySelectorAll(".featured-products__carousel").forEach((carousel) => 
         after.forEach(card => track.appendChild(card));
     };
 
-    const updateVisualState = () => {
-        const config = getConfig();
+    const measureMainOffset = () => {
+        const step = getStep();
+        if (!step) return;
         const cards = [...track.querySelectorAll(".product-card")];
         const area = carousel.getBoundingClientRect();
         const center = area.left + area.width / 2;
 
-        cards.forEach(card => card.classList.remove("is-main"));
-
-        cards.map(card => {
+        const firstMain = Math.min(...cards.map((card, index) => {
             const rect = card.getBoundingClientRect();
-            return { card, distance: Math.abs(rect.left + rect.width / 2 - center) };
-        }).sort((a, b) => a.distance - b.distance).slice(0, config.main).forEach(item => {
-            item.card.classList.add("is-main");
-        });
+            return { index, distance: Math.abs(rect.left + rect.width / 2 - center) };
+        }).sort((a, b) => a.distance - b.distance).slice(0, getConfig().main).map(item => item.index));
+
+        mainOffset = firstMain - Math.round(track.scrollLeft / step);
+        mainPosition = null;
+    };
+
+    const updateVisualState = () => {
+        const step = getStep();
+        if (!step) return;
+        const position = Math.round(track.scrollLeft / step);
+
+        if (position !== mainPosition) {
+            mainPosition = position;
+            const first = position + mainOffset;
+            const last = first + getConfig().main;
+            track.querySelectorAll(".product-card").forEach((card, index) => {
+                card.classList.toggle("is-main", index >= first && index < last);
+            });
+        }
 
         if (dots.length) {
             const dotIndex = originals.length > 1
@@ -74,28 +106,37 @@ document.querySelectorAll(".featured-products__carousel").forEach((carousel) => 
         if (!step) return;
 
         let position = Math.round(track.scrollLeft / step);
+        let wrapped = false;
 
         if (position < cloneCount) {
-            track.scrollLeft += originals.length * step;
+            jumpTo(track.scrollLeft + originals.length * step);
             position += originals.length;
+            wrapped = true;
         }
 
         if (position >= cloneCount + originals.length) {
-            track.scrollLeft -= originals.length * step;
+            jumpTo(track.scrollLeft - originals.length * step);
             position -= originals.length;
+            wrapped = true;
         }
 
+        targetPosition = position;
         currentIndex = (position - cloneCount + originals.length) % originals.length;
-        updateVisualState();
+
+        if (wrapped) {
+            withoutCardTransitions(updateVisualState);
+        } else {
+            updateVisualState();
+        }
     };
 
     const goTo = (direction) => {
         const step = getStep();
         if (!step) return;
 
-        const position = Math.round(track.scrollLeft / step);
+        targetPosition += direction;
         track.scrollTo({
-            left: (position + direction) * step,
+            left: targetPosition * step,
             behavior: "smooth"
         });
     };
@@ -109,8 +150,10 @@ document.querySelectorAll(".featured-products__carousel").forEach((carousel) => 
         buildClones();
         requestAnimationFrame(() => {
             const step = getStep();
-            track.scrollLeft = step * cloneCount;
+            jumpTo(step * cloneCount);
+            targetPosition = cloneCount;
             currentIndex = 0;
+            measureMainOffset();
             updateVisualState();
         });
     };
@@ -123,8 +166,9 @@ document.querySelectorAll(".featured-products__carousel").forEach((carousel) => 
             const target = originals.length > 1
                 ? Math.round(index * (originals.length - 1) / (dots.length - 1))
                 : 0;
+            targetPosition = cloneCount + target;
             track.scrollTo({
-                left: (cloneCount + target) * getStep(),
+                left: targetPosition * getStep(),
                 behavior: "smooth"
             });
         });
