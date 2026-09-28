@@ -14,28 +14,33 @@ const formatoMoneda = new Intl.NumberFormat("es-MX", {
     currency: "MXN"
 });
 
-carrito.forEach((producto) => {  // recorre el arreglo carrito, Por cada producto del carrito se crea una tarjeta con sus datos 
-    //crea tres elementos HTML: un artículo, un encabezado y un párrafo. Luego, se asigna el nombre del producto al encabezado y la cantidad al párrafo. Finalmente, se agregan estos elementos al contenedor en el documento HTML.
-   
+carrito.forEach((producto) => {
     const totalProducto = producto.price * producto.quantity;
     subtotal += totalProducto;
-    
+
     const tarjeta = document.createElement("article");
     tarjeta.classList.add("tarjeta-pedido");
-    const nombre = document.createElement("h3");
-    const cantidad = document.createElement("p");
-    const imagen = document.createElement("img");
-    const precio = document.createElement("p");
 
-    nombre.textContent = producto.name;  
-    cantidad.textContent = `Cantidad: ${producto.quantity}`;
+    const imagen = document.createElement("img");
     imagen.src = producto.image;
     imagen.alt = producto.name;
-    imagen.width = 90;
 
-    precio.textContent =
-    `${producto.priceText} c/u · Total: ${formatoMoneda.format(totalProducto)}`;
-    tarjeta.append(imagen, nombre, cantidad, precio);
+    const informacion = document.createElement("div");
+    informacion.classList.add("tarjeta-pedido__info");
+
+    const nombre = document.createElement("h3");
+    nombre.textContent = producto.name;
+
+    const detalle = document.createElement("p");
+    detalle.textContent =
+        `Cantidad: ${producto.quantity} · ${producto.priceText} c/u`;
+
+    const precioTotal = document.createElement("span");
+    precioTotal.classList.add("tarjeta-pedido__precio");
+    precioTotal.textContent = formatoMoneda.format(totalProducto);
+
+    informacion.append(nombre, detalle);
+    tarjeta.append(imagen, informacion, precioTotal);
     contenedor.append(tarjeta);
 });
 

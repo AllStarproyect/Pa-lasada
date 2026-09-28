@@ -1,41 +1,58 @@
 .tarjeta-pedido {
     display: grid;
-    grid-template-columns: 90px minmax(0, 1fr);
-    column-gap: 1.5rem;
-    row-gap: 0.5rem;
+    grid-template-columns: 64px minmax(0, 1fr) auto;
     align-items: center;
+    gap: 1.2rem;
 
-    padding: 1.5rem;
+    min-height: 84px;
+    padding: 1rem 1.2rem;
     margin-bottom: 1.2rem;
-    background-color: #eee6d7;
-    border-radius: 12px;
+
+    background-color: #b9ae98;
+    border-radius: 10px;
 }
 
 .tarjeta-pedido img {
-    grid-column: 1;
-    grid-row: 1 / span 3;
-    width: 90px;
-    height: 90px;
+    width: 64px;
+    height: 64px;
     object-fit: contain;
+    background-color: #e9e1d2;
     border-radius: 8px;
 }
 
-.tarjeta-pedido h3 {
-    grid-column: 2;
-    margin: 0;
-    font-size: 1.6rem;
+.tarjeta-pedido__info {
+    min-width: 0;
+}
+
+.tarjeta-pedido__info h3 {
+    margin: 0 0 0.4rem;
+    font-size: 1.5rem;
     font-weight: 700;
 }
 
-.tarjeta-pedido p {
-    grid-column: 2;
+.tarjeta-pedido__info p {
     margin: 0;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
+    color: #514b42;
 }
 
-.tarjeta-pedido p:last-child {
+.tarjeta-pedido__precio {
+    align-self: start;
+    color: #aa5035;
+    font-size: 1.5rem;
     font-weight: 700;
-    color: #8b4a2e;
+    white-space: nowrap;
+}
+
+@media (max-width: 575px) {
+    .tarjeta-pedido {
+        grid-template-columns: 64px minmax(0, 1fr);
+    }
+
+    .tarjeta-pedido__precio {
+        grid-column: 2;
+        justify-self: start;
+    }
 }
 
 .desglose-total {
