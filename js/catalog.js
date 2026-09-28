@@ -167,6 +167,27 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // =====================================================
+    // SECCIÓN: BARRA DE BÚSQUEDA
+    // Filtra en vivo al escribir, con Enter o con el botón "Buscar".
+    // =====================================================
+
+    const searchInput = document.querySelector('.search-box__input');
+    const searchButton = document.querySelector('.search-box__button');
+
+    if (searchInput) {
+        searchInput.addEventListener('input', aplicarFiltroActivo);
+        searchInput.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+                aplicarFiltroActivo();
+            }
+        });
+    }
+    if (searchButton) {
+        searchButton.addEventListener('click', aplicarFiltroActivo);
+    }
+
     /**
      * Aplica el filtro correspondiente al botón .category-button--active
      * actual (o muestra todo si no hay ninguno activo). Se llama otra vez
@@ -184,11 +205,15 @@ document.addEventListener('DOMContentLoaded', () => {
      */
     function aplicarFiltro(textoBoton) {
         const filtro = normalizarTexto(textoBoton);
+        const busqueda = normalizarTexto(searchInput?.value);
+        const palabras = busqueda.split(/\s+/).filter((palabra) => palabra && !PALABRAS_VACIAS.has(palabra));
         const cards = productGrid.querySelectorAll('.product-card');
         let visibles = 0;
 
         cards.forEach((card) => {
-            const coincide = !filtro || (card.dataset.search || '').includes(filtro);
+            const texto = card.dataset.search || '';
+            const coincide = (!filtro || texto.includes(filtro))
+                && palabras.every((palabra) => texto.includes(palabra));
             card.style.display = coincide ? '' : 'none';
             if (coincide) visibles += 1;
         });
@@ -212,6 +237,13 @@ document.addEventListener('DOMContentLoaded', () => {
             .toLowerCase()
             .trim();
     }
+
+    // Palabras sin valor para la b\u00fasqueda (ej. "corte de res" -> "corte res"),
+    // para que una frase natural no falle por incluir un art\u00edculo o preposici\u00f3n.
+    const PALABRAS_VACIAS = new Set([
+        'de', 'del', 'la', 'las', 'el', 'los', 'un', 'una', 'unos', 'unas',
+        'para', 'con', 'sin', 'y', 'o', 'en', 'a', 'al', 'que',
+    ]);
 });
  
 
