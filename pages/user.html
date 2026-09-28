@@ -94,6 +94,20 @@
                     </div>
                     <form id="profileForm" novalidate>
                         <div class="field">
+                            <i class="bi bi-person" aria-hidden="true"></i>
+                            <div>
+                                <label for="fName">Nombre completo</label>
+                                <input id="fName" type="text" autocomplete="name" readonly>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <i class="bi bi-at" aria-hidden="true"></i>
+                            <div>
+                                <label for="fUsername">Nombre de usuario</label>
+                                <input id="fUsername" type="text" autocomplete="username" readonly>
+                            </div>
+                        </div>
+                        <div class="field">
                             <i class="bi bi-envelope" aria-hidden="true"></i>
                             <div>
                                 <label for="fEmail">Correo electrónico</label>
@@ -116,6 +130,34 @@
                         </div>
                         <p id="profileMsg" class="form-msg" role="status" hidden></p>
                     </form>
+
+                    <div class="pwd">
+                        <button id="btnPwdToggle" class="btn-soft" type="button" aria-expanded="false"
+                            aria-controls="pwdForm">
+                            <i class="bi bi-key" aria-hidden="true"></i> Cambiar contraseña
+                        </button>
+                        <form id="pwdForm" hidden novalidate>
+                            <div class="field">
+                                <i class="bi bi-lock" aria-hidden="true"></i>
+                                <div>
+                                    <label for="fPwdCurrent">Contraseña actual</label>
+                                    <input id="fPwdCurrent" type="password" autocomplete="current-password">
+                                </div>
+                            </div>
+                            <div class="field">
+                                <i class="bi bi-lock-fill" aria-hidden="true"></i>
+                                <div>
+                                    <label for="fPwdNew">Nueva contraseña</label>
+                                    <input id="fPwdNew" type="password" autocomplete="new-password">
+                                </div>
+                            </div>
+                            <div class="pwd__actions">
+                                <button class="btn-soft is-saving" type="submit">Actualizar contraseña</button>
+                                <button id="btnPwdCancel" class="btn-soft" type="button">Cancelar</button>
+                            </div>
+                            <p id="pwdMsg" class="form-msg" role="status" hidden></p>
+                        </form>
+                    </div>
                 </section>
 
                 <section class="panel">

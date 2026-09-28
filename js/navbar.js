@@ -79,6 +79,12 @@ function renderNavbar() {
             localStorage.removeItem("username");
             localStorage.removeItem("password");
 
+            // Si está en el perfil (ruta protegida), sale directo al login
+            if (window.location.pathname.includes("user.html")) {
+                window.location.href = getSignInPath("signin");
+                return;
+            }
+
             renderNavbar();
             closeMobileMenu();
         });

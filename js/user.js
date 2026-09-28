@@ -76,6 +76,8 @@ function renderBanner() {
 }
 
 function renderInfo() {
+    $("fName").value = user.nombreCompleto || "";
+    $("fUsername").value = user.username || "";
     $("fEmail").value = user.email || "";
     $("fPhone").value = user.telefono || "";
     $("fAddress").value = perfil.direccion || "";
@@ -175,7 +177,7 @@ $("favPicker").addEventListener("change", () => {
 });
 
 /* ---------- 5. Edición in-situ ---------- */
-const fields = ["fEmail", "fPhone", "fAddress"].map($);
+const fields = ["fName", "fUsername", "fEmail", "fPhone", "fAddress"].map($);
 const btnEdit = $("btnEdit");
 const msg = $("profileMsg");
 let editing = false;
@@ -188,6 +190,15 @@ function showMsg(text, isError = false) {
 
 function validate() {
     fields.forEach((f) => f.classList.remove("is-invalid"));
+    // Mismas reglas que sign-in.js
+    if (!/^[A-Za-zÁÉÍÓÚÜÑáéíóúüñ'’-]+(?:\s+[A-Za-zÁÉÍÓÚÜÑáéíóúüñ'’-]+)+$/.test($("fName").value.trim())) {
+        $("fName").classList.add("is-invalid");
+        return "Nombre inválido. Escribe nombre y apellido usando letras.";
+    }
+    if (!/^[A-Za-z0-9._-]{3,}$/.test($("fUsername").value.trim())) {
+        $("fUsername").classList.add("is-invalid");
+        return "Usuario inválido. Usa al menos 3 caracteres, sin espacios.";
+    }
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test($("fEmail").value.trim())) {
         $("fEmail").classList.add("is-invalid");
         return "Correo inválido. Usa un formato como usuario@dominio.com.";
@@ -210,19 +221,23 @@ btnEdit.addEventListener("click", () => {
         btnEdit.textContent = "Guardar cambios";
         btnEdit.classList.add("is-saving");
         showMsg("");
-        $("fEmail").focus();
+        $("fName").focus();
         return;
     }
 
     const error = validate();
     if (error) { showMsg(error, true); return; }
 
+    user.nombreCompleto = $("fName").value.trim();
+    user.username = $("fUsername").value.trim();
     user.email = $("fEmail").value.trim();
     user.telefono = $("fPhone").value.trim();
     perfil.direccion = $("fAddress").value.trim();
     localStorage.setItem(KEY_USER, JSON.stringify(user));
     localStorage.setItem("email", user.email); // sign-in.js también lo guarda aparte
+    localStorage.setItem("username", user.username);
     savePerfil();
+    renderBanner(); // actualiza el nombre del banner superior
 
     editing = false;
     fields.forEach((f) => (f.readOnly = true));
@@ -234,6 +249,55 @@ btnEdit.addEventListener("click", () => {
 
 $("fPhone").addEventListener("input", (e) => {
     e.target.value = e.target.value.replace(/\D/g, "").slice(0, 10);
+});
+
+/* ---------- 6. Cambio de contraseña ---------- */
+const pwdForm = $("pwdForm");
+const pwdMsg = $("pwdMsg");
+const btnPwdToggle = $("btnPwdToggle");
+
+function showPwdMsg(text, isError = false) {
+    pwdMsg.hidden = !text;
+    pwdMsg.textContent = text;
+    pwdMsg.classList.toggle("is-error", isError);
+}
+
+function togglePwdForm(open) {
+    pwdForm.hidden = !open;
+    btnPwdToggle.setAttribute("aria-expanded", String(open));
+    pwdForm.reset();
+    showPwdMsg("");
+    if (open) $("fPwdCurrent").focus();
+}
+
+btnPwdToggle.addEventListener("click", () => togglePwdForm(pwdForm.hidden));
+$("btnPwdCancel").addEventListener("click", () => togglePwdForm(false));
+
+pwdForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const current = $("fPwdCurrent").value;
+    const next = $("fPwdNew").value;
+    [$("fPwdCurrent"), $("fPwdNew")].forEach((f) => f.classList.remove("is-invalid"));
+
+    // sign-in.js guarda y compara la contraseña en user.contrasena
+    if (current !== user.contrasena) {
+        $("fPwdCurrent").classList.add("is-invalid");
+        return showPwdMsg("La contraseña actual es incorrecta.", true);
+    }
+    if (next.length < 6) {
+        $("fPwdNew").classList.add("is-invalid");
+        return showPwdMsg("La nueva contraseña debe tener al menos 6 caracteres.", true);
+    }
+    if (next === current) {
+        $("fPwdNew").classList.add("is-invalid");
+        return showPwdMsg("La nueva contraseña debe ser distinta a la actual.", true);
+    }
+
+    user.contrasena = next;
+    localStorage.setItem(KEY_USER, JSON.stringify(user));
+    pwdForm.reset();
+    showPwdMsg("Contraseña actualizada.");
+    setTimeout(() => togglePwdForm(false), 1800);
 });
 
 /* Agregar tarjeta: pendiente de la pasarela de pago */

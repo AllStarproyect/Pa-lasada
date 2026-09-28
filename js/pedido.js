@@ -2,18 +2,6 @@
 
 const carrito = JSON.parse(localStorage.getItem('paLaAsadaCart') || '[]');
 
-const subtotal = carrito.reduce(
-  (suma, producto) => suma + producto.price * producto.quantity,
-  0
-);
-
-const formatoMoneda = new Intl.NumberFormat('es-MX', {
-  style: 'currency',
-  currency: 'MXN'
-});
-
-document.querySelector('#subtotal').textContent = formatoMoneda.format(subtotal);
-document.querySelector('#total-pagar').textContent = formatoMoneda.format(subtotal);
 
 console.log(carrito);
 
@@ -33,6 +21,7 @@ carrito.forEach((producto) => {  // recorre el arreglo carrito, Por cada product
     subtotal += totalProducto;
     
     const tarjeta = document.createElement("article");
+    tarjeta.classList.add("tarjeta-pedido");
     const nombre = document.createElement("h3");
     const cantidad = document.createElement("p");
     const imagen = document.createElement("img");
