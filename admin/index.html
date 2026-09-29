@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar producto | Pa' la Asada</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/add-product.css">
+    <link rel="stylesheet" href="../css/cards.css">
+
+    <!--FAVICON-->
+    <link rel="icon" type="image/png" href="../assets/img/FAVICONCIRCULAR.png">
+</head>
+
+<body>
+
+    <!-- =====================================================
+         NAVBAR
+         ===================================================== -->
+
+    <nav class="navbar navbar-expand-lg navbar-custom">
+
+        <div class="container">
+            <!-- Logo -->
+            <a class="navbar-brand" href="../index.html" aria-label="Ir al inicio">
+                <img src="../assets/img/logooscuroancho.png" alt="Logo de Pa' la Asada" class="logo">
+            </a>
+            <!-- Mobile actions -->
+
+            <div class="d-flex align-items-center ms-auto d-lg-none">
+                <!-- Carrito -->
+                <button class="btn icon-btn position-relative" type="button" aria-label="Ver carrito">
+                    <i class="bi bi-cart3"></i>
+
+                    <span class="cart-badge">
+                        0
+                    </span>
+
+                </button>
+
+                <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                    aria-label="Abrir menú">
+
+                    <span class="navbar-toggler-icon"></span>
+
+                </button>
+
+            </div>
+
+            <!-- Navegación -->
+            <div class="collapse navbar-collapse nav-links" id="navbarNavDropdown">
+                <ul class="navbar-nav mx-auto gap-lg-4">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">
+                            Inicio
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link active" href="../pages/catalog.html">
+                            Productos
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="../pages/about-us.html">
+                            Acerca de
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="../pages/contact.html">
+                            Contacto
+                        </a>
+                    </li>
+
+                </ul>
+
+                <!-- Desktop actions -->
+
+                <div class="nav-actions">
+                    <!-- Carrito -->
+                    <button class="btn icon-btn position-relative d-none d-lg-block" type="button"
+                        aria-label="Ver carrito">
+
+                        <i class="bi bi-cart3"></i>
+
+                        <span class="cart-badge">
+                            0
+                        </span>
+
+                    </button>
+
+                    <!-- Login / profile is rendered by navbar.js -->
+
+                    <div id="userMenu"></div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+
+    <!-- =====================================================
+         CATALOG CONTENT
+         ===================================================== -->
+
+    <main>
+        <section class="add-product">
+            <div class="container">
+
+                <div class="add-product__header">
+                    <span class="add-product__eyebrow">PANEL DE ADMINISTRACIÓN</span>
+                    <h1 class="add-product__title">Agregar producto</h1>
+                </div>
+
+                <div class="add-product__layout">
+
+                    <!-- FORMULARIO -->
+                    <form id="formProducto" class="add-form" novalidate>
+
+                        <div id="alertaProducto" class="alert d-none" role="alert"></div>
+
+                        <div class="add-form__row">
+                            <div class="add-form__field add-form__field--grow">
+                                <label for="nombre">Nombre</label>
+                                <input type="text" id="nombre" placeholder="Sirloin 500 g" required>
+                            </div>
+                            <div class="add-form__field">
+                                <label for="precio">Precio (MXN)</label>
+                                <input type="number" id="precio" min="0" step="0.01" placeholder="0.00" required>
+                            </div>
+                        </div>
+
+                        <div class="add-form__row">
+                            <div class="add-form__field">
+                                <label for="pesaje">Pesaje (kg)</label>
+                                <input type="number" id="pesaje" min="0" step="0.01" placeholder="0.00">
+                            </div>
+                            <div class="add-form__field">
+                                <label for="inventario">Cantidad (piezas)</label>
+                                <input type="number" id="inventario" min="0" step="1" value="0" required>
+                            </div>
+                        </div>
+
+                        <div class="add-form__field">
+                            <label for="descripcion">Descripción</label>
+                            <textarea id="descripcion" rows="4" maxlength="140"
+                                placeholder="Origen, descripción y notas." required></textarea>
+                            <small class="add-form__counter"><span id="contadorDescripcion">0</span> / 140</small>
+                        </div>
+
+                        <div class="add-form__field">
+                            <label for="imagenArchivo">Imagen</label>
+                            <input type="file" id="imagenArchivo" accept="image/png,image/jpeg,image/gif">
+                            <input type="hidden" id="imagen" value="">
+                        </div>
+
+                        <fieldset class="add-form__box">
+                            <div class="add-form__field">
+                                <label for="tag">Tag</label>
+                                <select id="tag">
+                                    <option value="">Sin tag</option>
+                                    <option>Premium</option>
+                                    <option>Nuevo</option>
+                                    <option>Descuento</option>
+                                    <option>Nacional</option>
+                                    <option>Internacional</option>
+                                    <option>Más vendido</option>
+                                    <option>Hot sale</option>
+                                    <option>Por temporada</option>
+                                </select>
+                            </div>
+
+                            <div class="add-form__field">
+                                <span class="add-form__label">Categoría</span>
+                                <div class="add-form__checks">
+                                    <label><input type="checkbox" name="categoria" value="Ribeye"> Ribeye</label>
+                                    <label><input type="checkbox" name="categoria" value="New York"> New York</label>
+                                    <label><input type="checkbox" name="categoria" value="Picaña"> Picaña</label>
+                                    <label><input type="checkbox" name="categoria" value="Arrachera"> Arrachera</label>
+                                    <label><input type="checkbox" name="categoria" value="Res"> Res</label>
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <div class="add-form__actions">
+                            <button type="submit" class="add-form__btn add-form__btn--primary">Enviar</button>
+                            <a href="../pages/catalog.html" class="add-form__btn add-form__btn--ghost">Regresar</a>
+                        </div>
+
+                        <pre id="jsonPreview" class="add-form__json"></pre>
+                    </form>
+
+                    <!-- VISTA PREVIA -->
+                    <aside class="add-preview catalog-section" aria-label="Vista previa del producto">
+                        <span class="add-preview__label">Vista previa</span>
+                        <article class="product-card">
+                            <div class="product-card__image">
+                                <img id="previewImagen" src="../assets/img/catalogo/placeholder.png"
+                                    alt="Vista previa de la imagen">
+                                <span class="product-card__badge" id="previewTag" hidden></span>
+                            </div>
+                            <div class="product-card__content">
+                                <span class="product-card__category" id="previewCategoria">CATEGORÍA</span>
+                                <h3 class="product-card__title" id="previewNombre">Título del producto</h3>
+                                <span class="product-card__weight" id="previewPeso"></span>
+                                <div class="product-card__footer">
+                                    <span class="product-card__price" id="previewPrecio">$0</span>
+                                    <span class="product-card__add" aria-hidden="true">+</span>
+                                </div>
+                            </div>
+                        </article>
+                    </aside>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- =====================================================
+         FOOTER
+         ===================================================== -->
+
+    <footer class="footer">
+
+        <div class="footerCont">
+
+            <div class="redesSociales flexCont">
+
+                <div class="seccion-izq">
+
+                    <h2>
+                        Pa' la Asada
+                    </h2>
+
+                    <h3>
+                        Redes sociales
+                    </h3>
+
+                    <div class="iconosCont">
+
+                        <a href="https://instagram.com" class="linkRedes" target="_blank" rel="noopener noreferrer">
+
+                            <img src="https://dreamfoundry.org/wp-content/uploads/2018/12/instagram-logo-png-transparent-background.png"
+                                alt="Instagram" class="imgRedes">
+
+                        </a>
+
+                        <a href="https://facebook.com" class="linkRedes" target="_blank" rel="noopener noreferrer">
+
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/1280px-Facebook_Logo_%282019%29.png"
+                                alt="Facebook" class="imgRedes">
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <div class="footerSection">
+
+                    <img src="../assets/img/LogoCuadrado.jpg" alt="Logo de Pa' la Asada" class="logoFooter">
+
+                </div>
+
+
+                <nav aria-label="Navegación del pie de página">
+
+                    <a class="enlaceB" href="../index.html">
+                        Inicio
+                    </a>
+
+                    <a class="enlaceB" href="../pages/about-us.html">
+                        Acerca de
+                    </a>
+
+                    <a class="enlaceB" href="../pages/catalog.html">
+                        Productos
+                    </a>
+
+                    <a class="enlaceB" href="../pages/contact.html">
+                        Contacto
+                    </a>
+
+                    <a class="enlaceB" href="../pages/aviso-privacidad.html">
+                        Aviso de privacidad
+                    </a>
+
+                    <a class="enlaceB" href="../pages/terminos.html">
+                        Términos y condiciones
+                    </a>
+
+                </nav>
+
+            </div>
+
+
+            <div class="footerBottom">
+
+                <p>
+                    &copy; Todos los derechos reservados.
+                </p>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- SCRIPTS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/navbar.js"></script>
+    <script src="../js/productCRUD.js"></script>
+</body>
+
+</html>
