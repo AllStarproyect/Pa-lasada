@@ -96,6 +96,12 @@ const signUpFields = `
         autocomplete="new-password"
     >
 
+    <label class="auth-legal">
+        <input type="checkbox" id="aceptaLegal">
+        <span>Acepto los <a href="./terminos.html" target="_blank" rel="noopener">Términos y condiciones</a>
+        y el <a href="./aviso-privacidad.html" target="_blank" rel="noopener">Aviso de privacidad</a></span>
+    </label>
+
     <button type="submit">Registrarse</button>
 `;
 
@@ -126,12 +132,11 @@ function mostrarAlerta(
             ${mensaje}
         </div>
 
-        ${
-            mostrarRegistro
-                ? `<button type="button" class="auth-toast-action" id="goToSignUp">
+        ${mostrarRegistro
+            ? `<button type="button" class="auth-toast-action" id="goToSignUp">
                        Registrarse
                    </button>`
-                : ""
+            : ""
         }
 
         <button
@@ -603,6 +608,14 @@ function procesarSignUp() {
             "<strong>Las contraseñas no coinciden.</strong> Revisa ambos campos."
         );
 
+        return;
+    }
+
+    const aceptaLegal = obtenerCampo("aceptaLegal");
+    if (!aceptaLegal?.checked) {
+        mostrarAlerta(
+            "<strong>Falta tu aceptación.</strong> Acepta los Términos y el Aviso de privacidad."
+        );
         return;
     }
 
