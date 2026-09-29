@@ -5,6 +5,7 @@
 (() => {
 
     const STORAGE_KEY = 'paLaAsadaCart';
+    const pedidoUrl = new URL('../pages/pedido.html', document.currentScript.src);
 
     // =====================================================
     // LEER CARRITO DESDE LOCALSTORAGE
@@ -597,6 +598,17 @@
 
         if (addButton) {
 
+            if (addButton.dataset.agotado === 'true') {
+
+                const nombre = addButton.closest('.product-card')
+                    ?.querySelector('.product-card__title, .product-card__name')
+                    ?.textContent.trim() || 'Este producto';
+
+                showToast(`${nombre} está agotado`);
+
+                return;
+            }
+
             const card = addButton.closest(
                 '.product-card'
             );
@@ -666,9 +678,8 @@
                 return;
             }
 
-            showToast(
-                'El checkout se conectará en la siguiente etapa'
-            );
+            window.location.href = pedidoUrl.href;
+            return;
         }
 
     });
