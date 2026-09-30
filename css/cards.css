@@ -164,6 +164,18 @@ main .catalog-section .product-card {
     color: #D4A017
 }
 
+.product-card__add--agotado {
+    background: #C9C4BB;
+    color: #6B6660;
+    cursor: not-allowed
+}
+
+.product-card__add--agotado:hover {
+    transform: none;
+    background: #C9C4BB;
+    color: #6B6660
+}
+
 /* =========================================================
    ARROWS
    ========================================================= */

@@ -60,6 +60,17 @@ main .catalog-section .catalog-section__link:hover {
     text-decoration: underline;
 }
 
+main .catalog-section .product-grid__empty {
+    max-width: 60rem;
+    margin: 0 auto 3rem;
+    padding: 2.4rem;
+    border: .1rem dashed rgba(255, 255, 255, .3);
+    border-radius: 1.2rem;
+    color: #fff;
+    text-align: center;
+    font-size: 1.6rem;
+}
+
 /* Grid de productos con flexbox */
 main .catalog-section .product-grid {
     /*display: flex;

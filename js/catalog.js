@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const inventario = producto.inventario ?? {};
         const precio = producto.precio ?? {};
         const imagenes = producto.imagenes ?? {};
-        const agotado = inventario.estado === 'agotado';
+        const agotado = inventario.estado === 'agotado' || Number(inventario.cantidad) <= 0;
 
         // Identificadores del producto en el propio article, útiles para
         // integrarlo después con el carrito (cart.js) sin tocar clases.
@@ -69,10 +69,16 @@ document.addEventListener('DOMContentLoaded', () => {
         // --- Imagen ---
         const img = article.querySelector('.product-card__image img');
         if (img) {
+            const rutaPlaceholder = '../assets/img/catalogo/placeholder.png';
             const rutaLocal = imagenes.local || 'assets/img/catalogo/placeholder.png';
             const esUrlAbsoluta = /^https?:\/\//i.test(rutaLocal);
             img.src = esUrlAbsoluta ? rutaLocal : `../${rutaLocal}`;
             img.alt = nombre;
+            // Si la ruta del JSON está rota o el archivo no existe,
+            // se cae en el placeholder en vez de mostrar el ícono roto.
+            img.addEventListener('error', () => {
+                img.src = rutaPlaceholder;
+            }, { once: true });
         }
 
         // --- Badge ---
@@ -131,7 +137,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 : `Agregar ${nombre} al carrito`);
             if (producto.id) addBtn.dataset.id = producto.id;
             if (producto.sku) addBtn.dataset.sku = producto.sku;
-            addBtn.disabled = agotado;
+            addBtn.dataset.agotado = agotado ? 'true' : 'false';
+            addBtn.setAttribute('aria-disabled', agotado ? 'true' : 'false');
+            addBtn.classList.toggle('product-card__add--agotado', agotado);
         }
 
         return article;
@@ -161,6 +169,27 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // =====================================================
+    // SECCIÓN: BARRA DE BÚSQUEDA
+    // Filtra en vivo al escribir, con Enter o con el botón "Buscar".
+    // =====================================================
+
+    const searchInput = document.querySelector('.search-box__input');
+    const searchButton = document.querySelector('.search-box__button');
+
+    if (searchInput) {
+        searchInput.addEventListener('input', aplicarFiltroActivo);
+        searchInput.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+                aplicarFiltroActivo();
+            }
+        });
+    }
+    if (searchButton) {
+        searchButton.addEventListener('click', aplicarFiltroActivo);
+    }
+
     /**
      * Aplica el filtro correspondiente al botón .category-button--active
      * actual (o muestra todo si no hay ninguno activo). Se llama otra vez
@@ -178,12 +207,23 @@ document.addEventListener('DOMContentLoaded', () => {
      */
     function aplicarFiltro(textoBoton) {
         const filtro = normalizarTexto(textoBoton);
+        const busqueda = normalizarTexto(searchInput?.value);
+        const palabras = busqueda.split(/\s+/).filter((palabra) => palabra && !PALABRAS_VACIAS.has(palabra));
         const cards = productGrid.querySelectorAll('.product-card');
+        let visibles = 0;
 
         cards.forEach((card) => {
-            const coincide = !filtro || (card.dataset.search || '').includes(filtro);
+            const texto = card.dataset.search || '';
+            const coincide = (!filtro || texto.includes(filtro))
+                && palabras.every((palabra) => texto.includes(palabra));
             card.style.display = coincide ? '' : 'none';
+            if (coincide) visibles += 1;
         });
+
+        const mensajeVacio = document.querySelector('.product-grid__empty');
+        if (mensajeVacio) {
+            mensajeVacio.hidden = visibles > 0;
+        }
     }
 
     /**
@@ -199,6 +239,13 @@ document.addEventListener('DOMContentLoaded', () => {
             .toLowerCase()
             .trim();
     }
+
+    // Palabras sin valor para la b\u00fasqueda (ej. "corte de res" -> "corte res"),
+    // para que una frase natural no falle por incluir un art\u00edculo o preposici\u00f3n.
+    const PALABRAS_VACIAS = new Set([
+        'de', 'del', 'la', 'las', 'el', 'los', 'un', 'una', 'unos', 'unas',
+        'para', 'con', 'sin', 'y', 'o', 'en', 'a', 'al', 'que',
+    ]);
 });
  
 
