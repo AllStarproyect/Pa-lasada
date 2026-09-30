@@ -8,6 +8,13 @@
     const pedidoUrl = new URL('../pages/pedido.html', document.currentScript.src);
 
     // =====================================================
+    // LÍMITE DE PESO DEL PEDIDO
+    // =====================================================
+
+    const MAX_WEIGHT_KG = 10;     // peso máximo permitido por pedido (inicio y catálogo)
+    const DEFAULT_WEIGHT_KG = 1;  // se usa si un producto no indica su peso
+
+    // =====================================================
     // LEER CARRITO DESDE LOCALSTORAGE
     // =====================================================
 
@@ -58,6 +65,32 @@
     };
 
     // =====================================================
+    // CONVERTIR PESO DE TEXTO A KILOS
+    // "350 g aprox." -> 0.35   |   "1 kg" -> 1   |   "1,5 kg" -> 1.5
+    // =====================================================
+
+    const parseWeightKg = (text) => {
+        const match = String(text || '')
+            .toLowerCase()
+            .replace(',', '.')
+            .match(/(\d+(?:\.\d+)?)\s*(kg|kilo|kilos|g|gr|grs|gramos)\b/);
+
+        if (!match) {
+            return null;
+        }
+
+        const value = Number(match[1]);
+        const unit = match[2];
+
+        return unit.startsWith('k') ? value : value / 1000;
+    };
+
+    // Kilos con máximo 2 decimales: 4.35 kg
+    const formatKg = (value) => {
+        return `${Number(value.toFixed(2))} kg`;
+    };
+
+    // =====================================================
     // CREAR ID A PARTIR DEL NOMBRE
     // =====================================================
 
@@ -88,6 +121,10 @@
             '.product-card__image img'
         );
 
+        const weightElement = card.querySelector(
+            '.product-card__weight'
+        );
+
         const name = nameElement?.textContent
             .replace(/\s+/g, ' ')
             .trim();
@@ -106,12 +143,17 @@
             return null;
         }
 
+        // Peso de una pieza (si la tarjeta no lo indica, se usa el valor por defecto)
+        const weightKg =
+            parseWeightKg(weightElement?.textContent) ?? DEFAULT_WEIGHT_KG;
+
         return {
             id: `${slugify(name)}-${price}`,
             name,
             price,
             priceText,
             image: imageElement?.src || '',
+            weightKg,
             quantity: 1
         };
     };
@@ -135,6 +177,37 @@
         return cart.reduce(
             (total, item) => total + (item.price * item.quantity),
             0
+        );
+    };
+
+    // =====================================================
+    // PESO DEL CARRITO
+    // =====================================================
+
+    // Peso de una pieza (carritos guardados antes de este cambio no traen weightKg)
+    const getItemWeight = (item) => {
+        return Number(item.weightKg) > 0 ? Number(item.weightKg) : DEFAULT_WEIGHT_KG;
+    };
+
+    const getTotalWeight = () => {
+        return cart.reduce(
+            (total, item) => total + (getItemWeight(item) * item.quantity),
+            0
+        );
+    };
+
+    // ¿Cabe este peso extra sin pasar del máximo? (el 0.0001 evita errores de decimales)
+    const fitsInLimit = (extraKg) => {
+        return getTotalWeight() + extraKg <= MAX_WEIGHT_KG + 0.0001;
+    };
+
+    const showWeightLimitMessage = () => {
+        const available = Math.max(0, MAX_WEIGHT_KG - getTotalWeight());
+
+        showToast(
+            `Tu pedido no puede superar ${MAX_WEIGHT_KG} kg. ` +
+            `Te quedan ${formatKg(available)} disponibles.`,
+            'error'
         );
     };
 
@@ -199,7 +272,7 @@
     // MENSAJE TEMPORAL
     // =====================================================
 
-    const showToast = (message) => {
+    const showToast = (message, type = 'info') => {
 
         const toast = document.querySelector('.cart-toast');
 
@@ -208,13 +281,14 @@
         }
 
         toast.textContent = message;
+        toast.classList.toggle('is-error', type === 'error');
         toast.classList.add('is-visible');
 
         clearTimeout(showToast.timer);
 
         showToast.timer = setTimeout(() => {
             toast.classList.remove('is-visible');
-        }, 1800);
+        }, type === 'error' ? 3200 : 1800);
     };
 
     // =====================================================
@@ -226,6 +300,12 @@
         const product = getProductFromCard(card);
 
         if (!product) {
+            return;
+        }
+
+        // Validar el límite de peso ANTES de agregar
+        if (!fitsInLimit(product.weightKg)) {
+            showWeightLimitMessage();
             return;
         }
 
@@ -261,6 +341,12 @@
         );
 
         if (!item) {
+            return;
+        }
+
+        // Solo se valida al AUMENTAR; disminuir siempre está permitido
+        if (delta > 0 && !fitsInLimit(getItemWeight(item) * delta)) {
+            showWeightLimitMessage();
             return;
         }
 
@@ -333,6 +419,10 @@
             '.cart-drawer__count'
         );
 
+        const weightElement = document.querySelector(
+            '.cart-drawer__weight'
+        );
+
         if (!body) {
             return;
         }
@@ -349,8 +439,45 @@
                 formatMoney(getTotal());
         }
 
+        // Indicador de peso: "4.35 kg de 10 kg"
+        const totalWeight = getTotalWeight();
+        const overLimit = totalWeight > MAX_WEIGHT_KG + 0.0001;
+
+        // Carrito "lleno": llegó al máximo o ya no cabe otra pieza de ningún producto
+        const isFull = cart.length > 0 && (
+            totalWeight >= MAX_WEIGHT_KG - 0.0001 ||
+            cart.every((item) => !fitsInLimit(getItemWeight(item)))
+        );
+
+        if (weightElement) {
+            const percent = Math.min(100, (totalWeight / MAX_WEIGHT_KG) * 100);
+
+            weightElement.hidden = cart.length === 0;
+            weightElement.classList.toggle('is-near', percent >= 80);        // ámbar desde 8 kg
+            weightElement.classList.toggle('is-full', isFull || overLimit);  // rojo al llegar al máximo
+
+            let note = '';
+
+            if (overLimit) {
+                note = `<small>Reduce tu pedido a ${MAX_WEIGHT_KG} kg o menos para continuar.</small>`;
+            } else if (isFull) {
+                note = `<small>Llegaste al máximo de ${MAX_WEIGHT_KG} kg por pedido.</small>`;
+            }
+
+            weightElement.innerHTML = `
+                <div class="cart-drawer__weight-row">
+                    <span>Peso del pedido</span>
+                    <span>${formatKg(totalWeight)} de ${MAX_WEIGHT_KG} kg</span>
+                </div>
+                <div class="cart-drawer__weight-bar">
+                    <span style="width:${percent}%"></span>
+                </div>
+                ${note}
+            `;
+        }
+
         if (checkoutButton) {
-            checkoutButton.disabled = cart.length === 0;
+            checkoutButton.disabled = cart.length === 0 || overLimit;
         }
 
         if (clearButton) {
@@ -406,6 +533,7 @@
 
                     <p class="cart-item__price">
                         ${escapeHtml(item.priceText)}
+                        · ${formatKg(getItemWeight(item))} c/u
                     </p>
 
                     <div
@@ -433,6 +561,7 @@
                             data-cart-action="increase"
                             data-cart-id="${escapeHtml(item.id)}"
                             aria-label="Aumentar cantidad"
+                            ${fitsInLimit(getItemWeight(item)) ? '' : `disabled title="Llegaste al límite de ${MAX_WEIGHT_KG} kg"`}
                         >
                             +
                         </button>
@@ -529,6 +658,8 @@
                 <div class="cart-drawer__body"></div>
 
                 <footer class="cart-drawer__footer">
+
+                    <div class="cart-drawer__weight" hidden></div>
 
                     <div class="cart-drawer__summary">
 
@@ -675,6 +806,12 @@
         ) {
 
             if (!cart.length) {
+                return;
+            }
+
+            // No permitir continuar si el pedido pasa del máximo
+            if (getTotalWeight() > MAX_WEIGHT_KG + 0.0001) {
+                showWeightLimitMessage();
                 return;
             }
 
