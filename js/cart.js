@@ -295,18 +295,30 @@
     // AGREGAR PRODUCTO
     // =====================================================
 
-    const addProduct = (card) => {
+    // Agrega "quantity" piezas de un producto validando el límite de peso.
+    // La usan el botón "+" de las tarjetas y el modal del catálogo.
+    const addToCart = (product, quantity = 1) => {
 
-        const product = getProductFromCard(card);
-
-        if (!product) {
-            return;
-        }
+        const qty = Math.max(1, Math.floor(Number(quantity) || 1));
+        const totalKg = product.weightKg * qty;
 
         // Validar el límite de peso ANTES de agregar
-        if (!fitsInLimit(product.weightKg)) {
-            showWeightLimitMessage();
-            return;
+        if (!fitsInLimit(totalKg)) {
+
+            const available = Math.max(0, MAX_WEIGHT_KG - getTotalWeight());
+            const piecesThatFit = Math.floor((available + 0.0001) / product.weightKg);
+
+            if (qty > 1 && piecesThatFit > 0) {
+                showToast(
+                    `Solo ${piecesThatFit === 1 ? 'cabe' : 'caben'} ${piecesThatFit} pieza${piecesThatFit === 1 ? '' : 's'} más ` +
+                    `de ${product.name} (máximo ${MAX_WEIGHT_KG} kg por pedido).`,
+                    'error'
+                );
+            } else {
+                showWeightLimitMessage();
+            }
+
+            return { ok: false, piecesThatFit };
         }
 
         const existing = cart.find(
@@ -315,19 +327,34 @@
 
         if (existing) {
 
-            existing.quantity += 1;
+            existing.quantity += qty;
 
         } else {
 
-            cart.push(product);
+            cart.push({ ...product, quantity: qty });
 
         }
 
         saveCart();
 
         showToast(
-            `${product.name} agregado al carrito`
+            qty > 1
+                ? `${qty} × ${product.name} agregados al carrito`
+                : `${product.name} agregado al carrito`
         );
+
+        return { ok: true, added: qty };
+    };
+
+    const addProduct = (card) => {
+
+        const product = getProductFromCard(card);
+
+        if (!product) {
+            return;
+        }
+
+        addToCart(product, 1);
     };
 
     // =====================================================
@@ -849,6 +876,51 @@
 
         renderCart();
     });
+
+    // =====================================================
+    // API PÚBLICA (la usa js/productModal.js)
+    // =====================================================
+
+    window.PaLaAsadaCart = {
+
+        MAX_WEIGHT_KG,
+
+        // Kilos que todavía caben en el pedido
+        getRemainingKg: () => Math.max(0, MAX_WEIGHT_KG - getTotalWeight()),
+
+        // "350 g aprox." -> 0.35 | "1 kg" -> 1 | sin peso -> 1 (valor por defecto)
+        parseWeightKg: (text) => parseWeightKg(text) ?? DEFAULT_WEIGHT_KG,
+
+        showToast,
+
+        /**
+         * Agrega un producto desde fuera del carrito (por ejemplo, el modal).
+         * data: { name, priceText, image, weightText }
+         * Usa el mismo id que el botón "+" de las tarjetas, así que ambos
+         * caminos suman sobre el mismo renglón del carrito.
+         */
+        addItem: (data, quantity = 1) => {
+
+            const name = String(data?.name || '').replace(/\s+/g, ' ').trim();
+            const priceText = String(data?.priceText || '').replace(/\s+/g, ' ').trim();
+            const price = parsePrice(priceText);
+
+            if (!name || !price) {
+                console.error('PaLaAsadaCart.addItem: faltan nombre o precio', data);
+                return { ok: false };
+            }
+
+            return addToCart({
+                id: `${slugify(name)}-${price}`,
+                name,
+                price,
+                priceText,
+                image: data.image || '',
+                weightKg: parseWeightKg(data.weightText) ?? DEFAULT_WEIGHT_KG,
+                quantity: 1
+            }, quantity);
+        }
+    };
 
     // =====================================================
     // INICIALIZAR
