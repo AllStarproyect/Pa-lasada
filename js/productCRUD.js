@@ -32,17 +32,28 @@ function mostrarAlerta(mensaje, tipo = "danger") {
     formAlert.classList.remove("d-none"); // por si el HTML la oculta con d-none
 }
 
-// Genera el siguiente id numérico disponible a partir del arreglo actual.
-// Se calcula al momento de guardar (no al cargar el script), para evitar
-// que el fetch asíncrono todavía no haya llenado "productos".
-function generarNuevoId() {
-    let nuevoId = 1;
-    for (let i = 0; i < productos.length; i++) {
-        if (productos[i].id >= nuevoId) {
-            nuevoId = productos[i].id + 1; //Genera automaticamente el ID del producto
-        }
+// Clave de localStorage donde se guardan los productos creados desde /admin.
+// catalog.js y productModal.js la leen para mostrarlos junto a productos.json.
+const CLAVE_PRODUCTOS_NUEVOS = "productosNuevos";
+
+function leerProductosNuevos() {
+    try {
+        return JSON.parse(localStorage.getItem(CLAVE_PRODUCTOS_NUEVOS)) || [];
+    } catch {
+        return [];
     }
-    return nuevoId;
+}
+
+// Genera un id de texto (igual que los de productos.json) a partir del sku,
+// agregando un sufijo numérico si ya existe.
+function generarNuevoId(sku) {
+    const base = sku.toLowerCase();
+    const usados = new Set([...productos, ...leerProductosNuevos()].map(p => String(p.id)));
+    let id = base;
+    for (let n = 2; usados.has(id); n++) {
+        id = `${base}-${n}`;
+    }
+    return id;
 }
 
 // Valida los campos obligatorios del formulario.
@@ -118,8 +129,12 @@ if (formProduct && inputArchivo) {
         }
         imagenPreviewUrl = URL.createObjectURL(archivo);
         preview.src = imagenPreviewUrl;
-        // Ruta donde debería guardarse el archivo dentro del proyecto
-        document.getElementById("imagen").value = `assets/img/catalogo/${archivo.name}`;
+        // Se guarda como data URL para que el catálogo pueda mostrarla
+        const lector = new FileReader();
+        lector.onload = () => {
+            document.getElementById("imagen").value = lector.result;
+        };
+        lector.readAsDataURL(archivo);
     });
 }
 
@@ -161,7 +176,7 @@ formProduct.addEventListener("submit", function (event) {
         .replaceAll(" ", "-");
 
     const nuevoProducto = {
-        id: generarNuevoId(),
+        id: generarNuevoId(sku),
         sku: sku, // antes faltaba a nivel raíz, aunque el modelo del JSON lo pide
         nombre: nombre,
         categoria: ["Carne", ...categorias],
@@ -194,9 +209,18 @@ formProduct.addEventListener("submit", function (event) {
     };
 
     productos.push(nuevoProducto); // CREATE
-    console.log(productos);
 
-    mostrarAlerta("Producto guardado correctamente.", "success");
+    try {
+        const guardados = leerProductosNuevos();
+        guardados.push(nuevoProducto);
+        localStorage.setItem(CLAVE_PRODUCTOS_NUEVOS, JSON.stringify(guardados));
+    } catch (error) {
+        mostrarAlerta("No se pudo guardar el producto (¿imagen demasiado grande?).", "danger");
+        productos.pop();
+        return;
+    }
+
+    mostrarAlerta("Producto guardado correctamente. Ya aparece en el catálogo.", "success");
 
     if (jsonPreview) {
         jsonPreview.textContent = JSON.stringify(nuevoProducto, null, 2);

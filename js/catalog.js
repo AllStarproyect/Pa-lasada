@@ -21,7 +21,10 @@ document.addEventListener('DOMContentLoaded', () => {
             return response.json();
         })
         .then((data) => {
-            const listaProductos = Array.isArray(data?.productos) ? data.productos : [];
+            const listaProductos = [
+                ...(Array.isArray(data?.productos) ? data.productos : []),
+                ...leerProductosNuevos(),
+            ];
             listaProductos.forEach((producto) => {
                 const card = crearProductCard(producto, template);
                 if (card) {
@@ -36,6 +39,16 @@ document.addEventListener('DOMContentLoaded', () => {
         .catch((error) => {
             console.error('Catálogo: error al cargar productos.json', error);
         });
+
+    // Productos creados desde /admin (guardados en localStorage)
+    function leerProductosNuevos() {
+        try {
+            const guardados = JSON.parse(localStorage.getItem('productosNuevos'));
+            return Array.isArray(guardados) ? guardados : [];
+        } catch {
+            return [];
+        }
+    }
 
     /**
      * Clona el <template> de .product-card y lo rellena con los datos
@@ -71,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (img) {
             const rutaPlaceholder = '../assets/img/catalogo/placeholder.png';
             const rutaLocal = imagenes.local || 'assets/img/catalogo/placeholder.png';
-            const esUrlAbsoluta = /^https?:\/\//i.test(rutaLocal);
+            const esUrlAbsoluta = /^(https?:\/\/|data:)/i.test(rutaLocal);
             img.src = esUrlAbsoluta ? rutaLocal : `../${rutaLocal}`;
             img.alt = nombre;
             // Si la ruta del JSON está rota o el archivo no existe,

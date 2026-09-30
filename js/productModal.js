@@ -73,7 +73,11 @@ document.addEventListener("DOMContentLoaded", () => {
         })
 
         .then(data => {
-            productos = data.productos;
+            let nuevos = [];
+            try {
+                nuevos = JSON.parse(localStorage.getItem("productosNuevos")) || [];
+            } catch { }
+            productos = [...data.productos, ...nuevos];
         })
 
         .catch(error => {
@@ -253,7 +257,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
         const imagenExterna =
-            /^https?:\/\//i.test(
+            /^(https?:\/\/|data:)/i.test(
                 rutaImagen
             );
 
