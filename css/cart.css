@@ -275,3 +275,63 @@ body.cart-is-open {
         padding-right: 1rem;
     }
 }
+
+/* =========================================================
+   LÍMITE DE PESO (10 kg)
+   ========================================================= */
+
+.cart-drawer__weight {
+    margin-bottom: .85rem;
+    font-size: .85rem;
+    color: #5f5850;
+}
+
+.cart-drawer__weight-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: .35rem;
+    font-weight: 600;
+}
+
+.cart-drawer__weight-bar {
+    height: 8px;
+    border-radius: 999px;
+    background: #efeae2;
+    overflow: hidden;
+}
+
+.cart-drawer__weight-bar span {
+    display: block;
+    height: 100%;
+    border-radius: inherit;
+    background: #3d6b3f;               /* verde: hay espacio */
+    transition: width .25s ease, background .25s ease;
+}
+
+.cart-drawer__weight.is-near .cart-drawer__weight-bar span {
+    background: #c98a1b;               /* ámbar: 80 % o más */
+}
+
+.cart-drawer__weight.is-full .cart-drawer__weight-bar span {
+    background: #b3261e;               /* rojo: llegó al máximo */
+}
+
+.cart-drawer__weight.is-full .cart-drawer__weight-row span:last-child {
+    color: #b3261e;
+}
+
+.cart-drawer__weight small {
+    display: block;
+    margin-top: .4rem;
+    color: #8b3026;
+    font-weight: 600;
+}
+
+.cart-item__quantity-btn:disabled {
+    opacity: .35;
+    cursor: not-allowed;
+}
+
+.cart-toast.is-error {
+    background: #8b3026;
+}

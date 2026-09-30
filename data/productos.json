@@ -50,13 +50,14 @@
         "nota": null
       },
       "inventario": {
-        "estado": "agotado",
-        "cantidad": 0,
+        "estado": "disponible",
+        "cantidad": 10,
         "sku": "ARRACHERA-NATURAL-IMPORTADA"
       },
       "tieneVariantes": true,
       "descripcion": "Arrachera Natural Importada\nRaza: Angus Black, Hereford.\nAlimentación: Grano y Pastizales\nMaduración: 21+ días en húmedo.\nDescripción: Corte central y hecho a mano.\nEmbalaje: envuelto individualmente y sellado al vacío.\nCondiciones: El producto se encuentra congelado para conservar el sabor y le será entregado congelado o parcialmente descongelado.",
       "infoAdicional": {
+        "Peso": "1 kg",
         "Lugar de orígen": "USA",
         "Nivel de Marmoleado": "Choice o Superior"
       },
@@ -82,8 +83,8 @@
         "nota": null
       },
       "inventario": {
-        "estado": "agotado",
-        "cantidad": 0,
+        "estado": "disponible",
+        "cantidad": 10,
         "sku": "ARRACHERA-NATURAL-NACIONAL"
       },
       "tieneVariantes": true,
@@ -116,13 +117,14 @@
         "nota": null
       },
       "inventario": {
-        "estado": "agotado",
-        "cantidad": 0,
+        "estado": "disponible",
+        "cantidad": 10,
         "sku": "ARRACHERA-TEXANA-IMPORTADA"
       },
       "tieneVariantes": true,
       "descripcion": "Arrachera Texana Importada\nRaza: Angus Black, Hereford.\nAlimentación: Grano y Pastizales\nMaduración: 21+ días en húmedo.\nDescripción: Corte central y hecho a mano.\nEmbalaje: envuelto individualmente y sellado al vacío.\nCondiciones: El producto se encuentra congelado para conservar el sabor y le será entregado congelado o parcialmente descongelado.",
       "infoAdicional": {
+        "Peso": "1 kg",
         "Lugar de orígen": "USA",
         "Nivel de Marmoleado": "Choice o Superior"
       },
@@ -149,8 +151,8 @@
         "nota": null
       },
       "inventario": {
-        "estado": "agotado",
-        "cantidad": 0,
+        "estado": "disponible",
+        "cantidad": 10,
         "sku": "BRISKET-CHOICE"
       },
       "tieneVariantes": true,
@@ -182,8 +184,8 @@
         "nota": null
       },
       "inventario": {
-        "estado": "agotado",
-        "cantidad": 0,
+        "estado": "disponible",
+        "cantidad": 10,
         "sku": "BRISKET-NACIONAL"
       },
       "tieneVariantes": true,
@@ -214,8 +216,8 @@
         "nota": null
       },
       "inventario": {
-        "estado": "agotado",
-        "cantidad": 0,
+        "estado": "disponible",
+        "cantidad": 10,
         "sku": "CABEZA-DE-LOMO-DE-PUERCO"
       },
       "tieneVariantes": true,
@@ -247,8 +249,8 @@
         "nota": null
       },
       "inventario": {
-        "estado": "agotado",
-        "cantidad": 0,
+        "estado": "disponible",
+        "cantidad": 10,
         "sku": "CABRERIA-NACIONAL"
       },
       "tieneVariantes": true,
@@ -279,13 +281,14 @@
         "nota": null
       },
       "inventario": {
-        "estado": "agotado",
-        "cantidad": 0,
+        "estado": "disponible",
+        "cantidad": 10,
         "sku": "CANA-DE-LOMO-DE-PUERCO"
       },
       "tieneVariantes": true,
       "descripcion": "Caña De Lomo De Puerco\nDescripción: Corte central y hecho a mano.\nEmbalaje: envuelto individualmente y sellado al vacío.\nCondiciones: El producto se encuentra congelado para conservar el sabor y le será entregado congelado o parcialmente descongelado.\nCasa Brassa\nSíguenos en Facebook",
       "infoAdicional": {
+        "Peso": "1 kg",
         "Lugar de orígen": "México",
         "Nivel de Marmoleado": "N/A"
       },
@@ -311,8 +314,8 @@
         "nota": null
       },
       "inventario": {
-        "estado": "agotado",
-        "cantidad": 0,
+        "estado": "disponible",
+        "cantidad": 10,
         "sku": "CECINA-DE-YECAPIXTLA"
       },
       "tieneVariantes": true,
@@ -344,8 +347,8 @@
         "nota": null
       },
       "inventario": {
-        "estado": "agotado",
-        "cantidad": 0,
+        "estado": "disponible",
+        "cantidad": 10,
         "sku": "COSTILLA-CARGADA-NACIONAL"
       },
       "tieneVariantes": true,
@@ -377,8 +380,8 @@
         "nota": null
       },
       "inventario": {
-        "estado": "agotado",
-        "cantidad": 0,
+        "estado": "disponible",
+        "cantidad": 10,
         "sku": "COSTILLA-DESCARNADA-NACIONAL"
       },
       "tieneVariantes": true,
@@ -410,8 +413,8 @@
         "nota": null
       },
       "inventario": {
-        "estado": "agotado",
-        "cantidad": 0,
+        "estado": "disponible",
+        "cantidad": 10,
         "sku": "COSTILLA-SIN-HUESO-NACIONAL"
       },
       "tieneVariantes": true,
@@ -442,8 +445,8 @@
         "nota": null
       },
       "inventario": {
-        "estado": "agotado",
-        "cantidad": 0,
+        "estado": "disponible",
+        "cantidad": 10,
         "sku": "COSTILLA-ST-LOUIS"
       },
       "tieneVariantes": true,
@@ -476,13 +479,14 @@
         "nota": null
       },
       "inventario": {
-        "estado": "agotado",
-        "cantidad": 0,
+        "estado": "disponible",
+        "cantidad": 10,
         "sku": "COWBOY-CHOICE"
       },
       "tieneVariantes": true,
       "descripcion": "Cowboy High Choice\nRaza: Angus Black, Hereford.\nAlimentación: Grano y Pastizales\nMaduración: 21+ días en húmedo.\nDescripción: Corte central y hecho a mano.\nEmbalaje: envuelto individualmente y sellado al vacío.\nCondiciones: El producto se encuentra congelado para conservar el sabor y le será entregado congelado o parcialmente descongelado.\nCasa Brassa\nSíguenos en Facebook",
       "infoAdicional": {
+        "Peso": "1 kg",
         "Lugar de orígen": "USA",
         "Nivel de Marmoleado": "Choice o Superior"
       },
@@ -508,8 +512,8 @@
         "nota": null
       },
       "inventario": {
-        "estado": "agotado",
-        "cantidad": 0,
+        "estado": "disponible",
+        "cantidad": 10,
         "sku": "COWBOY-IMPORTADO-ANEJO"
       },
       "tieneVariantes": true,
@@ -539,8 +543,8 @@
         "nota": null
       },
       "inventario": {
-        "estado": "agotado",
-        "cantidad": 0,
+        "estado": "disponible",
+        "cantidad": 10,
         "sku": "COWBOY-NACIONAL"
       },
       "tieneVariantes": true,
@@ -572,8 +576,8 @@
         "nota": null
       },
       "inventario": {
-        "estado": "agotado",
-        "cantidad": 0,
+        "estado": "disponible",
+        "cantidad": 10,
         "sku": "DIEZMILLO-S-HUESO-NACIONAL"
       },
       "tieneVariantes": true,
@@ -606,8 +610,8 @@
         "nota": null
       },
       "inventario": {
-        "estado": "agotado",
-        "cantidad": 0,
+        "estado": "disponible",
+        "cantidad": 10,
         "sku": "FILETE-CHOICE"
       },
       "tieneVariantes": true,
@@ -639,8 +643,8 @@
         "nota": null
       },
       "inventario": {
-        "estado": "agotado",
-        "cantidad": 0,
+        "estado": "disponible",
+        "cantidad": 10,
         "sku": "FILETE-NACIONAL"
       },
       "tieneVariantes": true,
@@ -672,8 +676,8 @@
         "nota": null
       },
       "inventario": {
-        "estado": "agotado",
-        "cantidad": 0,
+        "estado": "disponible",
+        "cantidad": 10,
         "sku": "HAMBURGUESA-DE-BRISKET-NACIONAL"
       },
       "tieneVariantes": true,
@@ -705,8 +709,8 @@
         "nota": null
       },
       "inventario": {
-        "estado": "agotado",
-        "cantidad": 0,
+        "estado": "disponible",
+        "cantidad": 10,
         "sku": "HAMBURGUESA-DE-LA-CASA"
       },
       "tieneVariantes": true,
@@ -738,8 +742,8 @@
         "nota": null
       },
       "inventario": {
-        "estado": "agotado",
-        "cantidad": 0,
+        "estado": "disponible",
+        "cantidad": 10,
         "sku": "HAMBURGUESA-DE-SHORT-RIB-NACIONAL"
       },
       "tieneVariantes": true,
@@ -771,8 +775,8 @@
         "nota": null
       },
       "inventario": {
-        "estado": "agotado",
-        "cantidad": 0,
+        "estado": "disponible",
+        "cantidad": 10,
         "sku": "HAMBURGUESA-DE-SIRLOIN-CON-TOCINO-NACIONAL"
       },
       "tieneVariantes": true,
@@ -804,8 +808,8 @@
         "nota": null
       },
       "inventario": {
-        "estado": "agotado",
-        "cantidad": 0,
+        "estado": "disponible",
+        "cantidad": 10,
         "sku": "HAMBURGUESA-CLASICA"
       },
       "tieneVariantes": true,
@@ -836,13 +840,14 @@
         "nota": null
       },
       "inventario": {
-        "estado": "agotado",
-        "cantidad": 0,
+        "estado": "disponible",
+        "cantidad": 10,
         "sku": "LECHON-TIERNO"
       },
       "tieneVariantes": true,
       "descripcion": "Lechón Tierno\nDescripción: Pieza entera con peso estimado entre 5 y 6Kg\nCondiciones: El producto se encuentra congelado para conservar el sabor y le será entregado congelado o parcialmente descongelado.\nCasa Brassa\nSíguenos en Facebook",
       "infoAdicional": {
+        "Peso": "6 kg",
         "Lugar de orígen": "México",
         "Nivel de Marmoleado": "N/A"
       },
@@ -868,8 +873,8 @@
         "nota": null
       },
       "inventario": {
-        "estado": "agotado",
-        "cantidad": 0,
+        "estado": "disponible",
+        "cantidad": 10,
         "sku": "MOLIDA-100-NACIONAL-CASA-BRASSA-MX"
       },
       "tieneVariantes": true,
@@ -901,8 +906,8 @@
         "nota": null
       },
       "inventario": {
-        "estado": "agotado",
-        "cantidad": 0,
+        "estado": "disponible",
+        "cantidad": 10,
         "sku": "MOLIDA-80-20-NACIONAL"
       },
       "tieneVariantes": true,
@@ -934,8 +939,8 @@
         "nota": null
       },
       "inventario": {
-        "estado": "agotado",
-        "cantidad": 0,
+        "estado": "disponible",
+        "cantidad": 10,
         "sku": "MOLIDA-90-10-NACIONAL"
       },
       "tieneVariantes": true,
@@ -967,8 +972,8 @@
         "nota": null
       },
       "inventario": {
-        "estado": "agotado",
-        "cantidad": 0,
+        "estado": "disponible",
+        "cantidad": 10,
         "sku": "MOLLEJA"
       },
       "tieneVariantes": true,
@@ -999,8 +1004,8 @@
         "nota": null
       },
       "inventario": {
-        "estado": "agotado",
-        "cantidad": 0,
+        "estado": "disponible",
+        "cantidad": 10,
         "sku": "MORCILLA-DE-CEBOLLA"
       },
       "tieneVariantes": true,
@@ -1033,8 +1038,8 @@
         "nota": null
       },
       "inventario": {
-        "estado": "agotado",
-        "cantidad": 0,
+        "estado": "disponible",
+        "cantidad": 10,
         "sku": "NEW-YORK-CHOICE"
       },
       "tieneVariantes": true,
@@ -1066,8 +1071,8 @@
         "nota": null
       },
       "inventario": {
-        "estado": "agotado",
-        "cantidad": 0,
+        "estado": "disponible",
+        "cantidad": 10,
         "sku": "NEW-YORK-NACIONAL"
       },
       "tieneVariantes": true,
@@ -1100,8 +1105,8 @@
         "nota": null
       },
       "inventario": {
-        "estado": "agotado",
-        "cantidad": 0,
+        "estado": "disponible",
+        "cantidad": 10,
         "sku": "NEW-YORK-PRIME"
       },
       "tieneVariantes": true,
@@ -1133,8 +1138,8 @@
         "nota": null
       },
       "inventario": {
-        "estado": "agotado",
-        "cantidad": 0,
+        "estado": "disponible",
+        "cantidad": 10,
         "sku": "PANCETA"
       },
       "tieneVariantes": true,
@@ -1167,13 +1172,14 @@
         "nota": null
       },
       "inventario": {
-        "estado": "agotado",
-        "cantidad": 0,
+        "estado": "disponible",
+        "cantidad": 10,
         "sku": "PICANA-CHOICE"
       },
       "tieneVariantes": true,
       "descripcion": "Picaña Choice\nRaza: Angus Black, Hereford.\nAlimentación: Grano y Pastizales\nMaduración: 21+ días en húmedo.\nDescripción: Corte central y hecho a mano.\nEmbalaje: envuelto individualmente y sellado al vacío.\nCondiciones: El producto se encuentra congelado para conservar el sabor y le será entregado congelado o parcialmente descongelado.\nCasa Brassa\nSíguenos en Facebook",
       "infoAdicional": {
+        "Peso": "1 kg",
         "Lugar de orígen": "USA",
         "Nivel de Marmoleado": "Choice o Superior"
       },
@@ -1198,8 +1204,8 @@
         "nota": null
       },
       "inventario": {
-        "estado": "agotado",
-        "cantidad": 0,
+        "estado": "disponible",
+        "cantidad": 10,
         "sku": "PIERNA-DE-CERDO-S-HUESO"
       },
       "tieneVariantes": true,
@@ -1230,8 +1236,8 @@
         "nota": null
       },
       "inventario": {
-        "estado": "agotado",
-        "cantidad": 0,
+        "estado": "disponible",
+        "cantidad": 10,
         "sku": "PORK-BELLY-PREMIUM"
       },
       "tieneVariantes": true,
@@ -1262,8 +1268,8 @@
         "nota": null
       },
       "inventario": {
-        "estado": "agotado",
-        "cantidad": 0,
+        "estado": "disponible",
+        "cantidad": 10,
         "sku": "PORK-BUTT"
       },
       "tieneVariantes": true,
@@ -1294,13 +1300,15 @@
         "nota": null
       },
       "inventario": {
-        "estado": "agotado",
-        "cantidad": 0,
+        "estado": "disponible",
+        "cantidad": 10,
         "sku": "PORK-CHOP"
       },
       "tieneVariantes": true,
       "descripcion": "Pork Chop\nCasa Brassa\nSíguenos en Facebook",
-      "infoAdicional": {},
+      "infoAdicional": {
+        "Peso": "1 kg"
+      },
       "imagenes": {
         "url": "https://casabrassa.mx/product/pork-chop/",
         "remota": "https://casabrassa.mx/wp-content/uploads/2021/08/pork-chop--1024x683.jpg",
@@ -1324,8 +1332,8 @@
         "nota": null
       },
       "inventario": {
-        "estado": "agotado",
-        "cantidad": 0,
+        "estado": "disponible",
+        "cantidad": 10,
         "sku": "PORTERHOUSE-CHOICE"
       },
       "tieneVariantes": true,
@@ -1357,8 +1365,8 @@
         "nota": null
       },
       "inventario": {
-        "estado": "agotado",
-        "cantidad": 0,
+        "estado": "disponible",
+        "cantidad": 10,
         "sku": "PORTERHOUSE-NACIONAL"
       },
       "tieneVariantes": true,
@@ -1390,8 +1398,8 @@
         "nota": null
       },
       "inventario": {
-        "estado": "agotado",
-        "cantidad": 0,
+        "estado": "disponible",
+        "cantidad": 10,
         "sku": "PULPA-NEGRA-NACIONAL"
       },
       "tieneVariantes": true,
@@ -1424,8 +1432,8 @@
         "nota": null
       },
       "inventario": {
-        "estado": "agotado",
-        "cantidad": 0,
+        "estado": "disponible",
+        "cantidad": 10,
         "sku": "RIB-EYE-PRIME-ARGENTINA"
       },
       "tieneVariantes": true,
@@ -1458,8 +1466,8 @@
         "nota": null
       },
       "inventario": {
-        "estado": "agotado",
-        "cantidad": 0,
+        "estado": "disponible",
+        "cantidad": 10,
         "sku": "RIBEYE-FRANCES-CHOICE"
       },
       "tieneVariantes": true,
@@ -1491,13 +1499,14 @@
         "nota": null
       },
       "inventario": {
-        "estado": "agotado",
-        "cantidad": 0,
+        "estado": "disponible",
+        "cantidad": 10,
         "sku": "RIBEYE-NACIONAL"
       },
       "tieneVariantes": true,
       "descripcion": "RibEye – Nacional\nRaza: Angus Black, Hereford, Charolesa, Limousin. No mayor a 30 meses.\nAlimentación: 90 días con Grano\nMaduración: 21+ días en húmedo.\nDescripción: Corte central y hecho a mano.\nEmbalaje: envuelto individualmente y sellado al vacío.\nCondiciones: El producto se encuentra congelado para conservar el sabor y le será entregado congelado o parcialmente descongelado.\nCasa Brassa\nSíguenos en Facebook\nConoce nuestra línea de carne importada de Estados Unidos:\nT-Bone High Choice\nPorterhouse High Choice\nSirloin High Choice\nRibEye Prime\nNewYork Prime",
       "infoAdicional": {
+        "Peso": "1 kg",
         "Lugar de orígen": "Chihuahua",
         "Nivel de Marmoleado": "Suprema de Engorda"
       },
@@ -1524,8 +1533,8 @@
         "nota": null
       },
       "inventario": {
-        "estado": "agotado",
-        "cantidad": 0,
+        "estado": "disponible",
+        "cantidad": 10,
         "sku": "RIBEYE-PRIME"
       },
       "tieneVariantes": true,
@@ -1559,8 +1568,8 @@
         "nota": null
       },
       "inventario": {
-        "estado": "agotado",
-        "cantidad": 0,
+        "estado": "disponible",
+        "cantidad": 10,
         "sku": "RIB-EYE-CHOICE"
       },
       "tieneVariantes": true,
@@ -1593,8 +1602,8 @@
         "nota": null
       },
       "inventario": {
-        "estado": "agotado",
-        "cantidad": 0,
+        "estado": "disponible",
+        "cantidad": 10,
         "sku": "SHORT-RIB-CHOICE"
       },
       "tieneVariantes": true,
@@ -1627,8 +1636,8 @@
         "nota": null
       },
       "inventario": {
-        "estado": "agotado",
-        "cantidad": 0,
+        "estado": "disponible",
+        "cantidad": 10,
         "sku": "SLIDERS-DE-RIBEYE-CHOICE"
       },
       "tieneVariantes": true,
@@ -1661,8 +1670,8 @@
         "nota": null
       },
       "inventario": {
-        "estado": "agotado",
-        "cantidad": 0,
+        "estado": "disponible",
+        "cantidad": 10,
         "sku": "T-BONE-CHOICE"
       },
       "tieneVariantes": true,
@@ -1694,8 +1703,8 @@
         "nota": null
       },
       "inventario": {
-        "estado": "agotado",
-        "cantidad": 0,
+        "estado": "disponible",
+        "cantidad": 10,
         "sku": "T-BONE-NACIONAL-POR-CASA-BRASSA-MX"
       },
       "tieneVariantes": true,
@@ -1726,8 +1735,8 @@
         "nota": null
       },
       "inventario": {
-        "estado": "agotado",
-        "cantidad": 0,
+        "estado": "disponible",
+        "cantidad": 10,
         "sku": "TOCINO"
       },
       "tieneVariantes": true,
@@ -1760,13 +1769,14 @@
         "nota": null
       },
       "inventario": {
-        "estado": "agotado",
-        "cantidad": 0,
+        "estado": "disponible",
+        "cantidad": 10,
         "sku": "TOMAHAWK-CHOICE"
       },
       "tieneVariantes": true,
       "descripcion": "Tomahawk Choice\nRaza: Angus Black, Hereford.\nAlimentación: Grano y Pastizales\nMaduración: 21+ días en húmedo.\nDescripción: Corte central y hecho a mano.\nEmbalaje: envuelto individualmente y sellado al vacío.\nCondiciones: El producto se encuentra congelado para conservar el sabor y le será entregado congelado o parcialmente descongelado.",
       "infoAdicional": {
+        "Peso": "1 kg",
         "Lugar de orígen": "USA",
         "Nivel de Marmoleado": "Choice o Superior"
       },
@@ -1791,8 +1801,8 @@
         "nota": null
       },
       "inventario": {
-        "estado": "agotado",
-        "cantidad": 0,
+        "estado": "disponible",
+        "cantidad": 10,
         "sku": "TOMAHAWK-DE-CERDO"
       },
       "tieneVariantes": true,
@@ -1824,8 +1834,8 @@
         "nota": null
       },
       "inventario": {
-        "estado": "agotado",
-        "cantidad": 0,
+        "estado": "disponible",
+        "cantidad": 10,
         "sku": "TOMAHAWK-NACIONAL"
       },
       "tieneVariantes": true,
@@ -1858,13 +1868,14 @@
         "nota": null
       },
       "inventario": {
-        "estado": "agotado",
-        "cantidad": 0,
+        "estado": "disponible",
+        "cantidad": 10,
         "sku": "SIRLOIN-CHOICE"
       },
       "tieneVariantes": true,
       "descripcion": "Sirloin Choice\nRaza: Angus Black, Hereford.\nAlimentación: Grano y Pastizales\nMaduración: 21+ días en húmedo.\nDescripción: Corte central y hecho a mano.\nEmbalaje: envuelto individualmente y sellado al vacío.\nCondiciones: El producto se encuentra congelado para conservar el sabor y le será entregado congelado o parcialmente descongelado.",
       "infoAdicional": {
+        "Peso": "1 kg",
         "Lugar de orígen": "USA",
         "Nivel de Marmoleado": "Choice o Superior"
       },
@@ -1890,8 +1901,8 @@
         "nota": null
       },
       "inventario": {
-        "estado": "agotado",
-        "cantidad": 0,
+        "estado": "disponible",
+        "cantidad": 10,
         "sku": "SIRLOIN-NACIONAL"
       },
       "tieneVariantes": true,
@@ -1923,8 +1934,8 @@
         "nota": null
       },
       "inventario": {
-        "estado": "agotado",
-        "cantidad": 0,
+        "estado": "disponible",
+        "cantidad": 10,
         "sku": "TUETANO"
       },
       "tieneVariantes": true,
@@ -1957,8 +1968,8 @@
         "nota": null
       },
       "inventario": {
-        "estado": "agotado",
-        "cantidad": 0,
+        "estado": "disponible",
+        "cantidad": 10,
         "sku": "VACIO-IMPORTADO"
       },
       "tieneVariantes": true,
@@ -1991,8 +2002,8 @@
         "nota": null
       },
       "inventario": {
-        "estado": "agotado",
-        "cantidad": 0,
+        "estado": "disponible",
+        "cantidad": 10,
         "sku": "WAGYU-RIB-EYE-JAPON-A5"
       },
       "tieneVariantes": true,
@@ -2025,13 +2036,14 @@
         "nota": null
       },
       "inventario": {
-        "estado": "agotado",
-        "cantidad": 0,
+        "estado": "disponible",
+        "cantidad": 10,
         "sku": "WX-FILETE-3"
       },
       "tieneVariantes": true,
       "descripcion": "WX Filete 3+\nRaza: Wagyu & Black Angus.\nAlimentación: 360 días con granos\nHGP free, Libre de Hormonas y Aceleradores\nMaduración: 21+ días en húmedo.\nDescripción: Corte central y hecho a mano.\nEmbalaje: envuelto individualmente y sellado al vacío.\nCondiciones WX Filete 3+: El producto se encuentra congelado para conservar el sabor y le será entregado congelado o parcialmente descongelado.\nCasa Brassa\nSíguenos en Facebook\nNuestra selección de la cava de vinos:\nVino Tinto Mexicano – Hacienda Encinillas – Mezcla Bordalesa – Chihuahua\nVino Tinto Francés – Côté Mas – Ensamble\nVino Tinto Español – Las Ocho – Ensamble – Vino de Pago\nVino Tinto Sudafricano – Mullineaux – Syrah\nVino Tinto Mexicano – Trasiego – Mezcla Mediterranea – Baja California",
       "infoAdicional": {
+        "Peso": "1 kg",
         "Lugar de origen": "Australia",
         "Nivel de marmoleado": "BMS 3"
       },
@@ -2058,13 +2070,14 @@
         "nota": null
       },
       "inventario": {
-        "estado": "agotado",
-        "cantidad": 0,
+        "estado": "disponible",
+        "cantidad": 10,
         "sku": "WX-FILETE-5"
       },
       "tieneVariantes": true,
       "descripcion": "WX Filete 5+\nRaza: Wagyu&Black Angus.\nAlimentación: 360 días con granos\nHGP free, Libre de Hormonas y Aceleradores\nMaduración: 21+ días en húmedo.\nDescripción: Corte central y hecho a mano.\nEmbalaje: envuelto individualmente y sellado al vacío.\nCondiciones: El producto se encuentra congelado para conservar el sabor y le será entregado congelado o parcialmente descongelado.\nCasa Brassa\nSíguenos en Facebook\nNuestra selección de la cava de vinos:\nVino Tinto Mexicano – Hacienda Encinillas – Mezcla Bordalesa – Chihuahua\nVino Tinto Francés – Côté Mas – Ensamble\nVino Tinto Español – Las Ocho – Ensamble – Vino de Pago\nVino Tinto Sudafricano – Mullineaux – Syrah\nVino Tinto Mexicano – Trasiego – Mezcla Mediterranea – Baja California",
       "infoAdicional": {
+        "Peso": "1 kg",
         "Lugar de origen": "Australia",
         "Nivel de marmoleado": "BMS 5"
       },

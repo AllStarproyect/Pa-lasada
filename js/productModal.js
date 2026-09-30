@@ -54,6 +54,21 @@ document.addEventListener("DOMContentLoaded", () => {
     let productos = [];
     let productoSeleccionado = null;
 
+    // Texto del precio tal como se muestra en la tarjeta ("$445.00")
+    const obtenerPrecioTexto = (producto) => {
+        const precio = producto?.precio ?? {};
+        return precio.texto ||
+            `$${Number(precio.monto ?? 0).toFixed(2)}`;
+    };
+
+    // Peso de una pieza en kg (sin "Peso" en el JSON cuenta como 1 kg)
+    const obtenerPesoKg = (producto) => {
+        const texto = producto?.infoAdicional?.["Peso"];
+        return window.PaLaAsadaCart
+            ? window.PaLaAsadaCart.parseWeightKg(texto)
+            : 1;
+    };
+
 
     // =====================================================
     // CARGAR JSON
@@ -318,12 +333,32 @@ document.addEventListener("DOMContentLoaded", () => {
                         ?.inventario
                         ?.cantidad ?? 0
                 );
-            if (cantidad < stock) {
-                cantidad++;
-                modalCantidad.value =
-                    cantidad;
-
+            if (cantidad >= stock) {
+                return;
             }
+
+            // No permitir elegir más piezas de las que caben en el límite de peso
+            const carrito = window.PaLaAsadaCart;
+            if (carrito) {
+                const pesoPieza = obtenerPesoKg(productoSeleccionado);
+                const piezasQueCaben = Math.floor(
+                    (carrito.getRemainingKg() + 0.0001) / pesoPieza
+                );
+
+                if (cantidad + 1 > piezasQueCaben) {
+                    carrito.showToast(
+                        piezasQueCaben > 0
+                            ? `Solo ${piezasQueCaben === 1 ? "cabe" : "caben"} ${piezasQueCaben} pieza${piezasQueCaben === 1 ? "" : "s"} más en tu pedido (máximo ${carrito.MAX_WEIGHT_KG} kg).`
+                            : `Tu pedido ya llegó al máximo de ${carrito.MAX_WEIGHT_KG} kg.`,
+                        "error"
+                    );
+                    return;
+                }
+            }
+
+            cantidad++;
+            modalCantidad.value =
+                cantidad;
 
         }
     );
@@ -343,15 +378,33 @@ document.addEventListener("DOMContentLoaded", () => {
             const cantidad =
                 Number(
                     modalCantidad.value
+                ) || 1;
+
+            if (!window.PaLaAsadaCart) {
+                console.error(
+                    "El carrito (js/cart.js) no está cargado en esta página."
                 );
-            console.log(
-                "Producto:",
-                productoSeleccionado
-            );
-            console.log(
-                "Cantidad:",
-                cantidad
-            );
+                return;
+            }
+
+            const resultado =
+                window.PaLaAsadaCart.addItem(
+                    {
+                        name: productoSeleccionado.nombre,
+                        priceText: obtenerPrecioTexto(productoSeleccionado),
+                        image: modalImagen.src,
+                        weightText: productoSeleccionado.infoAdicional?.["Peso"]
+                    },
+                    cantidad
+                );
+
+            // Si se agregó, se cierra el modal; si no cupo, se queda abierto
+            // para que el cliente pueda bajar la cantidad.
+            if (resultado?.ok) {
+                bootstrap.Modal
+                    .getOrCreateInstance(modalElement)
+                    .hide();
+            }
         }
     );
 
