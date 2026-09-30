@@ -15,16 +15,16 @@ function isUserLoggedIn() {
 }
 
 function getSignInPath(mode = "signin") {
-    const isInsidePages = window.location.pathname.includes("/pages/");
-    const basePath = isInsidePages ? "./sign-in.html" : "./pages/sign-in.html";
+    const isInsidePages = /\/(pages|admin)\//.test(window.location.pathname);
+    const basePath = isInsidePages ? "../pages/sign-in.html" : "./pages/sign-in.html";
 
     return `${basePath}?mode=${mode}`;
 }
 
 function getProfilePath() {
-    const isInsidePages = window.location.pathname.includes("/pages/");
+    const isInsidePages = /\/(pages|admin)\//.test(window.location.pathname);
 
-    return isInsidePages ? "./user.html" : "./pages/user.html";
+    return isInsidePages ? "../pages/user.html" : "./pages/user.html";
 }
 
 function closeMobileMenu() {

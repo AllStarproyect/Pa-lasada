@@ -5,7 +5,7 @@
 //Llamada
 let productos = [];
 
-fetch("./data/productos.json")
+fetch(new URL("../data/productos.json", document.currentScript.src))
     .then(response => response.json())
     .then(data => {
         productos = data.productos;
@@ -69,6 +69,60 @@ function validarProducto({ nombre, precio, inventario, categoria, descripcion })
     return errores;
 }
 
+// Devuelve [tag, ...categorías marcadas] (el tag es opcional)
+function obtenerCategorias() {
+    const tag = document.getElementById("tag")?.value;
+    const marcadas = Array.from(document.querySelectorAll('input[name="categoria"]:checked'))
+        .map(check => check.value);
+    return tag ? [tag, ...marcadas] : marcadas;
+}
+
+// ---------------------------------------------------------
+// VISTA PREVIA (card en vivo)
+// ---------------------------------------------------------
+let imagenPreviewUrl = null;
+
+function actualizarVistaPrevia() {
+    const tag = document.getElementById("tag")?.value;
+    const marcadas = Array.from(document.querySelectorAll('input[name="categoria"]:checked'))
+        .map(check => check.value);
+    const precio = Number(document.getElementById("precio").value);
+    const pesaje = document.getElementById("pesaje").value;
+
+    document.getElementById("previewNombre").textContent =
+        document.getElementById("nombre").value.trim() || "Título del producto";
+    document.getElementById("previewCategoria").textContent =
+        (marcadas.join(" · ") || "Categoría").toUpperCase();
+    document.getElementById("previewPrecio").textContent = precio > 0 ? `$${precio}` : "$0";
+    document.getElementById("previewPeso").textContent = pesaje ? `${pesaje} kg aprox.` : "";
+    document.getElementById("contadorDescripcion").textContent =
+        document.getElementById("descripcion").value.length;
+
+    const badge = document.getElementById("previewTag");
+    badge.hidden = !tag;
+    badge.textContent = (tag || "").toUpperCase();
+}
+
+const inputArchivo = document.getElementById("imagenArchivo");
+if (formProduct && inputArchivo) {
+    formProduct.addEventListener("input", actualizarVistaPrevia);
+    formProduct.addEventListener("reset", () => setTimeout(actualizarVistaPrevia));
+
+    inputArchivo.addEventListener("change", () => {
+        const archivo = inputArchivo.files[0];
+        const preview = document.getElementById("previewImagen");
+        if (imagenPreviewUrl) URL.revokeObjectURL(imagenPreviewUrl);
+        if (!archivo) {
+            document.getElementById("imagen").value = "";
+            return;
+        }
+        imagenPreviewUrl = URL.createObjectURL(archivo);
+        preview.src = imagenPreviewUrl;
+        // Ruta donde debería guardarse el archivo dentro del proyecto
+        document.getElementById("imagen").value = `assets/img/catalogo/${archivo.name}`;
+    });
+}
+
 // Nombre
 // Precio
 // Pesaje
@@ -86,7 +140,8 @@ formProduct.addEventListener("submit", function (event) {
     const nombre = document.getElementById("nombre").value;
     const precio = Number(document.getElementById("precio").value);
     const inventario = Number(document.getElementById("inventario").value);
-    const categoria = document.getElementById("categoria").value;
+    const categorias = obtenerCategorias();
+    const categoria = categorias.join(",");
     const pesaje = document.getElementById("pesaje").value;
     const descripcion = document.getElementById("descripcion").value;
     const imagen = document.getElementById("imagen").value;
@@ -109,10 +164,7 @@ formProduct.addEventListener("submit", function (event) {
         id: generarNuevoId(),
         sku: sku, // antes faltaba a nivel raíz, aunque el modelo del JSON lo pide
         nombre: nombre,
-        categoria: [
-            "Carne",
-            categoria
-        ],
+        categoria: ["Carne", ...categorias],
         precio: {
             monto: precio,
             moneda: "MXN",
@@ -129,7 +181,7 @@ formProduct.addEventListener("submit", function (event) {
         descripcion: descripcion,
 
         infoAdicional: {
-            "Peso": pesaje,
+            "Peso": pesaje ? `${pesaje} kg` : "",
             "Lugar de orígen": "s/d",
             "Nivel de Marmoleado": "s/d"
         },
@@ -151,6 +203,7 @@ formProduct.addEventListener("submit", function (event) {
     }
 
     formProduct.reset();
+    actualizarVistaPrevia();
 });
 
 //Cargar la lista al iniciar
@@ -173,7 +226,8 @@ function updateProducto(id) {
             const nombre = document.getElementById("nombre").value;
             const precio = Number(document.getElementById("precio").value);
             const inventario = Number(document.getElementById("inventario").value);
-            const categoria = document.getElementById("categoria").value;
+            const categorias = obtenerCategorias();
+            const categoria = categorias.join(",");
             const pesaje = document.getElementById("pesaje").value;
             const descripcion = document.getElementById("descripcion").value;
             const imagen = document.getElementById("imagen").value;
@@ -190,7 +244,7 @@ function updateProducto(id) {
             productos[i].precio.texto = `$${precio.toFixed(2)}`;
             productos[i].inventario.cantidad = inventario;
             productos[i].inventario.estado = inventario > 0 ? "disponible" : "agotado";
-            productos[i].categoria = ["Carne", categoria];
+            productos[i].categoria = ["Carne", ...categorias];
             productos[i].descripcion = descripcion;
             productos[i].infoAdicional.Peso = pesaje;
             productos[i].imagenes.local = imagen;

@@ -1,0 +1,212 @@
+/* =====================================================
+   ADD-PRODUCT.CSS
+   Vista para dar de alta productos (formulario + vista previa)
+   ===================================================== */
+
+.add-product {
+    padding: 4.8rem 0 6.4rem;
+}
+
+.add-product .container {
+    max-width: 1200px;
+    padding: 0 2.4rem;
+}
+
+.add-product__header {
+    margin-bottom: 3.2rem;
+}
+
+.add-product__eyebrow {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: .2rem;
+    color: var(--color-mustard);
+}
+
+.add-product__title {
+    margin: .6rem 0 0;
+    font-family: var(--font-secondary);
+    font-size: 3.6rem;
+}
+
+.add-product__layout {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3.2rem;
+    align-items: flex-start;
+}
+
+/* ---------- Formulario ---------- */
+.add-form {
+    flex: 2 1 48rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2.8rem;
+    background: #fff;
+    border: 1px solid var(--color-mustard);
+    border-radius: 1.2rem;
+}
+
+.add-form__row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.add-form__field {
+    flex: 1 1 18rem;
+    display: flex;
+    flex-direction: column;
+    gap: .6rem;
+}
+
+.add-form__field--grow {
+    flex: 2 1 28rem;
+}
+
+.add-form label,
+.add-form__label {
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.add-form input[type="text"],
+.add-form input[type="number"],
+.add-form input[type="file"],
+.add-form select,
+.add-form textarea {
+    width: 100%;
+    padding: 1rem 1.2rem;
+    font-size: 1.4rem;
+    background: var(--color-cream);
+    border: 1px solid transparent;
+    border-bottom-color: var(--color-taupe);
+    border-radius: .6rem;
+}
+
+.add-form textarea {
+    resize: vertical;
+    border-color: var(--color-mustard);
+}
+
+.add-form input:focus,
+.add-form select:focus,
+.add-form textarea:focus {
+    outline: 2px solid var(--color-mustard);
+    outline-offset: 1px;
+}
+
+.add-form__counter {
+    align-self: flex-end;
+    font-size: 1.1rem;
+    color: var(--color-taupe);
+}
+
+.add-form__box {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 2rem;
+    border: 1px solid var(--color-mustard);
+    border-radius: .8rem;
+}
+
+.add-form__checks {
+    display: flex;
+    flex-direction: column;
+    gap: .8rem;
+}
+
+.add-form__checks label {
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+    font-weight: 500;
+}
+
+.add-form__checks input {
+    accent-color: var(--color-mustard);
+}
+
+.add-form__actions {
+    display: flex;
+    gap: 1.2rem;
+}
+
+.add-form__btn {
+    padding: 1rem 2.8rem;
+    font-size: 1.4rem;
+    font-weight: 700;
+    text-decoration: none;
+    border: 1px solid var(--color-mustard);
+    border-radius: 10rem;
+    cursor: pointer;
+    transition: opacity .2s;
+}
+
+.add-form__btn:hover {
+    opacity: .85;
+}
+
+.add-form__btn--primary {
+    background: var(--color-mustard);
+    color: var(--color-charcoal);
+}
+
+.add-form__btn--ghost {
+    background: #fff;
+    color: var(--color-charcoal);
+}
+
+.add-form__json:empty {
+    display: none;
+}
+
+.add-form__json {
+    margin: 0;
+    padding: 1.2rem;
+    font-size: 1.2rem;
+    background: var(--color-cream);
+    border-radius: .6rem;
+    overflow-x: auto;
+}
+
+/* ---------- Vista previa ---------- */
+.add-preview {
+    flex: 1 1 28rem;
+    max-width: 36rem;
+    position: sticky;
+    top: 2rem;
+}
+
+.add-preview__label {
+    display: block;
+    margin-bottom: 1.2rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: .15rem;
+    text-transform: uppercase;
+    color: var(--color-taupe);
+}
+
+main .add-preview.catalog-section {
+    padding: 0;
+}
+
+.add-preview .product-card {
+    background: var(--color-charcoal);
+    transform: none;
+}
+
+@media (max-width: 768px) {
+    .add-product__title {
+        font-size: 2.8rem;
+    }
+
+    .add-preview {
+        position: static;
+        max-width: none;
+    }
+}
