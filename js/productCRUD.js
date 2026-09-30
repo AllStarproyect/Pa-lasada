@@ -223,20 +223,79 @@ formProduct.addEventListener("submit", function (event) {
     mostrarAlerta("Producto guardado correctamente. Ya aparece en el catálogo.", "success");
 
     if (jsonPreview) {
-        jsonPreview.textContent = JSON.stringify(nuevoProducto, null, 2);
+        // La imagen va como data URL (muy larga): en la vista previa se abrevia
+        const resumen = structuredClone(nuevoProducto);
+        if (resumen.imagenes.local.startsWith("data:")) {
+            resumen.imagenes.local = `[imagen incrustada, ${Math.round(resumen.imagenes.local.length / 1024)} KB]`;
+        }
+        jsonPreview.textContent = JSON.stringify(resumen, null, 2);
     }
 
     formProduct.reset();
     actualizarVistaPrevia();
+    renderizarTabla();
 });
 
 //Cargar la lista al iniciar
 document.addEventListener("DOMContentLoaded", renderizarTabla);
 
-// Placeholder: se implementará en la tarea de Lectura/Listado (Read).
-// Se deja aquí vacía para que el listener de arriba no rompa el script.
+// ---------------------------------------------------------
+// READ / DELETE (productos creados desde el panel)
+// ---------------------------------------------------------
+// Solo se pueden eliminar los guardados en localStorage; los de
+// productos.json son un archivo estático y no se modifican desde aquí.
 function renderizarTabla() {
-    // TODO: recorrer "productos" y pintar las filas de la tabla
+    const lista = document.getElementById("listaAdmin");
+    const vacio = document.getElementById("listaAdminVacia");
+    if (!lista) return;
+
+    const guardados = leerProductosNuevos();
+    lista.innerHTML = "";
+    if (vacio) vacio.hidden = guardados.length > 0;
+
+    guardados.forEach(producto => {
+        const item = document.createElement("li");
+        item.className = "admin-list__item";
+
+        const img = document.createElement("img");
+        img.className = "admin-list__thumb";
+        img.alt = "";
+        img.src = producto.imagenes?.local || "../assets/img/catalogo/placeholder.png";
+        img.addEventListener("error", () => {
+            img.src = "../assets/img/catalogo/placeholder.png";
+        }, { once: true });
+
+        const info = document.createElement("div");
+        info.className = "admin-list__info";
+        const nombre = document.createElement("span");
+        nombre.className = "admin-list__name";
+        nombre.textContent = producto.nombre;
+        const meta = document.createElement("span");
+        meta.className = "admin-list__meta";
+        meta.textContent = `${producto.precio?.texto ?? ""} · ${producto.inventario?.cantidad ?? 0} pzas · ${(producto.categoria || []).slice(1).join(", ")}`;
+        info.append(nombre, meta);
+
+        const boton = document.createElement("button");
+        boton.type = "button";
+        boton.className = "admin-list__delete";
+        boton.textContent = "Eliminar";
+        boton.addEventListener("click", () => deleteProducto(producto.id));
+
+        item.append(img, info, boton);
+        lista.appendChild(item);
+    });
+}
+
+function deleteProducto(id) {
+    const producto = leerProductosNuevos().find(p => String(p.id) === String(id));
+    if (!producto || !confirm(`¿Eliminar "${producto.nombre}"? Dejará de aparecer en el catálogo.`)) return;
+
+    const restantes = leerProductosNuevos().filter(p => String(p.id) !== String(id));
+    localStorage.setItem(CLAVE_PRODUCTOS_NUEVOS, JSON.stringify(restantes));
+    productos = productos.filter(p => String(p.id) !== String(id));
+
+    mostrarAlerta("Producto eliminado.", "success");
+    renderizarTabla();
 }
 
 // ---------------------------------------------------------
