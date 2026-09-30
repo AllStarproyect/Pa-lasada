@@ -1,0 +1,13 @@
+/* Estilos solo para las páginas legales (aviso y términos) */
+.legal-header { padding: 1.2rem 2rem; background: #1a1a1a; }
+.legal-logo { height: 48px; width: auto; }
+.legal-content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 1.25rem 3rem;
+    line-height: 1.7;
+    font-family: "Montserrat", sans-serif;
+}
+.legal-content h1 { font-family: "Bitter", serif; margin-bottom: 1.5rem; }
+.legal-content h3, .legal-content h4 { font-family: "Bitter", serif; margin-top: 2rem; }
+.legal-content hr { margin: 2rem 0; }

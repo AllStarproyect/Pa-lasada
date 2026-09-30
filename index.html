@@ -24,12 +24,6 @@
     <link rel="stylesheet" href="./css/home.css">
     <link rel="stylesheet" href="./css/cart.css">
     <link rel="stylesheet" href="./css/cards.css">
-<<<<<<< Updated upstream
-=======
-    <link rel="icon" type="image/png" href="./assets/img/FAVICONCIRCULAR.png">
-    <link rel="stylesheet" href="./css/cookies.css">
-
->>>>>>> Stashed changes
 </head>
 
 <body>
@@ -196,7 +190,7 @@
 
                         <!-- RIBEYE -->
 
-                        <article class="product-card" data-product-id="6">
+                        <article class="product-card" data-product-id="ribeye-nacional">
 
                             <div class="product-card__image">
 
@@ -246,7 +240,7 @@
 
                         <!-- TOMAHAWK -->
 
-                        <article class="product-card product-card--featured" data-product-id="7">
+                        <article class="product-card product-card--featured" data-product-id="tomahawk-nacional">
 
                             <div class="product-card__image">
 
@@ -292,7 +286,7 @@
 
                         <!-- ARRACHERA -->
 
-                        <article class="product-card product-card--featured" data-product-id="8">
+                        <article class="product-card product-card--featured" data-product-id="arrachera-natural-nacional">
 
                             <div class="product-card__image">
 
@@ -338,7 +332,7 @@
 
                         <!-- NEW YORK -->
 
-                        <article class="product-card" data-product-id="9">
+                        <article class="product-card" data-product-id="new-york-choice">
 
                             <div class="product-card__image">
 
@@ -453,7 +447,7 @@
                          ID: 6
                          ===================================================== -->
 
-                    <article class="product-card" data-product-id="6">
+                    <article class="product-card" data-product-id="ribeye-nacional">
 
                         <div class="product-card__image">
 
@@ -502,7 +496,7 @@
                          ID: 7
                          ===================================================== -->
 
-                    <article class="product-card" data-product-id="7">
+                    <article class="product-card" data-product-id="tomahawk-nacional">
 
                         <div class="product-card__image">
 
@@ -551,7 +545,7 @@
                          ID: 8
                          ===================================================== -->
 
-                    <article class="product-card" data-product-id="8">
+                    <article class="product-card" data-product-id="arrachera-natural-nacional">
 
                         <div class="product-card__image">
 
@@ -600,7 +594,7 @@
                          ID: 9
                          ===================================================== -->
 
-                    <article class="product-card" data-product-id="9">
+                    <article class="product-card" data-product-id="new-york-choice">
 
                         <div class="product-card__image">
 
@@ -890,13 +884,16 @@
                         Productos
                     </a>
 
-<<<<<<< Updated upstream
-=======
                     <a class="enlaceB" href="./pages/contact.html">
                         Contacto
                     </a>
 
->>>>>>> Stashed changes
+                    <a class="enlaceB" href="./pages/aviso-privacidad.html">
+                        Aviso de privacidad
+                    </a>
+                    <a class="enlaceB" href="./pages/terminos.html">
+                        Términos y condiciones</a>
+
                 </nav>
 
             </div>
@@ -916,6 +913,126 @@
 
 
     <!-- =====================================================
+         MODAL DETALLE PRODUCTO
+         ===================================================== -->
+
+    <div class="modal fade" id="productModal" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+
+            <div class="modal-content">
+
+                <!-- HEADER -->
+                <div class="modal-header">
+
+                    <h2 class="modal-title fs-4" id="productModalLabel">
+                        Detalle del producto
+                    </h2>
+
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+
+                </div>
+
+
+                <!-- BODY -->
+                <div class="modal-body">
+
+                    <div class="row align-items-center g-4">
+
+                        <!-- IMAGEN -->
+                        <div class="col-md-6">
+
+                            <img id="modalProductoImagen" class="img-fluid rounded w-100" src="" alt="">
+
+                        </div>
+
+
+                        <!-- INFORMACIÓN -->
+                        <div class="col-md-6">
+
+                            <!-- CATEGORÍA -->
+                            <p id="modalProductoCategoria" class="text-uppercase fw-bold text-muted mb-2">
+                            </p>
+
+
+                            <!-- NOMBRE -->
+                            <h3 id="modalProductoNombre" class="mb-3">
+                            </h3>
+
+
+                            <!-- DESCRIPCIÓN -->
+                            <p id="modalProductoDescripcion" class="mb-3">
+                            </p>
+
+
+                            <!-- INFO ADICIONAL -->
+                            <div class="mb-3">
+
+                                <p class="mb-1">
+                                    <strong>Peso:</strong>
+                                    <span id="modalProductoPeso"></span>
+                                </p>
+
+                                <p class="mb-1">
+                                    <strong>Origen:</strong>
+                                    <span id="modalProductoOrigen"></span>
+                                </p>
+
+                            </div>
+
+
+                            <!-- ESTADO DEL PRODUCTO -->
+                            <div id="modalProductoEstado" class="alert" role="alert">
+                            </div>
+
+
+                            <!-- PRECIO -->
+                            <h3 id="modalProductoPrecio" class="mb-4">
+                            </h3>
+
+
+                            <!-- CANTIDAD -->
+                            <div class="mb-4">
+
+                                <label for="modalCantidad" class="form-label fw-bold">
+                                    Cantidad
+                                </label>
+
+                                <div class="input-group" style="max-width: 180px;">
+
+                                    <button type="button" class="btn btn-outline-secondary" id="btnRestarCantidad">
+                                        −
+                                    </button>
+
+                                    <input id="modalCantidad" class="form-control text-center" type="number"
+                                        value="1" min="1" readonly>
+
+                                    <button type="button" class="btn btn-outline-secondary" id="btnSumarCantidad">
+                                        +
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- AGREGAR AL CARRITO -->
+                            <button type="button" id="modalAgregarCarrito" class="btn btn-primary w-100">
+                                Agregar al carrito
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- =====================================================
          SCRIPTS
          ===================================================== -->
 
@@ -924,6 +1041,8 @@
     <script src="./js/navbar.js"></script>
 
     <script src="./js/home.js"></script>
+
+    <script src="./js/productModal.js"></script>
 
     <script src="./data/catalogoData.js"></script>
 

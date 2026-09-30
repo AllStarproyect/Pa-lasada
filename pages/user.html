@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi cuenta | Pa' la Asada</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/user.css">
+    <link rel="icon" type="image/png" href="../assets/img/FAVICONCIRCULAR.png">
+</head>
+
+<body>
+
+    <!-- NAVBAR (misma estructura que contact.html) -->
+    <nav class="navbar navbar-expand-lg navbar-custom">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html" aria-label="Ir al inicio">
+                <img src="../assets/img/logooscuroancho.png" alt="Logo de Pa' la Asada" class="logo">
+            </a>
+
+            <div class="d-flex align-items-center ms-auto d-lg-none">
+                <button class="btn icon-btn position-relative invisible" type="button" aria-hidden="true" tabindex="-1">
+                    <i class="bi bi-cart3"></i><span class="cart-badge">0</span>
+                </button>
+                <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                    aria-label="Abrir menú">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+
+            <div class="collapse navbar-collapse nav-links" id="navbarNavDropdown">
+                <ul class="navbar-nav mx-auto gap-lg-4">
+                    <li class="nav-item"><a class="nav-link" href="../index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./catalog.html">Productos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./about-us.html">Acerca de</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./contact.html">Contacto</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <button class="btn icon-btn position-relative d-none d-lg-block invisible" type="button"
+                        aria-hidden="true" tabindex="-1">
+                        <i class="bi bi-cart3"></i><span class="cart-badge">0</span>
+                    </button>
+                    <div id="userMenu"></div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="account container">
+
+        <header class="account__title">
+            <h1>Mi cuenta</h1>
+            <p>Gestiona tu perfil, puntos de lealtad y tus cortes favoritos.</p>
+        </header>
+
+        <!-- BANNER OSCURO -->
+        <section class="hero-card" aria-label="Resumen del usuario">
+            <img id="userAvatar" class="hero-card__avatar" src="../assets/img/LogoCuadrado.jpg" alt="Foto de perfil">
+            <div class="hero-card__info">
+                <h2 id="userName">—</h2>
+                <span class="hero-card__badge">Asador leyenda</span>
+                <p id="userSince">Miembro desde —</p>
+            </div>
+            <div class="hero-card__points">
+                <span>Puntos acumulados</span>
+                <strong id="userPoints">0 pts</strong>
+                <div class="progress-track" role="progressbar" aria-label="Progreso a la siguiente recompensa"
+                    aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                    <div id="pointsBar" class="progress-track__fill"></div>
+                </div>
+                <small id="pointsNext"></small>
+            </div>
+            <div class="hero-card__medal" aria-hidden="true"><i class="bi bi-award-fill"></i></div>
+        </section>
+
+        <div class="account__grid">
+
+            <!-- IZQUIERDA -->
+            <div class="account__col">
+
+                <section class="panel">
+                    <div class="panel__head">
+                        <h3>Información personal</h3>
+                        <button id="btnEdit" class="btn-soft" type="button">Editar</button>
+                    </div>
+                    <form id="profileForm" novalidate>
+                        <div class="field">
+                            <i class="bi bi-person" aria-hidden="true"></i>
+                            <div>
+                                <label for="fName">Nombre completo</label>
+                                <input id="fName" type="text" autocomplete="name" readonly>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <i class="bi bi-at" aria-hidden="true"></i>
+                            <div>
+                                <label for="fUsername">Nombre de usuario</label>
+                                <input id="fUsername" type="text" autocomplete="username" readonly>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <i class="bi bi-envelope" aria-hidden="true"></i>
+                            <div>
+                                <label for="fEmail">Correo electrónico</label>
+                                <input id="fEmail" type="email" readonly>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <i class="bi bi-telephone" aria-hidden="true"></i>
+                            <div>
+                                <label for="fPhone">Teléfono</label>
+                                <input id="fPhone" type="tel" inputmode="numeric" maxlength="10" readonly>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <i class="bi bi-geo-alt" aria-hidden="true"></i>
+                            <div>
+                                <label for="fAddress">Dirección de envío principal</label>
+                                <input id="fAddress" type="text" readonly>
+                            </div>
+                        </div>
+                        <p id="profileMsg" class="form-msg" role="status" hidden></p>
+                    </form>
+
+                    <div class="pwd">
+                        <button id="btnPwdToggle" class="btn-soft" type="button" aria-expanded="false"
+                            aria-controls="pwdForm">
+                            <i class="bi bi-key" aria-hidden="true"></i> Cambiar contraseña
+                        </button>
+                        <form id="pwdForm" hidden novalidate>
+                            <div class="field">
+                                <i class="bi bi-lock" aria-hidden="true"></i>
+                                <div>
+                                    <label for="fPwdCurrent">Contraseña actual</label>
+                                    <input id="fPwdCurrent" type="password" autocomplete="current-password">
+                                </div>
+                            </div>
+                            <div class="field">
+                                <i class="bi bi-lock-fill" aria-hidden="true"></i>
+                                <div>
+                                    <label for="fPwdNew">Nueva contraseña</label>
+                                    <input id="fPwdNew" type="password" autocomplete="new-password">
+                                </div>
+                            </div>
+                            <div class="pwd__actions">
+                                <button class="btn-soft is-saving" type="submit">Actualizar contraseña</button>
+                                <button id="btnPwdCancel" class="btn-soft" type="button">Cancelar</button>
+                            </div>
+                            <p id="pwdMsg" class="form-msg" role="status" hidden></p>
+                        </form>
+                    </div>
+                </section>
+
+                <section class="panel">
+                    <div class="panel__head">
+                        <h3>Métodos de pago</h3>
+                        <button id="btnAddCard" class="icon-plus" type="button" aria-label="Agregar método de pago">
+                            <i class="bi bi-plus-circle"></i>
+                        </button>
+                    </div>
+                    <ul id="cardList" class="card-list"></ul>
+                </section>
+            </div>
+
+            <!-- DERECHA -->
+            <div class="account__col">
+
+                <section class="panel">
+                    <div class="panel__head">
+                        <h3>Historial de pedidos</h3>
+                        <a href="#" class="link-accent">Ver todos</a>
+                    </div>
+                    <ul id="orderList" class="order-list"></ul>
+                </section>
+
+                <section class="panel">
+                    <div class="panel__head">
+                        <h3>Mis cortes favoritos</h3>
+                        <a href="./catalog.html" class="link-accent">Explorar catálogo</a>
+                    </div>
+
+                    <details class="picker">
+                        <summary>Elegir mis favoritos</summary>
+                        <div id="favPicker" class="picker__list"></div>
+                    </details>
+
+                    <div id="favGrid" class="fav-grid"></div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER (misma estructura que catalog.html) -->
+    <footer class="footer">
+        <div class="footerCont">
+            <div class="redesSociales flexCont">
+                <div class="seccion-izq">
+                    <h2>Pa' la Asada</h2>
+                    <h3>Redes sociales</h3>
+                    <div class="iconosCont">
+                        <a href="https://instagram.com" class="linkRedes" target="_blank" rel="noopener noreferrer">
+                            <img src="https://dreamfoundry.org/wp-content/uploads/2018/12/instagram-logo-png-transparent-background.png" alt="Instagram" class="imgRedes">
+                        </a>
+                        <a href="https://facebook.com" class="linkRedes" target="_blank" rel="noopener noreferrer">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/1280px-Facebook_Logo_%282019%29.png" alt="Facebook" class="imgRedes">
+                        </a>
+                    </div>
+                </div>
+                <div class="footerSection">
+                    <img src="../assets/img/LogoCuadrado.jpg" alt="Logo de Pa' la Asada" class="logoFooter">
+                </div>
+                <nav aria-label="Navegación del pie de página">
+                    <a class="enlaceB" href="../index.html">Inicio</a>
+                    <a class="enlaceB" href="./about-us.html">Acerca de</a>
+                    <a class="enlaceB" href="./catalog.html">Productos</a>
+                    <a class="enlaceB" href="./contact.html">Contacto</a>
+                    <a class="enlaceB" href="./aviso-privacidad.html">Aviso de privacidad</a>
+                    <a class="enlaceB" href="./terminos.html">Términos y condiciones</a>
+                </nav>
+            </div>
+            <div class="footerBottom"><p>&copy; Todos los derechos reservados.</p></div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/navbar.js"></script>
+    <script src="../js/user.js"></script>
+</body>
+
+</html>

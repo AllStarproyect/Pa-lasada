@@ -1,0 +1,94 @@
+.tarjeta-pedido {
+    display: grid;
+    grid-template-columns: 64px minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 1.2rem;
+
+    min-height: 84px;
+    padding: 1rem 1.2rem;
+    margin-bottom: 1.2rem;
+
+    background-color: #b9ae98;
+    border-radius: 10px;
+}
+
+.tarjeta-pedido img {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+    background-color: #e9e1d2;
+    border-radius: 8px;
+}
+
+.tarjeta-pedido__info {
+    min-width: 0;
+}
+
+.tarjeta-pedido__info h3 {
+    margin: 0 0 0.4rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.tarjeta-pedido__info p {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #514b42;
+}
+
+.tarjeta-pedido__precio {
+    align-self: start;
+    color: #aa5035;
+    font-size: 1.5rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+@media (max-width: 575px) {
+    .tarjeta-pedido {
+        grid-template-columns: 64px minmax(0, 1fr);
+    }
+
+    .tarjeta-pedido__precio {
+        grid-column: 2;
+        justify-self: start;
+    }
+}
+
+.desglose-total {
+    border: 1px solid #e8dfce;
+}
+
+.desglose-total hr {
+    margin: 1.8rem 0;
+    border-color: #c9bca5;
+}
+
+.desglose-total #total-pagar {
+    color: #a64f31;
+    font-size: 2.2rem;
+}
+
+.desglose-total .btn-primary {
+    padding: 1.2rem;
+    border-radius: 8px;
+    font-weight: 700;
+}
+
+/* ---------- Dirección / pago: selección y formularios nuevos ---------- */
+.btn-agregar {
+    padding: 8px 14px; border: .1rem solid var(--color-mustard); border-radius: 8px;
+    background: transparent; color: #8a6510; font-size: 1.3rem; font-weight: 600; cursor: pointer;
+    transition: background-color .2s, color .2s;
+}
+.btn-agregar:hover:not(:disabled) { background: var(--color-mustard); color: #fff; }
+.btn-agregar:disabled { opacity: .5; cursor: not-allowed; }
+
+.form-nuevo { margin-top: 1.6rem; padding-top: 1.6rem; border-top: 1px solid #e8dfce; }
+.form-nuevo .form-label { font-size: 1.2rem; margin-bottom: .3rem; }
+.form-nuevo .form-control { height: auto; padding: 8px 12px; font-size: 1.4rem; }
+.form-nuevo .form-control.is-invalid { border-color: #a64f31; }
+.form-nuevo__acciones { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.4rem; }
+.form-nuevo__acciones .btn { font-size: 1.4rem; padding: 8px 18px; }
+.form-error { margin: 1rem 0 0; color: #a64f31; font-size: 1.3rem; font-weight: 600; }
+.form-nota { margin: 1rem 0 0; color: #6b6f76; font-size: 1.2rem; }

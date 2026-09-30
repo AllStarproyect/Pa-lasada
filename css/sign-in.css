@@ -634,3 +634,64 @@ input,
         font-size: 0.72rem;
     }
 }
+
+.auth-legal { 
+    display: flex; 
+    gap: .6rem; 
+    align-items: flex-start; 
+    font-size: 1.2rem; 
+    text-align: left; 
+}
+.auth-legal input[type="checkbox"] {
+    width: auto; padding: 0; 
+    margin-top: .3rem; 
+    
+}
+
+/* =========================================================
+   SIGN IN - FIX DE ALTURA Y NAVBAR
+   Pegar AL FINAL de css/sign-in.css (debe ir después de todos
+   los @media para que gane sobre las reglas anteriores).
+   ========================================================= */
+
+/* Alto del navbar (coincide con global.css: 88px, y 70px en <=991px) */
+:root {
+    --auth-nav-h: 88px;
+}
+
+@media (max-width: 991px) {
+    :root {
+        --auth-nav-h: 70px;
+    }
+}
+
+/* 1) El navbar vuelve al flujo normal: ya no flota encima del formulario */
+.navbar-custom {
+    position: relative;
+}
+
+/* 2) La sección crece con su contenido en lugar de tener alto fijo */
+.container {
+    height: auto;
+    min-height: calc(100vh - var(--auth-nav-h));
+}
+
+.container1 {
+    min-height: calc(100vh - var(--auth-nav-h));
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+/* 3) Checkbox legal: texto claro y enlaces dorados sobre el fondo oscuro */
+.auth-legal {
+    color: #f8f5f5;
+}
+
+.auth-legal a {
+    color: #C9A26D;
+    text-decoration: underline;
+}
+
+.auth-legal a:hover {
+    color: #e0b97f;
+}
