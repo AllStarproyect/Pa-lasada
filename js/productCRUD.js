@@ -4,6 +4,8 @@
 
 //Llamada
 let productos = [];
+// Productos que hay en la base de datos (back)
+let productosApi = [];
 
 fetch(new URL("../data/productos.json", document.currentScript.src))
     .then(response => response.json())
@@ -48,7 +50,8 @@ function leerProductosNuevos() {
 // agregando un sufijo numérico si ya existe.
 function generarNuevoId(sku) {
     const base = sku.toLowerCase();
-    const usados = new Set([...productos, ...leerProductosNuevos()].map(p => String(p.id)));
+    // Si el id ya existe en la BD el back lo SOBRESCRIBIRÍA, por eso se revisa contra todos
+    const usados = new Set([...productos, ...productosApi].map(p => String(p.id)));
     let id = base;
     for (let n = 2; usados.has(id); n++) {
         id = `${base}-${n}`;
@@ -114,6 +117,23 @@ function actualizarVistaPrevia() {
     badge.textContent = (tag || "").toUpperCase();
 }
 
+function reducirImagen(archivo, maximo) {
+    return new Promise((resolve) => {
+        const url = URL.createObjectURL(archivo);
+        const img = new Image();
+        img.onload = () => {
+            const escala = Math.min(1, maximo / Math.max(img.width, img.height));
+            const canvas = document.createElement("canvas");
+            canvas.width = Math.round(img.width * escala);
+            canvas.height = Math.round(img.height * escala);
+            canvas.getContext("2d").drawImage(img, 0, 0, canvas.width, canvas.height);
+            URL.revokeObjectURL(url);
+            resolve(canvas.toDataURL("image/webp", 0.8));
+        };
+        img.src = url;
+    });
+}
+
 const inputArchivo = document.getElementById("imagenArchivo");
 if (formProduct && inputArchivo) {
     formProduct.addEventListener("input", actualizarVistaPrevia);
@@ -129,12 +149,10 @@ if (formProduct && inputArchivo) {
         }
         imagenPreviewUrl = URL.createObjectURL(archivo);
         preview.src = imagenPreviewUrl;
-        // Se guarda como data URL para que el catálogo pueda mostrarla
-        const lector = new FileReader();
-        lector.onload = () => {
-            document.getElementById("imagen").value = lector.result;
-        };
-        lector.readAsDataURL(archivo);
+        // Se reduce a máx. 500 px y se guarda como data URL WebP (cabe en la columna TEXT)
+        reducirImagen(archivo, 500).then((dataUrl) => {
+            document.getElementById("imagen").value = dataUrl;
+        });
     });
 }
 
@@ -149,7 +167,7 @@ if (formProduct && inputArchivo) {
 // ---------------------------------------------------------
 // CREATE (Guardar nuevo producto)
 // ---------------------------------------------------------
-formProduct.addEventListener("submit", function (event) {
+formProduct.addEventListener("submit", async function (event) {
     event.preventDefault();
 
     const nombre = document.getElementById("nombre").value;
@@ -168,65 +186,85 @@ formProduct.addEventListener("submit", function (event) {
         return; // se detiene la creación si hay errores
     }
 
-    //agragar sku, y en un plceholder( un ejemplo)
+    if (!localStorage.getItem("token") || localStorage.getItem("rol") !== "ADMIN") {
+        mostrarAlerta("Inicia sesión con una cuenta de administrador para guardar productos.", "danger");
+        return;
+    }
+
     const sku = nombre
         .normalize("NFD").replace(/[\u0300-\u036f]/g, "") // quita acentos (ej. "Norteña" -> "Nortena")
         .toUpperCase()
         .trim()
         .replaceAll(" ", "-");
 
-    const nuevoProducto = {
-        id: generarNuevoId(sku),
-        sku: sku, // antes faltaba a nivel raíz, aunque el modelo del JSON lo pide
-        nombre: nombre,
-        categoria: ["Carne", ...categorias],
+    // Categoría principal: la primera marcada que exista en la BD; si no, "Carne"
+    const resCategorias = await window.PaLaAsadaAPI.peticion("GET", "/categorias");
+    const listaCategorias = Array.isArray(resCategorias.data) ? resCategorias.data : [];
+    const principal =
+        categorias.map(c => listaCategorias.find(x => x.nombre === c)).find(Boolean)
+        || listaCategorias.find(x => x.nombre === "Carne");
+    if (!principal) {
+        mostrarAlerta("No se pudieron cargar las categorías del servidor.", "danger");
+        return;
+    }
+
+    const id = generarNuevoId(sku);
+
+    // Formato del back (Producto con sus objetos anidados)
+    const payload = {
+        id,
+        sku,
+        nombre,
+        tieneVariantes: false,
+        descripcion,
         precio: {
+            precioId: `PRECIO-${id}`,
             monto: precio,
             moneda: "MXN",
             texto: `$${precio.toFixed(2)}`,
             nota: null
         },
-
         inventario: {
+            inventarioId: `INV-${id}`,
             estado: inventario > 0 ? "disponible" : "agotado",
-            cantidad: inventario,
-            sku: sku
+            cantidad: inventario
         },
-        tieneVariantes: false,
-        descripcion: descripcion,
-
-        infoAdicional: {
-            "Peso": pesaje ? `${pesaje} kg` : "",
-            "Lugar de orígen": "s/d",
-            "Nivel de Marmoleado": "s/d"
+        imagen: {
+            imagenId: `IMG-${id}`,
+            url: null,
+            remota: null,
+            local: imagen || null
         },
-        imagenes: {
-            url: "",
-            remota: "",
-            local: imagen
-        }
-
+        informacionAdicional: {
+            infoId: `INFO-${id}`,
+            peso: pesaje ? `${pesaje} kg` : null,
+            lugarOrigen: "s/d",
+            nivelMarmoleado: "s/d",
+            maridaje: null
+        },
+        categoriaPrincipal: { categoriaId: principal.categoriaId }
     };
 
-    productos.push(nuevoProducto); // CREATE
+    const boton = formProduct.querySelector('[type="submit"]');
+    if (boton) boton.disabled = true;
+    const respuesta = await window.PaLaAsadaAPI.peticion("POST", "/productos", payload);
+    if (boton) boton.disabled = false;
 
-    try {
-        const guardados = leerProductosNuevos();
-        guardados.push(nuevoProducto);
-        localStorage.setItem(CLAVE_PRODUCTOS_NUEVOS, JSON.stringify(guardados));
-    } catch (error) {
-        mostrarAlerta("No se pudo guardar el producto (¿imagen demasiado grande?).", "danger");
-        productos.pop();
+    if (!respuesta.ok) {
+        const motivo = respuesta.status === 401 || respuesta.status === 403
+            ? "Tu sesión no tiene permisos de administrador o expiró; vuelve a iniciar sesión."
+            : (typeof respuesta.data === "string" && respuesta.data) || `Error ${respuesta.status}`;
+        mostrarAlerta(`No se pudo guardar el producto: ${motivo}`, "danger");
         return;
     }
 
-    mostrarAlerta("Producto guardado correctamente. Ya aparece en el catálogo.", "success");
+    productosApi.push(window.PaLaAsadaAPI.adaptarProducto(respuesta.data));
+    mostrarAlerta("Producto guardado en la base de datos. Ya aparece en el catálogo.", "success");
 
     if (jsonPreview) {
-        // La imagen va como data URL (muy larga): en la vista previa se abrevia
-        const resumen = structuredClone(nuevoProducto);
-        if (resumen.imagenes.local.startsWith("data:")) {
-            resumen.imagenes.local = `[imagen incrustada, ${Math.round(resumen.imagenes.local.length / 1024)} KB]`;
+        const resumen = structuredClone(payload);
+        if (resumen.imagen.local?.startsWith("data:")) {
+            resumen.imagen.local = `[imagen incrustada, ${Math.round(resumen.imagen.local.length / 1024)} KB]`;
         }
         jsonPreview.textContent = JSON.stringify(resumen, null, 2);
     }
@@ -237,19 +275,26 @@ formProduct.addEventListener("submit", function (event) {
 });
 
 //Cargar la lista al iniciar
-document.addEventListener("DOMContentLoaded", renderizarTabla);
+document.addEventListener("DOMContentLoaded", async () => {
+    const res = await window.PaLaAsadaAPI.peticion("GET", "/productos");
+    if (res.ok && Array.isArray(res.data)) {
+        productosApi = res.data.map(window.PaLaAsadaAPI.adaptarProducto);
+    }
+    renderizarTabla();
+});
 
 // ---------------------------------------------------------
 // READ / DELETE (productos creados desde el panel)
 // ---------------------------------------------------------
-// Solo se pueden eliminar los guardados en localStorage; los de
-// productos.json son un archivo estático y no se modifican desde aquí.
+// Lista los productos de la BD que no vienen del catálogo inicial (productos.json),
+// es decir, los creados desde este panel, y permite eliminarlos.
 function renderizarTabla() {
     const lista = document.getElementById("listaAdmin");
     const vacio = document.getElementById("listaAdminVacia");
     if (!lista) return;
 
-    const guardados = leerProductosNuevos();
+    const idsIniciales = new Set(productos.map(p => String(p.id)));
+    const guardados = productosApi.filter(p => !idsIniciales.has(String(p.id)));
     lista.innerHTML = "";
     if (vacio) vacio.hidden = guardados.length > 0;
 
@@ -286,14 +331,17 @@ function renderizarTabla() {
     });
 }
 
-function deleteProducto(id) {
-    const producto = leerProductosNuevos().find(p => String(p.id) === String(id));
+async function deleteProducto(id) {
+    const producto = productosApi.find(p => String(p.id) === String(id));
     if (!producto || !confirm(`¿Eliminar "${producto.nombre}"? Dejará de aparecer en el catálogo.`)) return;
 
-    const restantes = leerProductosNuevos().filter(p => String(p.id) !== String(id));
-    localStorage.setItem(CLAVE_PRODUCTOS_NUEVOS, JSON.stringify(restantes));
-    productos = productos.filter(p => String(p.id) !== String(id));
+    const respuesta = await window.PaLaAsadaAPI.peticion("DELETE", `/productos/${encodeURIComponent(id)}`);
+    if (!respuesta.ok) {
+        mostrarAlerta(`No se pudo eliminar el producto (error ${respuesta.status}).`, "danger");
+        return;
+    }
 
+    productosApi = productosApi.filter(p => String(p.id) !== String(id));
     mostrarAlerta("Producto eliminado.", "success");
     renderizarTabla();
 }

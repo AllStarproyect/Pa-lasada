@@ -27,7 +27,10 @@
             id: p.id,
             sku: p.sku,
             nombre: p.nombre,
-            categoria: p.categoriaPrincipal?.nombre ? [p.categoriaPrincipal.nombre] : [],
+            // Todos son carne; la categoría principal añade el tipo (Res, Picaña...)
+            categoria: p.categoriaPrincipal?.nombre && p.categoriaPrincipal.nombre !== "Carne"
+                ? ["Carne", p.categoriaPrincipal.nombre]
+                : ["Carne"],
             precio: {
                 monto,
                 moneda: precio.moneda || "MXN",
@@ -110,8 +113,30 @@
             : ruta;
     }
 
+    // Petición autenticada (token JWT del admin). Devuelve { ok, status, data }.
+    async function peticion(metodo, ruta, cuerpo) {
+        const headers = { "Content-Type": "application/json" };
+        const token = localStorage.getItem("token");
+        if (token) headers["Authorization"] = `Bearer ${token}`;
+        try {
+            const res = await fetch(`${API_URL}${ruta}`, {
+                method: metodo,
+                headers,
+                body: cuerpo ? JSON.stringify(cuerpo) : undefined,
+            });
+            const texto = await res.text();
+            let data = texto;
+            try { data = JSON.parse(texto); } catch { /* texto plano o vacío */ }
+            return { ok: res.ok, status: res.status, data };
+        } catch {
+            return { ok: false, status: 0, data: "No se pudo conectar con el servidor" };
+        }
+    }
+
     window.PaLaAsadaAPI = {
         rutaOptimizada,
+        adaptarProducto,
+        peticion,
         API_URL,
         obtenerProductos,
         login: (correo, password) => postAuth("login", { correo, password }),
