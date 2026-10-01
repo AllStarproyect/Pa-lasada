@@ -271,8 +271,15 @@ document.addEventListener("DOMContentLoaded", () => {
                 rutaImagen;
 
         } else {
+            modalImagen.onerror = () => {
+                modalImagen.onerror = null;
+                modalImagen.src = new URL(rutaImagen, rutaBase).href;
+            };
             modalImagen.src =
-                new URL(rutaImagen, rutaBase).href;
+                new URL(
+                    window.PaLaAsadaAPI?.rutaOptimizada(rutaImagen) ?? rutaImagen,
+                    rutaBase
+                ).href;
 
         }
 

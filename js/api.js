@@ -102,7 +102,16 @@
         }
     }
 
+    // Las imágenes locales del catálogo existen también en WebP (≈8 veces
+    // más ligeras). Devuelve la ruta .webp; si falla, usa el PNG original.
+    function rutaOptimizada(ruta) {
+        return /^assets\/img\/catalogo\/.+\.png$/i.test(ruta || "")
+            ? ruta.replace(/\.png$/i, ".webp")
+            : ruta;
+    }
+
     window.PaLaAsadaAPI = {
+        rutaOptimizada,
         API_URL,
         obtenerProductos,
         login: (correo, password) => postAuth("login", { correo, password }),

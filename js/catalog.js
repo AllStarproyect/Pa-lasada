@@ -76,13 +76,27 @@ document.addEventListener('DOMContentLoaded', () => {
         if (img) {
             const rutaPlaceholder = '../assets/img/catalogo/placeholder.png';
             const rutaLocal = imagenes.local || 'assets/img/catalogo/placeholder.png';
-            const esUrlAbsoluta = /^(https?:\/\/|data:)/i.test(rutaLocal);
-            img.src = esUrlAbsoluta ? rutaLocal : `../${rutaLocal}`;
+            const prefijo = /^(https?:\/\/|data:)/i.test(rutaLocal) ? '' : '../';
+            img.src = prefijo + window.PaLaAsadaAPI.rutaOptimizada(rutaLocal);
             img.alt = nombre;
-            // Si la ruta del JSON está rota o el archivo no existe,
-            // se cae en el placeholder en vez de mostrar el ícono roto.
+            // Carga diferida: solo las primeras tarjetas se piden de inmediato,
+            // el resto cuando el usuario se acerca al hacer scroll.
+            const primeras = productGrid.querySelectorAll('.product-card').length < 4;
+            img.loading = primeras ? 'eager' : 'lazy';
+            img.decoding = 'async';
+            img.width = 500;
+            img.height = 500;
+            // Si el WebP no existe se prueba el PNG original y, en último caso,
+            // el placeholder, en vez de mostrar el ícono roto.
             img.addEventListener('error', () => {
-                img.src = rutaPlaceholder;
+                if (img.src.endsWith('.webp')) {
+                    img.addEventListener('error', () => {
+                        img.src = rutaPlaceholder;
+                    }, { once: true });
+                    img.src = prefijo + rutaLocal;
+                } else {
+                    img.src = rutaPlaceholder;
+                }
             }, { once: true });
         }
 
