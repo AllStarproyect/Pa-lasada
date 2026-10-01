@@ -299,6 +299,11 @@ document.addEventListener("DOMContentLoaded", async () => {
     const res = await window.PaLaAsadaAPI.peticion("GET", "/productos");
     if (res.ok && Array.isArray(res.data)) {
         productosApi = res.data.map(window.PaLaAsadaAPI.adaptarProducto);
+    } else {
+        // Sin esto la lista sale vacía y parece que no hay productos
+        mostrarAlerta(res.status === 0
+            ? "No se pudo conectar con el servidor. Revisa que el back esté corriendo."
+            : `No se pudieron cargar los productos (error ${res.status}).`, "danger");
     }
     renderizarTabla();
 });
