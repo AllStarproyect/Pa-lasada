@@ -12,19 +12,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const template = productGrid.querySelector('template');
     if (!template) return;
 
-    // Ruta relativa a data/productos.json desde pages/catalog.html
-    fetch('../data/productos.json')
-        .then((response) => {
-            if (!response.ok) {
-                throw new Error(`No se pudo cargar productos.json (status ${response.status})`);
-            }
-            return response.json();
-        })
-        .then((data) => {
-            const listaProductos = [
-                ...(Array.isArray(data?.productos) ? data.productos : []),
-                ...leerProductosNuevos(),
-            ];
+    // Productos desde el back (con respaldo en data/productos.json)
+    window.PaLaAsadaAPI.obtenerProductos('../data/productos.json')
+        .then((productos) => {
+            const listaProductos = [...productos, ...leerProductosNuevos()];
             listaProductos.forEach((producto) => {
                 const card = crearProductCard(producto, template);
                 if (card) {
@@ -37,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
             aplicarFiltroActivo();
         })
         .catch((error) => {
-            console.error('Catálogo: error al cargar productos.json', error);
+            console.error('Catálogo: error al cargar productos', error);
         });
 
     // Productos creados desde /admin (guardados en localStorage)
@@ -73,6 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // integrarlo después con el carrito (cart.js) sin tocar clases.
         if (producto.id) article.dataset.productId = producto.id;
         if (producto.sku) article.dataset.sku = producto.sku;
+        article.dataset.stock = agotado ? 0 : Number(inventario.cantidad) || 0;
 
         // Texto normalizado (sin acentos, minúsculas) con nombre + categorías,
         // usado por el filtrado de .category-button para saber si esta card

@@ -74,25 +74,14 @@ document.addEventListener("DOMContentLoaded", () => {
     // CARGAR JSON
     // =====================================================
 
-    fetch(new URL("data/productos.json", rutaBase))
+    window.PaLaAsadaAPI.obtenerProductos(new URL("data/productos.json", rutaBase).href)
 
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(
-                    "No se pudo cargar productos.json"
-                );
-
-            }
-            return response.json();
-
-        })
-
-        .then(data => {
+        .then(lista => {
             let nuevos = [];
             try {
                 nuevos = JSON.parse(localStorage.getItem("productosNuevos")) || [];
             } catch { }
-            productos = [...data.productos, ...nuevos];
+            productos = [...lista, ...nuevos];
         })
 
         .catch(error => {
@@ -333,7 +322,19 @@ document.addEventListener("DOMContentLoaded", () => {
                         ?.inventario
                         ?.cantidad ?? 0
                 );
-            if (cantidad >= stock) {
+            // Las piezas que ya están en el carrito también cuentan
+            const enCarrito = window.PaLaAsadaCart?.getInCart(
+                productoSeleccionado?.nombre,
+                obtenerPrecioTexto(productoSeleccionado)
+            ) ?? 0;
+
+            if (cantidad >= stock - enCarrito) {
+                window.PaLaAsadaCart?.showToast(
+                    enCarrito > 0
+                        ? `Ya tienes ${enCarrito} en el carrito; solo hay ${stock} en existencia.`
+                        : `Solo hay ${stock} en existencia.`,
+                    "error"
+                );
                 return;
             }
 
@@ -393,7 +394,8 @@ document.addEventListener("DOMContentLoaded", () => {
                         name: productoSeleccionado.nombre,
                         priceText: obtenerPrecioTexto(productoSeleccionado),
                         image: modalImagen.src,
-                        weightText: productoSeleccionado.infoAdicional?.["Peso"]
+                        weightText: productoSeleccionado.infoAdicional?.["Peso"],
+                        stock: Number(productoSeleccionado.inventario?.cantidad ?? 0)
                     },
                     cantidad
                 );

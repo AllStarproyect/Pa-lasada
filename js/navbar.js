@@ -76,6 +76,8 @@ function renderNavbar() {
 
         logoutButton?.addEventListener("click", () => {
             localStorage.removeItem("usuarioLogueado");
+            localStorage.removeItem("token");
+            localStorage.removeItem("rol");
             localStorage.removeItem("username");
             localStorage.removeItem("password");
 

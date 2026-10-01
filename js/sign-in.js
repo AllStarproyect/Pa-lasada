@@ -33,10 +33,10 @@ let authAlertTimer = null;
 
 const signInFields = `
     <input
-        type="text"
+        type="email"
         id="username"
-        placeholder="Usuario"
-        autocomplete="username"
+        placeholder="Correo"
+        autocomplete="email"
     >
 
     <input
@@ -379,30 +379,30 @@ function obtenerUsuarioRegistrado() {
    SIGN IN - PROCESAR INICIO DE SESIÓN
    ========================================================= */
 
-function procesarSignIn() {
+async function procesarSignIn() {
     limpiarErroresVisuales();
 
     const usernameInput = obtenerCampo("username");
     const passwordInput = obtenerCampo("password");
 
-    const username = usernameInput?.value.trim() ?? "";
+    const correo = usernameInput?.value.trim() ?? "";
     const password = passwordInput?.value ?? "";
 
-    if (username === "") {
+    if (correo === "") {
         marcarCampoIncorrecto(usernameInput);
 
         mostrarAlerta(
-            "<strong>Usuario requerido.</strong> Ingresa tu nombre de usuario."
+            "<strong>Correo requerido.</strong> Ingresa tu correo electrónico."
         );
 
         return;
     }
 
-    if (!validarUsername(username)) {
+    if (!validarEmail(correo)) {
         marcarCampoIncorrecto(usernameInput);
 
         mostrarAlerta(
-            "<strong>Usuario inválido.</strong> Usa al menos 3 caracteres y no incluyas espacios."
+            "<strong>Correo inválido.</strong> Usa un formato como usuario@dominio.com."
         );
 
         return;
@@ -418,48 +418,28 @@ function procesarSignIn() {
         return;
     }
 
-    const usuario = obtenerUsuarioRegistrado();
+    const respuesta = await window.PaLaAsadaAPI.login(correo, password);
 
-    /*
-     * Si no hay usuario registrado o el nombre de usuario
-     * no corresponde, invitamos a registrarse.
-     */
-    if (
-        !usuario ||
-        String(usuario.username).toLowerCase() !== username.toLowerCase()
-    ) {
-        marcarCampoIncorrecto(usernameInput);
-
-        mostrarAlerta(
-            "<strong>Usuario no encontrado.</strong> Regístrate para crear una cuenta.",
-            {
-                icono: "bi-person-x-fill",
-                duracion: 4500,
-                mostrarRegistro: true
-            }
-        );
-
-        return;
-    }
-
-    if (usuario.contrasena !== password) {
+    if (!respuesta.ok) {
         marcarCampoIncorrecto(passwordInput);
 
+        const mensaje = typeof respuesta.data === "string"
+            ? respuesta.data
+            : "No se pudo iniciar sesión.";
+
         mostrarAlerta(
-            "<strong>Contraseña incorrecta.</strong> Revisa tu contraseña e inténtalo de nuevo.",
+            `<strong>No se pudo iniciar sesión.</strong> ${mensaje}`,
             {
-                icono: "bi-lock-fill"
+                icono: "bi-lock-fill",
+                duracion: 4500,
+                mostrarRegistro: respuesta.status === 401
             }
         );
 
         return;
     }
 
-    localStorage.setItem("usuarioLogueado", "true");
-    localStorage.setItem("username", usuario.username);
-    localStorage.setItem("email", usuario.email);
-
-    window.dispatchEvent(new Event("authStateChanged"));
+    guardarSesion(respuesta.data);
 
     mostrarAlerta(
         "<strong>¡Bienvenido!</strong> Inicio de sesión correcto.",
@@ -474,12 +454,36 @@ function procesarSignIn() {
     }, 700);
 }
 
+/*
+ * Guarda la sesión devuelta por el back (token JWT y datos básicos)
+ * en las mismas claves que ya leen navbar.js y user.js.
+ */
+function guardarSesion(datos) {
+    const anterior = obtenerUsuarioRegistrado() ?? {};
+
+    localStorage.setItem("token", datos.token);
+    localStorage.setItem("rol", datos.rol ?? "");
+    localStorage.setItem("usuarioLogueado", "true");
+    localStorage.setItem("username", anterior.username || datos.usuario);
+    localStorage.setItem("email", datos.correo);
+
+    localStorage.setItem("usuario", JSON.stringify({
+        ...anterior,
+        nombreCompleto: datos.usuario,
+        email: datos.correo,
+        telefono: datos.telefono ?? anterior.telefono ?? "",
+        username: anterior.username || datos.usuario
+    }));
+
+    window.dispatchEvent(new Event("authStateChanged"));
+}
+
 
 /* =========================================================
    SIGN IN - PROCESAR REGISTRO
    ========================================================= */
 
-function procesarSignUp() {
+async function procesarSignUp() {
     limpiarErroresVisuales();
 
     const fullNameInput = obtenerCampo("fullName");
@@ -619,30 +623,34 @@ function procesarSignUp() {
         return;
     }
 
+    const respuesta = await window.PaLaAsadaAPI.registrar(
+        fullName,
+        email,
+        phone,
+        password
+    );
+
+    if (!respuesta.ok) {
+        marcarCampoIncorrecto(emailInput);
+
+        const mensaje = typeof respuesta.data === "string"
+            ? respuesta.data
+            : "No se pudo crear la cuenta.";
+
+        mostrarAlerta(
+            `<strong>No se pudo registrar.</strong> ${mensaje}`,
+            { duracion: 4500 }
+        );
+
+        return;
+    }
+
     /*
-     * Objeto solicitado en la actividad.
-     * Se conserva username porque la nueva interfaz del equipo
-     * utiliza Usuario para iniciar sesión.
+     * El nombre de usuario no existe en el back; se conserva solo
+     * en este navegador para la pantalla de perfil.
      */
-    const usuario = {
-        nombreCompleto: fullName,
-        telefono: phone,
-        email: email,
-        username: username,
-        contrasena: password
-    };
-
-    const usuarioJSON = JSON.stringify(usuario);
-
-    localStorage.setItem("usuario", usuarioJSON);
-    localStorage.setItem("usuarioLogueado", "true");
-    localStorage.setItem("username", username);
-    localStorage.setItem("email", email);
-
-    console.log("Usuario registrado:", usuario);
-    console.log("Usuario JSON:", usuarioJSON);
-
-    window.dispatchEvent(new Event("authStateChanged"));
+    localStorage.setItem("usuario", JSON.stringify({ username }));
+    guardarSesion(respuesta.data);
 
     mostrarAlerta(
         "<strong>¡Registro exitoso!</strong> Tu cuenta fue creada correctamente.",

@@ -147,6 +147,11 @@
         const weightKg =
             parseWeightKg(weightElement?.textContent) ?? DEFAULT_WEIGHT_KG;
 
+        // Existencias (data-stock lo escribe catalog.js); sin dato = sin tope
+        const stock = card.dataset.stock !== undefined && card.dataset.stock !== ''
+            ? Number(card.dataset.stock)
+            : null;
+
         return {
             id: `${slugify(name)}-${price}`,
             name,
@@ -154,6 +159,7 @@
             priceText,
             image: imageElement?.src || '',
             weightKg,
+            stock,
             quantity: 1
         };
     };
@@ -199,6 +205,31 @@
     // ¿Cabe este peso extra sin pasar del máximo? (el 0.0001 evita errores de decimales)
     const fitsInLimit = (extraKg) => {
         return getTotalWeight() + extraKg <= MAX_WEIGHT_KG + 0.0001;
+    };
+
+    // =====================================================
+    // EXISTENCIAS
+    // =====================================================
+
+    const getInCart = (id) => {
+        return cart.find((item) => item.id === id)?.quantity ?? 0;
+    };
+
+    // ¿Cuántas piezas más se pueden agregar según el stock? (Infinity = sin dato)
+    const getStockLeft = (id, stock) => {
+        if (stock === null || stock === undefined || Number.isNaN(Number(stock))) {
+            return Infinity;
+        }
+        return Math.max(0, Number(stock) - getInCart(id));
+    };
+
+    const showStockMessage = (name, stock, left) => {
+        showToast(
+            left > 0
+                ? `Solo puedes agregar ${left} pieza${left === 1 ? '' : 's'} más de ${name} (hay ${stock} en existencia).`
+                : `Ya tienes en tu carrito todas las existencias de ${name} (${stock}).`,
+            'error'
+        );
     };
 
     const showWeightLimitMessage = () => {
@@ -302,6 +333,14 @@
         const qty = Math.max(1, Math.floor(Number(quantity) || 1));
         const totalKg = product.weightKg * qty;
 
+        // Validar existencias contando lo que ya hay en el carrito
+        const stockLeft = getStockLeft(product.id, product.stock);
+
+        if (qty > stockLeft) {
+            showStockMessage(product.name, product.stock, stockLeft);
+            return { ok: false, piecesThatFit: stockLeft };
+        }
+
         // Validar el límite de peso ANTES de agregar
         if (!fitsInLimit(totalKg)) {
 
@@ -328,6 +367,7 @@
         if (existing) {
 
             existing.quantity += qty;
+            existing.stock = product.stock;
 
         } else {
 
@@ -374,6 +414,11 @@
         // Solo se valida al AUMENTAR; disminuir siempre está permitido
         if (delta > 0 && !fitsInLimit(getItemWeight(item) * delta)) {
             showWeightLimitMessage();
+            return;
+        }
+
+        if (delta > 0 && getStockLeft(id, item.stock) < delta) {
+            showStockMessage(item.name, item.stock, getStockLeft(id, item.stock));
             return;
         }
 
@@ -588,7 +633,9 @@
                             data-cart-action="increase"
                             data-cart-id="${escapeHtml(item.id)}"
                             aria-label="Aumentar cantidad"
-                            ${fitsInLimit(getItemWeight(item)) ? '' : `disabled title="Llegaste al límite de ${MAX_WEIGHT_KG} kg"`}
+                            ${getStockLeft(item.id, item.stock) < 1
+                                ? 'disabled title="No hay más existencias"'
+                                : fitsInLimit(getItemWeight(item)) ? '' : `disabled title="Llegaste al límite de ${MAX_WEIGHT_KG} kg"`}
                         >
                             +
                         </button>
@@ -893,6 +940,10 @@
 
         showToast,
 
+        // Piezas de un producto que ya están en el carrito
+        getInCart: (name, priceText) =>
+            getInCart(`${slugify(name)}-${parsePrice(priceText)}`),
+
         /**
          * Agrega un producto desde fuera del carrito (por ejemplo, el modal).
          * data: { name, priceText, image, weightText }
@@ -917,6 +968,7 @@
                 priceText,
                 image: data.image || '',
                 weightKg: parseWeightKg(data.weightText) ?? DEFAULT_WEIGHT_KG,
+                stock: data.stock ?? null,
                 quantity: 1
             }, quantity);
         }
