@@ -61,7 +61,7 @@ function renderNavbar() {
 
                 <ul class="dropdown-menu dropdown-menu-end">
                     <li><a class="dropdown-item" href="${getProfilePath()}">Mi perfil</a></li>
-                    <li><a class="dropdown-item" href="#">Mis pedidos</a></li>
+                    <!-- <li><a class="dropdown-item" href="#">Mis pedidos</a></li> -->
                     <li><hr class="dropdown-divider"></li>
                     <li>
                         <button class="dropdown-item" id="logout" type="button">
