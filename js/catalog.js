@@ -66,10 +66,11 @@ document.addEventListener('DOMContentLoaded', () => {
         if (producto.sku) article.dataset.sku = producto.sku;
         article.dataset.stock = agotado ? 0 : Number(inventario.cantidad) || 0;
 
-        // Texto normalizado (sin acentos, minúsculas) con nombre + categorías,
-        // usado por el filtrado de .category-button para saber si esta card
-        // coincide con la categoría elegida.
-        article.dataset.search = normalizarTexto([...categorias, nombre].join(' '));
+        // Texto normalizado (sin acentos, minúsculas) con nombre + categorías
+        // + tags, usado por el filtrado de .category-button para saber si esta
+        // card coincide con la categoría o tag elegido (ej. "NUEVO", "HOT SALE").
+        article.dataset.search = normalizarTexto(
+            [...categorias, ...(producto.tags || []), nombre].join(' '));
 
         // --- Imagen ---
         const img = article.querySelector('.product-card__image img');
@@ -106,6 +107,9 @@ document.addEventListener('DOMContentLoaded', () => {
             let textoBadge = '';
             if (agotado) {
                 textoBadge = 'AGOTADO';
+            } else if (producto.tags?.length) {
+                // Tag asignado desde /admin (tabla producto_tag)
+                textoBadge = producto.tags[0].toUpperCase();
             } else if (categorias.includes('Ultra Premium')) {
                 textoBadge = 'PREMIUM';
             }

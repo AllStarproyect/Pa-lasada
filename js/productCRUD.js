@@ -83,12 +83,16 @@ function validarProducto({ nombre, precio, inventario, categoria, descripcion })
     return errores;
 }
 
-// Devuelve [tag, ...categorías marcadas] (el tag es opcional)
+// Devuelve las categorías marcadas (el tag va aparte, ver obtenerTags)
 function obtenerCategorias() {
-    const tag = document.getElementById("tag")?.value;
-    const marcadas = Array.from(document.querySelectorAll('input[name="categoria"]:checked'))
+    return Array.from(document.querySelectorAll('input[name="categoria"]:checked'))
         .map(check => check.value);
-    return tag ? [tag, ...marcadas] : marcadas;
+}
+
+// Devuelve [tag] o [] si se eligió "Sin tag"
+function obtenerTags() {
+    const tag = document.getElementById("tag")?.value;
+    return tag ? [tag] : [];
 }
 
 // ---------------------------------------------------------
@@ -117,18 +121,31 @@ function actualizarVistaPrevia() {
     badge.textContent = (tag || "").toUpperCase();
 }
 
+// La columna imagen.local es TEXT en MySQL (máx. 65,535 bytes): si el data URL
+// la rebasa, el INSERT falla y el producto no se guarda.
+const MAX_IMAGEN_BYTES = 60000;
+
 function reducirImagen(archivo, maximo) {
     return new Promise((resolve) => {
         const url = URL.createObjectURL(archivo);
         const img = new Image();
         img.onload = () => {
-            const escala = Math.min(1, maximo / Math.max(img.width, img.height));
-            const canvas = document.createElement("canvas");
-            canvas.width = Math.round(img.width * escala);
-            canvas.height = Math.round(img.height * escala);
-            canvas.getContext("2d").drawImage(img, 0, 0, canvas.width, canvas.height);
             URL.revokeObjectURL(url);
-            resolve(canvas.toDataURL("image/webp", 0.8));
+            const canvas = document.createElement("canvas");
+            let lado = maximo;
+            let calidad = 0.8;
+            let dataUrl;
+            // Baja calidad y luego tamaño hasta que quepa en la columna
+            do {
+                const escala = Math.min(1, lado / Math.max(img.width, img.height));
+                canvas.width = Math.round(img.width * escala);
+                canvas.height = Math.round(img.height * escala);
+                canvas.getContext("2d").drawImage(img, 0, 0, canvas.width, canvas.height);
+                dataUrl = canvas.toDataURL("image/webp", calidad);
+                if (calidad > 0.5) calidad -= 0.1;
+                else lado = Math.round(lado * 0.8);
+            } while (dataUrl.length > MAX_IMAGEN_BYTES && lado > 50);
+            resolve(dataUrl);
         };
         img.src = url;
     });
@@ -242,7 +259,10 @@ formProduct.addEventListener("submit", async function (event) {
             nivelMarmoleado: "s/d",
             maridaje: null
         },
-        categoriaPrincipal: { categoriaId: principal.categoriaId }
+        categoriaPrincipal: { categoriaId: principal.categoriaId },
+        // Se guardan en productocategoria y producto_tag
+        categorias: ["Carne", ...categorias],
+        tags: obtenerTags()
     };
 
     const boton = formProduct.querySelector('[type="submit"]');
@@ -286,15 +306,14 @@ document.addEventListener("DOMContentLoaded", async () => {
 // ---------------------------------------------------------
 // READ / DELETE (productos creados desde el panel)
 // ---------------------------------------------------------
-// Lista los productos de la BD que no vienen del catálogo inicial (productos.json),
-// es decir, los creados desde este panel, y permite eliminarlos.
+// Lista todos los productos de la BD (catálogo inicial y creados desde este panel)
+// y permite eliminarlos.
 function renderizarTabla() {
     const lista = document.getElementById("listaAdmin");
     const vacio = document.getElementById("listaAdminVacia");
     if (!lista) return;
 
-    const idsIniciales = new Set(productos.map(p => String(p.id)));
-    const guardados = productosApi.filter(p => !idsIniciales.has(String(p.id)));
+    const guardados = productosApi;
     lista.innerHTML = "";
     if (vacio) vacio.hidden = guardados.length > 0;
 
@@ -305,7 +324,11 @@ function renderizarTabla() {
         const img = document.createElement("img");
         img.className = "admin-list__thumb";
         img.alt = "";
-        img.src = producto.imagenes?.local || "../assets/img/catalogo/placeholder.png";
+        // Las rutas del catálogo (assets/...) son relativas a la raíz; admin está en /admin
+        const local = producto.imagenes?.local;
+        img.src = !local ? "../assets/img/catalogo/placeholder.png"
+            : /^(data:|https?:|\/|\.\.\/)/.test(local) ? local
+            : `../${window.PaLaAsadaAPI.rutaOptimizada(local)}`;
         img.addEventListener("error", () => {
             img.src = "../assets/img/catalogo/placeholder.png";
         }, { once: true });
@@ -337,7 +360,11 @@ async function deleteProducto(id) {
 
     const respuesta = await window.PaLaAsadaAPI.peticion("DELETE", `/productos/${encodeURIComponent(id)}`);
     if (!respuesta.ok) {
-        mostrarAlerta(`No se pudo eliminar el producto (error ${respuesta.status}).`, "danger");
+        // 409: el back explica el motivo (p. ej. el producto ya tiene pedidos)
+        const motivo = respuesta.status === 409 && typeof respuesta.data === "string" && respuesta.data
+            ? respuesta.data
+            : `error ${respuesta.status}`;
+        mostrarAlerta(`No se pudo eliminar "${producto.nombre}": ${motivo}`, "danger");
         return;
     }
 

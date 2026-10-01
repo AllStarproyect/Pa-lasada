@@ -23,14 +23,21 @@
 
         const monto = precio.monto != null ? Number(precio.monto) : null;
 
+        // Categorías de la tabla productocategoria ("Carne" siempre primero, el
+        // catálogo la omite al mostrarlas). Si no hay, se usa la principal.
+        const categoria = Array.isArray(p.categorias) && p.categorias.length
+            ? ["Carne", ...p.categorias.filter((c) => c !== "Carne")]
+            : p.categoriaPrincipal?.nombre && p.categoriaPrincipal.nombre !== "Carne"
+                ? ["Carne", p.categoriaPrincipal.nombre]
+                : ["Carne"];
+
         return {
             id: p.id,
             sku: p.sku,
             nombre: p.nombre,
-            // Todos son carne; la categoría principal añade el tipo (Res, Picaña...)
-            categoria: p.categoriaPrincipal?.nombre && p.categoriaPrincipal.nombre !== "Carne"
-                ? ["Carne", p.categoriaPrincipal.nombre]
-                : ["Carne"],
+            categoria,
+            categoriasDelBack: Array.isArray(p.categorias) && p.categorias.length > 0,
+            tags: Array.isArray(p.tags) ? p.tags : [],
             precio: {
                 monto,
                 moneda: precio.moneda || "MXN",
@@ -53,7 +60,7 @@
         };
     }
 
-    // El back solo expone la categoría principal; las demás etiquetas
+    // Respaldo para productos sin filas en productocategoria: sus etiquetas
     // (Res, Nacional, USA...) se toman de productos.json por id para que
     // los filtros del catálogo sigan funcionando.
     async function completarCategorias(productos, rutaJson) {
@@ -63,6 +70,7 @@
             const data = await res.json();
             const porId = new Map((data?.productos ?? []).map((p) => [p.id, p.categoria]));
             productos.forEach((p) => {
+                if (p.categoriasDelBack) return; // el back ya trajo las suyas
                 const categorias = porId.get(p.id);
                 if (Array.isArray(categorias) && categorias.length) p.categoria = categorias;
             });
